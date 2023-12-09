@@ -21,19 +21,18 @@ public class Player_Movement : MonoBehaviour
 
         // Apply sideways force based on user input
         float horizontalInput = Input.GetAxis("Horizontal");
+
         float horizontalForce = horizontalInput * sidewaysForce * Time.deltaTime;
         rb.AddForce(transform.right * horizontalForce, ForceMode.VelocityChange);
 
         // Tilt the player based on its velocity when "a" or "d" is pressed
         if (isTiltingW)
         {
-            float tilt = Mathf.Clamp(rb.velocity.y, -1f, 1f) * tiltAmount;
-            transform.localRotation = Quaternion.Euler(-tilt, 0, 0);
+            transform.Rotate(-5, 0, 0);
         }
         else if (isTiltingS)
         {
-            float tilt = Mathf.Clamp(rb.velocity.y, -1f, 1f) * tiltAmount;
-            transform.localRotation = Quaternion.Euler(tilt, 0, 0);
+            transform.Rotate(5, 0, 0);
         }
         else
         {
