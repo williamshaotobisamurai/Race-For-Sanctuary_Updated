@@ -3,48 +3,53 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     public Rigidbody rb;
-    public float forwardForce = 2000f;
-    public float sidewaysForce = 500f;
-    public float upwardForce = 500f;
-    public float downwardForce = 500f;
-    public float tiltAmount = 15f; // Adjust the tilt amount as needed
-    private bool isTiltingW = false;
-    private bool isTiltingS = false;
+
+    public float forwardForce = 2000f; // Force to move forward
+    public float sidewaysForce = 500f; // Force to move sideways
+    public float upwardForce = 500f;   // Force to move upwards
+    public float downwardForce = 500f; // Force to move downwards
+
+    void Start()
+    {
+        // Ensure the Rigidbody is not kinematic
+        rb.isKinematic = false;
+
+        // Optional: Freeze rotation if you don't want the player to rotate upon collisions
+        rb.freezeRotation = false;
+    }
 
     void FixedUpdate()
     {
-        // Ensure Rigidbody's rotation is not frozen
-        rb.freezeRotation = false;
-
-        // Apply forward force
-        rb.AddForce(transform.forward * forwardForce * Time.deltaTime);
+        // Constantly apply a forward force
+        rb.AddForce(transform.forward * forwardForce * Time.deltaTime, ForceMode.Force);
 
         // Apply sideways force based on user input
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        float horizontalForce = horizontalInput * sidewaysForce * Time.deltaTime;
-        rb.AddForce(transform.right * horizontalForce, ForceMode.VelocityChange);
-
-        // Tilt the player based on its velocity when "a" or "d" is pressed
-        if (isTiltingW)
+        if (Input.GetKey("d"))
         {
-            transform.Rotate(-5, 0, 0);
+            rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        else if (isTiltingS)
+        if (Input.GetKey("a"))
         {
-            transform.Rotate(5, 0, 0);
+            rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        else
-        {
-            // Smoothly return to the original rotation when not tilting
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime);
-        }
-    }
 
-    void Update()
-    {
-        // Detect if movement keys are pressed to enable tilt
-        isTiltingW = Input.GetKey("w");
-        isTiltingS = Input.GetKey("s");
+        // Add upward force when the "w" key is pressed
+        if (Input.GetKey("w"))
+        {
+            rb.AddForce(0, upwardForce * Time.deltaTime, 0, ForceMode.VelocityChange);
+        }
+
+        // Add downward force when the "s" key is pressed
+        if (Input.GetKey("s"))
+        {
+            rb.AddForce(0, -downwardForce * Time.deltaTime, 0, ForceMode.VelocityChange);
+        }
+
+        // Example check for falling below a certain level, can be modified or removed
+        if (rb.position.y < -100f)
+        {
+            // Replace this with your game's end game logic
+            Debug.Log("Game Over");
+        }
     }
 }
