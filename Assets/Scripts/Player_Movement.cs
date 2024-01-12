@@ -8,7 +8,7 @@ public class Player_Movement : MonoBehaviour
     public float sidewaysForce = 500f; // Force to move sideways
     public float upwardForce = 500f;   // Force to move upwards
     public float downwardForce = 500f; // Force to move downwards
-
+    [SerializeField] protected int MaxSpeed=200;
     void Start()
     {
         // Ensure the Rigidbody is not kinematic
@@ -20,8 +20,11 @@ public class Player_Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Constantly apply a forward force
-        rb.AddForce(transform.forward * forwardForce * Time.deltaTime, ForceMode.Force);
+        // Constantly apply a forward force,until speed reaches MaxSpeed(Editable)
+        if (rb.velocity.z <=MaxSpeed){
+            Debug.Log($"velocity is {rb.velocity.z}");
+         rb.AddForce(transform.forward * forwardForce * Time.deltaTime, ForceMode.Force);
+        }
 
         // Apply sideways force based on user input
         if (Input.GetKey("d"))
