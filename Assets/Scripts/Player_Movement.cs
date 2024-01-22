@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player_Movement : MonoBehaviour
@@ -12,20 +13,45 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] protected float RotateAngle=200.0f;
 
     [SerializeField] protected float RotationRecoverRate =2.0f;
+
+
+    /*
+    *The angles displayed in the editor and the angle returned 
+    by eulerAngles of Rotation is different:
+    the one in the editor is from -180 to 180
+    euler angle is 0 to 360
+    This function transforms euler angle to editor angle which is
+    much more intuitive
+    */
+    float getEditorAngle(float angle){
+        if (angle>360.0f || angle <0.0f){
+            Debug.Log("Error: Angle greater than 360");
+            return angle;
+        }
+        else{
+            if (angle >=0.0f && angle <=180.0f){
+                return angle;
+            }
+            else{
+                return angle-360.0f;
+            }
+
+        }
+    }
     void Start()
     {
         // Ensure the Rigidbody is not kinematic
         rb.isKinematic = false;
 
         // Optional: Freeze rotation if you don't want the player to rotate upon collisions
-        rb.freezeRotation = false;
+        rb.freezeRotation = true;
     }
 
     void FixedUpdate()
     {
         // Constantly apply a forward force,until speed reaches MaxSpeed(Editable)
         if (rb.velocity.z <=MaxSpeed){
-            Debug.Log($"velocity is {rb.velocity.z}");
+            //Debug.Log($"velocity is {rb.velocity.z}");
          rb.AddForce(transform.forward * forwardForce * Time.deltaTime, ForceMode.Force);
         }
 
@@ -33,7 +59,9 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey("a"))
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-             if(rb.transform.rotation.eulerAngles.y >= -RotateAngle ){
+            //Debug.Log($"current angle is {rb.transform.localRotation.eulerAngles.y}");
+             if(getEditorAngle(rb.transform.localRotation.eulerAngles.y) >= -RotateAngle ){
+                //Debug.Log($"rotate left");
             rb.transform.Rotate(new Vector3(0.0f,-RotateAngle,0.0f));
              }
             
@@ -41,7 +69,9 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey("d"))
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-             if(rb.transform.rotation.eulerAngles.y <= RotateAngle ){
+            //Debug.Log($"current angle is {rb.transform.localRotation.eulerAngles.y}");
+             if(getEditorAngle(rb.transform.localRotation.eulerAngles.y) <= RotateAngle ){
+                //Debug.Log($"rotate right");
             rb.transform.Rotate(new Vector3(0.0f,RotateAngle,0.0f));
              }
         }
@@ -50,8 +80,8 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             rb.AddForce(0, upwardForce * Time.deltaTime, 0, ForceMode.VelocityChange);
-             if(rb.transform.rotation.eulerAngles.x<= RotateAngle){
-            rb.transform.Rotate(new Vector3(RotateAngle,0.0f,0.0f));
+             if(getEditorAngle(rb.transform.localRotation.eulerAngles.x)>= -RotateAngle){
+            rb.transform.Rotate(new Vector3(-RotateAngle,0.0f,0.0f));
              }
         }
 
@@ -59,13 +89,13 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetKey("s"))
         {
             rb.AddForce(0, -downwardForce * Time.deltaTime, 0, ForceMode.VelocityChange);
-            if(rb.transform.rotation.eulerAngles.x>= -RotateAngle ){
-            rb.transform.Rotate(new Vector3(-RotateAngle,0.0f,0.0f));
+            if(getEditorAngle(rb.transform.localRotation.eulerAngles.x)<= RotateAngle ){
+            rb.transform.Rotate(new Vector3(RotateAngle,0.0f,0.0f));
             }
         }
         if(!Input.anyKey){
         //gradually return orientation
-        Vector3 currentAngle = new Vector3(rb.transform.rotation.x,rb.transform.rotation.y,rb.transform.rotation.z);
+        Vector3 currentAngle = new Vector3(rb.transform.localRotation.x,rb.transform.localRotation.y,rb.transform.localRotation.z);
 
         rb.transform.Rotate((new Vector3(0.0f,0.0f,0.0f)-currentAngle)*RotationRecoverRate); 
         }
