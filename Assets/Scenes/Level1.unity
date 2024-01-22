@@ -19583,6 +19583,9 @@ MonoBehaviour:
   sidewaysForce: 200
   upwardForce: 200
   downwardForce: 200
+  MaxSpeed: 200
+  RotateAngle: 10
+  RotationRecoverRate: 2
 --- !u!54 &1594790002
 Rigidbody:
   m_ObjectHideFlags: 0
