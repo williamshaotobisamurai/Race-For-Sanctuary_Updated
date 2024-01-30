@@ -18,7 +18,7 @@ public class CameraFollowPlayer : MonoBehaviour
     // This defines how fast the camera interpolate from the 
     // starting position to the ending position as well as
     // from starting angle to the ending angle
-    float transformRate = 0.005f;
+    float transformRate = 0.05f;
 
     void Awake()
 {
@@ -42,6 +42,7 @@ public class CameraFollowPlayer : MonoBehaviour
         if(ifRoutineEnded){
         Debug.Log("game started");
         transform.position = player.position + offset;
+        transform.eulerAngles = endingAngle;
         }
     }
     IEnumerator cameraInterpolate()
@@ -51,15 +52,17 @@ public class CameraFollowPlayer : MonoBehaviour
     Vector3 positionInterval = (offset-startingCameraOffset)/(10.0f/transformRate);
     Vector3 newOffset = startingCameraOffset;
     Vector3 angleInterval = (endingAngle -startingAngle)/(10.0f/transformRate);
+
     Debug.Log($"angle interval: {angleInterval}");
     for (float alpha = 10.0f; alpha >= 0; alpha -= transformRate)
     {
         //interpolating position
-        Debug.Log($"current angle: {transform.eulerAngles}");
+        //Debug.Log($"current angle: {transform.eulerAngles}");
+        Debug.Log($"current offset: {newOffset}");
         newOffset += positionInterval;
         transform.position = player.position + newOffset;
         //interpolating angle
-        transform.Rotate(angleInterval);
+        transform.eulerAngles += angleInterval;
 
         yield return null;
     }

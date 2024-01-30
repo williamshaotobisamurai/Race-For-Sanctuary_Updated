@@ -12479,7 +12479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 872193899}
-  offset: {x: 0, y: 1.5, z: -8}
+  offset: {x: 0, y: 20, z: -8}
   rb: {fileID: 0}
   startingCameraOffset: {x: 0, y: 20, z: 4}
 --- !u!1 &992067122
