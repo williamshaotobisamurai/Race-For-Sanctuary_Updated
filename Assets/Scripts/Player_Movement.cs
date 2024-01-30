@@ -23,7 +23,7 @@ public class Player_Movement : MonoBehaviour
     This function transforms euler angle to editor angle which is
     much more intuitive
     */
-    float getEditorAngle(float angle){
+    public static float getEditorAngle(float angle){
         if (angle>360.0f || angle <0.0f){
             Debug.Log("Error: Angle greater than 360");
             return angle;
@@ -96,7 +96,7 @@ public class Player_Movement : MonoBehaviour
         if(!Input.anyKey){
         //gradually return orientation
         Vector3 currentAngle = new Vector3(rb.transform.localRotation.x,rb.transform.localRotation.y,rb.transform.localRotation.z);
-
+        // returning to original orientation through interpolation
         rb.transform.Rotate((new Vector3(0.0f,0.0f,0.0f)-currentAngle)*RotationRecoverRate); 
         }
 
