@@ -24,13 +24,10 @@ public class CameraFollowPlayer : MonoBehaviour
 {
     // Initialize camera angle in Awake
     transform.eulerAngles = startingAngle;
-    Debug.Log($"Current angle at Awake: {transform.eulerAngles}");
 }
 
     // Update is called once per frame
     void Start(){
-       // initialize camera angle
-       //transform.eulerAngles.Set(startingAngle.x,startingAngle.y,startingAngle.z);
        // initialize camera position
        transform.position = player.position + startingCameraOffset;
        //starting coroutine
@@ -40,15 +37,11 @@ public class CameraFollowPlayer : MonoBehaviour
     void Update()    
     {
         if(ifRoutineEnded){
-        Debug.Log("game started");
-        transform.position = player.position + offset;
-        transform.eulerAngles = endingAngle;
+            transform.position = player.position + offset;
         }
     }
     IEnumerator cameraInterpolate()
 {
-    // transform.eulerAngles.Set(startingAngle.x,startingAngle.y,startingAngle.z);
-    // ending vector3 = starting vector3 + transformtime*((ending vector3 -starting vector3)/transformtime)
     Vector3 positionInterval = (offset-startingCameraOffset)/(10.0f/transformRate);
     Vector3 newOffset = startingCameraOffset;
     Vector3 angleInterval = (endingAngle -startingAngle)/(10.0f/transformRate);
@@ -67,6 +60,7 @@ public class CameraFollowPlayer : MonoBehaviour
         yield return null;
     }
     ifRoutineEnded = true;
-    transform.eulerAngles.Set(endingAngle.x,endingAngle.y,endingAngle.z);
+    transform.position = player.position + offset;
+    transform.eulerAngles = endingAngle;
 }
 }
