@@ -37,7 +37,6 @@ public class SIRS : MonoBehaviour
     {
         if (other.tag.Equals(GameConstants.COIN))
         {
-            Debug.Log("get a coin");
             other.GetComponent<Coin>().MoveToSkully(skully, CollectOneCoin);
         }
     }
