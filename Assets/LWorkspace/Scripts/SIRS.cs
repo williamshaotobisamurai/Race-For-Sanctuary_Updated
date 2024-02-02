@@ -11,6 +11,9 @@ public class SIRS : MonoBehaviour
     private Vector3 axis;
     [SerializeField] private Skully skully;
 
+    public event OnCollectCoin OnCollectCoinEvent;
+    public delegate void OnCollectCoin(Coin coin);
+
     void Start()
     {
         if (parent != null)
@@ -41,7 +44,7 @@ public class SIRS : MonoBehaviour
 
     private void CollectOneCoin(Coin coin)
     {
-
+        OnCollectCoinEvent?.Invoke(coin);
     }
   
 }

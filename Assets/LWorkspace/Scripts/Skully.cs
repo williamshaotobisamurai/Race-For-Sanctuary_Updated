@@ -10,9 +10,28 @@ public class Skully : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthAmount = 100f;
 
+    [SerializeField] private SIRS sirs;
+
     public event OnSkullyDied OnSkullyDiedEvent;
     public delegate void OnSkullyDied();
 
+    public event OnCollectCoin OnCollectCoinEvent;
+    public delegate void OnCollectCoin(Coin coin);
+
+    private void Start()
+    {
+        sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;
+    }
+
+    private void OnDestroy()
+    {
+        sirs.OnCollectCoinEvent -= Sirs_OnCollectCoinEvent;
+    }
+
+    private void Sirs_OnCollectCoinEvent(Coin coin)
+    {
+        OnCollectCoinEvent?.Invoke(coin);
+    }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
