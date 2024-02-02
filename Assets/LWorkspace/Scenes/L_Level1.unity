@@ -2782,7 +2782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236918186}
   m_Layer: 0
-  m_Name: GameMechnaics
+  m_Name: GameMechanics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7702,15 +7702,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1207867423274525821, guid: d82553417e4a25f4fa1408c63fa99914, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.6
+      value: 63.8
       objectReference: {fileID: 0}
     - target: {fileID: 1207867423274525821, guid: d82553417e4a25f4fa1408c63fa99914, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.7000008
+      value: 20.3
       objectReference: {fileID: 0}
     - target: {fileID: 1207867423274525821, guid: d82553417e4a25f4fa1408c63fa99914, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4685.8
+      value: -4650.5
       objectReference: {fileID: 0}
     - target: {fileID: 1207867423274525821, guid: d82553417e4a25f4fa1408c63fa99914, type: 3}
       propertyPath: m_LocalRotation.w
