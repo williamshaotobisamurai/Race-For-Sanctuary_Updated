@@ -4,6 +4,7 @@ public class FollowPlayerCinematic : MonoBehaviour
 {
     public Transform player; // Assign your player's transform here in the inspector
     public Vector3 offset; // Set this in the inspector to control the relative position of the camera
+
     private bool isBehindPlayer = false;
 
     void Update()
