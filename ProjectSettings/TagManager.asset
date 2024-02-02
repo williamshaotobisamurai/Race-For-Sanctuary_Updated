@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Obstacle
+  - COIN
+  - SPEED_BOOST
+  - DEFENSIVE_BOOST
   layers:
   - Default
   - TransparentFX

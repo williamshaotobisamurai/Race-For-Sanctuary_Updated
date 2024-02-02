@@ -9,11 +9,35 @@ public class GameManager : MonoBehaviour
 
     public GameObject completeLevelUI;
 
+
+    [SerializeField] private Skully skully;
+   
+    [SerializeField] private CollectedCoinsManager collectedCoinsManager;
+
+    private void Start()
+    {
+        collectedCoinsManager.Init();
+        skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
+    }
+
+    private void OnDestroy()
+    {
+        skully.OnSkullyDiedEvent -= Skully_OnSkullyDiedEvent;
+    }
+
+    private void Skully_OnSkullyDiedEvent()
+    {
+        EndGame();  
+    }
+
+
     public void CompleteLevel () 
     {
         completeLevelUI.SetActive(true);
     }
-    public void EndGame () {
+
+    public void EndGame () 
+    {
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
