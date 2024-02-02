@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,11 @@ public class Skully : MonoBehaviour
     public delegate void OnCollectCoin(Coin coin);
 
     [SerializeField] private GameObject speedBoostAttachment;
+    [SerializeField] private GameObject defensiveBoostAttachment;
+
+    [SerializeField] private bool isInvincible = false;
+
+    [SerializeField] private Rigidbody rb;
 
     private void Start()
     {
@@ -34,17 +40,35 @@ public class Skully : MonoBehaviour
 
     private void Sirs_OnCollectCoinEvent(Coin coin)
     {
-        OnCollectCoinEvent?.Invoke(coin);
+        OnCollectCoinEvent?.Invoke(coin);     
     }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisionInfo.collider.tag == "Obstacle")
+        if (collisionInfo.collider.tag.Equals(GameConstants.OBSTACLE))
         {
             collisionSound.Play();
+            if (isInvincible)
+            {
+                Vector3 forceDirection = collisionInfo.transform.position - transform.position;
+                forceDirection.z = 0;
 
-            skullyMovement.StopRunning();
-            OnSkullyDiedEvent?.Invoke();
+                collisionInfo.collider.enabled = false;
+                collisionInfo.rigidbody.isKinematic = true;
+                RandomMovement randomMovement = collisionInfo.collider.GetComponent<RandomMovement>();
+                randomMovement?.StopMoving();
+
+                Vector3 randomDirection = Random.onUnitSphere;
+                Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
+                Vector3 currentPos = collisionInfo.transform.position;
+                Vector3 target = offset + currentPos;
+                collisionInfo.transform.DOMove(target, 2).OnUpdate(()=> Debug.Log(collisionInfo.transform.position));
+            }
+            else
+            {
+                skullyMovement.StopRunning();
+                OnSkullyDiedEvent?.Invoke();
+            }
         }
     }
 
@@ -53,6 +77,11 @@ public class Skully : MonoBehaviour
         if (other.tag.Equals(GameConstants.SPEED_BOOST))
         {
             CollectSpeedBoost(other.GetComponent<SpeedBoost>());
+        }
+
+        else if (other.tag.Equals(GameConstants.DEFENSIVE_BOOST))
+        {
+            CollectDefensiveBoost(other.GetComponent<DefensiveBoost>());
         }
     }
 
@@ -81,5 +110,22 @@ public class Skully : MonoBehaviour
         speedBoostAttachment.SetActive(true);
         DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () => speedBoostAttachment.SetActive(false));
         skullyMovement.SpeedBoost(speedBoost);
+    }
+
+    public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
+    {
+        defensiveBoost.gameObject.SetActive(false);
+        defensiveBoostAttachment.SetActive(true);
+        isInvincible = true;
+        rb.freezeRotation = true;
+
+        DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
+        {
+            rb.freezeRotation = false;
+
+            defensiveBoostAttachment.SetActive(false);
+
+            isInvincible = false;
+        });
     }
 }

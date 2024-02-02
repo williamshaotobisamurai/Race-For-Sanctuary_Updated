@@ -31,7 +31,7 @@ public class RandomMovement : MonoBehaviour
         {     
             targetPos = originPos + Random.onUnitSphere * range * Random.Range(1,1.5f);
             movingTween = transform.DOMove(targetPos, 1f / speed).SetEase(Ease.InOutSine);
-            yield return new WaitForSeconds(1f / speed);
+            yield return new WaitForSeconds(1f / speed + 0.2f);
         }
     }
 
@@ -45,8 +45,8 @@ public class RandomMovement : MonoBehaviour
     {
         if (movingTween != null)
         {
-            DOTween.Kill(movingTween);
-            StopCoroutine(nameof(MoveRandomlyCoroutine));
+            movingTween.Kill();
+            StopCoroutine(movingCoroutine);
             movingTween = null;
         }
     }

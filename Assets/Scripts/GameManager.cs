@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
    
     [SerializeField] private CollectedCoinsManager collectedCoinsManager;
 
-
     private void Start()
     {
         collectedCoinsManager.Init();
@@ -35,7 +34,8 @@ public class GameManager : MonoBehaviour
         completeLevelUI.SetActive(true);
     }
 
-    public void EndGame () {
+    public void EndGame () 
+    {
         if (gameHasEnded == false)
         {
             gameHasEnded = true;

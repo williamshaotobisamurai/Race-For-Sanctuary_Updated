@@ -39,6 +39,8 @@ public class SIRS : MonoBehaviour
         {
             other.GetComponent<Coin>().MoveToSkully(skully, CollectOneCoin);
         }
+
+        Debug.Log(other.tag);
     }
 
     private void CollectOneCoin(Coin coin)
