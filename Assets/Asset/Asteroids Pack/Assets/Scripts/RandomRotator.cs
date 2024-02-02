@@ -8,6 +8,6 @@ public class RandomRotator : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble;
+        GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble * Random.Range(0.1f,2f);
     }
 }

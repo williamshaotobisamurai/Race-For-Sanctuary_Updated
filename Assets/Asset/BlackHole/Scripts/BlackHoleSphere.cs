@@ -18,3 +18,6 @@ public class BlackHoleSphere : MonoBehaviour
 		mat.SetVector("_Center", new Vector4(m_tansform.position.x, m_tansform.position.y, m_tansform.position.z, 1f));
 	}
 }
+
+
+
