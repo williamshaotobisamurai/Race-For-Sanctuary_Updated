@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robot : MonoBehaviour
+public class robot : MonoBehaviour
 {
     public Transform parent; // Assign the parent object in the Inspector
     public float rotationSpeed = 80.0f; // Adjust rotation speed as needed
     public float circleRadius = 2.0f; // Adjust the radius of the circle
 
     private Vector3 axis;
-
 
     void Start()
     {
@@ -28,24 +27,5 @@ public class Robot : MonoBehaviour
             Vector3 desiredPosition = parent.position + Quaternion.AngleAxis(rotationSpeed * Time.time, Vector3.up) * axis.normalized * circleRadius;
             transform.position = desiredPosition;
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag.Equals(GameConstants.COIN))
-        {
-         //   other.GetComponent<Coin>().MoveToSIRS(this, CollectOneCoin);
-        }
-    }
-
-    private void CollectOneCoin()
-    { 
-         
-    }
-
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
     }
 }

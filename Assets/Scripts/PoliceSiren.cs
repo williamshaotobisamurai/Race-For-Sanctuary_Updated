@@ -14,17 +14,17 @@ public class PoliceSiren : MonoBehaviour
 
     IEnumerator Siren()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime);
 
-            redLight.SetActive(false);
-            blueLight.SetActive(true);
+        redLight.SetActive(false);
+        blueLight.SetActive(true);
 
-            yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime);
 
-            redLight.SetActive(true);
-            blueLight.SetActive(false);
-        }
+        redLight.SetActive(true);
+        blueLight.SetActive(false);
+        StartCoroutine(Siren());
+
     }
+
 }
