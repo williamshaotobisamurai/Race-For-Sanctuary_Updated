@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CollectedCoinsManager collectedCoinsManager;
     [SerializeField] private EndTrigger endTrigger;
+    [SerializeField] private PoliceShip policeShip;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -37,12 +38,19 @@ public class GameManager : MonoBehaviour
         collectedCoinsManager.Init();
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
-    }
+        policeShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
+    }   
 
     private void OnDestroy()
     {
         skully.OnSkullyDiedEvent -= Skully_OnSkullyDiedEvent;
         endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
+        policeShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
+    }
+
+    private void PoliceShip_OnCaughtSkullyEvent()
+    {
+        EndGame();
     }
 
     private void Skully_OnSkullyDiedEvent()

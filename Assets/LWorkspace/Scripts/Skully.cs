@@ -13,6 +13,9 @@ public class Skully : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthAmount = 100f;
 
+    public event OnHitByMeteor OnHitByMeteorEvent;
+    public delegate void OnHitByMeteor();
+
     public event OnSkullyDied OnSkullyDiedEvent;
     public delegate void OnSkullyDied();
 
@@ -68,8 +71,7 @@ public class Skully : MonoBehaviour
             }
             else
             {
-                //skullyMovement.StopRunning();
-                //OnSkullyDiedEvent?.Invoke();
+                HitByMetero();
             }
         }
     } 
@@ -88,6 +90,11 @@ public class Skully : MonoBehaviour
         {
             HitByBullet(other.GetComponent<Bullet>());
         }
+    }
+
+    private void HitByMetero()
+    {
+        OnHitByMeteorEvent?.Invoke();
     }
 
     private void HitByBullet(Bullet bullet)
