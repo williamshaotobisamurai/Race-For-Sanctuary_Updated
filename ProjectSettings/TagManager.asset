@@ -9,6 +9,7 @@ TagManager:
   - COIN
   - SPEED_BOOST
   - DEFENSIVE_BOOST
+  - BULLET
   layers:
   - Default
   - TransparentFX

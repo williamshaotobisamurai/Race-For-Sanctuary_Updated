@@ -8,11 +8,10 @@ using UnityEngine.UI;
 public class Skully : MonoBehaviour
 {
     [SerializeField] private SkullyMovement skullyMovement;
+    [SerializeField] private SIRS sirs;
     [SerializeField] private AudioSource collisionSound;
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthAmount = 100f;
-
-    [SerializeField] private SIRS sirs;
 
     public event OnSkullyDied OnSkullyDiedEvent;
     public delegate void OnSkullyDied();
@@ -79,19 +78,38 @@ public class Skully : MonoBehaviour
         {
             CollectSpeedBoost(other.GetComponent<SpeedBoost>());
         }
-
         else if (other.tag.Equals(GameConstants.DEFENSIVE_BOOST))
         {
             CollectDefensiveBoost(other.GetComponent<DefensiveBoost>());
         }
+        else if (other.tag.Equals(GameConstants.BULLLET))
+        {
+            HitByBullet(other.GetComponent<Bullet>());
+        }
     }
 
-    public void TakeDamage(float damage)
+    private void HitByBullet(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(false);
+        if (!isInvincible)
+        { 
+            TakeDamage(bullet.Damage);        
+        }
+    }
+
+    public void TakeDamage(int damage)
     {
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
 
+        transform.DOShakeRotation(0.1f,10);
+
+        if (healthAmount <= 0f)
+        {
+            OnSkullyDiedEvent?.Invoke();
+        }
     }
+
     public void Heal(float healingAmount)
     {
         healthAmount += healingAmount;

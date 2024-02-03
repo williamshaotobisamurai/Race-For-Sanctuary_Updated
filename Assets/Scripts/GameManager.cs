@@ -2,17 +2,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-
     bool gameHasEnded = false;
 
     public float restartDelay = 1f;
-
     public GameObject completeLevelUI;
 
-
     [SerializeField] private Skully skully;
-   
+    public Skully Skully { get => skully; }
+
     [SerializeField] private CollectedCoinsManager collectedCoinsManager;
+
+    private static GameManager instance;
+    public static GameManager Instance
+    {
+        get { return instance; }
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -27,16 +43,16 @@ public class GameManager : MonoBehaviour
 
     private void Skully_OnSkullyDiedEvent()
     {
-        EndGame();  
+        EndGame();
     }
 
 
-    public void CompleteLevel () 
+    public void CompleteLevel()
     {
         completeLevelUI.SetActive(true);
     }
 
-    public void EndGame () 
+    public void EndGame()
     {
         if (gameHasEnded == false)
         {
