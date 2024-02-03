@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlaySoundNearPlayer : MonoBehaviour
 {
     private AudioSource audioSource;
-    public string playerName = "Skully"; // Replace with your player object's name
 
     void Start()
     {
@@ -14,8 +13,11 @@ public class PlaySoundNearPlayer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("other name " + other.name);
+
+        Skully skully = other.GetComponent<Skully>();
+
         // Check if the collider belongs to the player by name
-        if (other.gameObject.name == playerName && !audioSource.isPlaying)
+        if (skully!= null && !audioSource.isPlaying)
         {
             audioSource.Play();
 

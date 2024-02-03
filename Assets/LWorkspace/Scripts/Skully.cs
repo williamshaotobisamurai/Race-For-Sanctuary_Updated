@@ -32,8 +32,6 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private AudioSource boostAudioSource;
 
-    [SerializeField] private AudioSource boostAudioSource;
-
     private void Start()
     {
         skullyMovement.Init();
