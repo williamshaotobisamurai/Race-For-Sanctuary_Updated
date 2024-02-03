@@ -602,7 +602,6 @@ MonoBehaviour:
   restartDelay: 1
   completeLevelUI: {fileID: 8089472725777188296}
   skully: {fileID: 4766194985517187747}
-  endingScreen: {fileID: 0}
   collectedCoinsManager: {fileID: 1734378850}
   endTrigger: {fileID: 817012697}
 --- !u!4 &81035267
@@ -6211,7 +6210,7 @@ MonoBehaviour:
   redLight: {fileID: 1213344454}
   blueLight: {fileID: 799615241}
   waitTime: 0.2
---- !u!114 &661005189
+--- !u!114 &661005193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6220,33 +6219,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 661005184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5d1c7a2da870b4bb04660eb6f7e17e, type: 3}
+  m_Script: {fileID: 11500000, guid: 56530ba1f3df6c24a8b15f799d2f6605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 661005190}
-  Player: {fileID: 8520039191030276157}
---- !u!195 &661005190
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661005184}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 8.856879
-  m_Speed: 100
-  m_Acceleration: 100
-  avoidancePriority: 50
-  m_AngularSpeed: 10
-  m_StoppingDistance: 1
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 12.82384
-  m_BaseOffset: 6.41192
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
+  distance: 15
+  speed: 10
 --- !u!1001 &662098816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9286,7 +9263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &980184688
 Transform:
   m_ObjectHideFlags: 0
@@ -9323,7 +9300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &999741151
 Transform:
   m_ObjectHideFlags: 0
@@ -13097,7 +13074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6529479762768854661, guid: 09e70dbbce1c01847b841772c5bed945, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6529479762768854661, guid: 09e70dbbce1c01847b841772c5bed945, type: 3}
       propertyPath: m_TagString
@@ -13118,10 +13095,7 @@ PrefabInstance:
       addedObject: {fileID: 661005188}
     - targetCorrespondingSourceObject: {fileID: 6529479762768854661, guid: 09e70dbbce1c01847b841772c5bed945, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 661005189}
-    - targetCorrespondingSourceObject: {fileID: 6529479762768854661, guid: 09e70dbbce1c01847b841772c5bed945, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 661005190}
+      addedObject: {fileID: 661005193}
   m_SourcePrefab: {fileID: 100100000, guid: 09e70dbbce1c01847b841772c5bed945, type: 3}
 --- !u!1001 &1591608949
 PrefabInstance:
@@ -15490,7 +15464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1786602374
 Transform:
   m_ObjectHideFlags: 0
