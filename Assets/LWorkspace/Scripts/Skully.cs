@@ -8,11 +8,13 @@ using UnityEngine.UI;
 public class Skully : MonoBehaviour
 {
     [SerializeField] private SkullyMovement skullyMovement;
+    [SerializeField] private SIRS sirs;
     [SerializeField] private AudioSource collisionSound;
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthAmount = 100f;
 
-    [SerializeField] private SIRS sirs;
+    public event OnHitByMeteor OnHitByMeteorEvent;
+    public delegate void OnHitByMeteor();
 
     public event OnSkullyDied OnSkullyDiedEvent;
     public delegate void OnSkullyDied();
@@ -26,6 +28,9 @@ public class Skully : MonoBehaviour
     [SerializeField] private bool isInvincible = false;
 
     [SerializeField] private Rigidbody rb;
+    public Rigidbody Rigidbody { get { return rb; } }
+
+    [SerializeField] private AudioSource boostAudioSource;
 
     [SerializeField] private AudioSource boostAudioSource;
 
@@ -42,7 +47,7 @@ public class Skully : MonoBehaviour
 
     private void Sirs_OnCollectCoinEvent(Coin coin)
     {
-        OnCollectCoinEvent?.Invoke(coin);     
+        OnCollectCoinEvent?.Invoke(coin);
     }
 
     void OnCollisionEnter(Collision collisionInfo)
@@ -64,12 +69,11 @@ public class Skully : MonoBehaviour
                 Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
                 Vector3 currentPos = collisionInfo.transform.position;
                 Vector3 target = offset + currentPos;
-                collisionInfo.transform.DOMove(target, 2).OnUpdate(()=> Debug.Log(collisionInfo.transform.position));
+                collisionInfo.transform.DOMove(target, 2);
             }
             else
             {
-                skullyMovement.StopRunning();
-                OnSkullyDiedEvent?.Invoke();
+                HitByMetero();
             }
         }
     } 
@@ -80,19 +84,43 @@ public class Skully : MonoBehaviour
         {
             CollectSpeedBoost(other.GetComponent<SpeedBoost>());
         }
-
         else if (other.tag.Equals(GameConstants.DEFENSIVE_BOOST))
         {
             CollectDefensiveBoost(other.GetComponent<DefensiveBoost>());
         }
+        else if (other.tag.Equals(GameConstants.BULLLET))
+        {
+            HitByBullet(other.GetComponent<Bullet>());
+        }
     }
 
-    public void TakeDamage(float damage)
+    private void HitByMetero()
+    {
+        OnHitByMeteorEvent?.Invoke();
+    }
+
+    private void HitByBullet(Bullet bullet)
+    {
+        bullet.gameObject.SetActive(false);
+        if (!isInvincible)
+        { 
+            TakeDamage(bullet.Damage);        
+        }
+    }
+
+    public void TakeDamage(int damage)
     {
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
 
+        transform.DOShakeRotation(0.1f,10);
+
+        if (healthAmount <= 0f)
+        {
+            OnSkullyDiedEvent?.Invoke();
+        }
     }
+
     public void Heal(float healingAmount)
     {
         healthAmount += healingAmount;

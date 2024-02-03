@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3c4b9c5f8dc1f084ba4304ffa0ed0d49
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/LWorkspace/Scenes/L_Level1.unity
+    guid: e0f6c3ccb18155549b2463868f4a7fc7
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: f5388462795acd94f9f2794e47623e21

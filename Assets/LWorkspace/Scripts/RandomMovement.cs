@@ -18,7 +18,7 @@ public class RandomMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originPos = transform.position;
+        originPos = transform.localPosition;
         DOVirtual.DelayedCall(Random.Range(0, 2f), () =>
         {
             StartMoving();
@@ -30,7 +30,7 @@ public class RandomMovement : MonoBehaviour
         while (true)
         {     
             targetPos = originPos + Random.onUnitSphere * range * Random.Range(1,1.5f);
-            movingTween = transform.DOMove(targetPos, 1f / speed).SetEase(Ease.InOutSine);
+            movingTween = transform.DOLocalMove(targetPos, 1f / speed).SetEase(Ease.InOutSine);
             yield return new WaitForSeconds(1f / speed + 0.2f);
         }
     }
