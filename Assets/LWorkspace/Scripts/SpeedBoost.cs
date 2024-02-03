@@ -7,18 +7,10 @@ public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] private float speedUpDuration;
     [SerializeField] private float speedBoostFactor;
-    private AudioSource collisionSound;
+    [SerializeField] private AudioClip speedBoostAudio;
+    public AudioClip AudioClip { get => speedBoostAudio; }
 
-    void Start() {
-        collisionSound = GetComponent<AudioSource>();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<Skully>() != null)
-        {
-            collisionSound.Play();
-        }
-    }
+
     public float GetSpeedUpDuration()
     {
         return speedUpDuration;
@@ -28,5 +20,5 @@ public class SpeedBoost : MonoBehaviour
     {
         return speedBoostFactor;
     }
-   
+
 }
