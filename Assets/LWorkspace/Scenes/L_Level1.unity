@@ -602,7 +602,9 @@ MonoBehaviour:
   restartDelay: 1
   completeLevelUI: {fileID: 8089472725777188296}
   skully: {fileID: 4766194985517187747}
+  endingScreen: {fileID: 0}
   collectedCoinsManager: {fileID: 1734378850}
+  endTrigger: {fileID: 817012697}
 --- !u!4 &81035267
 Transform:
   m_ObjectHideFlags: 0
@@ -18829,7 +18831,7 @@ GameObject:
   - component: {fileID: 8089472725619152416}
   - component: {fileID: 8089472725619152417}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameCanvasCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -62,7 +62,7 @@ public class Skully : MonoBehaviour
                 Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
                 Vector3 currentPos = collisionInfo.transform.position;
                 Vector3 target = offset + currentPos;
-                collisionInfo.transform.DOMove(target, 2).OnUpdate(() => Debug.Log(collisionInfo.transform.position));
+                collisionInfo.transform.DOMove(target, 2);
             }
             else
             {

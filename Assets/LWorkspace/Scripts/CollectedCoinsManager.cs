@@ -9,12 +9,13 @@ public class CollectedCoinsManager : MonoBehaviour
     [SerializeField] private Text collectedCoinsLabel;
     [SerializeField] private Skully skully;
 
-    private int collectedCoins = 0;
+    private int collectedCoinsInLevel = 0;
+    private int coinsInAllLevels = 0;
 
     public void Init()
     {
-        collectedCoins = 0;
-        collectedCoinsLabel.text = collectedCoins.ToString();
+        collectedCoinsInLevel = 0;
+        collectedCoinsLabel.text = collectedCoinsInLevel.ToString();
     }
 
     private void Start()
@@ -25,11 +26,16 @@ public class CollectedCoinsManager : MonoBehaviour
     private void OnDestroy()
     {
         skully.OnCollectCoinEvent -= Skully_OnCollectCoinEvent;
-    }      
+    }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
     {
-        collectedCoins++;
-        collectedCoinsLabel.text = collectedCoins.ToString();
+        collectedCoinsInLevel++;
+        collectedCoinsLabel.text = collectedCoinsInLevel.ToString();
+    }
+
+    public void AddLevelCoinsToTotal()
+    {
+        GameDataManager.CoinsCollectedInAllLevels += collectedCoinsInLevel;
     }
 }
