@@ -6,7 +6,10 @@ using UnityEngine;
 public class SpeedBoost : MonoBehaviour
 {
     [SerializeField] private float speedUpDuration;
-    [SerializeField] private float speedBoostFactor; 
+    [SerializeField] private float speedBoostFactor;
+    [SerializeField] private AudioClip speedBoostAudio;
+    public AudioClip AudioClip { get => speedBoostAudio; }
+
 
     public float GetSpeedUpDuration()
     {
@@ -17,4 +20,5 @@ public class SpeedBoost : MonoBehaviour
     {
         return speedBoostFactor;
     }
+
 }

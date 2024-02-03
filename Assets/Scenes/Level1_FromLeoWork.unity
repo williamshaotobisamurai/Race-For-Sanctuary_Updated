@@ -18510,10 +18510,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedBoost
       objectReference: {fileID: 0}
-    - target: {fileID: 1458518363859376675, guid: 252621b54fcde354c9c73d790922023a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7047588868940456379, guid: 252621b54fcde354c9c73d790922023a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.4
@@ -18863,7 +18859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8089472727315679860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19020,10 +19016,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 286794117}
-    - target: {fileID: 4782813590747754396, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: isInvincible
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.28

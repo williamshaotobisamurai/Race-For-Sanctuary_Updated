@@ -10,14 +10,20 @@ public class PoliceShip : MonoBehaviour
 
     [SerializeField] private float speed = 100f; 
 
-    private void LateUpdate()
+    private void Update()
     {
         targetPos = GameManager.Instance.Skully.transform.position - new Vector3(0, 0, distance);
 
         float x = Mathf.Lerp(transform.position.x, targetPos.x, Time.deltaTime * speed);
         float y = Mathf.Lerp(transform.position.y, targetPos.y, Time.deltaTime * speed);
 
-     //   Mathf.smooth
-        transform.position = new Vector3(x, y, targetPos.z);
+        //transform.position = new Vector3(x, y, GameManager.Instance.Skully.transform.position.z  - distance);
+
+        transform.position = targetPos;
+    }
+
+    public void MoveCloseToSkully()
+    { 
+    
     }
 }

@@ -27,6 +27,8 @@ public class Skully : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     public Rigidbody Rigidbody { get { return rb; } }
 
+    [SerializeField] private AudioSource boostAudioSource;
+
     private void Start()
     {
         skullyMovement.Init();
@@ -66,11 +68,11 @@ public class Skully : MonoBehaviour
             }
             else
             {
-                skullyMovement.StopRunning();
-                OnSkullyDiedEvent?.Invoke();
+                //skullyMovement.StopRunning();
+                //OnSkullyDiedEvent?.Invoke();
             }
         }
-    }
+    } 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -125,6 +127,8 @@ public class Skully : MonoBehaviour
 
     public void CollectSpeedBoost(SpeedBoost speedBoost)
     {
+        boostAudioSource.clip = speedBoost.AudioClip;
+        boostAudioSource.Play();    
         speedBoost.gameObject.SetActive(false);
         speedBoostAttachment.SetActive(true);
         DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () => speedBoostAttachment.SetActive(false));
@@ -133,6 +137,9 @@ public class Skully : MonoBehaviour
 
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
     {
+        boostAudioSource.clip = defensiveBoost.AudioClip;
+        boostAudioSource.Play();    
+
         defensiveBoost.gameObject.SetActive(false);
         defensiveBoostAttachment.SetActive(true);
         isInvincible = true;
