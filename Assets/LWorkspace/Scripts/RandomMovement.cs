@@ -9,8 +9,8 @@ public class RandomMovement : MonoBehaviour
     [Range(0.5f, 10)]
     [SerializeField] private float speed = 0.5f;
 
-    [SerializeField] private Vector3 originPos;
-    [SerializeField] private Vector3 targetPos;
+    private Vector3 originPos;
+    private Vector3 targetPos;
 
     private Coroutine movingCoroutine;
     private Tween movingTween;
