@@ -10,6 +10,7 @@ TagManager:
   - SPEED_BOOST
   - DEFENSIVE_BOOST
   - BULLET
+  - SKILL_SPHERE
   layers:
   - Default
   - TransparentFX

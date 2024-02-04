@@ -9,5 +9,5 @@ public static class GameConstants
     public static string DEFENSIVE_BOOST = "DEFENSIVE_BOOST";
     public static string OBSTACLE = "Obstacle";
     public static string BULLLET = "BULLET";
-
+    public static string SKILL_SPHERE = "SKILL_SPHERE";
 }
