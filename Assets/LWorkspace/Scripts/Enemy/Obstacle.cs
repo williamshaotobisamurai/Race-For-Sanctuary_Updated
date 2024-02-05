@@ -15,6 +15,7 @@ public class Obstacle : MonoBehaviour
             particle.transform.position = transform.position;
             DOVirtual.DelayedCall(3f, () => Destroy(particle));
             gameObject.SetActive(false);
+            other.GetComponentInParent<Missile>().Explode();
         }
     }
 }
