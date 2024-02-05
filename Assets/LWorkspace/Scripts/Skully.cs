@@ -150,12 +150,9 @@ public class Skully : MonoBehaviour
         defensiveBoost.gameObject.SetActive(false);
         defensiveBoostAttachment.SetActive(true);
         isInvincible = true;
-        rb.freezeRotation = true;
 
         DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
         {
-            rb.freezeRotation = false;
-
             defensiveBoostAttachment.SetActive(false);
 
             isInvincible = false;
