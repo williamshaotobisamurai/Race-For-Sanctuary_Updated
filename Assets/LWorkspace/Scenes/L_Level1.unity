@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 42922032}
   - component: {fileID: 42922035}
   - component: {fileID: 45918859}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -511,6 +511,7 @@ RectTransform:
   - {fileID: 740187408}
   - {fileID: 1553963594}
   - {fileID: 1607664642}
+  - {fileID: 2084291492}
   m_Father: {fileID: 8089472725619152418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -561,6 +562,81 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
   m_PrefabInstance: {fileID: 250868506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &80249344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80249345}
+  - component: {fileID: 80249347}
+  - component: {fileID: 80249346}
+  m_Layer: 5
+  m_Name: InsideRotating
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &80249345
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80249344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.63759, y: 0.63759, z: 0.63759}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2084291492}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &80249346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80249344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 552478a654d2eb8478c30045279d5688, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &80249347
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80249344}
+  m_CullTransparentMesh: 1
 --- !u!1 &81035265
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +890,7 @@ GameObject:
   - component: {fileID: 81273197}
   - component: {fileID: 81273200}
   - component: {fileID: 83573003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1348,7 +1424,7 @@ GameObject:
   - component: {fileID: 139800361}
   - component: {fileID: 139800364}
   - component: {fileID: 141965127}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (16)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1515,7 +1591,7 @@ GameObject:
   - component: {fileID: 156828836}
   - component: {fileID: 156828839}
   - component: {fileID: 158997759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2188,7 +2264,7 @@ GameObject:
   - component: {fileID: 211408618}
   - component: {fileID: 211408621}
   - component: {fileID: 213569160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2563,7 +2639,7 @@ GameObject:
   - component: {fileID: 217923280}
   - component: {fileID: 217923283}
   - component: {fileID: 217923284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (15)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3253,7 +3329,7 @@ GameObject:
   - component: {fileID: 314442440}
   - component: {fileID: 314442443}
   - component: {fileID: 314541158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (28)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3885,7 +3961,7 @@ GameObject:
   - component: {fileID: 445277379}
   - component: {fileID: 445277382}
   - component: {fileID: 448282141}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (20)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3938,7 +4014,7 @@ GameObject:
   - component: {fileID: 446654491}
   - component: {fileID: 446654494}
   - component: {fileID: 448557170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4369,7 +4445,7 @@ GameObject:
   - component: {fileID: 494638546}
   - component: {fileID: 494638549}
   - component: {fileID: 494767949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5001,7 +5077,7 @@ GameObject:
   - component: {fileID: 2136999243}
   - component: {fileID: 2136999246}
   - component: {fileID: 2136999247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5326,7 +5402,7 @@ GameObject:
   - component: {fileID: 582063295}
   - component: {fileID: 582063298}
   - component: {fileID: 582454845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (22)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5760,7 +5836,7 @@ GameObject:
   - component: {fileID: 601526392}
   - component: {fileID: 601526395}
   - component: {fileID: 603555858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5876,7 +5952,7 @@ GameObject:
   - component: {fileID: 626087870}
   - component: {fileID: 626087873}
   - component: {fileID: 628248540}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (24)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6699,7 +6775,7 @@ GameObject:
   - component: {fileID: 687096957}
   - component: {fileID: 687096960}
   - component: {fileID: 687194836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6876,7 +6952,7 @@ GameObject:
   - component: {fileID: 694566494}
   - component: {fileID: 694566497}
   - component: {fileID: 694663424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7507,7 +7583,7 @@ GameObject:
   - component: {fileID: 764732514}
   - component: {fileID: 764732517}
   - component: {fileID: 767032384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (19)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7979,7 +8055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &813380860
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8396,7 +8472,7 @@ GameObject:
   - component: {fileID: 823531197}
   - component: {fileID: 823531200}
   - component: {fileID: 825560792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9016,8 +9092,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
-  - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: Main Camera
@@ -9100,34 +9174,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62ab67c40a0fd1d4fb71756774a9ed5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 8520039191030276157}
-  offset: {x: 0, y: 1.5, z: -8}
---- !u!114 &963194230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ce88f3048d7cc4f815503cf0d5dfc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 8520039191030276157}
-  offset: {x: 0, y: 1.5, z: -8}
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9142,7 +9188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8520039191030276157}
   offset: {x: 0, y: 1.5, z: -8}
-  rb: {fileID: 0}
   startingCameraOffset: {x: 0, y: 20, z: 4}
 --- !u!1 &964368052 stripped
 GameObject:
@@ -9617,7 +9662,7 @@ GameObject:
   - component: {fileID: 1040021087}
   - component: {fileID: 1040021090}
   - component: {fileID: 1040021091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (27)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10204,7 +10249,7 @@ GameObject:
   - component: {fileID: 1152374068}
   - component: {fileID: 1152374071}
   - component: {fileID: 1152374072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (25)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10510,7 +10555,7 @@ GameObject:
   - component: {fileID: 1212949815}
   - component: {fileID: 1212949818}
   - component: {fileID: 1216249745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (18)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14241,7 +14286,7 @@ GameObject:
   - component: {fileID: 1639341155}
   - component: {fileID: 1639341158}
   - component: {fileID: 1639439097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14666,7 +14711,7 @@ GameObject:
   - component: {fileID: 1657176247}
   - component: {fileID: 1657176250}
   - component: {fileID: 1660213774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15619,7 +15664,7 @@ GameObject:
   - component: {fileID: 1788190025}
   - component: {fileID: 1788190028}
   - component: {fileID: 1790346535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (26)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15897,7 +15942,7 @@ GameObject:
   - component: {fileID: 1823957258}
   - component: {fileID: 1823957261}
   - component: {fileID: 1823957262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (23)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16432,7 +16477,7 @@ GameObject:
   - component: {fileID: 1871576369}
   - component: {fileID: 1871576372}
   - component: {fileID: 1874831247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (17)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17362,7 +17407,7 @@ GameObject:
   - component: {fileID: 1946106598}
   - component: {fileID: 1946106601}
   - component: {fileID: 1946106602}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17660,7 +17705,7 @@ GameObject:
   - component: {fileID: 1955770794}
   - component: {fileID: 1955770797}
   - component: {fileID: 1957800392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (21)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18386,7 +18431,7 @@ GameObject:
   - component: {fileID: 2042112102}
   - component: {fileID: 2042112105}
   - component: {fileID: 2042508003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Astreroid (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18426,6 +18471,110 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7047588868940456379, guid: 252621b54fcde354c9c73d790922023a, type: 3}
   m_PrefabInstance: {fileID: 7115259958682192861}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2084291491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084291492}
+  - component: {fileID: 2084291494}
+  - component: {fileID: 2084291493}
+  - component: {fileID: 2084291495}
+  - component: {fileID: 2084291496}
+  m_Layer: 5
+  m_Name: Crosshair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2084291492
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084291491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 80249345}
+  m_Father: {fileID: 49002128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2084291493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084291491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: dcd5aae0341bd0642858735fe7fdc429, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2084291494
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084291491}
+  m_CullTransparentMesh: 1
+--- !u!114 &2084291495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084291491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4ad5fd901a1ae4a8f90b05b3f07767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 2084291496}
+  insideImg: {fileID: 80249346}
+--- !u!225 &2084291496
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084291491}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2090219151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -18443,6 +18592,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbb9a6c050f55744ac64fab1455a550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2124566821
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1814862450605743028, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_Name
+      value: Missile (Launched)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814862450605743028, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
 --- !u!4 &2136999242
 Transform:
   m_ObjectHideFlags: 0
@@ -19209,9 +19419,17 @@ PrefabInstance:
       value: Skully
       objectReference: {fileID: 0}
     - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 2084291495}
+    - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: coolDownIcon
       value: 
       objectReference: {fileID: 462128402}
+    - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: parentCanvas
+      value: 
+      objectReference: {fileID: 8089472725619152419}
     - target: {fileID: 4782813590747754396, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: healthBar
       value: 
@@ -19282,3 +19500,4 @@ SceneRoots:
   - {fileID: 1939679155}
   - {fileID: 1287101507}
   - {fileID: 236918186}
+  - {fileID: 2124566821}

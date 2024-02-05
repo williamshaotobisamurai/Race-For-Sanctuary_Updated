@@ -94,7 +94,7 @@ public class SkullySkill : MonoBehaviour
                         out movePos);
                     crosshair.transform.position = parentCanvas.transform.TransformPoint(movePos);
 
-                    crosshair.Hide();
+                    DOVirtual.DelayedCall(1f, crosshair.Hide);
                 }
                 break;
 
