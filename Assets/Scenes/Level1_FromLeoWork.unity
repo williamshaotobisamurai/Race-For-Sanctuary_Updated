@@ -19449,10 +19449,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skully
       objectReference: {fileID: 0}
-    - target: {fileID: 2390821343936392809, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: crosshair
       value: 
@@ -19469,10 +19465,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 286794117}
-    - target: {fileID: 8047531670158889977, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.28

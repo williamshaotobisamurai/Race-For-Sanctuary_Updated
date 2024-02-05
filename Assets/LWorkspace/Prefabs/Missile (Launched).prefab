@@ -5206,7 +5206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 3
   accelerate: 50
-  topSpeed: 200
+  topSpeed: 500
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
 --- !u!82 &6050635444738620539
 AudioSource:

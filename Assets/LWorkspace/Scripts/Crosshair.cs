@@ -20,16 +20,4 @@ public class Crosshair : MonoBehaviour
     {
         canvasGroup.DOFade(0, 0.1f);
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Show();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Hide();
-        }
-    }
 }
