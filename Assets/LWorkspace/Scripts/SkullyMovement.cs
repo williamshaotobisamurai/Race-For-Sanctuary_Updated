@@ -53,7 +53,7 @@ public class SkullyMovement : MonoBehaviour
         // Constantly apply a forward force,until speed reaches MaxSpeed(Editable)
         if (rb.velocity.z <= maxSpeed * maxForwardSpeedFactor)
         {
-            rb.AddForce(transform.forward * forwardForce * Time.deltaTime * maxForwardSpeedFactor, ForceMode.Force);
+            rb.AddForce(Vector3.forward * forwardForce * Time.deltaTime * maxForwardSpeedFactor, ForceMode.Force);
         }
 
         // Apply sideways force based on user input
@@ -95,7 +95,7 @@ public class SkullyMovement : MonoBehaviour
         {
             rb.AddForce(0, -downwardForce * Time.deltaTime, 0, ForceMode.VelocityChange);
 
-            if (getEditorAngle(rb.transform.localRotation.eulerAngles.x) <= RotateAngle)
+            if (getEditorAngle(rb.transform.localRotation.eulerAngles.x) <= RotateAngle + 20)
             {
                 rb.transform.Rotate(new Vector3(RotateAngle, 0.0f, 0.0f));
             }
@@ -104,9 +104,19 @@ public class SkullyMovement : MonoBehaviour
         if (!Input.anyKey)
         {
             //gradually return orientation
-            Vector3 currentAngle = new Vector3(rb.transform.localRotation.x, rb.transform.localRotation.y, rb.transform.localRotation.z);
-            // returning to original orientation through interpolation
-            rb.transform.Rotate((new Vector3(0.0f, 0.0f, 0.0f) - currentAngle) * RotationRecoverRate);
+            Vector3 currentAngle = new Vector3(rb.transform.eulerAngles.x, rb.transform.eulerAngles.y, rb.transform.eulerAngles.z);
+   
+
+            float xThisFrame = Mathf.LerpAngle(rb.transform.eulerAngles.x, 20f, Time.deltaTime * 10);
+            float yThisFrame = Mathf.LerpAngle(rb.transform.eulerAngles.y, 0, Time.deltaTime * 10);
+            float zThisFrame = Mathf.LerpAngle(rb.transform.eulerAngles.z, 0, Time.deltaTime * 10);
+
+
+
+            Vector3 eulerThisFrame = new Vector3(xThisFrame, yThisFrame, zThisFrame);
+            Debug.Log(currentAngle + " : " + eulerThisFrame);
+            rb.transform.localEulerAngles = eulerThisFrame;
+         //   rb.transform.Rotate((new Vector3(0.0f, 0.0f, 0.0f) - currentAngle) * RotationRecoverRate);
         }
 
         // Example check for falling below a certain level, can be modified or removed

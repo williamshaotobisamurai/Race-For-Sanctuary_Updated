@@ -14,24 +14,49 @@ public class Missile : MonoBehaviour
 
     [SerializeField] private GameObject explodeParticle;
 
-    private void Start()
+    [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private ParticleSystem smokeParticle;
+
+    [SerializeField] private GameObject explodeTrigger;
+
+    private bool isLaunched = false;
+
+    [SerializeField] private Transform muzzle;
+
+    public void AttachTo(Transform muzzle)
     {
+        this.muzzle = muzzle;
+    }
+
+    public void Launch()
+    {
+        fireParticle.Play();
+        smokeParticle.Play();
+  
+        isLaunched = true;
         launchedTime = Time.time;
+        explodeTrigger.SetActive(true);      
     }
 
     private void Update()
     {
+        if (!isLaunched)
+        {
+            transform.position = muzzle.position;
+            return;
+        }
+
         if (Time.time > launchedTime + lifeTime)
         {
             Explode();
         }
         else
         {
-            Launch();
+            Fly();
         }
     }
 
-    private void Launch()
+    private void Fly()
     {
         float speedThisFrame = Mathf.Lerp(0, topSpeed, accelerate * Time.deltaTime);
         transform.Translate(new Vector3(0, 0, speedThisFrame) * Time.deltaTime, Space.Self);

@@ -14,15 +14,12 @@ public class SkullySkill : MonoBehaviour
     [SerializeField] private Image coolDownIcon;
 
     [SerializeField] private GameObject skillSphere;
-    [SerializeField] private ParticleSystem shockParticle;
     [SerializeField] private Crosshair crosshair;
 
     [SerializeField] private float aimingDuration = 3f;
     [SerializeField] private State state;
-    [SerializeField] private Transform SIRS;
+    [SerializeField] private SIRS SIRS;
     [SerializeField] private Missile missilePrefab;
-
-    [SerializeField] private Canvas parentCanvas;
 
     [SerializeField] private GameObject aimmingObject;
 
@@ -40,6 +37,9 @@ public class SkullySkill : MonoBehaviour
         state = State.COOLDOWN;
         coolDownIcon.DOFillAmount(1f, coolDown);
     }
+
+    private Missile missileInstance;
+
     // Update is called once per frame
     void Update()
     {
@@ -51,6 +51,14 @@ public class SkullySkill : MonoBehaviour
                 {
                     state = State.AIMMING;
                     crosshair.Show();
+
+                    if (missileInstance != null)
+                    {
+                        Destroy(missileInstance);
+                    }
+
+                    missileInstance = Instantiate(missilePrefab);
+                    missileInstance.AttachTo(SIRS.MissileAttachedTrans);
                 }
                 break;
 
@@ -64,12 +72,9 @@ public class SkullySkill : MonoBehaviour
                     coolDownIcon.fillAmount = 0f;
                     coolDownIcon.DOFillAmount(1f, coolDown);
 
-                    Missile missileInstance = Instantiate(missilePrefab);
-                    missileInstance.transform.position = SIRS.position + Vector3.forward;
-
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, 500, obstacleLayer))
+                    if (Physics.SphereCast(ray, 20f, out hit, 500, obstacleLayer))
                     {
                         Debug.Log(hit.transform.name);
                         Debug.Log("hit");
@@ -86,15 +91,9 @@ public class SkullySkill : MonoBehaviour
                     }
 
                     missileInstance.transform.LookAt(aimmingObject.transform);
-                    Vector2 movePos;
-
-                    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                        parentCanvas.transform as RectTransform,
-                        Input.mousePosition, parentCanvas.worldCamera,
-                        out movePos);
-                    crosshair.transform.position = parentCanvas.transform.TransformPoint(movePos);
-
-                    DOVirtual.DelayedCall(1f, crosshair.Hide);
+                    missileInstance.Launch();
+                    missileInstance = null;
+                    crosshair.Hide();
                 }
                 break;
 

@@ -102,7 +102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1335687419687464612
 Transform:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ ParticleSystem:
   emitterVelocityMode: 0
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5205,9 +5205,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 3
-  accelerate: 50
+  accelerate: 500
   topSpeed: 500
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  fireParticle: {fileID: 7794731472579317455}
+  smokeParticle: {fileID: 5658288611136879109}
+  explodeTrigger: {fileID: 1137117258640194393}
+  muzzle: {fileID: 0}
 --- !u!82 &6050635444738620539
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5412,8 +5416,8 @@ Transform:
   m_GameObject: {fileID: 3650239665906037522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.4}
+  m_LocalScale: {x: 0.5950249, y: 0.5950249, z: 0.5950249}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2222854492064959516}
@@ -5641,7 +5645,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 1
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

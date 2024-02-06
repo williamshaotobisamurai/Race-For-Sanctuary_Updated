@@ -14,6 +14,9 @@ public class SIRS : MonoBehaviour
     public event OnCollectCoin OnCollectCoinEvent;
     public delegate void OnCollectCoin(Coin coin);
 
+    [SerializeField] private Transform missileAttachedTrans;
+    public Transform MissileAttachedTrans => missileAttachedTrans;
+
     void Start()
     {
         if (parent != null)

@@ -18563,6 +18563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 2084291496}
   insideImg: {fileID: 80249346}
+  parentCanvas: {fileID: 8089472725619152419}
 --- !u!225 &2084291496
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -18592,67 +18593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbb9a6c050f55744ac64fab1455a550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2124566821
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1814862450605743028, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_Name
-      value: Missile (Launched)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1814862450605743028, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058154203291330616, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
 --- !u!4 &2136999242
 Transform:
   m_ObjectHideFlags: 0
@@ -19426,10 +19366,6 @@ PrefabInstance:
       propertyPath: coolDownIcon
       value: 
       objectReference: {fileID: 462128402}
-    - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: parentCanvas
-      value: 
-      objectReference: {fileID: 8089472725619152419}
     - target: {fileID: 4782813590747754396, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: healthBar
       value: 
@@ -19500,4 +19436,3 @@ SceneRoots:
   - {fileID: 1939679155}
   - {fileID: 1287101507}
   - {fileID: 236918186}
-  - {fileID: 2124566821}
