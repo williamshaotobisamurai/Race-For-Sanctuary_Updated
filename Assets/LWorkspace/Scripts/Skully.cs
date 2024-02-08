@@ -140,14 +140,6 @@ public class Skully : MonoBehaviour
         }
     }
 
-    public void Heal(float healingAmount)
-    {
-        healthAmount += healingAmount;
-        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
-
-        healthBar.fillAmount = healthAmount / 100f;
-    }
-
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -180,6 +172,14 @@ public class Skully : MonoBehaviour
 
     public void CollectHealItem(HealItem healItem)
     {
+        Heal(healItem.HealAmount);
+    }
 
+    public void Heal(float healingAmount)
+    {
+        healthAmount += healingAmount;
+        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+
+        healthBar.fillAmount = healthAmount / 100f;
     }
 }
