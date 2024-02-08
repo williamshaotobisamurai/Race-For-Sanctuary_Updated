@@ -22,6 +22,9 @@ public class Skully : MonoBehaviour
     public event OnCollectCoin OnCollectCoinEvent;
     public delegate void OnCollectCoin(Coin coin);
 
+    public event OnCollectItem OnCollectItemEvent;
+    public delegate void OnCollectItem(ItemBase item);
+
     [SerializeField] private GameObject speedBoostAttachment;
     [SerializeField] private GameObject defensiveBoostAttachment;
 
@@ -74,17 +77,35 @@ public class Skully : MonoBehaviour
                 HitByMetero();
             }
         }
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals(GameConstants.SPEED_BOOST))
+        if (other.tag.Equals(GameConstants.BOOST_ITEM))
         {
-            CollectSpeedBoost(other.GetComponent<SpeedBoost>());
-        }
-        else if (other.tag.Equals(GameConstants.DEFENSIVE_BOOST))
-        {
-            CollectDefensiveBoost(other.GetComponent<DefensiveBoost>());
+            ItemBase itemBase = other.GetComponent<ItemBase>();
+            switch (itemBase.ItemType)
+            {
+                case ItemBase.EItemType.SPEED_BOOST:
+                    CollectSpeedBoost(itemBase as SpeedBoost);
+                    break;
+
+                case ItemBase.EItemType.DEFENSIVE_BOOST:
+                    CollectDefensiveBoost(itemBase as DefensiveBoost);
+                    break;
+
+                case ItemBase.EItemType.JETPACK_FUEL:
+                    CollectJetpackFuel(itemBase as JetpackFuelItem);
+                    break;
+
+                case ItemBase.EItemType.HEAL_ITEM:
+                    CollectHealItem(itemBase as HealItem);
+                    break;
+
+                default:
+                    break;
+            }
+            itemBase.Collect();
         }
         else if (other.tag.Equals(GameConstants.BULLLET))
         {
@@ -101,8 +122,8 @@ public class Skully : MonoBehaviour
     {
         bullet.gameObject.SetActive(false);
         if (!isInvincible)
-        { 
-            TakeDamage(bullet.Damage);        
+        {
+            TakeDamage(bullet.Damage);
         }
     }
 
@@ -111,7 +132,7 @@ public class Skully : MonoBehaviour
         healthAmount -= damage;
         healthBar.fillAmount = healthAmount / 100f;
 
-        transform.DOShakeRotation(0.1f,10);
+        transform.DOShakeRotation(0.1f, 10);
 
         if (healthAmount <= 0f)
         {
@@ -133,21 +154,14 @@ public class Skully : MonoBehaviour
     }
 
     public void CollectSpeedBoost(SpeedBoost speedBoost)
-    {
-        boostAudioSource.clip = speedBoost.AudioClip;
-        boostAudioSource.Play();    
-        speedBoost.gameObject.SetActive(false);
+    {    
         speedBoostAttachment.SetActive(true);
         DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () => speedBoostAttachment.SetActive(false));
         skullyMovement.SpeedBoost(speedBoost);
     }
 
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
-    {
-        boostAudioSource.clip = defensiveBoost.AudioClip;
-        boostAudioSource.Play();    
-
-        defensiveBoost.gameObject.SetActive(false);
+    {       
         defensiveBoostAttachment.SetActive(true);
         isInvincible = true;
 
@@ -157,5 +171,15 @@ public class Skully : MonoBehaviour
 
             isInvincible = false;
         });
+    }
+
+    public void CollectJetpackFuel(JetpackFuelItem jetpackFuelItem)
+    {
+        OnCollectItemEvent?.Invoke(jetpackFuelItem);
+    }
+
+    public void CollectHealItem(HealItem healItem)
+    {
+
     }
 }

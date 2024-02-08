@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Skully Skully { get => skully; }
 
     [SerializeField] private CollectedCoinsManager collectedCoinsManager;
+    [SerializeField] private TimerManager timerManager;
     [SerializeField] private EndTrigger endTrigger;
     [SerializeField] private PoliceShip policeShip;
 
@@ -36,16 +37,41 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         collectedCoinsManager.Init();
+        timerManager.Init();
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
+        skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
         policeShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
-    }   
+        timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
+    }
 
     private void OnDestroy()
     {
         skully.OnSkullyDiedEvent -= Skully_OnSkullyDiedEvent;
+        skully.OnCollectItemEvent -= Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
         policeShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
+        timerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
+    }
+
+    private void Skully_OnCollectItemEvent(ItemBase item)
+    {
+      
+        switch (item.ItemType)
+        {
+            case ItemBase.EItemType.JETPACK_FUEL:
+                JetpackFuelItem jetpack = item as JetpackFuelItem;
+                timerManager.IncreaseTime(jetpack.IncreaseAmount);
+                break;
+      
+            default:
+                break;
+        }
+    }
+
+    private void TimerManager_OnOutOfTimeEvent()
+    {
+        EndGame();
     }
 
     private void PoliceShip_OnCaughtSkullyEvent()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1500806183849008329}
   m_Layer: 0
   m_Name: DefensiveBoost
-  m_TagString: DEFENSIVE_BOOST
+  m_TagString: BOOST_ITEM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,8 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e577e3d56af2f54292a63cea49b8808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectAudio: {fileID: 0}
+  audioSource: {fileID: 1500806183849008329}
+  m_collider: {fileID: 0}
+  itemType: 0
   defensiveDuration: 10
-  defensiveBoostAudio: {fileID: 8300000, guid: 1923729ba1e5cbb4a92692e238d6f846, type: 3}
 --- !u!82 &1500806183849008329
 AudioSource:
   m_ObjectHideFlags: 0

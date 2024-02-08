@@ -47,6 +47,5 @@ public class SIRS : MonoBehaviour
     private void CollectOneCoin(Coin coin)
     {
         OnCollectCoinEvent?.Invoke(coin);
-    }
-  
+    }  
 }

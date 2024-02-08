@@ -114,9 +114,8 @@ public class SkullyMovement : MonoBehaviour
 
 
             Vector3 eulerThisFrame = new Vector3(xThisFrame, yThisFrame, zThisFrame);
-            Debug.Log(currentAngle + " : " + eulerThisFrame);
+
             rb.transform.localEulerAngles = eulerThisFrame;
-         //   rb.transform.Rotate((new Vector3(0.0f, 0.0f, 0.0f) - currentAngle) * RotationRecoverRate);
         }
 
         // Example check for falling below a certain level, can be modified or removed

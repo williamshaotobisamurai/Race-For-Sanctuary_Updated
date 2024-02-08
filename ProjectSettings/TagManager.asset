@@ -7,10 +7,9 @@ TagManager:
   - Enemy
   - Obstacle
   - COIN
-  - SPEED_BOOST
-  - DEFENSIVE_BOOST
   - BULLET
   - SKILL_SPHERE
+  - BOOST_ITEM
   layers:
   - Default
   - TransparentFX
