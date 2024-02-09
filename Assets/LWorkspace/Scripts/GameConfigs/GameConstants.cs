@@ -9,4 +9,5 @@ public static class GameConstants
     public static string BULLLET = "BULLET";
     public static string SKILL_SPHERE = "SKILL_SPHERE";
     public static string BOOST_ITEM = "BOOST_ITEM";
+    public static string TRAP = "TRAP";
 }

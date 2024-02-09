@@ -12,6 +12,7 @@ public class Skully : MonoBehaviour
     [SerializeField] private AudioSource collisionSound;
     [SerializeField] private Image healthBar;
     [SerializeField] private float healthAmount = 100f;
+    [SerializeField] private Transform skullyVisual;
 
     public event OnHitByMeteor OnHitByMeteorEvent;
     public delegate void OnHitByMeteor();
@@ -34,6 +35,8 @@ public class Skully : MonoBehaviour
     public Rigidbody Rigidbody { get { return rb; } }
 
     [SerializeField] private AudioSource boostAudioSource;
+
+    [SerializeField] private GameObject killByEnergyFieldParticle;
 
     private void Start()
     {
@@ -111,10 +114,35 @@ public class Skully : MonoBehaviour
         {
             HitByBullet(other.GetComponent<Bullet>());
         }
+        else if (other.tag.Equals(GameConstants.TRAP))
+        {
+            EnergyField field = other.GetComponent<EnergyField>();
+            if (field != null)
+            {
+                KilledByEnergyField(field);
+            }
+        }
+    }
+
+    private void KilledByEnergyField(EnergyField field)
+    {
+        killByEnergyFieldParticle.SetActive(true); 
+        rb.isKinematic = true;
+        skullyVisual.transform.DOShakeRotation(0.5f,50).OnComplete(()=>
+        {
+            float x = Random.Range(-90f,90f);
+            float y = Random.Range(-90f,90f);
+            float z = Random.Range(-90f,90f);
+
+            skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
+        });
+        OnSkullyDiedEvent?.Invoke();
     }
 
     private void HitByMetero()
     {
+        skullyVisual.transform.DOShakeRotation(0.1f, 10);
+
         OnHitByMeteorEvent?.Invoke();
     }
 
@@ -130,9 +158,9 @@ public class Skully : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthAmount -= damage;
-        healthBar.fillAmount = healthAmount / 100f;
+        UpdateHealthBar();
 
-        transform.DOShakeRotation(0.1f, 10);
+        skullyVisual.transform.DOShakeRotation(0.1f, 10);
 
         if (healthAmount <= 0f)
         {
@@ -146,14 +174,14 @@ public class Skully : MonoBehaviour
     }
 
     public void CollectSpeedBoost(SpeedBoost speedBoost)
-    {    
+    {
         speedBoostAttachment.SetActive(true);
         DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () => speedBoostAttachment.SetActive(false));
         skullyMovement.SpeedBoost(speedBoost);
     }
 
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
-    {       
+    {
         defensiveBoostAttachment.SetActive(true);
         isInvincible = true;
 
@@ -180,6 +208,11 @@ public class Skully : MonoBehaviour
         healthAmount += healingAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
 
-        healthBar.fillAmount = healthAmount / 100f;
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.DOFillAmount(healthAmount / 100f, 0.5f);
     }
 }

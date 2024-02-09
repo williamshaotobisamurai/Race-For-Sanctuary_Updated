@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -46,7 +47,7 @@ public class TimerManager : MonoBehaviour
         minutes = Mathf.Clamp(minutes, 0, minutes); 
         seconds = Mathf.Clamp(seconds, 0, seconds); 
 
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);      
     }
 
     public void IncreaseTime(float time)
@@ -55,6 +56,8 @@ public class TimerManager : MonoBehaviour
         {
             remainingTime += time;
             UpdateTimerText();
+            RectTransform textRect =timerText.GetComponent<RectTransform>();    
+            textRect.DOLocalJump(textRect.localPosition, 30f, 1, 0.25f);
         }
     }
 }
