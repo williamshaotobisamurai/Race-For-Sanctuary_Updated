@@ -136,6 +136,9 @@ public class Skully : MonoBehaviour
 
             skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
         });
+
+        healthAmount -= 999;
+        UpdateHealthBar();
         OnSkullyDiedEvent?.Invoke();
     }
 
@@ -153,6 +156,11 @@ public class Skully : MonoBehaviour
         {
             TakeDamage(bullet.Damage);
         }
+    }
+
+    public void HitByLightningStrike()
+    {
+        KilledByEnergyField(null);
     }
 
     public void TakeDamage(int damage)
