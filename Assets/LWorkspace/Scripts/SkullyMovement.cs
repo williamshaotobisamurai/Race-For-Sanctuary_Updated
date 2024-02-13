@@ -46,6 +46,12 @@ public class SkullyMovement : MonoBehaviour
         });
     }
 
+    public void SetMaxSpeedFactor(float speedFactor)
+    {
+        maxForwardSpeedFactor = speedFactor;
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, maxSpeed);
+    }
+
     void FixedUpdate()
     {
         if (!isRunning) return;

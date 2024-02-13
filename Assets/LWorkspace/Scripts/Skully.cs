@@ -37,6 +37,9 @@ public class Skully : MonoBehaviour
     [SerializeField] private AudioSource boostAudioSource;
 
     [SerializeField] private GameObject killByEnergyFieldParticle;
+    [SerializeField] private ParticleSystem hitByBlobParticle;
+
+    [SerializeField] private SplatterManager splatterManager;
 
     private void Start()
     {
@@ -115,6 +118,10 @@ public class Skully : MonoBehaviour
         {
             HitByBullet(other.GetComponent<Bullet>());
         }
+        else if (other.tag.Equals(GameConstants.BLOB))
+        {
+            HitByBlob(other.GetComponent<Blob>());
+        }
         else if (other.tag.Equals(GameConstants.TRAP))
         {
             EnergyField field = other.GetComponent<EnergyField>();
@@ -127,14 +134,14 @@ public class Skully : MonoBehaviour
 
     private void KilledByEnergyField(EnergyField field)
     {
-        killByEnergyFieldParticle.SetActive(true); 
+        killByEnergyFieldParticle.SetActive(true);
         rb.isKinematic = true;
-     
-        skullyVisual.transform.DOShakeRotation(0.5f,50).OnComplete(()=>
+
+        skullyVisual.transform.DOShakeRotation(0.5f, 50).OnComplete(() =>
         {
-            float x = Random.Range(-90f,90f);
-            float y = Random.Range(-90f,90f);
-            float z = Random.Range(-90f,90f);
+            float x = Random.Range(-90f, 90f);
+            float y = Random.Range(-90f, 90f);
+            float z = Random.Range(-90f, 90f);
 
             skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
         });
@@ -153,7 +160,7 @@ public class Skully : MonoBehaviour
         else
         {
             skullyVisual.transform.DOShakeRotation(0.1f, 10);
-            OnHitByMeteorEvent?.Invoke();            
+            OnHitByMeteorEvent?.Invoke();
         }
     }
 
@@ -164,6 +171,13 @@ public class Skully : MonoBehaviour
         {
             TakeDamage(bullet.Damage);
         }
+    }
+
+    private void HitByBlob(Blob blob)
+    {
+        blob.gameObject.SetActive(false);
+        hitByBlobParticle.Play();
+        splatterManager.Show(blob.CoverScreenDuration);
     }
 
     public void HitByLightningStrike()
@@ -183,16 +197,16 @@ public class Skully : MonoBehaviour
             float z = Random.Range(-90f, 90f);
             rb.freezeRotation = false;
             skullyMovement.StopRunning();
-            rb.angularVelocity = new Vector3(x, y, z) ;
-     
+            rb.angularVelocity = new Vector3(x, y, z);
+
             DOVirtual.DelayedCall(3f, () =>
             {
                 OnSkullyDiedEvent?.Invoke();
             });
         }
         else
-        { 
-            skullyVisual.transform.DOShakeRotation(0.1f, 10);                  
+        {
+            skullyVisual.transform.DOShakeRotation(0.1f, 10);
         }
     }
 
@@ -242,5 +256,10 @@ public class Skully : MonoBehaviour
     private void UpdateHealthBar()
     {
         healthBar.DOFillAmount(healthAmount / 100f, 0.5f);
+    }
+
+    public void SetMaxSpeedFactor(float speedFactor)
+    {
+        skullyMovement.SetMaxSpeedFactor(speedFactor);
     }
 }

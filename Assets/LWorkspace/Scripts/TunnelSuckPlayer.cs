@@ -12,11 +12,33 @@ public class TunnelSuckPlayer : MonoBehaviour
 
     private Vector3 currentForce;
 
+    [SerializeField] private float speedFactor = 3f;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Skully skully = other.GetComponent<Skully>();
+
+        if (skully != null)
+        {
+            skully.SetMaxSpeedFactor(speedFactor);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Skully skully = other.GetComponent<Skully>();
+
+        if (skully != null)
+        {
+            skully.SetMaxSpeedFactor(1);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        Skully skully = other.GetComponent<Skully>();      
+        Skully skully = other.GetComponent<Skully>();
 
-        if (skully != null )
+        if (skully != null)
         {
             if (Time.time > lastChangeDirectionTimeStamp + changeForceDirectionInterval)
             {
@@ -26,7 +48,7 @@ public class TunnelSuckPlayer : MonoBehaviour
                 currentForce = randomDirection * force;
             }
             else
-            { 
+            {
                 skully.Rigidbody.AddForce(currentForce, ForceMode.Acceleration);
             }
         }
