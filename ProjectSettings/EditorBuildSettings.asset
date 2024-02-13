@@ -122,7 +122,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/LWorkspace/ParticleEffects/Epic Toon FX/Demo/Scenes/etfx_wind.unity
     guid: 565750a970c487a4280f95fd0ed4f9fc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1_FromLeoWork.unity
     guid: c0828256a3992d341a59d2854057543d
+  - enabled: 1
+    path: Assets/LWorkspace/Scenes/MeteoriteColliding.unity
+    guid: 38eac8b3b04b52244a94e0c42e75a5d2
   m_configObjects: {}

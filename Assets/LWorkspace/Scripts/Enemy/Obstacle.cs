@@ -7,6 +7,12 @@ public class Obstacle : MonoBehaviour
 {
     [SerializeField] private GameObject explodeParticle;
 
+    [SerializeField] private int damage = 999;
+    public int Damage { get => damage; }
+
+    [SerializeField] private bool doDamage = false;
+    public bool DoDamage => doDamage;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals(GameConstants.SKILL_SPHERE))
@@ -19,3 +25,4 @@ public class Obstacle : MonoBehaviour
         }
     }
 }
+ 

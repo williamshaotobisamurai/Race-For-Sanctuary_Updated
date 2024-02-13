@@ -487,6 +487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &49002127
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &86451242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &144410505 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -1670,6 +1676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &160521522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2343,6 +2351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!33 &214918249
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2653,6 +2663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &230738060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -3186,6 +3198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &332708534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4010,6 +4024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!23 &448557169
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4065,6 +4081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &454498749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,6 +4462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &496767795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5371,6 +5391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &583096799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5764,6 +5786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &606717252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -5991,6 +6015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &645321128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6664,6 +6690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &687461531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6910,6 +6938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &699893735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -7523,6 +7553,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &774281076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8417,6 +8449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &840774072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9741,6 +9775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1048199923
 GameObject:
   m_ObjectHideFlags: 0
@@ -10437,6 +10473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1175744138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -10516,6 +10554,72 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 673ba7b0944daba48b8b8cb2584b4c8b, type: 3}
+--- !u!1001 &1202774325
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2076839989}
+    m_Modifications:
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5057
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632456881216991513, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: skully
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6412029146299763963, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+      propertyPath: m_Name
+      value: MeteoritesCollides
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+--- !u!4 &1202774326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 146848658509777407, guid: a9e576709c9ba0d44aca203d6652cf67, type: 3}
+  m_PrefabInstance: {fileID: 1202774325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1205746449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10974,6 +11078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &1230794186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14815,6 +14921,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1639910206
 GameObject:
   m_ObjectHideFlags: 0
@@ -15290,6 +15398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1660580257 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -16393,6 +16503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1793515977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -16621,6 +16733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1827707260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17190,6 +17304,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &1881463458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18020,6 +18136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1 &1951854440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3129200342344496425, guid: 3e29573f06c0a7e4fa986fff41de17af, type: 3}
@@ -18307,6 +18425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &1958763843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19111,6 +19231,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!4 &2063647325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7047588868940456379, guid: 252621b54fcde354c9c73d790922023a, type: 3}
@@ -19149,6 +19271,7 @@ Transform:
   - {fileID: 739853488}
   - {fileID: 1215481100}
   - {fileID: 909275739}
+  - {fileID: 1202774326}
   m_Father: {fileID: 236918186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084291491
@@ -19378,6 +19501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
+  damage: 999
+  doDamage: 0
 --- !u!1001 &2810612141531954054
 PrefabInstance:
   m_ObjectHideFlags: 0

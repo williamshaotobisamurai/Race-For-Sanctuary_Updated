@@ -56,6 +56,7 @@ public class Skully : MonoBehaviour
 
     void OnCollisionEnter(Collision collisionInfo)
     {
+        Obstacle obstacle = collisionInfo.gameObject.GetComponent<Obstacle>();
         if (collisionInfo.collider.tag.Equals(GameConstants.OBSTACLE))
         {
             collisionSound.Play();
@@ -77,7 +78,7 @@ public class Skully : MonoBehaviour
             }
             else
             {
-                HitByMetero();
+                HitByMetero(obstacle);
             }
         }
     }
@@ -128,6 +129,7 @@ public class Skully : MonoBehaviour
     {
         killByEnergyFieldParticle.SetActive(true); 
         rb.isKinematic = true;
+     
         skullyVisual.transform.DOShakeRotation(0.5f,50).OnComplete(()=>
         {
             float x = Random.Range(-90f,90f);
@@ -142,11 +144,17 @@ public class Skully : MonoBehaviour
         OnSkullyDiedEvent?.Invoke();
     }
 
-    private void HitByMetero()
+    private void HitByMetero(Obstacle obstacle)
     {
-        skullyVisual.transform.DOShakeRotation(0.1f, 10);
-
-        OnHitByMeteorEvent?.Invoke();
+        if (obstacle.DoDamage)
+        {
+            TakeDamage(obstacle.Damage);
+        }
+        else
+        {
+            skullyVisual.transform.DOShakeRotation(0.1f, 10);
+            OnHitByMeteorEvent?.Invoke();            
+        }
     }
 
     private void HitByBullet(Bullet bullet)
@@ -168,11 +176,23 @@ public class Skully : MonoBehaviour
         healthAmount -= damage;
         UpdateHealthBar();
 
-        skullyVisual.transform.DOShakeRotation(0.1f, 10);
-
         if (healthAmount <= 0f)
         {
-            OnSkullyDiedEvent?.Invoke();
+            float x = Random.Range(-90f, 90f);
+            float y = Random.Range(-90f, 90f);
+            float z = Random.Range(-90f, 90f);
+            rb.freezeRotation = false;
+            skullyMovement.StopRunning();
+            rb.angularVelocity = new Vector3(x, y, z) ;
+     
+            DOVirtual.DelayedCall(3f, () =>
+            {
+                OnSkullyDiedEvent?.Invoke();
+            });
+        }
+        else
+        { 
+            skullyVisual.transform.DOShakeRotation(0.1f, 10);                  
         }
     }
 
