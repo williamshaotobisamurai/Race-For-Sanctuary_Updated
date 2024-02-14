@@ -11,7 +11,10 @@ public class Skully : MonoBehaviour
     [SerializeField] private SIRS sirs;
     [SerializeField] private AudioSource collisionSound;
     [SerializeField] private Image healthBar;
-    [SerializeField] private float healthAmount = 100f;
+
+    private int maxHealth = 100;
+    private float healthAmount = 100;
+    
     [SerializeField] private Transform skullyVisual;
 
     public event OnHitByMeteor OnHitByMeteorEvent;
@@ -41,10 +44,12 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private SplatterManager splatterManager;
 
+    [SerializeField] private Text healthText;
+
     private void Start()
     {
         skullyMovement.Init();
-        sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;
+        sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;        
     }
 
     private void OnDestroy()
@@ -116,7 +121,7 @@ public class Skully : MonoBehaviour
         }
         else if (other.tag.Equals(GameConstants.BULLLET))
         {
-            HitByBullet(other.GetComponent<Bullet>());
+            HitByBullet(other.GetComponent<EnemyBulletBase>());
         }
         else if (other.tag.Equals(GameConstants.BLOB))
         {
@@ -164,9 +169,9 @@ public class Skully : MonoBehaviour
         }
     }
 
-    private void HitByBullet(Bullet bullet)
+    private void HitByBullet(EnemyBulletBase bullet)
     {
-        bullet.gameObject.SetActive(false);
+        bullet.OnHitPlayer();
         if (!isInvincible)
         {
             TakeDamage(bullet.Damage);
@@ -175,6 +180,7 @@ public class Skully : MonoBehaviour
 
     private void HitByBlob(Blob blob)
     {
+        blob.OnHitPlayer();
         blob.gameObject.SetActive(false);
         hitByBlobParticle.Play();
         splatterManager.Show(blob.CoverScreenDuration);
@@ -183,6 +189,19 @@ public class Skully : MonoBehaviour
     public void HitByLightningStrike()
     {
         KilledByEnergyField(null);
+    }
+
+    public void HitBySniper()
+    {
+        if (!isInvincible)
+        {
+            maxHealth -= 50;
+            TakeDamage(50);
+            if (healthAmount >= 50)
+            {
+                OnHitByMeteorEvent?.Invoke();
+            }
+        }
     }
 
     public void TakeDamage(int damage)
@@ -248,14 +267,15 @@ public class Skully : MonoBehaviour
     public void Heal(float healingAmount)
     {
         healthAmount += healingAmount;
-        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+        healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
 
         UpdateHealthBar();
     }
 
     private void UpdateHealthBar()
     {
-        healthBar.DOFillAmount(healthAmount / 100f, 0.5f);
+        healthBar.DOFillAmount(healthAmount / (float)maxHealth, 0.5f);
+        healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
     }
 
     public void SetMaxSpeedFactor(float speedFactor)

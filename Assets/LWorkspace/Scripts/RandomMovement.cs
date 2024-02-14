@@ -7,13 +7,18 @@ public class RandomMovement : MonoBehaviour
 {
     [SerializeField] private float range = 1.5f;
     [Range(0.5f, 10)]
-    [SerializeField] private float speed = 0.5f;
+    [SerializeField] private float moveDuration = 1.5f;
 
     private Vector3 originPos;
     private Vector3 targetPos;
 
     private Coroutine movingCoroutine;
     private Tween movingTween;
+
+    [SerializeField] private Ease ease;
+
+    public float Range { get => range; set => range = value; }
+    public float MoveDuration { get => moveDuration; set => moveDuration = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +32,19 @@ public class RandomMovement : MonoBehaviour
 
     private IEnumerator MoveRandomlyCoroutine()
     {
-        while (true)
-        {     
-            targetPos = originPos + Random.onUnitSphere * range * Random.Range(1,1.5f);
-            movingTween = transform.DOLocalMove(targetPos, 1f / speed).SetEase(Ease.InOutSine);
-            yield return new WaitForSeconds(1f / speed + 0.2f);
+        bool completed = true;
+        while (completed)
+        {
+            completed = false;
+            targetPos = originPos + Random.onUnitSphere * Range * Random.Range(1, 1.5f);
+            movingTween = transform.DOLocalMove(targetPos, moveDuration).SetEase(ease).OnComplete(() => completed = true);
+            while (completed == false)
+            {
+                yield return new WaitForEndOfFrame();
+            }
         }
     }
+
 
     public void StartMoving()
     {
