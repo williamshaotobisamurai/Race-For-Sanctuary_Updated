@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1357579665219459892}
   - component: {fileID: 391421039868021367}
   - component: {fileID: -9178649690132191316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blob
   m_TagString: BLOB
   m_Icon: {fileID: 0}
@@ -119,9 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65cb8016ebf69d94b93dec42db5bfb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coverScreenDuration: 3
+  damamge: 10
+  hitParticle: {fileID: 104006, guid: a801d5bc64b7dc44e964c45bd6709a7e, type: 3}
+  rotateRate: 3
   speed: 150
-  lifeTime: 10
+  delayDestroy: 5
+  coverScreenDuration: 3
 --- !u!1001 &500233241512345915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,9 +133,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3511198826099612486}
     m_Modifications:
+    - target: {fileID: 129482, guid: 6cc3aa2ba73c39b4087f16d0565ece1a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 179470, guid: 6cc3aa2ba73c39b4087f16d0565ece1a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 180214, guid: 6cc3aa2ba73c39b4087f16d0565ece1a, type: 3}
       propertyPath: m_Name
       value: MysticMissileGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 180214, guid: 6cc3aa2ba73c39b4087f16d0565ece1a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 431682, guid: 6cc3aa2ba73c39b4087f16d0565ece1a, type: 3}
       propertyPath: m_LocalScale.x

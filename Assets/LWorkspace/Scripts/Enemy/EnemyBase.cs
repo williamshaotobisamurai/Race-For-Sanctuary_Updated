@@ -6,7 +6,7 @@ public class EnemyBase : MonoBehaviour
 {
     [SerializeField] protected float lastTimeShootTimeStamp = 0f;
 
-    [SerializeField] private GameObject bullet;
+    [SerializeField] protected GameObject bullet;
 
     [SerializeField] protected Transform muzzle;
 
@@ -63,7 +63,6 @@ public class EnemyBase : MonoBehaviour
             Shoot();
             lastTimeShootTimeStamp = Time.time;
         }
-
     }
 
     protected virtual GameObject Shoot()

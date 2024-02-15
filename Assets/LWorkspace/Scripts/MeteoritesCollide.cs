@@ -30,7 +30,7 @@ public class MeteoritesCollide : MonoBehaviour
     private void Start()
     {
         meteoriteA.OnHitByOtherMeteoriteEvent += MeteoriteA_OnHitByOtherMeteoriteEvent;
-
+        fireballRoot.transform.position = endPoint.transform.position;
         for (int i = 0; i < fireBallCount; i++)
         {
             GameObject fireball = Instantiate(fireBallPrefab, fireballRoot);

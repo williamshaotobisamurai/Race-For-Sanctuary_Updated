@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2414814066937922721}
   - component: {fileID: 8121122713964647726}
   - component: {fileID: 1704414257123132261}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_mount1_mid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7129351619771813131}
   - component: {fileID: 1180413682433874574}
   - component: {fileID: 1382960348967139044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_head1_barrel_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5844469981091179703}
   - component: {fileID: 3832502801987836621}
   - component: {fileID: 4424847045880975359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_mount1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 1851428003511355377}
   - component: {fileID: 2254971432673501692}
   - component: {fileID: 158561481103451051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_head_1_armor_plate_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 6294606079044842063}
   - component: {fileID: 9172154397615453560}
   - component: {fileID: 1606154124604654886}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_head1_barrel_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 7555802682071480887}
   - component: {fileID: 9047084299295311928}
   - component: {fileID: 3186655432277131337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 2875287402411482574}
   - component: {fileID: 381583884058863249}
   - component: {fileID: 5348742272299410021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_base1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 576014365070076844}
   - component: {fileID: 8272857133367748706}
   - component: {fileID: 6365550144450530320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,10 +637,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfe634c2628bb64d9d3c917920248c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headTrans: {fileID: 7555802682071480887}
-  shootInterval: 0.5
+  lastTimeShootTimeStamp: 0
   bullet: {fileID: 4458367371770595307, guid: c8499e0bcfb2a8e40943c6b7dafe5a6f, type: 3}
   muzzle: {fileID: 6868747007075594100}
+  shootInterval: 0.5
+  lookAtTrans: {fileID: 7555802682071480887}
+  detectTrigger: {fileID: 6365550144450530320}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 65
 --- !u!114 &8272857133367748706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -654,9 +659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 2.78
-  speed: 0.5
-  originPos: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
+  moveDuration: 1.5
+  ease: 0
 --- !u!135 &6365550144450530320
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -676,7 +680,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 180
+  m_Radius: 242.18
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6465956209999826838
 GameObject:
@@ -689,7 +693,7 @@ GameObject:
   - component: {fileID: 1950648292263285989}
   - component: {fileID: 7686383621494431249}
   - component: {fileID: 9031336666154211306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_mount1_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -770,7 +774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6868747007075594100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +807,7 @@ GameObject:
   - component: {fileID: 2221831202306211055}
   - component: {fileID: 3224158445252211513}
   - component: {fileID: 4508029769826852426}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_head1_armor_plate_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}

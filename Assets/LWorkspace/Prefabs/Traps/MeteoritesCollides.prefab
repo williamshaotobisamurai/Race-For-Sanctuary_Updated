@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8800638128660039083}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireballRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 146848658509777407}
   - component: {fileID: 1632456881216991513}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MeteoritesCollides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,6 @@ MonoBehaviour:
   meteoriteA: {fileID: 2688477579492026061}
   meteoriteB: {fileID: 6895719051330444411}
   fireBallPrefab: {fileID: 3658208661855861921, guid: 6b43f7685509f254d82e117a0f4c6d0f, type: 3}
-  skully: {fileID: 0}
   startRadius: 2
   endRadius: 50
   fireBallCount: 30
@@ -659,9 +658,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3353225212546555710}
     m_Modifications:
+    - target: {fileID: 109870, guid: f2ee009e61b1177489331d95174281b1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 133814, guid: f2ee009e61b1177489331d95174281b1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 153324, guid: f2ee009e61b1177489331d95174281b1, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 183222, guid: f2ee009e61b1177489331d95174281b1, type: 3}
       propertyPath: m_Name
       value: SpikyExplosionFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 183222, guid: f2ee009e61b1177489331d95174281b1, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 488246, guid: f2ee009e61b1177489331d95174281b1, type: 3}
       propertyPath: m_LocalScale.x

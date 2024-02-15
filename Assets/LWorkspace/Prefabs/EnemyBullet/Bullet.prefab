@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6536471953428635228}
   - component: {fileID: 4201259607393643064}
   - component: {fileID: 7367018553744193630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: BULLET
   m_Icon: {fileID: 0}
@@ -119,10 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b519a8e990f1a438e51b8b36c395c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 80
   damamge: 10
-  lifeTime: 3
-  rotateRate: 5
+  hitParticle: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
+  rotateRate: 2
+  speed: 80
+  delayDestroy: 0
 --- !u!1001 &3293746528584652752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,9 +132,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3281753368492308951}
     m_Modifications:
+    - target: {fileID: 1542662008590268, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542662008590268, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653844105100354, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653844105100354, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1762376750822800, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
       propertyPath: m_Name
       value: GasMissileFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762376750822800, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915560383106050, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915560383106050, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384795825879374, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384795825879374, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384795825879374, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4384795825879374, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,6 +215,18 @@ PrefabInstance:
     - target: {fileID: 4384795825879374, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82270442419296012, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8b3848d6900879843a1ffd2a0ce93090, type: 3}
+    - target: {fileID: 82270442419296012, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199309305915587178, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199309305915587178, guid: ac9b4353d2875904fab1331e17aeb084, type: 3}
       propertyPath: m_Materials.Array.size

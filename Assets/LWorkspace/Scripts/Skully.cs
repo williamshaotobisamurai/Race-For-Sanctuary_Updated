@@ -151,7 +151,7 @@ public class Skully : MonoBehaviour
             skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
         });
 
-        healthAmount -= 999;
+        healthAmount = 0;
         UpdateHealthBar();
         OnSkullyDiedEvent?.Invoke();
     }
@@ -207,6 +207,7 @@ public class Skully : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthAmount -= damage;
+        healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
         UpdateHealthBar();
 
         if (healthAmount <= 0f)

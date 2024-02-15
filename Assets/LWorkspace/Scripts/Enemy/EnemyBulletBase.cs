@@ -24,7 +24,7 @@ public class EnemyBulletBase : MonoBehaviour
 
     protected virtual void Fly()
     {
-        if (transform.position.z < GameManager.Instance.Skully.transform.position.z - 10f)
+        if (transform.position.z < GameManager.Instance.Skully.transform.position.z - 5f)
         {
             isFlying = false;
             DOVirtual.DelayedCall(delayDestroy, () => { Destroy(gameObject); });

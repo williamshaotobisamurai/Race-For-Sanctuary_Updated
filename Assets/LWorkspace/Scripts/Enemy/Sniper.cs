@@ -110,7 +110,7 @@ public class Sniper : EnemyBase
     {
         GameManager.Instance.Skully.HitBySniper();
         GameObject hitP = Instantiate(hitParticle);
-        hitP.transform.position = GameManager.Instance.Skully.transform.position;
+        hitP.transform.position = aimedObj.transform.position;
         return null;
     }
 }

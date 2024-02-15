@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4108155629757198080}
   - component: {fileID: 1963687994936750854}
   - component: {fileID: 4835340950045849571}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: JetpackFuelItem
   m_TagString: BOOST_ITEM
   m_Icon: {fileID: 0}
@@ -254,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 3308128273212304377, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
       propertyPath: m_Name
       value: ItemModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308128273212304377, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
