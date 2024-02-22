@@ -9,8 +9,8 @@ public class AlienCreature : EnemyBase
 
     protected override GameObject Shoot()
     {
-        animator.Play("Fly Fireball Shoot");
-        DOVirtual.DelayedCall(0.6f, () =>
+        animator.Play("FlySpitAttack");
+        DOVirtual.DelayedCall(0.2f, () =>
         {
             GameObject blobInstance = GameObject.Instantiate(bullet);
             blobInstance.transform.position = muzzle.position;
