@@ -73,7 +73,11 @@ public class Sniper : EnemyBase
         float aimmingProgress = aimmingDuration / aimmingDurationBeforeShoot;
         aimmingProgress = Mathf.Clamp(aimmingProgress, 0f, 1f);
         aimedObjRandomMovement.Range = Mathf.Lerp(1.5f, 0.25f, aimmingProgress);
-        Color laserColor = Color.Lerp(laserSearchingColor, laserAimmingColor, aimmingProgress);
+        Color laserColor = laserSearchingColor;
+        if (aimmingProgress >= 0.95f)
+        {
+            laserColor = laserAimmingColor;
+        }
         laser.material.color = laserColor;
         laser.material.SetColor("_EmissionColor", laserColor);
         laser.startColor = laserColor;
