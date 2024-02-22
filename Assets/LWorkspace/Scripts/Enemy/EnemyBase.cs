@@ -72,4 +72,9 @@ public class EnemyBase : MonoBehaviour
         bulletInstance.transform.rotation = muzzle.rotation;
         return bulletInstance;
     }
+
+    public void Kill()
+    {
+        gameObject.SetActive(false);
+    }
 }

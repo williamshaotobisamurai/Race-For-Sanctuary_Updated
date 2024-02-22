@@ -23,7 +23,7 @@ public class SkullySkill : MonoBehaviour
 
     [SerializeField] private GameObject aimmingObject;
 
-    [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private LayerMask targetsLayer;
 
     private enum State
     {
@@ -74,12 +74,15 @@ public class SkullySkill : MonoBehaviour
 
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
-                    if (Physics.SphereCast(ray, 20f, out hit, 500, obstacleLayer))
+                    if (Physics.SphereCast(ray, 20f, out hit, 500, targetsLayer))
                     {
+                        Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.cyan, 5f);
+
                         Debug.Log(hit.transform.name);
                         Debug.Log("hit");
-                        if (hit.collider.tag.Equals(GameConstants.OBSTACLE))
+                        if (hit.collider.tag.Equals(GameConstants.OBSTACLE) || hit.collider.tag.Equals(GameConstants.ENEMY_HITPOINT))
                         {
+                            Debug.DrawRay(ray.origin, hit.collider.transform.position - ray.origin, Color.magenta, 5f);
                             aimmingObject.transform.position = hit.collider.transform.position;
                         }
                     }
