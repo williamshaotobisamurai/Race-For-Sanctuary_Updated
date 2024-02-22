@@ -13,8 +13,8 @@ public class Skully : MonoBehaviour
     [SerializeField] private Image healthBar;
 
     private int maxHealth = 100;
-    private float healthAmount = 100;
-    
+    private int healthAmount = 100;
+
     [SerializeField] private Transform skullyVisual;
 
     public event OnHitByMeteor OnHitByMeteorEvent;
@@ -49,7 +49,7 @@ public class Skully : MonoBehaviour
     private void Start()
     {
         skullyMovement.Init();
-        sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;        
+        sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;
     }
 
     private void OnDestroy()
@@ -212,12 +212,10 @@ public class Skully : MonoBehaviour
 
         if (healthAmount <= 0f)
         {
-            float x = Random.Range(-90f, 90f);
-            float y = Random.Range(-90f, 90f);
-            float z = Random.Range(-90f, 90f);
+            Vector3 randomAngularVelocity = GetRandomAngularVelocity();
             rb.freezeRotation = false;
             skullyMovement.StopRunning();
-            rb.angularVelocity = new Vector3(x, y, z);
+            rb.angularVelocity = randomAngularVelocity;
 
             DOVirtual.DelayedCall(3f, () =>
             {
@@ -228,6 +226,15 @@ public class Skully : MonoBehaviour
         {
             skullyVisual.transform.DOShakeRotation(0.1f, 10);
         }
+    }
+
+    private static Vector3 GetRandomAngularVelocity()
+    {
+        float x = Random.Range(-90f, 90f);
+        float y = Random.Range(-90f, 90f);
+        float z = Random.Range(-90f, 90f);
+        Vector3 randomAngularVelocity = new Vector3(x, y, z);
+        return randomAngularVelocity;
     }
 
     public Vector3 GetPosition()
@@ -265,7 +272,7 @@ public class Skully : MonoBehaviour
         Heal(healItem.HealAmount);
     }
 
-    public void Heal(float healingAmount)
+    public void Heal(int healingAmount)
     {
         healthAmount += healingAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
@@ -282,5 +289,43 @@ public class Skully : MonoBehaviour
     public void SetMaxSpeedFactor(float speedFactor)
     {
         skullyMovement.SetMaxSpeedFactor(speedFactor);
+    }
+
+    public void AttackByAlienJumpAttack(HangingAlien hangingAlien)
+    {
+        rb.isKinematic = true;
+        skullyMovement.StopRunning();
+
+        int targetHealth = healthAmount - hangingAlien.JumpAttackDamage;
+
+        targetHealth = Mathf.Clamp(targetHealth, 0, maxHealth);
+        skullyVisual.transform.DOShakeRotation(hangingAlien.JumpAttckBiteDuration, 10);
+        DOVirtual.Int(healthAmount, targetHealth, hangingAlien.JumpAttckBiteDuration, (v) =>
+        {
+            healthAmount = v;
+            healthBar.fillAmount = healthAmount / (float)maxHealth;
+            healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
+        }).OnComplete(() =>
+        {
+            OnHitByMeteorEvent?.Invoke();
+            rb.isKinematic = false;
+            if (healthAmount <= 0)
+            {
+                Vector3 randomAngularVelocity = GetRandomAngularVelocity();
+                rb.freezeRotation = false;
+                skullyMovement.StopRunning();
+                rb.angularVelocity = randomAngularVelocity;
+
+                DOVirtual.DelayedCall(3f, () =>
+                {
+                    OnSkullyDiedEvent?.Invoke();
+                });
+            }
+            else
+            {
+                rb.isKinematic = false;
+                skullyMovement.StartRunning();
+            }
+        });
     }
 }

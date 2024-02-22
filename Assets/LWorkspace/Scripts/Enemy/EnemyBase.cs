@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private Transform lookAtTrans;
 
-    [SerializeField] private SphereCollider detectTrigger;
+    [SerializeField] protected SphereCollider detectTrigger;
 
     [SerializeField] private LayerMask layerMask;
 

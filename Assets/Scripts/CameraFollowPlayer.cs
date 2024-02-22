@@ -58,7 +58,6 @@ public class CameraFollowPlayer : MonoBehaviour
             duration += Time.deltaTime; 
             //interpolating position
             //Debug.Log($"current angle: {transform.eulerAngles}");
-            Debug.Log($"current offset: {newOffset}");
             newOffset += positionInterval * Time.deltaTime;
             transform.position = player.position + newOffset;
             //interpolating angle

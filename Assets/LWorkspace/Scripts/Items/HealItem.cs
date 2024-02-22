@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class HealItem : ItemBase
 {
-    [SerializeField] private float healAmount;
-    public float HealAmount => healAmount;
+    [SerializeField] private int healAmount;
+    public int HealAmount => healAmount;
 }
