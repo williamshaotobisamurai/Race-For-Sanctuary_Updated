@@ -334,7 +334,7 @@ MonoBehaviour:
   skullyVisual: {fileID: 1811118272821962249}
   speedBoostAttachment: {fileID: 1538367640733584712}
   defensiveBoostAttachment: {fileID: 4253539411033553671}
-  isInvincible: 1
+  isInvincible: 0
   rb: {fileID: 5191574216452592755}
   boostAudioSource: {fileID: 5308786291714867761}
   killByEnergyFieldParticle: {fileID: 2870507250572897383}
@@ -385,9 +385,9 @@ MonoBehaviour:
   SIRS: {fileID: 7134365825979491668}
   missilePrefab: {fileID: 3448700195779673481, guid: a7c1e8cbcea69ba4f9a79bcda49f0865, type: 3}
   aimmingObject: {fileID: 8047531670158889977}
-  obstacleLayer:
+  targetsLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!54 &5191574216452592755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2

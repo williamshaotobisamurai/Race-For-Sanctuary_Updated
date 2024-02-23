@@ -13,6 +13,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private bool doDamage = false;
     public bool DoDamage => doDamage;
 
+    public event OnMissileHit OnMissileHitEvent;
+    public delegate void OnMissileHit(Obstacle obstacle);
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals(GameConstants.SKILL_SPHERE))
@@ -22,6 +25,7 @@ public class Obstacle : MonoBehaviour
             DOVirtual.DelayedCall(3f, () => Destroy(particle));
             gameObject.SetActive(false);
             other.GetComponentInParent<Missile>().Explode();
+            OnMissileHitEvent?.Invoke(this);
         }
     }
 }

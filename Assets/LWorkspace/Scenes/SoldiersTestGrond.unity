@@ -4774,6 +4774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HangingVespomorph (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 154734947072274705, guid: 91b98ef692acedc4f8ef735f21c6e2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1859097625603239426, guid: 91b98ef692acedc4f8ef735f21c6e2a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.7
@@ -21113,13 +21117,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 23091317006463855, guid: 913b62435ef579c44bd320ad4af743e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 154734947072274705, guid: 913b62435ef579c44bd320ad4af743e8, type: 3}
       propertyPath: m_Name
       value: Vespomorph
-      objectReference: {fileID: 0}
-    - target: {fileID: 154734947072274705, guid: 913b62435ef579c44bd320ad4af743e8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1859097625603239426, guid: 913b62435ef579c44bd320ad4af743e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21423,6 +21427,10 @@ PrefabInstance:
     - target: {fileID: 154734947072274705, guid: 91b98ef692acedc4f8ef735f21c6e2a7, type: 3}
       propertyPath: m_Name
       value: HangingVespomorph
+      objectReference: {fileID: 0}
+    - target: {fileID: 154734947072274705, guid: 91b98ef692acedc4f8ef735f21c6e2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1859097625603239426, guid: 91b98ef692acedc4f8ef735f21c6e2a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21778,6 +21786,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252621b54fcde354c9c73d790922023a, type: 3}
+--- !u!1001 &7401485300288497766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 191
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013563543826559703, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347793726463032078, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: m_Name
+      value: AlienStandingOnAsteroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
 --- !u!114 &8089472725619152416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22244,14 +22309,6 @@ PrefabInstance:
       propertyPath: coolDownIcon
       value: 
       objectReference: {fileID: 462128402}
-    - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: targetsLayer.m_Bits
-      value: 1088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2723479085575784851, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: obstacleLayer.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
     - target: {fileID: 4782813590747754396, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: healthBar
       value: 
@@ -22264,10 +22321,6 @@ PrefabInstance:
       propertyPath: splatterManager
       value: 
       objectReference: {fileID: 1457873153}
-    - target: {fileID: 5191574216452592755, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.28
@@ -22330,6 +22383,7 @@ SceneRoots:
   - {fileID: 1287101507}
   - {fileID: 236918186}
   - {fileID: 1291230226129276214}
+  - {fileID: 7401485300288497766}
   - {fileID: 5469969901973919464}
   - {fileID: 510805284}
   - {fileID: 1955187962}
