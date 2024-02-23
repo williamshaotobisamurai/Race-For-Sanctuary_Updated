@@ -38,7 +38,7 @@ public class HangingAlien : EnemyBase
             detectTrigger.enabled = false;
 
             JumpAttack(skully);
-     //       StartCoroutine(FlyTowardsSkullyCoroutine(skully));
+            //       StartCoroutine(FlyTowardsSkullyCoroutine(skully));
         }
     }
 
@@ -81,29 +81,36 @@ public class HangingAlien : EnemyBase
 
     private void JumpAttack(Skully skully)
     {
-        Vector3 leavingStartPosition = Vector3.zero;
-        Sequence seq = DOTween.Sequence();
-        seq.AppendCallback(() =>
+        if (skully.IsInvincible)
         {
-            skully.AttackByAlienJumpAttack(this);
-            transform.LookAt(skully.transform);
-        });
-        seq.Append(transform.DOMove(skully.transform.position, 0.2f));
-        seq.AppendCallback(() => { animator.Play("FlyBiteAttack"); });
-        seq.AppendInterval(JumpAttckBiteDuration + 0.2f);
-        seq.AppendCallback(() =>
+
+        }
+        else
         {
-            animator.Play("Fly");
-            Debug.Log("finish biting " + Time.time);
-            leavingStartPosition = transform.position;
-        });
-        seq.Append(transform.DOMove(leavingStartPosition - transform.forward * 2 + transform.up * 2, 3f));
-        seq.OnComplete(() =>
-        {
-            Debug.Log("leave and destroy " + Time.time);
-            Destroy(gameObject);
-        });
-        seq.Play();
+            Vector3 leavingStartPosition = Vector3.zero;
+            Sequence seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                skully.AttackByAlienJumpAttack(this);
+                transform.LookAt(skully.transform);
+            });
+            seq.Append(transform.DOMove(skully.transform.position, 0.2f));
+            seq.AppendCallback(() => { animator.Play("FlyBiteAttack"); });
+            seq.AppendInterval(JumpAttckBiteDuration + 0.2f);
+            seq.AppendCallback(() =>
+            {
+                animator.Play("Fly");
+                Debug.Log("finish biting " + Time.time);
+                leavingStartPosition = transform.position;
+            });
+            seq.Append(transform.DOMove(leavingStartPosition - transform.forward * 2 + transform.up * 2, 3f));
+            seq.OnComplete(() =>
+            {
+                Debug.Log("leave and destroy " + Time.time);
+                Destroy(gameObject);
+            });
+            seq.Play();
+        }
     }
 
     private void Update()

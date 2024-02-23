@@ -21170,18 +21170,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 455657298}
     m_Modifications:
     - target: {fileID: 515057543004869401, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 515057543004869401, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 515057543004869401, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 515057543004869401, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -65.4
       objectReference: {fileID: 0}
@@ -21221,17 +21209,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 515057543004869401, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2794483547649632358, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
       propertyPath: m_Name
       value: DragonSoulEaterGreenHP (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5502275866263513124, guid: 36e45261bc751dc488e3f268ef50d54d, type: 3}
-      propertyPath: m_Radius
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

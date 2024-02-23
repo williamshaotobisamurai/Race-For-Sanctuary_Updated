@@ -33,9 +33,11 @@ public class Skully : MonoBehaviour
     [SerializeField] private GameObject defensiveBoostAttachment;
 
     [SerializeField] private bool isInvincible = false;
+    public bool IsInvincible { get => isInvincible; set => isInvincible = value; }
 
     [SerializeField] private Rigidbody rb;
     public Rigidbody Rigidbody { get { return rb; } }
+
 
     [SerializeField] private AudioSource boostAudioSource;
 
@@ -68,7 +70,7 @@ public class Skully : MonoBehaviour
         if (collisionInfo.collider.tag.Equals(GameConstants.OBSTACLE))
         {
             collisionSound.Play();
-            if (isInvincible)
+            if (IsInvincible)
             {
                 ReflectMeteor(collisionInfo);
             }
@@ -159,7 +161,7 @@ public class Skully : MonoBehaviour
     {
         killByEnergyFieldParticle.SetActive(true);
      
-        if (!isInvincible)
+        if (!IsInvincible)
         {
             rb.isKinematic = true;
 
@@ -184,7 +186,7 @@ public class Skully : MonoBehaviour
     private void HitByBullet(EnemyBulletBase bullet)
     {
         bullet.OnHitPlayer();
-        if (!isInvincible)
+        if (!IsInvincible)
         {
             TakeDamage(bullet.Damage);
         }
@@ -205,7 +207,7 @@ public class Skully : MonoBehaviour
 
     public void HitBySniper()
     {
-        if (!isInvincible)
+        if (!IsInvincible)
         {
             maxHealth -= 50;
             TakeDamage(50);
@@ -264,13 +266,13 @@ public class Skully : MonoBehaviour
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
     {
         defensiveBoostAttachment.SetActive(true);
-        isInvincible = true;
+        IsInvincible = true;
 
         DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
         {
             defensiveBoostAttachment.SetActive(false);
 
-            isInvincible = false;
+            IsInvincible = false;
         });
     }
 
