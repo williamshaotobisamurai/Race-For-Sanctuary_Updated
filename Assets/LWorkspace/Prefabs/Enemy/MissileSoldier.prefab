@@ -2838,6 +2838,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1326100982655072754}
     m_Modifications:
+    - target: {fileID: 1175624638827349906, guid: 2658b2f6e5219ab4fb526cca0cf0ef1a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1840124843811190148, guid: 2658b2f6e5219ab4fb526cca0cf0ef1a, type: 3}
       propertyPath: m_Name
       value: EnemyHitPoint

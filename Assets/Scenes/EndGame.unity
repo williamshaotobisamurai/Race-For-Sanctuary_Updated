@@ -1152,17 +1152,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endingList:
   - minCoins: 0
-    maxCoins: 5
-    endingText: Ending text 1
-  - minCoins: 6
-    maxCoins: 10
-    endingText: Ending text 2
-  - minCoins: 11
-    maxCoins: 20
-    endingText: 'Ending text 3 '
-  - minCoins: 21
-    maxCoins: 9999
-    endingText: Ending text 4
+    endingText: Girlfriend abandons Skully, homeless, and in the end gets arrested
+      by the Space S.W.A.T and S.I.R.S gets dismantled
+  - minCoins: 20
+    endingText: Skully gets a low-end house, girlfriend will stay with him but unsatisfied,
+      gets sent to jail for a year and loses S.I.R.S where he is placed in a storage
+      house controlled by the government
+  - minCoins: 30
+    endingText: Girlfriend will stay with Skully but unsatisfied, gets sent to jail
+      for a year and loses S.I.R.S where he is placed in a storage house controlled
+      by the government
+  - minCoins: 40
+    endingText: Girlfriend slightly unsatisfied ,Keeps S.I.R.S but breaks in a month
+      due to the intensity of being in space running away from the cops
+  - minCoins: 50
+    endingText: Girlfriend is neutral ,S.I.R.S lives but many functions are disabled
+      due to not being able to be completely repaired and upgraded
+  - minCoins: 65
+    endingText: Girlfriend is satisfied ,S.I.R.S lives and functions normally
+  - minCoins: 80
+    endingText: Girlfriend loves you more than herself ,S.I.R.S is upgraded to bodyguard
+      and house caretaker ,S.W.A.T takes you out of their wanted system for good
   endingText: {fileID: 1900182499}
 --- !u!4 &1667012584
 Transform:
@@ -1567,7 +1577,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -31, y: 135}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 406.78, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900182499
 MonoBehaviour:

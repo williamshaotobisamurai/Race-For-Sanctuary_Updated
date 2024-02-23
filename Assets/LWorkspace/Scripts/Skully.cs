@@ -70,24 +70,42 @@ public class Skully : MonoBehaviour
             collisionSound.Play();
             if (isInvincible)
             {
-                Vector3 forceDirection = collisionInfo.transform.position - transform.position;
-                forceDirection.z = 0;
-
-                collisionInfo.collider.enabled = false;
-                collisionInfo.rigidbody.isKinematic = true;
-                RandomMovement randomMovement = collisionInfo.collider.GetComponent<RandomMovement>();
-                randomMovement?.StopMoving();
-
-                Vector3 randomDirection = Random.onUnitSphere;
-                Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
-                Vector3 currentPos = collisionInfo.transform.position;
-                Vector3 target = offset + currentPos;
-                collisionInfo.transform.DOMove(target, 2);
+                ReflectMeteor(collisionInfo);
             }
             else
             {
-                HitByMetero(obstacle);
+                HitByMeteroCollider(obstacle);
             }
+        }
+    }
+
+    private void ReflectMeteor(Collision collisionInfo)
+    {
+        Vector3 forceDirection = collisionInfo.transform.position - transform.position;
+        forceDirection.z = 0;
+
+        collisionInfo.collider.enabled = false;
+        collisionInfo.rigidbody.isKinematic = true;
+        RandomMovement randomMovement = collisionInfo.collider.GetComponent<RandomMovement>();
+        randomMovement?.StopMoving();
+
+        Vector3 randomDirection = Random.onUnitSphere;
+        Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
+        Vector3 currentPos = collisionInfo.transform.position;
+        Vector3 target = offset + currentPos;
+        collisionInfo.transform.DOMove(target, 2);
+    }
+
+    private void HitByMeteroCollider(Obstacle obstacle)
+    {
+        if (obstacle.DoDamage)
+        {
+            TakeDamage(obstacle.Damage);
+        }
+        else
+        {
+            skullyVisual.transform.DOShakeRotation(0.1f, 10);
+            OnHitByMeteorEvent?.Invoke();
         }
     }
 
@@ -140,34 +158,28 @@ public class Skully : MonoBehaviour
     private void KilledByEnergyField(EnergyField field)
     {
         killByEnergyFieldParticle.SetActive(true);
-        rb.isKinematic = true;
-
-        skullyVisual.transform.DOShakeRotation(0.5f, 50).OnComplete(() =>
+     
+        if (!isInvincible)
         {
-            float x = Random.Range(-90f, 90f);
-            float y = Random.Range(-90f, 90f);
-            float z = Random.Range(-90f, 90f);
+            rb.isKinematic = true;
 
-            skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
-        });
+            healthAmount = 0;
+            UpdateHealthBar();
+            OnSkullyDiedEvent?.Invoke();
 
-        healthAmount = 0;
-        UpdateHealthBar();
-        OnSkullyDiedEvent?.Invoke();
-    }
+            skullyVisual.transform.DOShakeRotation(0.5f, 50).OnComplete(() =>
+            {
+                float x = Random.Range(-90f, 90f);
+                float y = Random.Range(-90f, 90f);
+                float z = Random.Range(-90f, 90f);
 
-    private void HitByMetero(Obstacle obstacle)
-    {
-        if (obstacle.DoDamage)
-        {
-            TakeDamage(obstacle.Damage);
-        }
-        else
-        {
-            skullyVisual.transform.DOShakeRotation(0.1f, 10);
-            OnHitByMeteorEvent?.Invoke();
+                skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
+            });
+
         }
     }
+
+
 
     private void HitByBullet(EnemyBulletBase bullet)
     {

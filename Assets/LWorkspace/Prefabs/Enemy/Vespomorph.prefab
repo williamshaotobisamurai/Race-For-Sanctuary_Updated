@@ -86,6 +86,7 @@ MonoBehaviour:
   animator: {fileID: 7459320900877139278}
   initAnimation: Fly
   attackAnimation: FlySpitAttack
+  standingObstacle: {fileID: 0}
 --- !u!135 &4652412630418856707
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1317,7 +1318,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7713378586753603854}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

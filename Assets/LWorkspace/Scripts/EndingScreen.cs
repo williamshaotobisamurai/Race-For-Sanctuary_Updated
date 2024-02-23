@@ -28,9 +28,15 @@ public class EndingScreen : MonoBehaviour
 
     private Ending GetEnding(int coins)
     {
-        return endingList.Find(t =>
-          coins >= t.minCoins
-        && coins <= t.maxCoins);
+        for (int i = endingList.Count - 1; i >= 0; i--)
+        { 
+            Ending ending = endingList[i];
+            if (coins >= ending.minCoins)
+            {
+                return ending;
+            }
+        }
+        return null;
     }
 }
 
@@ -38,6 +44,5 @@ public class EndingScreen : MonoBehaviour
 public class Ending
 {
     public int minCoins;
-    public int maxCoins;
     public string endingText;
 }

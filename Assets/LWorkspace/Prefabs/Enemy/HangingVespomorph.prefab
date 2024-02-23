@@ -81,7 +81,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 17.02
+  m_Radius: 40
   m_Center: {x: 0, y: 0, z: 10.69}
 --- !u!114 &5320407467132676976
 MonoBehaviour:
@@ -105,7 +105,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   animator: {fileID: 7459320900877139278}
-  flySpeed: 10
+  flySpeed: 20
   rotateRate: 8
   jumpDuration: 80
   jumpAttackDistance: 5

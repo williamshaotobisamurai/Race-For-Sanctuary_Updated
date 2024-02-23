@@ -36,7 +36,9 @@ public class HangingAlien : EnemyBase
         if (skully != null)
         {
             detectTrigger.enabled = false;
-            StartCoroutine(FlyTowardsSkullyCoroutine(skully));
+
+            JumpAttack(skully);
+     //       StartCoroutine(FlyTowardsSkullyCoroutine(skully));
         }
     }
 
