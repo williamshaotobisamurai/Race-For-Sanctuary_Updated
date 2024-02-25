@@ -347,4 +347,9 @@ public class Skully : MonoBehaviour
     {
         rb.isKinematic = isKinematic;
     }
+
+    public Vector3 GetCurrentVelocity()
+    {
+        return rb.velocity;
+    }
 }
