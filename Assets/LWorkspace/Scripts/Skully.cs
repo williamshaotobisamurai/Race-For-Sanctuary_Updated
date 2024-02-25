@@ -342,4 +342,9 @@ public class Skully : MonoBehaviour
             }
         });
     }
+
+    public void SetKinematic(bool isKinematic)
+    {
+        rb.isKinematic = isKinematic;
+    }
 }
