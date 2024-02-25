@@ -160,7 +160,7 @@ public class Skully : MonoBehaviour
     private void KilledByEnergyField(EnergyField field)
     {
         killByEnergyFieldParticle.SetActive(true);
-     
+
         if (!IsInvincible)
         {
             rb.isKinematic = true;
@@ -268,6 +268,15 @@ public class Skully : MonoBehaviour
         defensiveBoostAttachment.SetActive(true);
         IsInvincible = true;
 
+        float flashTimeStamp = defensiveBoost.GetDefensiveDuration() - 3;
+        flashTimeStamp = Mathf.Clamp(flashTimeStamp, 0, flashTimeStamp);
+        DOVirtual.DelayedCall(flashTimeStamp, () =>
+        {
+
+            defensiveBoostAttachment.GetComponent<DefensiveAttachment>().StartFlashingForSeconds(defensiveBoost.GetDefensiveDuration());
+            //defensiveBoostAttachment.GetComponent<MeshRenderer>().material.do
+        });
+
         DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
         {
             defensiveBoostAttachment.SetActive(false);
@@ -341,5 +350,15 @@ public class Skully : MonoBehaviour
                 skullyMovement.StartRunning();
             }
         });
+    }
+
+    public void SetKinematic(bool isKinematic)
+    {
+        rb.isKinematic = isKinematic;
+    }
+
+    public Vector3 GetCurrentVelocity()
+    {
+        return rb.velocity;
     }
 }

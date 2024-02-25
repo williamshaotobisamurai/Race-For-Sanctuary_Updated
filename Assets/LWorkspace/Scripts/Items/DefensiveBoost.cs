@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefensiveBoost : ItemBase
 {
-    [SerializeField] private float defensiveDuration;
+    [SerializeField] private float defensiveDuration;    
 
     public float GetDefensiveDuration()
     {
