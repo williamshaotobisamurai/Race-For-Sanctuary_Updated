@@ -15,11 +15,6 @@ public class SpeedUIManager : MonoBehaviour
     {
         Vector2 skullyVelocityOnPlane = skully.GetCurrentVelocity();        
         float angle = Vector2.SignedAngle(Vector2.up, skullyVelocityOnPlane);
-        Debug.Log(skullyVelocityOnPlane + " : " + angle);
-        //-1 , 0
-        //    1, 0
-        //    0,1 
-        //    0,-1
 
         speedIconRotationRoot.localEulerAngles = new Vector3(0, 0, angle);
 
