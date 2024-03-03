@@ -43,6 +43,7 @@ public class CameraFollowPlayer : MonoBehaviour
             transform.position = player.position + offset;
         }
     }
+
     IEnumerator cameraInterpolate()
     {
         Vector3 positionInterval = (offset - startingCameraOffset) / (10.0f / transformRate);
