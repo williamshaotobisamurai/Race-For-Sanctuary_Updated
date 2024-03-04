@@ -12,11 +12,18 @@ public class EnemyHitPoint : MonoBehaviour
     {
         if (other.tag.Equals(GameConstants.SKILL_SPHERE))
         {
-            GameObject particle = Instantiate(explodeParticle);
-            particle.transform.position = transform.position;
-            DOVirtual.DelayedCall(3f, () => Destroy(particle));
+            if (explodeParticle != null)
+            {
+                GameObject particle = Instantiate(explodeParticle);
+                particle.transform.position = transform.position;
+                DOVirtual.DelayedCall(3f, () => Destroy(particle));
+            }
             other.GetComponentInParent<Missile>().Explode();
             enemy.Kill();
+        }
+        else if (other.tag.Equals(GameConstants.SKULLY_BULLET))
+        {
+            enemy.TakeDamage(other.GetComponent<SkullyBulletBase>().Damage);
         }
     }
 }

@@ -648,6 +648,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 65
+  health: 100
+  killedParticlePrefab: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
+  meshRendererlist: []
+  redFirst: 0
+  interval: 0.2
 --- !u!114 &8272857133367748706
 MonoBehaviour:
   m_ObjectHideFlags: 0

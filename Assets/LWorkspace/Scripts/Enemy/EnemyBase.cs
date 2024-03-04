@@ -18,6 +18,10 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private LayerMask layerMask;
 
+    [SerializeField] private int health = 100;
+
+    [SerializeField] private GameObject killedParticlePrefab;
+
     private void Update()
     {
         LookAtSkully();
@@ -73,8 +77,25 @@ public class EnemyBase : MonoBehaviour
         return bulletInstance;
     }
 
+    public virtual void TakeDamage(int damage)
+    {
+        health -= damage;
+        health = Mathf.Clamp(health, 0, int.MaxValue);
+
+        if (health <= 0)
+        {
+            Kill();
+        }
+    }
+
     public void Kill()
     {
         gameObject.SetActive(false);
+        if (killedParticlePrefab != null)
+        {
+            GameObject instance = Instantiate(killedParticlePrefab);
+            instance.transform.position = transform.position;   
+
+        }
     }
 }

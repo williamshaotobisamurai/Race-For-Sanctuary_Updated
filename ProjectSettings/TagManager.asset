@@ -16,6 +16,7 @@ TagManager:
   - TRAP
   - BLOB
   - ENEMY_HITPOINT
+  - SKULLY_BULLET
   layers:
   - Default
   - TransparentFX

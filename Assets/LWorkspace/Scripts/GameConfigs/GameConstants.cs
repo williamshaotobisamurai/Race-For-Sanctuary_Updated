@@ -13,4 +13,5 @@ public static class GameConstants
     public static string TRAP = "TRAP";
     public static string ENEMY = "Enemy";
     public static string ENEMY_HITPOINT = "ENEMY_HITPOINT";
+    public static string SKULLY_BULLET = "SKULLY_BULLET";        
 }

@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkullySkill : MonoBehaviour
+public class SkullyMissile : MonoBehaviour
 {
     [SerializeField] private KeyCode skillKey;
     [SerializeField] private float coolDown = 3f;
 
     private float lastCastTimeStamp;
 
-    [SerializeField] private Image coolDownIcon;
+
 
     [SerializeField] private GameObject skillSphere;
-    [SerializeField] private Crosshair crosshair;
+ 
 
     [SerializeField] private float aimingDuration = 3f;
     [SerializeField] private State state;
@@ -23,7 +23,7 @@ public class SkullySkill : MonoBehaviour
 
     [SerializeField] private GameObject aimmingObject;
 
-    [SerializeField] private LayerMask targetsLayer;
+  
 
     private enum State
     {
@@ -35,7 +35,6 @@ public class SkullySkill : MonoBehaviour
     private void Start()
     {
         state = State.COOLDOWN;
-        coolDownIcon.DOFillAmount(1f, coolDown);
     }
 
     private Missile missileInstance;
@@ -50,7 +49,7 @@ public class SkullySkill : MonoBehaviour
                 if (Input.GetKeyDown(skillKey))
                 {
                     state = State.AIMMING;
-                    crosshair.Show();
+                 
 
                     if (missileInstance != null)
                     {
@@ -69,12 +68,10 @@ public class SkullySkill : MonoBehaviour
                     lastCastTimeStamp = Time.time;
                     state = State.COOLDOWN;
                     Vector3 mousePos = Input.mousePosition;
-                    coolDownIcon.fillAmount = 0f;
-                    coolDownIcon.DOFillAmount(1f, coolDown);
 
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
-                    if (Physics.SphereCast(ray, 20f, out hit, 500, targetsLayer))
+                    if (Physics.SphereCast(ray, 20f, out hit, 500,SkullyWeaponManager.Instance.TargetsLayer))
                     {
                         Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.cyan, 5f);
 
@@ -86,7 +83,7 @@ public class SkullySkill : MonoBehaviour
                             aimmingObject.transform.position = hit.collider.transform.position;
                         }
                     }
-                    else
+                    else 
                     {
                         mousePos += Camera.main.transform.forward * 30f; // Make sure to add some "depth" to the screen point 
                         Vector3 aim = Camera.main.ScreenToWorldPoint(mousePos);
@@ -96,7 +93,6 @@ public class SkullySkill : MonoBehaviour
                     missileInstance.transform.LookAt(aimmingObject.transform);
                     missileInstance.Launch();
                     missileInstance = null;
-                    crosshair.Hide();
                 }
                 break;
 

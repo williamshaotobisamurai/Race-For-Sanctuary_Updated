@@ -48,6 +48,8 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private Text healthText;
 
+    [SerializeField] private SkullyWeaponManager skullyWeaponManager;
+
     private void Start()
     {
         skullyMovement.Init();
@@ -134,6 +136,9 @@ public class Skully : MonoBehaviour
                     CollectHealItem(itemBase as HealItem);
                     break;
 
+                case ItemBase.EItemType.WEAPON_ITEM:
+                    CollectWeaponItem(itemBase as WeaponItem);
+                    break;
                 default:
                     break;
             }
@@ -156,6 +161,8 @@ public class Skully : MonoBehaviour
             }
         }
     }
+
+  
 
     private void KilledByEnergyField(EnergyField field)
     {
@@ -292,15 +299,20 @@ public class Skully : MonoBehaviour
 
     public void CollectHealItem(HealItem healItem)
     {
-        Heal(healItem.HealAmount);
-    }
-
-    public void Heal(int healingAmount)
-    {
-        healthAmount += healingAmount;
+        healthAmount += healItem.HealAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
 
         UpdateHealthBar();
+    }
+
+    private void CollectWeaponItem(WeaponItem weaponItem)
+    {
+        skullyWeaponManager.SetupWeapon(weaponItem);
+    }
+
+    public void DropWeapon()
+    { 
+    
     }
 
     private void UpdateHealthBar()
@@ -308,6 +320,8 @@ public class Skully : MonoBehaviour
         healthBar.DOFillAmount(healthAmount / (float)maxHealth, 0.5f);
         healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
     }
+
+
 
     public void SetMaxSpeedFactor(float speedFactor)
     {
