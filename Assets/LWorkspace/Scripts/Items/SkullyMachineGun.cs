@@ -16,6 +16,13 @@ public class SkullyMachineGun : MonoBehaviour
     [SerializeField] private float spread = 3f;
     [SerializeField] private AudioSource gunAudio;
 
+    [SerializeField] private AudioSource reloadAudio;
+
+    private void OnEnable()
+    {
+        reloadAudio.Play();
+    }
+
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -33,18 +40,7 @@ public class SkullyMachineGun : MonoBehaviour
         {
             if (Time.time >= lastFireTimeStamp + firingInterval)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, rayLength, SkullyWeaponManager.Instance.TargetsLayer))
-                {
-                    Debug.DrawRay(ray.origin, hit.point - ray.origin, Color.cyan, 5f);
-
-                    if (hit.collider.tag.Equals(GameConstants.OBSTACLE) || hit.collider.tag.Equals(GameConstants.ENEMY_HITPOINT))
-                    {
-                        Debug.DrawRay(ray.origin, hit.collider.transform.position - ray.origin, Color.magenta, 5f);
-                        // aimmingObject.transform.position = hit.collider.transform.position;
-                    }
-                }
-                transform.DOShakeRotation(firingInterval, 5);
+                transform.DOShakeRotation(firingInterval, 8);
                 lastFireTimeStamp = Time.time;
                 Shoot(ray);
             }

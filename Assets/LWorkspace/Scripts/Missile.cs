@@ -22,6 +22,7 @@ public class Missile : MonoBehaviour
     private bool isLaunched = false;
 
     [SerializeField] private Transform muzzle;
+    [SerializeField] private AudioSource launchAudio;
 
     public void AttachTo(Transform muzzle)
     {
@@ -35,7 +36,8 @@ public class Missile : MonoBehaviour
   
         isLaunched = true;
         launchedTime = Time.time;
-        explodeTrigger.SetActive(true);      
+        explodeTrigger.SetActive(true);
+        launchAudio.Play();
     }
 
     private void Update()

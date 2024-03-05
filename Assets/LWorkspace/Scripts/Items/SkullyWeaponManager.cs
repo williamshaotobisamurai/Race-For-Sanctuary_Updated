@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class SkullyWeaponManager : MonoBehaviour
 
 
     [SerializeField] private SkullyMachineGun machineGun;
+    [SerializeField] private SkullyMissile skullyMissile;
 
     private static SkullyWeaponManager instance;
     public static SkullyWeaponManager Instance { get => instance; }
@@ -44,13 +46,59 @@ public class SkullyWeaponManager : MonoBehaviour
         switch (weaponItem.WeaponType)
         {
             case WeaponItem.EWeaponType.MACHINE_GUN:
-                machineGun.gameObject.SetActive(true);
-
+                TurnOffMissile();
+                MachineGunPopup();
                 break;
             case WeaponItem.EWeaponType.MISSILE:
+                MissilePopup();
+                TurnOffMachineGun();
                 break;
             default:
                 break;
+        }
+    }
+
+    private void MachineGunPopup()
+    {
+        if (!machineGun.isActiveAndEnabled)
+        {
+            machineGun.gameObject.SetActive(true);
+            machineGun.transform.localScale = Vector3.zero;
+
+            machineGun.enabled = false;
+            machineGun.transform.DOScale(Vector3.one, 0.3f).OnComplete(() =>
+            {
+                machineGun.enabled = true;
+            });
+        }
+    }
+
+    private void MissilePopup()
+    {
+        if (!skullyMissile.isActiveAndEnabled)
+        {
+            skullyMissile.gameObject.SetActive(true);
+            skullyMissile.PrepareMissile();
+        }
+    }
+
+    private void TurnOffMachineGun()
+    {
+        if (machineGun.isActiveAndEnabled)
+        {
+            machineGun.transform.DOScale(Vector3.zero, 0.3f).OnComplete(() =>
+            {
+                machineGun.enabled = false;
+                machineGun.gameObject.SetActive(false);
+            });
+        }
+    }
+
+    private void TurnOffMissile()
+    {
+        if (skullyMissile.isActiveAndEnabled)
+        {
+            skullyMissile.TurnOff();
         }
     }
 }
