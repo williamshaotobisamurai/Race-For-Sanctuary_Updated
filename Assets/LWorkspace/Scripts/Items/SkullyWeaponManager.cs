@@ -50,8 +50,8 @@ public class SkullyWeaponManager : MonoBehaviour
                 MachineGunPopup();
                 break;
             case WeaponItem.EWeaponType.MISSILE:
-                MissilePopup();
                 TurnOffMachineGun();
+                MissilePopup();
                 break;
             default:
                 break;
