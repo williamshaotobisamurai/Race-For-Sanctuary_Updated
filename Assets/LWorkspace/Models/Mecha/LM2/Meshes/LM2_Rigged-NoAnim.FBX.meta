@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: a49a19bed23aeee448d1c0fa834db349
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone001(mirrored)
+    100004: Bone002
+    100006: Bone002(mirrored)
+    100008: Bone003
+    100010: Bone003(mirrored)
+    100012: Bone004
+    100014: Bone004(mirrored)
+    100016: Bone005
+    100018: IK Chain001
+    100020: IK Chain002
+    100022: IK Chain003
+    100024: IK Chain004
+    100026: LM2_Chest
+    100028: LM2_Head
+    100030: LM2_JetPack
+    100032: LM2_L-Foot
+    100034: LM2_L-Knee
+    100036: LM2_L-Leg
+    100038: LM2_L-Limb
+    100040: LM2_Machinegun
+    100042: LM2_Machinegun_Cannon1
+    100044: LM2_Machinegun_Cannon2
+    100046: LM2_Missile01
+    100048: LM2_Missile02
+    100050: LM2_Missile03
+    100052: LM2_Missile04
+    100054: LM2_Move-L-Foot
+    100056: LM2_Move-R-Foot
+    100058: LM2_R-Foot
+    100060: LM2_R-Knee
+    100062: LM2_R-Leg
+    100064: LM2_R-Limb
+    100066: //RootNode
+    100068: LM2_Rocket-Launcher
+    100070: Move_Me
+    400000: Bone001
+    400002: Bone001(mirrored)
+    400004: Bone002
+    400006: Bone002(mirrored)
+    400008: Bone003
+    400010: Bone003(mirrored)
+    400012: Bone004
+    400014: Bone004(mirrored)
+    400016: Bone005
+    400018: IK Chain001
+    400020: IK Chain002
+    400022: IK Chain003
+    400024: IK Chain004
+    400026: LM2_Chest
+    400028: LM2_Head
+    400030: LM2_JetPack
+    400032: LM2_L-Foot
+    400034: LM2_L-Knee
+    400036: LM2_L-Leg
+    400038: LM2_L-Limb
+    400040: LM2_Machinegun
+    400042: LM2_Machinegun_Cannon1
+    400044: LM2_Machinegun_Cannon2
+    400046: LM2_Missile01
+    400048: LM2_Missile02
+    400050: LM2_Missile03
+    400052: LM2_Missile04
+    400054: LM2_Move-L-Foot
+    400056: LM2_Move-R-Foot
+    400058: LM2_R-Foot
+    400060: LM2_R-Knee
+    400062: LM2_R-Leg
+    400064: LM2_R-Limb
+    400066: //RootNode
+    400068: LM2_Rocket-Launcher
+    400070: Move_Me
+    2100000: LM2_Mecha
+    2300000: LM2_Chest
+    2300002: LM2_Head
+    2300004: LM2_JetPack
+    2300006: LM2_L-Foot
+    2300008: LM2_Machinegun
+    2300010: LM2_Machinegun_Cannon1
+    2300012: LM2_Machinegun_Cannon2
+    2300014: LM2_Missile01
+    2300016: LM2_Missile02
+    2300018: LM2_Missile03
+    2300020: LM2_Missile04
+    2300022: LM2_R-Foot
+    2300024: LM2_Rocket-Launcher
+    3300000: LM2_Chest
+    3300002: LM2_Head
+    3300004: LM2_JetPack
+    3300006: LM2_L-Foot
+    3300008: LM2_Machinegun
+    3300010: LM2_Machinegun_Cannon1
+    3300012: LM2_Machinegun_Cannon2
+    3300014: LM2_Missile01
+    3300016: LM2_Missile02
+    3300018: LM2_Missile03
+    3300020: LM2_Missile04
+    3300022: LM2_R-Foot
+    3300024: LM2_Rocket-Launcher
+    4300000: LM2_R-Foot
+    4300002: LM2_L-Foot
+    4300004: LM2_Chest
+    4300006: LM2_JetPack
+    4300008: LM2_Head
+    4300010: LM2_Machinegun
+    4300012: LM2_Machinegun_Cannon2
+    4300014: LM2_Machinegun_Cannon1
+    4300016: LM2_Rocket-Launcher
+    4300018: LM2_Missile02
+    4300020: LM2_Missile04
+    4300022: LM2_Missile03
+    4300024: LM2_Missile01
+    4300026: LM2_R-Limb
+    4300028: LM2_L-Limb
+    4300030: LM2_L-Knee
+    4300032: LM2_R-Knee
+    4300034: LM2_L-Leg
+    4300036: LM2_R-Leg
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: LM2_L-Knee
+    13700002: LM2_L-Leg
+    13700004: LM2_L-Limb
+    13700006: LM2_R-Knee
+    13700008: LM2_R-Leg
+    13700010: LM2_R-Limb
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LM2_Mecha
+    second: {fileID: 2100000, guid: fa0cba133dcae0146b4fedfe78ddba3e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

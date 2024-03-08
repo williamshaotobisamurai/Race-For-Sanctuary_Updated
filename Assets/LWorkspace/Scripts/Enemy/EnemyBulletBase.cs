@@ -9,12 +9,15 @@ public class EnemyBulletBase : MonoBehaviour
     public int Damage { get => damamge; }
 
     [SerializeField] protected GameObject hitParticle;
-    [SerializeField] protected float rotateRate = 20f;
-    [SerializeField] protected float speed = 10f;
+    
+    [SerializeField] private float rotateRate = 20f;
+    public float RotateRate { get => rotateRate; set => rotateRate = value; }
+    [SerializeField] private float speed = 10f;
 
+    public float Speed { get => speed; set => speed = value; }
     [SerializeField] private float delayDestroy = 5f;
 
-    private bool isFlying = false;
+    [SerializeField] protected bool isFlying = false;
     public bool IsFlying => isFlying;
 
     private void Update()
@@ -24,7 +27,7 @@ public class EnemyBulletBase : MonoBehaviour
 
     protected virtual void Fly()
     {
-        if (transform.position.z < GameManager.Instance.Skully.transform.position.z - 5f)
+        if (isFlying && transform.position.z < GameManager.Instance.Skully.transform.position.z - 5f)
         {
             isFlying = false;
             DOVirtual.DelayedCall(delayDestroy, () => { Destroy(gameObject); });
@@ -32,7 +35,7 @@ public class EnemyBulletBase : MonoBehaviour
         else
         {
             isFlying = true;
-            transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+            transform.Translate(Vector3.forward * Speed * Time.deltaTime, Space.Self);
 
             Quaternion prevRotation = transform.rotation;
 
@@ -40,7 +43,7 @@ public class EnemyBulletBase : MonoBehaviour
 
             Quaternion desiredRotation = transform.rotation;
 
-            transform.rotation = Quaternion.Lerp(prevRotation, desiredRotation, Time.deltaTime * rotateRate);
+            transform.rotation = Quaternion.Lerp(prevRotation, desiredRotation, Time.deltaTime * RotateRate);
         }
     }
 
@@ -50,4 +53,6 @@ public class EnemyBulletBase : MonoBehaviour
         explode.transform.position = transform.position;
         gameObject.SetActive(true);
     }
+
+//    public abstract
 }

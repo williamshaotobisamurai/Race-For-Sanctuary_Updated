@@ -27,10 +27,6 @@ public class Obstacle : MonoBehaviour
             other.GetComponentInParent<Missile>().Explode();
             OnMissileHitEvent?.Invoke(this);
         }
-        else if (other.tag.Equals(GameConstants.SKULLY_BULLET))
-        { 
-            
-        }
     }
 }
  

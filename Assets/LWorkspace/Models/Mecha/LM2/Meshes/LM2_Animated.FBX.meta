@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: b84f63154bfc1b0499d3982b69c2bce0
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone001(mirrored)
+    100004: Bone002
+    100006: Bone002(mirrored)
+    100008: Bone003
+    100010: Bone003(mirrored)
+    100012: Bone004
+    100014: Bone004(mirrored)
+    100016: Bone005
+    100018: IK Chain001
+    100020: IK Chain002
+    100022: IK Chain003
+    100024: IK Chain004
+    100026: //RootNode
+    100028: LM2_Chest
+    100030: LM2_Head
+    100032: LM2_JetPack
+    100034: LM2_L-Foot
+    100036: LM2_L-Knee
+    100038: LM2_L-Leg
+    100040: LM2_L-Limb
+    100042: LM2_Machinegun
+    100044: LM2_Machinegun_Cannon1
+    100046: LM2_Machinegun_Cannon2
+    100048: LM2_Missile01
+    100050: LM2_Missile02
+    100052: LM2_Missile03
+    100054: LM2_Missile04
+    100056: LM2_Move-L-Foot
+    100058: LM2_Move-R-Foot
+    100060: LM2_R-Foot
+    100062: LM2_R-Knee
+    100064: LM2_R-Leg
+    100066: LM2_R-Limb
+    100068: LM2_Rocket-Launcher
+    100070: Move_Me
+    400000: Bone001
+    400002: Bone001(mirrored)
+    400004: Bone002
+    400006: Bone002(mirrored)
+    400008: Bone003
+    400010: Bone003(mirrored)
+    400012: Bone004
+    400014: Bone004(mirrored)
+    400016: Bone005
+    400018: IK Chain001
+    400020: IK Chain002
+    400022: IK Chain003
+    400024: IK Chain004
+    400026: //RootNode
+    400028: LM2_Chest
+    400030: LM2_Head
+    400032: LM2_JetPack
+    400034: LM2_L-Foot
+    400036: LM2_L-Knee
+    400038: LM2_L-Leg
+    400040: LM2_L-Limb
+    400042: LM2_Machinegun
+    400044: LM2_Machinegun_Cannon1
+    400046: LM2_Machinegun_Cannon2
+    400048: LM2_Missile01
+    400050: LM2_Missile02
+    400052: LM2_Missile03
+    400054: LM2_Missile04
+    400056: LM2_Move-L-Foot
+    400058: LM2_Move-R-Foot
+    400060: LM2_R-Foot
+    400062: LM2_R-Knee
+    400064: LM2_R-Leg
+    400066: LM2_R-Limb
+    400068: LM2_Rocket-Launcher
+    400070: Move_Me
+    2100000: LM2_Mecha
+    2300000: LM2_Chest
+    2300002: LM2_Head
+    2300004: LM2_JetPack
+    2300006: LM2_L-Foot
+    2300008: LM2_Machinegun
+    2300010: LM2_Machinegun_Cannon1
+    2300012: LM2_Machinegun_Cannon2
+    2300014: LM2_Missile01
+    2300016: LM2_Missile02
+    2300018: LM2_Missile03
+    2300020: LM2_Missile04
+    2300022: LM2_R-Foot
+    2300024: LM2_Rocket-Launcher
+    3300000: LM2_Chest
+    3300002: LM2_Head
+    3300004: LM2_JetPack
+    3300006: LM2_L-Foot
+    3300008: LM2_Machinegun
+    3300010: LM2_Machinegun_Cannon1
+    3300012: LM2_Machinegun_Cannon2
+    3300014: LM2_Missile01
+    3300016: LM2_Missile02
+    3300018: LM2_Missile03
+    3300020: LM2_Missile04
+    3300022: LM2_R-Foot
+    3300024: LM2_Rocket-Launcher
+    4300000: LM2_R-Foot
+    4300002: LM2_L-Foot
+    4300004: LM2_Chest
+    4300006: LM2_JetPack
+    4300008: LM2_Head
+    4300010: LM2_Machinegun
+    4300012: LM2_Machinegun_Cannon2
+    4300014: LM2_Machinegun_Cannon1
+    4300016: LM2_Rocket-Launcher
+    4300018: LM2_Missile02
+    4300020: LM2_Missile04
+    4300022: LM2_Missile03
+    4300024: LM2_Missile01
+    4300026: LM2_R-Limb
+    4300028: LM2_L-Limb
+    4300030: LM2_L-Knee
+    4300032: LM2_R-Knee
+    4300034: LM2_L-Leg
+    4300036: LM2_R-Leg
+    7400000: Guard_Mode
+    7400002: Walk
+    7400004: Idle
+    7400006: Weapons_Ready
+    9500000: //RootNode
+    13700000: LM2_L-Knee
+    13700002: LM2_L-Leg
+    13700004: LM2_L-Limb
+    13700006: LM2_R-Knee
+    13700008: LM2_R-Leg
+    13700010: LM2_R-Limb
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LM2_Mecha
+    second: {fileID: 2100000, guid: fa0cba133dcae0146b4fedfe78ddba3e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Guard_Mode
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 151
+      lastFrame: 179
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Weapons_Ready
+      takeName: Take 001
+      firstFrame: 251
+      lastFrame: 330
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

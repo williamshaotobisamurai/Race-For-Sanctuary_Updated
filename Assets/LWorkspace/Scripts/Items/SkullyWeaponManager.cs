@@ -55,8 +55,8 @@ public class SkullyWeaponManager : MonoBehaviour
                 break;
             default:
                 break;
-        }
-    }
+    }        }
+
 
     private void MachineGunPopup()
     {

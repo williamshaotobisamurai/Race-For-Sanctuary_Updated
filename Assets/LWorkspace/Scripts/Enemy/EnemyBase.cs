@@ -88,14 +88,13 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    public void Kill()
+    public virtual void Kill()
     {
         gameObject.SetActive(false);
         if (killedParticlePrefab != null)
         {
             GameObject instance = Instantiate(killedParticlePrefab);
-            instance.transform.position = transform.position;   
-
+            instance.transform.position = transform.position;
         }
     }
 }
