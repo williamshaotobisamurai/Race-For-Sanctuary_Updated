@@ -590,6 +590,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 65
+  health: 100
+  advanceDistance: 150
+  killedParticlePrefab: {fileID: 0}
   animator: {fileID: 6382098698929799391}
   initAnimation: 
   attackAnimation: 

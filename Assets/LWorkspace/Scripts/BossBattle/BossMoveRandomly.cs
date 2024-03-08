@@ -81,7 +81,7 @@ namespace NodeCanvas.Tasks.Actions
             while (tries < 10)
             {
                 tries++;
-                float randomX = Random.Range(0f, 0.75f);
+                float randomX = Random.Range(0.25f, 0.75f);
                 float randomY = Random.Range(0.15f, 0.85f);
 
                 Vector3 bossTargetViewportPoint = new Vector3(randomX, randomY, targetDistance);

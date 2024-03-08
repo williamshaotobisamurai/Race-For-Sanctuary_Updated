@@ -14,6 +14,7 @@ public class BossUltimateMissileManager : MonoBehaviour
     [SerializeField] private float initSpeed = 20f;
 
     [SerializeField] private float missileInterval = 0.1f;
+    [SerializeField] private GameObject muzzleParticlePrefab;
 
     public void Cast()
     {
@@ -34,9 +35,13 @@ public class BossUltimateMissileManager : MonoBehaviour
 
             GameObject missileInstance = Instantiate(missilePrefab, muzzles[i]);
 
-            missileInstance.transform.position = muzzleForMissile.transform.position;
+            GameObject muzzleInstance = Instantiate(muzzleParticlePrefab, muzzleForMissile);
 
-            missileInstance.transform.rotation = muzzleForMissile.transform.rotation;
+            muzzleInstance.SetActive(true);
+            muzzleInstance.transform.localPosition = Vector3.zero;
+            muzzleInstance.transform.localRotation = Quaternion.identity;
+            //muzzleInstance.transform.localEulerAngles = new Vector3(180, 0, 0);
+            muzzleInstance.transform.localScale *= 0.5f;
 
             EnemyMissile enemyMissile = missileInstance.GetComponent<EnemyMissile>();
 
@@ -66,6 +71,7 @@ public class BossUltimateMissileManager : MonoBehaviour
     }
 
     // Update is called once per frame
-  
+
+   
 }
 

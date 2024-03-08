@@ -3,9 +3,11 @@ using NodeCanvas.BehaviourTrees;
 using NodeCanvas.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Boss : EnemyBase
 {
@@ -30,18 +32,29 @@ public class Boss : EnemyBase
     [SerializeField] private LookAtConstraint machineGunLookAt;
     [SerializeField] private LookAtConstraint missileGunLookAt;
 
+    [SerializeField] private GameObject bossHealthBar;
+
+    [SerializeField] private Image healthBar;
+    [SerializeField] private Text healthText;
+
+    [SerializeField] private Material flashMat;
+    [SerializeField] private List<MeshRenderer> flashRenderers;
+
+    public event OnExplode OnExplodeEvent;
+    public delegate void OnExplode();
+
     private void Start()
     {
         skully = GameManager.Instance.Skully;
-    }
-    public void ShootBulletsForSeconds()
-    {
-
+        flashRenderers.ForEach(r => { r.material = flashMat; });
     }
 
-    public void MoveRandomly()
+    public void StartFighting()
     {
-
+        behaviourTreeOwner.enabled = true;
+        bossHealthBar.SetActive(true);
+        health = maxHealth;
+        UpdateHealthBar();
     }
 
     public void MachineGunFire()
@@ -91,36 +104,61 @@ public class Boss : EnemyBase
             }
         }
 
-        DOVirtual.DelayedCall(2f, () =>
-        {
-            Time.timeScale = 0.5f;
-        });
+        OnExplodeEvent?.Invoke();
+
     }
+    private bool isKilled = false;
 
     public override void Kill()
     {
-        behaviourTreeOwner.enabled = false;
-        chargeParticle.gameObject.SetActive(true);
-        transform.DOShakeRotation(explodeCharge,10f);
-
-        DOVirtual.DelayedCall(1f, () =>
+        if (!isKilled)
         {
-            DOVirtual.Float(1, 0.5f, 1f, (f) =>
+            isKilled = true;
+            behaviourTreeOwner.enabled = false;
+            chargeParticle.gameObject.SetActive(true);
+            GetComponent<Animator>().enabled = false;
+            transform.DOShakeRotation(explodeCharge, 10f);
+            bossHealthBar.SetActive(false);      
+
+            DOVirtual.DelayedCall(explodeCharge, () =>
             {
-                Time.timeScale = f;
+                Explode();
+                chargeParticle.SetActive(false);
             });
-        });   
+            MachineGunStopFire();
+            MissileStopFire();
+            machineGunLookAt.weight = 0.5f;
+            missileGunLookAt.weight = 0.3f;
+        }
+    }
 
-        DOVirtual.DelayedCall(explodeCharge, () =>
+
+    private Tween flashTween = null;
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        UpdateHealthBar();
+
+        if (flashTween != null)
         {
-            Explode();
-            chargeParticle.SetActive(false);
-        },ignoreTimeScale: true);
-        chestLookAt.weight = 0f;
-        MachineGunStopFire();
-        MissileStopFire();
-        machineGunLookAt.weight = 0.5f;
-        missileGunLookAt.weight = 0.3f;
+            flashTween.Kill();
+            flashTween = null;
+        }
+
+        Sequence seq = DOTween.Sequence();
+        seq.AppendCallback(() =>flashMat.EnableKeyword("_EMISSION"));
+        seq.AppendInterval(0.1f);
+        seq.AppendCallback(() => flashMat.DisableKeyword("_EMISSION"));        
+        seq.Play();
+        flashTween = seq;
+
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthBar.DOFillAmount(health / (float)maxHealth, 0.5f);
+        healthText.text = health.ToString() + " / " + maxHealth.ToString();
     }
 
     void Update()

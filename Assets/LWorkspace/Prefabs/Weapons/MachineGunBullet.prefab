@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damamge: 20
-  hitParticle: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
+  hitParticle: {fileID: 195742, guid: 68911c873ad39eb40a9697dd01a4dc64, type: 3}
   speed: 400
   delayDestroy: 5
   lifeTime: 3

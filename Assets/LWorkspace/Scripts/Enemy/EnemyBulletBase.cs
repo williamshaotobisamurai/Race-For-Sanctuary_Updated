@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletBase : MonoBehaviour
+public abstract class EnemyBulletBase : MonoBehaviour
 {
     [SerializeField] private int damamge = 10;
     public int Damage { get => damamge; }
@@ -15,10 +15,8 @@ public class EnemyBulletBase : MonoBehaviour
     [SerializeField] private float speed = 10f;
 
     public float Speed { get => speed; set => speed = value; }
-    [SerializeField] private float delayDestroy = 5f;
 
-    [SerializeField] protected bool isFlying = false;
-    public bool IsFlying => isFlying;
+    protected bool isOverSkully = false;
 
     private void Update()
     {
@@ -27,24 +25,24 @@ public class EnemyBulletBase : MonoBehaviour
 
     protected virtual void Fly()
     {
-        if (isFlying && transform.position.z < GameManager.Instance.Skully.transform.position.z - 5f)
+        if (transform.position.z < GameManager.Instance.Skully.transform.position.z)
         {
-            isFlying = false;
-            DOVirtual.DelayedCall(delayDestroy, () => { Destroy(gameObject); });
+            if (!isOverSkully)
+            {
+                rotateRate = 0f;
+                isOverSkully = true;
+                OnFlyOverSkully();
+            }
         }
         else
         {
-            isFlying = true;
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime, Space.Self);
-
             Quaternion prevRotation = transform.rotation;
-
             transform.LookAt(GameManager.Instance.Skully.transform);
-
             Quaternion desiredRotation = transform.rotation;
 
             transform.rotation = Quaternion.Lerp(prevRotation, desiredRotation, Time.deltaTime * RotateRate);
         }
+        transform.Translate(Vector3.forward * Speed * Time.deltaTime, Space.Self);
     }
 
     public virtual void OnHitPlayer()
@@ -54,5 +52,5 @@ public class EnemyBulletBase : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-//    public abstract
+    public abstract void OnFlyOverSkully();
 }

@@ -2085,6 +2085,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 65
+  health: 100
+  advanceDistance: 0
+  killedParticlePrefab: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
   animator: {fileID: 1326100982662518662}
   lookAtConstraint: {fileID: 3990019984536713602}
 --- !u!135 &4697630889963180935

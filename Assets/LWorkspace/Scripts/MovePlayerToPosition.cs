@@ -14,9 +14,7 @@ public class MovePlayerToPosition : MonoBehaviour
         if (skully != null)
         {
             myTrigger.enabled = false;
-
-            skully.SetKinematic(true);
-
+            skully.DisableControl();
             StartCoroutine(MoveSkullyCotoutine(skully, targetTrans));
         }
     }
@@ -26,11 +24,12 @@ public class MovePlayerToPosition : MonoBehaviour
         float distance = Vector3.Distance(skully.transform.position, target.position);
         while (distance >= 3f)
         {
-            skully.transform.position =  Vector3.MoveTowards(skully.transform.position, target.position, Time.deltaTime * 200f);
+            skully.transform.position =  Vector3.MoveTowards(skully.transform.position, target.position, Time.deltaTime * 50f);
+            skully.transform.LookAt(target.position);
             distance = Vector3.Distance(skully.transform.position, target.position);
             yield return new WaitForEndOfFrame();
         }
 
-        skully.SetKinematic(false);
+        skully.EnableControl();
     }
 }

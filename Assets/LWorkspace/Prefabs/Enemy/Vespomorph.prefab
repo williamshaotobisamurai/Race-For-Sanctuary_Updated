@@ -83,6 +83,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 65
+  health: 100
+  advanceDistance: 150
+  killedParticlePrefab: {fileID: 0}
   animator: {fileID: 7459320900877139278}
   initAnimation: Fly
   attackAnimation: FlySpitAttack
@@ -1439,14 +1442,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7882864111704622836}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5974388422612320803}
   m_Father: {fileID: 1859097625603239426}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!1 &8056143491360025003
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,4 +7,10 @@ public class Blob : EnemyBulletBase
 {
     [SerializeField] private float coverScreenDuration;
     public float CoverScreenDuration => coverScreenDuration;
+
+
+    public override void OnFlyOverSkully()
+    {
+        Destroy(gameObject);
+    }
 }

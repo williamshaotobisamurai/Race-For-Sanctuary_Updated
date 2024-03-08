@@ -10,11 +10,22 @@ public class EnemyMissile : EnemyBulletBase
     [SerializeField] private ParticleSystem smokeParticle;
 
     [SerializeField] private Transform muzzle;
+    [SerializeField] private float destoryDelayAfterFlyOver = 3f;
 
     void Start()
     {
         fireParticle.Play();
         smokeParticle.Play();
         explodeTrigger.SetActive(true);
+    }
+
+    public override void OnFlyOverSkully()
+    {       
+        explodeTrigger.SetActive(true);
+
+        DOVirtual.DelayedCall(destoryDelayAfterFlyOver, () =>
+        {
+            Destroy(gameObject);
+        });
     }
 }

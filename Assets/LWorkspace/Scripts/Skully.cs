@@ -188,8 +188,6 @@ public class Skully : MonoBehaviour
         }
     }
 
-
-
     private void HitByBullet(EnemyBulletBase bullet)
     {
         bullet.OnHitPlayer();
@@ -373,6 +371,26 @@ public class Skully : MonoBehaviour
 
     public Vector3 GetCurrentVelocity()
     {
-        return rb.velocity;
+        return skullyMovement.GetCurrentVelocity();
+    }
+
+    public void DisableControl()
+    {
+        skullyMovement.enabled = false;
+    }
+
+    public void EnableControl() 
+    {
+        skullyMovement.enabled = true;
+    }
+
+    public void EnterBossMode()
+    {
+        skullyMovement.SetMaxSpeedFactor(0);
+    }
+
+    public void ExitBossMode()
+    { 
+        skullyMovement.SetMaxSpeedFactor(1);
     }
 }

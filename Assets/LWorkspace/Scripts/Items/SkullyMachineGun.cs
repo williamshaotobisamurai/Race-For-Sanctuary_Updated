@@ -54,7 +54,7 @@ public class SkullyMachineGun : MonoBehaviour
         bulletInstance.transform.localPosition = muzzleTrans.position;
         bulletInstance.transform.LookAt(ray.origin + ray.direction * rayLength + Random.insideUnitSphere * spread);
 
-        GameObject muzzleFireInstance = Instantiate(muzzleParticle);
+        GameObject muzzleFireInstance = Instantiate(muzzleParticle,muzzleTrans);
         muzzleFireInstance.transform.position = muzzleTrans.position;
         muzzleFireInstance.transform.rotation = Quaternion.identity;
 

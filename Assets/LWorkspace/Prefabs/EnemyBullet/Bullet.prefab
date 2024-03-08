@@ -119,11 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b519a8e990f1a438e51b8b36c395c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damamge: 10
+  damamge: 200
   hitParticle: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
   rotateRate: 2
-  speed: 80
-  delayDestroy: 0
+  speed: 160
 --- !u!1001 &3293746528584652752
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -81,12 +81,9 @@ public class GameManager : MonoBehaviour
         enemyMissileList.ForEach(missile =>
         {
             if (missile != null)
-            {
-                if (missile.IsFlying)
-                {
-                    missileWarningUI.Show();
-                    showWarning = true;
-                }
+            {               
+                missileWarningUI.Show();
+                showWarning = true;                
             }
         });
 

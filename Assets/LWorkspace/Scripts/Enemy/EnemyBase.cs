@@ -18,9 +18,18 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private LayerMask layerMask;
 
-    [SerializeField] private int health = 100;
+    [SerializeField] protected int health = 100;
+
+    [SerializeField] private float advanceDistance = 30f;
 
     [SerializeField] private GameObject killedParticlePrefab;
+
+    protected int maxHealth = 0;
+
+    private void Awake()
+    {
+        maxHealth = health;
+    }
 
     private void Update()
     {
@@ -29,34 +38,17 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAtSkully()
     {
-        lookAtTrans.LookAt(GameManager.Instance.Skully.transform.position);
+        Skully skully = GameManager.Instance.Skully;
+        lookAtTrans.LookAt(skully.transform.position + skully.transform.forward * advanceDistance);
     }
 
     void OnTriggerStay(Collider other)
     {
         Skully skully = other.GetComponent<Skully>();
 
-        if (skully != null)
+        if (skully != null && skully.transform.position.z < transform.position.z)
         {
-            Ray ray = new Ray(muzzle.transform.position, (skully.transform.position - muzzle.transform.position).normalized * detectTrigger.radius);
-     
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, detectTrigger.radius,layerMask))
-            {
-                if (hitInfo.collider.GetComponent<Skully>() != null)
-                {
-                    Debug.DrawRay(ray.origin, ray.direction * hitInfo.distance, Color.red);
-                    AimAtSkully(skully);
-                }
-                else
-                {
-                    Debug.Log(gameObject.name + " blocked by " + hitInfo.collider.gameObject.name);
-                    Debug.DrawRay(ray.origin, ray.direction * hitInfo.distance, Color.yellow);
-                }
-            }
-            else
-            {
-                Debug.DrawRay(ray.origin, ray.direction * detectTrigger.radius, Color.green);
-            }
+            AimAtSkully(skully);
         }
     }
 

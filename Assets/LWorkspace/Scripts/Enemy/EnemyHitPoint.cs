@@ -18,8 +18,8 @@ public class EnemyHitPoint : MonoBehaviour
                 particle.transform.position = transform.position;
                 DOVirtual.DelayedCall(3f, () => Destroy(particle));
             }
+            enemy.TakeDamage(other.GetComponentInParent<Missile>().Damage);
             other.GetComponentInParent<Missile>().Explode();
-            enemy.Kill();
         }
         else if (other.tag.Equals(GameConstants.SKULLY_BULLET))
         {

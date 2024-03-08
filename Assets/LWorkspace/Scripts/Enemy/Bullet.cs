@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Bullet : EnemyBulletBase
 {
-
-
-
+    public override void OnFlyOverSkully()
+    {
+        Destroy(gameObject);
+    }
 }

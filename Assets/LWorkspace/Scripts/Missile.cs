@@ -23,6 +23,8 @@ public class Missile : MonoBehaviour
 
     [SerializeField] private Transform muzzle;
     [SerializeField] private AudioSource launchAudio;
+    [SerializeField] private int damage = 200;
+    public int Damage { get => damage; }
 
     public void AttachTo(Transform muzzle)
     {
@@ -33,7 +35,7 @@ public class Missile : MonoBehaviour
     {
         fireParticle.Play();
         smokeParticle.Play();
-  
+
         isLaunched = true;
         launchedTime = Time.time;
         explodeTrigger.SetActive(true);

@@ -7,6 +7,8 @@ public class BossDebris : EnemyBulletBase
 {
     private Vector3 targetPos;
 
+    private bool isFlying = false;
+
     public void FlyToPosition(Vector3 pos)
     {
         this.targetPos = pos;
@@ -27,5 +29,10 @@ public class BossDebris : EnemyBulletBase
         GameObject explode = Instantiate(hitParticle);
         explode.transform.position = transform.position;
         gameObject.SetActive(true);
+    }
+
+    public override void OnFlyOverSkully()
+    {
+        Destroy(gameObject);
     }
 }

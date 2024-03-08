@@ -54,8 +54,8 @@ public class SkullyMovement : MonoBehaviour
     {
         if (!isRunning) return;
 
-        float zSpeed = Time.deltaTime * maxForwardSpeed * maxForwardSpeedFactor;
-        
+        currentZSpeed = Time.deltaTime * maxForwardSpeed * maxForwardSpeedFactor;
+
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
 
@@ -65,29 +65,18 @@ public class SkullyMovement : MonoBehaviour
 
         currentXYMovement = Vector2.MoveTowards(currentXYMovement, desiredMovement, Time.deltaTime * xyMovementAcceleration);
 
-        characterController.Move(new Vector3(currentXYMovement.x, currentXYMovement.y, zSpeed));
+        characterController.Move(new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed));
         Vector2 desiredRotation = new Vector2(currentXYMovement.x / xyMovementSpeed * maxXYRotateAngle, currentXYMovement.y / xyMovementSpeed * maxXYRotateAngle);
 
         transform.eulerAngles = new Vector3(-desiredRotation.y, desiredRotation.x, 0);
     }
 
-    public static float getEditorAngle(float angle)
+    public Vector3 GetCurrentVelocity()
     {
-        if (angle > 360.0f || angle < 0.0f)
+        if (!isActiveAndEnabled)
         {
-            Debug.Log("Error: Angle greater than 360");
-            return angle;
+            return Vector3.zero;
         }
-        else
-        {
-            if (angle >= 0.0f && angle <= 180.0f)
-            {
-                return angle;
-            }
-            else
-            {
-                return angle - 360.0f;
-            }
-        }
+        return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
     }
 }
