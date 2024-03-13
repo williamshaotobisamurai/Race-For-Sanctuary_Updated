@@ -138,7 +138,7 @@ public class Boss : EnemyBase
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        UpdateHealthBar();
+      //  UpdateHealthBar();
 
         if (flashTween != null)
         {
@@ -155,7 +155,7 @@ public class Boss : EnemyBase
 
     }
 
-    private void UpdateHealthBar()
+    protected override void UpdateHealthBar()
     {
         healthBar.DOFillAmount(health / (float)maxHealth, 0.5f);
         healthText.text = health.ToString() + " / " + maxHealth.ToString();

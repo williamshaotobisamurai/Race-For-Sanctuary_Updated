@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -24,11 +26,22 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private GameObject killedParticlePrefab;
 
-    protected int maxHealth = 0;
+    [SerializeField] private Image healthImg;
+
+    [SerializeField] private LookAtConstraint healthUILookAtConstraint; 
+
+    protected int maxHealth = 0; 
 
     private void Awake()
     {
         maxHealth = health;
+    }
+
+    private void Start()
+    {
+        ConstraintSource src = new ConstraintSource();
+        src.sourceTransform = Camera.main.transform;
+        healthUILookAtConstraint.SetSource(0, src);
     }
 
     private void Update()
@@ -74,10 +87,17 @@ public class EnemyBase : MonoBehaviour
         health -= damage;
         health = Mathf.Clamp(health, 0, int.MaxValue);
 
+        UpdateHealthBar();
+
         if (health <= 0)
         {
             Kill();
         }
+    }
+
+    protected virtual void UpdateHealthBar()
+    {
+        healthImg.fillAmount = (float)health / maxHealth;
     }
 
     public virtual void Kill()

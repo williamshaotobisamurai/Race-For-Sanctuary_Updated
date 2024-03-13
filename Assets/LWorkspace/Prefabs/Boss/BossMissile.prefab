@@ -5190,13 +5190,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damamge: 30
   hitParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
-  rotateRate: 3
-  speed: 60
+  rotateRate: 4
+  speed: 100
   explodeTrigger: {fileID: 1814862450605743028}
   fireParticle: {fileID: 7794731472579317455}
   smokeParticle: {fileID: 5658288611136879109}
   muzzle: {fileID: 0}
-  model: {fileID: 3650239665906037522}
   destoryDelayAfterFlyOver: 3
 --- !u!1 &2638430371873881415
 GameObject:

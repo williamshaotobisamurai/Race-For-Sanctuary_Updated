@@ -122,7 +122,7 @@ MonoBehaviour:
   damamge: 10
   hitParticle: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
   rotateRate: 0
-  speed: 300
+  speed: 500
 --- !u!1001 &3293746528584652752
 PrefabInstance:
   m_ObjectHideFlags: 0
