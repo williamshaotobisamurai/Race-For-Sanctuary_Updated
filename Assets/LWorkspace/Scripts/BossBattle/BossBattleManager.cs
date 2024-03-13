@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBattleManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BossBattleManager : MonoBehaviour
 
     [SerializeField] private Skully skully;
     [SerializeField] private Transform bossStartTrans;
+    [SerializeField] private Image bossWarning;
 
     public void StartBossBattle()
     {
@@ -16,7 +18,14 @@ public class BossBattleManager : MonoBehaviour
         boss.gameObject.SetActive(true);
         skully.EnterBossMode();
 
+        Sequence warningSeq = DOTween.Sequence();
+        warningSeq.Append(bossWarning.DOFade(1, 0.3f));
+        warningSeq.Append(bossWarning.DOFade(0, 0.3f));
+        warningSeq.SetLoops(3);
+
+
         Sequence seq = DOTween.Sequence();
+        seq.Append(warningSeq);
         seq.Append(boss.transform.DOMove(bossStartTrans.position, 4f));
         seq.AppendInterval(3f);
         seq.AppendCallback(() => boss.StartFighting());
