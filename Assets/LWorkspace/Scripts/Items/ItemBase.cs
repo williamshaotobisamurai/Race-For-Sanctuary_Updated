@@ -21,6 +21,9 @@ public class ItemBase : MonoBehaviour
 
     public EItemType ItemType => itemType;
 
+    private bool isCollected = false;
+    public bool IsCollected { get => isCollected; }
+
     public void Collect()
     {
         if (audioSource.clip != null && !audioSource.isPlaying)
@@ -28,7 +31,10 @@ public class ItemBase : MonoBehaviour
             audioSource.Play();
         }
 
+        isCollected = true;
         m_collider.enabled = false;
         itemModel.SetActive(false);
     }
+
+
 }
