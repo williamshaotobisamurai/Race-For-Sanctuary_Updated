@@ -30,6 +30,7 @@ public class TutorialManager : MonoBehaviour
 
         TutorialPhaseBase tutorialInstance = Instantiate(tutorialPhase, transform);
         tutorialInstance.gameObject.transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z);
+        tutorialInstance.gameObject.SetActive(true);
         tutorialInstance.Prepare();
         tutorialInstance.OnReachEndTrigger += OnSkullyReachEnd;
         ShowTutorialInstruction(tutorialInstance);

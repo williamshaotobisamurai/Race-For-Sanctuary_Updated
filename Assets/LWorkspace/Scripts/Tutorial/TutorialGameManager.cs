@@ -6,11 +6,22 @@ public class TutorialGameManager : GameManager
 {
     protected override void Start()
     {
-        base.Start();
+        collectedCoinsManager.Init();
+   
+        skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
+        skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
+        endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
+        PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
+        TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 
     protected override void PoliceShip_OnCaughtSkullyEvent()
     {
         //base.PoliceShip_OnCaughtSkullyEvent();
+    }
+
+    protected override void TimerManager_OnOutOfTimeEvent()
+    {
+
     }
 }

@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
 
-    [SerializeField] private Skully skully;
+    [SerializeField] protected Skully skully;
     public Skully Skully { get => skully; }
 
-    [SerializeField] private CollectedCoinsManager collectedCoinsManager;
+    [SerializeField] protected CollectedCoinsManager collectedCoinsManager;
     [SerializeField] private TimerManager timerManager;
-    [SerializeField] private EndTrigger endTrigger;
-    [SerializeField] private PoliceShip policeShip;
+    public TimerManager TimerManager { get => timerManager;  }
+
+    [SerializeField] protected EndTrigger endTrigger;
+    [SerializeField] protected PoliceShip policeShip;
     public PoliceShip PoliceShip { get => policeShip; }
 
     [SerializeField] private List<MissileSoldier> missileSoldiers;
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         get { return instance; }
     }
+
 
     private void Awake()
     {
@@ -48,12 +51,12 @@ public class GameManager : MonoBehaviour
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent += Soldier_OnShootEvent);
 
         collectedCoinsManager.Init();
-        timerManager.Init();
+        TimerManager.Init();
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
         PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
-        timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
+        TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 
     private void Soldier_OnShootEvent(EnemyMissile enemyMissile)
@@ -67,7 +70,7 @@ public class GameManager : MonoBehaviour
         skully.OnCollectItemEvent -= Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
         PoliceShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
-        timerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
+        TimerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent -= Soldier_OnShootEvent);
     }
 
@@ -100,7 +103,7 @@ public class GameManager : MonoBehaviour
         {
             case ItemBase.EItemType.JETPACK_FUEL:
                 JetpackFuelItem jetpack = item as JetpackFuelItem;
-                timerManager.IncreaseTime(jetpack.IncreaseAmount);
+                TimerManager.IncreaseTime(jetpack.IncreaseAmount);
                 break;
 
             default:

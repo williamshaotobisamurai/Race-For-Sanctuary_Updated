@@ -14,8 +14,11 @@ public class TimerManager : MonoBehaviour
 
     private bool isRunning = false;
 
-    public void Init()
+    public void Init(float startTime = 90f)
     {
+        timerText.color = Color.white;
+
+        remainingTime = startTime;
         isRunning = true;
     }
 
@@ -35,7 +38,7 @@ public class TimerManager : MonoBehaviour
                 OnOutOfTimeEvent?.Invoke();
             }
         }
-        
+
         UpdateTimerText();
     }
 
@@ -44,10 +47,10 @@ public class TimerManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
 
-        minutes = Mathf.Clamp(minutes, 0, minutes); 
-        seconds = Mathf.Clamp(seconds, 0, seconds); 
+        minutes = Mathf.Clamp(minutes, 0, minutes);
+        seconds = Mathf.Clamp(seconds, 0, seconds);
 
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);      
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     public void IncreaseTime(float time)
@@ -56,7 +59,7 @@ public class TimerManager : MonoBehaviour
         {
             remainingTime += time;
             UpdateTimerText();
-            RectTransform textRect =timerText.GetComponent<RectTransform>();    
+            RectTransform textRect = timerText.GetComponent<RectTransform>();
             textRect.DOLocalJump(textRect.localPosition, 30f, 1, 0.25f);
         }
     }
