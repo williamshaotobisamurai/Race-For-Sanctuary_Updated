@@ -20,9 +20,10 @@ public class SkullyMovement : MonoBehaviour
 
     [SerializeField] private CharacterController characterController;
 
+    private bool xyControlEnabled = true;
+
     public void Init()
     {
-        //isRunning = false;
         maxForwardSpeedFactor = 1f;
     }
 
@@ -59,6 +60,11 @@ public class SkullyMovement : MonoBehaviour
         float xInput = Input.GetAxisRaw("Horizontal");
         float yInput = Input.GetAxisRaw("Vertical");
 
+        if (!xyControlEnabled)
+        {
+            xInput = yInput = 0;
+        }
+
         Vector2 desiredMovement = new Vector2(xInput, yInput);
         desiredMovement.Normalize();
         desiredMovement *= xyMovementSpeed;
@@ -78,5 +84,15 @@ public class SkullyMovement : MonoBehaviour
             return Vector3.zero;
         }
         return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
+    }
+
+    public void EnableXYControl()
+    {
+        xyControlEnabled = true;
+    }
+
+    public void DisableXYControl()
+    {
+        xyControlEnabled = false;
     }
 }

@@ -25,7 +25,7 @@ namespace NodeCanvas.BehaviourTrees
             get { return _action; }
             set { _action = value; }
         }
-
+         
         public override string name {
             get { return base.name.ToUpper(); }
         }

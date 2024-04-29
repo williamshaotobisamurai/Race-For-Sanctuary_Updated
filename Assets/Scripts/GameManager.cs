@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
+    protected bool gameHasEnded = false;
 
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private EndTrigger endTrigger;
     [SerializeField] private PoliceShip policeShip;
+    public PoliceShip PoliceShip { get => policeShip; }
 
     [SerializeField] private List<MissileSoldier> missileSoldiers;
     [SerializeField] private List<EnemyMissile> enemyMissileList;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         missileSoldiers = new List<MissileSoldier>(FindObjectsOfType<MissileSoldier>());
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent += Soldier_OnShootEvent);
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
-        policeShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
+        PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
         timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 
@@ -65,12 +66,12 @@ public class GameManager : MonoBehaviour
         skully.OnSkullyDiedEvent -= Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent -= Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
-        policeShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
+        PoliceShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
         timerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent -= Soldier_OnShootEvent);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         CheckIncomingMissile();
     }
@@ -81,9 +82,9 @@ public class GameManager : MonoBehaviour
         enemyMissileList.ForEach(missile =>
         {
             if (missile != null)
-            {               
+            {
                 missileWarningUI.Show();
-                showWarning = true;                
+                showWarning = true;
             }
         });
 
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Skully_OnCollectItemEvent(ItemBase item)
+    protected virtual void Skully_OnCollectItemEvent(ItemBase item)
     {
         switch (item.ItemType)
         {
@@ -107,22 +108,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void TimerManager_OnOutOfTimeEvent()
+    protected virtual void TimerManager_OnOutOfTimeEvent()
     {
         EndGame();
     }
 
-    private void PoliceShip_OnCaughtSkullyEvent()
+    protected virtual void PoliceShip_OnCaughtSkullyEvent()
     {
         EndGame();
     }
 
-    private void Skully_OnSkullyDiedEvent()
+    protected virtual void Skully_OnSkullyDiedEvent()
     {
         EndGame();
     }
 
-    private void EndTrigger_OnSkullyEnterEvent()
+    protected virtual void EndTrigger_OnSkullyEnterEvent()
     {
         CompleteLevel();
     }
@@ -136,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        if (gameHasEnded == false)
+        if (!gameHasEnded)
         {
             gameHasEnded = true;
             Debug.Log("Game Over");

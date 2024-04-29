@@ -35,6 +35,7 @@ public class PoliceShip : MonoBehaviour
 
     private void Skully_OnHitByMeteorEvent()
     {
+        Debug.Log("police ship move closer");
         MoveCloser();
     }
 
@@ -63,9 +64,11 @@ public class PoliceShip : MonoBehaviour
 
     private void MoveCloseToSkully()
     {
+
+        Debug.Log("move close to skully ");
         moveCloserTween = DOTween.Sequence();
 
-        moveCloserTween.Append(DOVirtual.Vector3(originalOffset,closeOffset, 2f, (t) =>
+        moveCloserTween.Append(DOVirtual.Vector3(originalOffset, closeOffset, 2f, (t) =>
         {
             currentOffset = t;
         }));
@@ -84,16 +87,26 @@ public class PoliceShip : MonoBehaviour
         if (moveCloserTween != null)
         {
             moveCloserTween.Kill();
-          //  moveCloserTween = null;
         }
 
-        DOVirtual.Vector3(closeOffset ,caughtOffset, 1f, (t) =>
+        DOVirtual.Vector3(closeOffset, caughtOffset, 1f, (t) =>
         {
             currentOffset = t;
         }).OnComplete(() =>
         {
             OnCaughtSkullyEvent?.Invoke();
         });
+    }
+
+    public void MoveToOriginalPosition()
+    {
+        if (moveCloserTween != null)
+        {
+            moveCloserTween.Kill();
+        }
+        
+        currentOffset = originalOffset;
+        isCloseToSkully = false;
     }
 }
 

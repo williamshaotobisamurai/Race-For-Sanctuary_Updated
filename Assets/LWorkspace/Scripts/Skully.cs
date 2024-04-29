@@ -66,42 +66,30 @@ public class Skully : MonoBehaviour
         OnCollectCoinEvent?.Invoke(coin);
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    private void ReflectMeteor(Obstacle obstacle, float strength)
     {
-        Obstacle obstacle = collisionInfo.gameObject.GetComponent<Obstacle>();
-        if (collisionInfo.collider.tag.Equals(GameConstants.OBSTACLE))
-        {
-            collisionSound.Play();
-            if (IsInvincible)
-            {
-                ReflectMeteor(collisionInfo);
-            }
-            else
-            {
-                HitByMeteroCollider(obstacle);
-            }
-        }
-    }
-
-    private void ReflectMeteor(Collision collisionInfo)
-    {
-        Vector3 forceDirection = collisionInfo.transform.position - transform.position;
+        Vector3 forceDirection = obstacle.transform.position - transform.position;
         forceDirection.z = 0;
 
-        collisionInfo.collider.enabled = false;
-        collisionInfo.rigidbody.isKinematic = true;
-        RandomMovement randomMovement = collisionInfo.collider.GetComponent<RandomMovement>();
+        obstacle.GetComponent<Collider>().enabled = false;
+        obstacle.GetComponent<Rigidbody>().isKinematic = true;
+        RandomMovement randomMovement = obstacle.GetComponent<RandomMovement>();
         randomMovement?.StopMoving();
 
         Vector3 randomDirection = Random.onUnitSphere;
-        Vector3 offset = new Vector3(randomDirection.x * Random.Range(200, 300), randomDirection.y * Random.Range(200, 300), 50);
-        Vector3 currentPos = collisionInfo.transform.position;
+
+        float minDistance = 20 * strength;
+        float maxDistance = 30 * strength;
+
+        Vector3 offset = new Vector3(randomDirection.x * Random.Range(minDistance, maxDistance), randomDirection.y * Random.Range(minDistance, maxDistance), 50);
+        Vector3 currentPos = obstacle.transform.position;
         Vector3 target = offset + currentPos;
-        collisionInfo.transform.DOMove(target, 2);
+        obstacle.transform.DOMove(target, 2);
     }
 
     private void HitByMeteroCollider(Obstacle obstacle)
     {
+        Debug.Log("hit by obstacle " + obstacle.name + " " + obstacle.DoDamage);
         if (obstacle.DoDamage)
         {
             TakeDamage(obstacle.Damage);
@@ -115,6 +103,7 @@ public class Skully : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("on trigger enter " + other.gameObject.name);
         if (other.tag.Equals(GameConstants.BOOST_ITEM))
         {
             ItemBase itemBase = other.GetComponent<ItemBase>();
@@ -160,9 +149,23 @@ public class Skully : MonoBehaviour
                 KilledByEnergyField(field);
             }
         }
-    }
+        else if (other.tag.Equals(GameConstants.OBSTACLE))
+        {
+            Debug.Log("on hit by obstcle");
 
-  
+            collisionSound.Play();
+            if (!IsInvincible)
+            {
+                ReflectMeteor(other.GetComponent<Obstacle>(), 1f);
+                HitByMeteroCollider(other.GetComponent<Obstacle>());
+            }
+            else
+            {
+                ReflectMeteor(other.GetComponent<Obstacle>(), 10f);
+
+            }
+        }
+    }
 
     private void KilledByEnergyField(EnergyField field)
     {
@@ -309,8 +312,8 @@ public class Skully : MonoBehaviour
     }
 
     public void DropWeapon()
-    { 
-    
+    {
+
     }
 
     private void UpdateHealthBar()
@@ -318,8 +321,6 @@ public class Skully : MonoBehaviour
         healthBar.DOFillAmount(healthAmount / (float)maxHealth, 0.5f);
         healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
     }
-
-
 
     public void SetMaxSpeedFactor(float speedFactor)
     {
@@ -379,9 +380,19 @@ public class Skully : MonoBehaviour
         skullyMovement.enabled = false;
     }
 
-    public void EnableControl() 
+    public void EnableControl()
     {
         skullyMovement.enabled = true;
+    }
+
+    public void EnableXYControl()
+    {
+        skullyMovement.EnableXYControl();
+    }
+
+    public void DisableXYControl()
+    {
+        skullyMovement.DisableXYControl();
     }
 
     public void EnterBossMode()
@@ -390,7 +401,7 @@ public class Skully : MonoBehaviour
     }
 
     public void ExitBossMode()
-    { 
+    {
         skullyMovement.SetMaxSpeedFactor(1);
     }
 }
