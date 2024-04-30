@@ -10,7 +10,7 @@ public class TutorialPhase_One : TutorialPhaseBase
 
     public override void Prepare()
     {
-        endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
+        base.Prepare();
         GameManager.Instance.Skully.OnCollectCoinEvent += Skully_OnCollectCoinEvent;
     }
 

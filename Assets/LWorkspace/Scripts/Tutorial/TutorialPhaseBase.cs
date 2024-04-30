@@ -9,7 +9,10 @@ public abstract class TutorialPhaseBase : MonoBehaviour
     public string successText;
     public string failText;
 
-    public abstract void Prepare();
+    public virtual void Prepare()
+    {
+        endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
+    }
     public virtual void StartPhase()
     {
         isStarted = true;

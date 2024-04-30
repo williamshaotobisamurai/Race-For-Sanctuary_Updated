@@ -64,7 +64,6 @@ public class PoliceShip : MonoBehaviour
 
     private void MoveCloseToSkully()
     {
-
         Debug.Log("move close to skully ");
         moveCloserTween = DOTween.Sequence();
 

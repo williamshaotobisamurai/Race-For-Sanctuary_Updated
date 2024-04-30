@@ -10,12 +10,14 @@ public class SkullyWeaponManager : MonoBehaviour
     [SerializeField] private LayerMask targetsLayer;
     public LayerMask TargetsLayer { get => targetsLayer; }
 
-
+    [SerializeField] private SkullyMachineGun skullyPistol;
     [SerializeField] private SkullyMachineGun machineGun;
     [SerializeField] private SkullyMissile skullyMissile;
 
     private static SkullyWeaponManager instance;
     public static SkullyWeaponManager Instance { get => instance; }
+
+    private WeaponItem.EWeaponType currentWeaponType = WeaponItem.EWeaponType.NONE;
 
     private void Awake()
     {
@@ -39,24 +41,67 @@ public class SkullyWeaponManager : MonoBehaviour
         crosshair.Hide();
     }
 
-    public void SetupWeapon(WeaponItem weaponItem)
+    public void SetupWeapon(WeaponItem newWeaponItem)
     {
         ShowCrosshair();
 
-        switch (weaponItem.WeaponType)
+        if (currentWeaponType != newWeaponItem.WeaponType)
         {
-            case WeaponItem.EWeaponType.MACHINE_GUN:
-                TurnOffMissile();
-                MachineGunPopup();
-                break;
-            case WeaponItem.EWeaponType.MISSILE:
-                TurnOffMachineGun();
-                MissilePopup();
-                break;
-            default:
-                break;
-    }        }
+            switch (currentWeaponType)
+            {
+                case WeaponItem.EWeaponType.NONE:
+                    break;
 
+                case WeaponItem.EWeaponType.PISTOL:
+                    TurnOffPistol();
+                    break;
+
+                case WeaponItem.EWeaponType.MACHINE_GUN:
+                    TurnOffMachineGun();
+                    break;
+
+                case WeaponItem.EWeaponType.MISSILE:
+                    TurnOffMissile();
+                    break;
+
+                default:
+                    break;
+            }
+
+            switch (newWeaponItem.WeaponType)
+            {
+                case WeaponItem.EWeaponType.PISTOL:
+                    PistolPopup();
+                    break;
+
+                case WeaponItem.EWeaponType.MACHINE_GUN:
+                    MachineGunPopup();
+                    break;
+
+                case WeaponItem.EWeaponType.MISSILE:
+                    MissilePopup();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void PistolPopup()
+    {
+        if (!skullyPistol.isActiveAndEnabled)
+        {
+            skullyPistol.gameObject.SetActive(true);
+            skullyPistol.transform.localScale = Vector3.zero;
+
+            skullyPistol.enabled = false;
+            skullyPistol.transform.DOScale(Vector3.one, 0.3f).OnComplete(() =>
+            {
+                skullyPistol.enabled = true;
+            });
+        }
+    }
 
     private void MachineGunPopup()
     {
@@ -99,6 +144,18 @@ public class SkullyWeaponManager : MonoBehaviour
         if (skullyMissile.isActiveAndEnabled)
         {
             skullyMissile.TurnOff();
+        }
+    }
+
+    private void TurnOffPistol()
+    {
+        if (skullyPistol.isActiveAndEnabled)
+        {
+            skullyPistol.transform.DOScale(Vector3.zero, 0.3f).OnComplete(() =>
+            {
+                skullyPistol.enabled = false;
+                skullyPistol.gameObject.SetActive(false);
+            });
         }
     }
 }

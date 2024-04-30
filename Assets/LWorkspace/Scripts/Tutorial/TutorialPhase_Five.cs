@@ -10,7 +10,7 @@ public class TutorialPhase_Five : TutorialPhaseBase
 
     public override void Prepare()
     {
-        endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
+       base.Prepare();
     }
 
     public override bool IsSuccess()

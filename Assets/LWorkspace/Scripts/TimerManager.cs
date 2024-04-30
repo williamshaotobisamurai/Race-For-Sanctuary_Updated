@@ -22,6 +22,16 @@ public class TimerManager : MonoBehaviour
         isRunning = true;
     }
 
+    public void ShowTimer()
+    {
+        timerText.DOFade(1f, 0.5f);
+    }
+
+    public void HideTimer()
+    { 
+        timerText.DOFade(0f, 0.5f);
+    }
+
     void Update()
     {
         if (isRunning)

@@ -28,9 +28,13 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private Image healthImg;
 
-    [SerializeField] private LookAtConstraint healthUILookAtConstraint; 
+    [SerializeField] private LookAtConstraint healthUILookAtConstraint;
 
-    protected int maxHealth = 0; 
+    private bool isKilled = false;
+    public bool IsKilled { get => isKilled; }
+
+    protected int maxHealth = 0;
+
 
     private void Awake()
     {
@@ -103,6 +107,7 @@ public class EnemyBase : MonoBehaviour
     public virtual void Kill()
     {
         gameObject.SetActive(false);
+        isKilled = true;
         if (killedParticlePrefab != null)
         {
             GameObject instance = Instantiate(killedParticlePrefab);

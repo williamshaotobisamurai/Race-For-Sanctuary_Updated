@@ -6,6 +6,8 @@ public class WeaponItem : ItemBase
 {
     public enum EWeaponType
     { 
+        NONE,
+        PISTOL,
         MACHINE_GUN,
         MISSILE,
     }

@@ -9,6 +9,7 @@ public class TutorialPhase_Two : TutorialPhaseBase
 
     public override void Prepare()
     {
+        base.Prepare();
         GameManager.Instance.Skully.DisableXYControl();
         GameManager.Instance.PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
         GameManager.Instance.PoliceShip.MoveToOriginalPosition();

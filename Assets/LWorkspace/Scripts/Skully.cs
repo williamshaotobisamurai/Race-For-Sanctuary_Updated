@@ -365,6 +365,14 @@ public class Skully : MonoBehaviour
         });
     }
 
+    public void Revive()
+    {
+        healthAmount = maxHealth;
+        healthBar.fillAmount = healthAmount / (float)maxHealth;
+        rb.freezeRotation = false;
+        skullyMovement.StartRunning();
+    }
+
     public void SetKinematic(bool isKinematic)
     {
         rb.isKinematic = isKinematic;
