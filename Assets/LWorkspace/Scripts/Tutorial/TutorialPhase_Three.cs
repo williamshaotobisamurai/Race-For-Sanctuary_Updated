@@ -6,14 +6,17 @@ public class TutorialPhase_Three : TutorialPhaseBase
 {
     public override void Prepare()
     {
+        base.Prepare();
         TimerManager timerManager = GameManager.Instance.TimerManager;
         timerManager.Init(20);
         timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
-  
-    public override void StartPhase()
+
+    public override void EndTrigger_OnSkullyEnterEvent()
     {
-        base.StartPhase();
+        base.EndTrigger_OnSkullyEnterEvent();
+        TimerManager timerManager = GameManager.Instance.TimerManager;
+        timerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
     }
 
     public override bool IsSuccess()

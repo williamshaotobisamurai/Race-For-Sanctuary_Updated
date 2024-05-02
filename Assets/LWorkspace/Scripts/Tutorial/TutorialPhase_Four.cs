@@ -8,7 +8,6 @@ public class TutorialPhase_Four : TutorialPhaseBase
     {
         base.Prepare();
         TimerManager timerManager = GameManager.Instance.TimerManager;
-        timerManager.Init(20);
         timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 

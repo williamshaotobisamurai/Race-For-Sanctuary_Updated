@@ -12,19 +12,12 @@ public class TutorialPhase_One : TutorialPhaseBase
     {
         base.Prepare();
         GameManager.Instance.Skully.OnCollectCoinEvent += Skully_OnCollectCoinEvent;
+        GameManager.Instance.TimerManager.StopAndHideTimer();
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
     {
         collectedCoins++;
-    }
-
-    public override void StartPhase()
-    {
-        //   GameObject coinsInstance = Instantiate(coinsRoot);
-        //   collectedCoins = 0;
-        //    coinsInstance.transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z);
-        //coinsRoot.SetActive(true);
     }
 
     public override bool IsSuccess()

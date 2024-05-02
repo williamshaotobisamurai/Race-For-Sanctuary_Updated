@@ -22,17 +22,27 @@ public class RandomPlace : MonoBehaviour
         for (int i = 0; i < Selection.objects.Length; i++)
         {
             Selection.objects[i].GetComponent<Transform>().localPosition +=
-                new Vector3(Random.Range(-165f,165f), Random.Range(-165f, 165f), 0);
+                new Vector3(Random.Range(-105f,105f), Random.Range(-105f, 105f), 0);
         }
     }
 
-    [MenuItem("LeoTools/PlaceCoins")]
+    [MenuItem("LeoTools/PlaceCoins")] 
     public static void PlaceCoins()
     {
         Vector3 pos = Vector3.zero;
         for (int i = 0; i < Selection.objects.Length; i ++)
         {
-            Selection.objects[i].GetComponent<Transform>().localPosition = Vector3.forward * i * 65;
+            Selection.objects[i].GetComponent<Transform>().localPosition = Vector3.forward * i * 15;
+        }
+    }
+
+    [MenuItem("LeoTools/RandomScale")]
+    public static void RandomScale()
+    {
+        Vector3 pos = Vector3.zero;
+        for (int i = 0; i < Selection.objects.Length; i++)
+        {
+            Selection.objects[i].GetComponent<Transform>().localScale = Vector3.one * Random.Range(1,3f) * 10f;
         }
     }
 }

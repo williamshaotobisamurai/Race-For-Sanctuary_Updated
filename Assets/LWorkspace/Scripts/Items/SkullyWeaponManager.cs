@@ -10,7 +10,7 @@ public class SkullyWeaponManager : MonoBehaviour
     [SerializeField] private LayerMask targetsLayer;
     public LayerMask TargetsLayer { get => targetsLayer; }
 
-    [SerializeField] private SkullyMachineGun skullyPistol;
+    [SerializeField] private SkullyPistolGun skullyPistol;
     [SerializeField] private SkullyMachineGun machineGun;
     [SerializeField] private SkullyMissile skullyMissile;
 

@@ -22,6 +22,4 @@ public class TutorialPhase_Five : TutorialPhaseBase
     {
         base.EndTrigger_OnSkullyEnterEvent();
     }
-
-
 }

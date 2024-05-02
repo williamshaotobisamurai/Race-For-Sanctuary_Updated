@@ -11,14 +11,6 @@ public class TutorialPhase_Two : TutorialPhaseBase
     {
         base.Prepare();
         GameManager.Instance.Skully.DisableXYControl();
-        GameManager.Instance.PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
-        GameManager.Instance.PoliceShip.MoveToOriginalPosition();
-    }
-
-    private void PoliceShip_OnCaughtSkullyEvent()
-    {
-        Debug.Log("caught skully");
-        OnReachEndTrigger?.Invoke(false);
     }
 
     public override void StartPhase()

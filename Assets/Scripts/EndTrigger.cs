@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class EndTrigger : MonoBehaviour{
-
-    public GameManager gameManager;
-
+public class EndTrigger : MonoBehaviour
+{
     public event OnSkullyEnter OnSkullyEnterEvent;
     public delegate void OnSkullyEnter();
 

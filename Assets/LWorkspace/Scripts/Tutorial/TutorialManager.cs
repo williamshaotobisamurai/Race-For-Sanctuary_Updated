@@ -15,26 +15,32 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private int currentTutorialIndex = 0;
 
     [SerializeField] private TutorialPhaseBase currentPhase;
+    [SerializeField] private TutorialPhaseBase currentPhasePrefab;
 
-    void Start()
+
+    public event OnAllTutorialPassed OnAllTutorialPassedEvent;
+    public delegate void OnAllTutorialPassed();
+
+    public void StartRunningTutorial()
     {
         StartNewTutorialPhase(tutorialPhaseList[0]);
     }
 
-    private void StartNewTutorialPhase(TutorialPhaseBase tutorialPhase)
+    private void StartNewTutorialPhase(TutorialPhaseBase tutorialPhasePrefab)
     {
         if (currentPhase != null)
         {
             currentPhase.CleanPhase();
         }
-
-        TutorialPhaseBase tutorialInstance = Instantiate(tutorialPhase, transform);
-        tutorialInstance.gameObject.transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z);
+        TutorialPhaseBase tutorialInstance = Instantiate(tutorialPhasePrefab, transform);
+        tutorialInstance.gameObject.transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z + tutorialInstance.TransitionDistance);
         tutorialInstance.gameObject.SetActive(true);
         tutorialInstance.Prepare();
+
         tutorialInstance.OnReachEndTrigger += OnSkullyReachEnd;
         ShowTutorialInstruction(tutorialInstance);
         currentPhase = tutorialInstance;
+        currentPhasePrefab = tutorialPhasePrefab;
     }
 
     private void ShowTutorialInstruction(TutorialPhaseBase tutorialPhase)
@@ -62,10 +68,9 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            StartNewTutorialPhase(tutorialPhaseList[0]);
+            FadeManager.Instance.Transition(() => StartNewTutorialPhase(currentPhasePrefab), null);
         }
     }
-
 
     private void CurrentPhaseFinished()
     {
@@ -73,6 +78,10 @@ public class TutorialManager : MonoBehaviour
         if (nextPhase != null)
         {
             StartNewTutorialPhase(nextPhase);
+        }
+        else
+        {
+            OnAllTutorialPassedEvent?.Invoke();
         }
     }
 

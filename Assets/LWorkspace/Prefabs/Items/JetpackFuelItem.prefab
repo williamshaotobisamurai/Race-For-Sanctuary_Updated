@@ -16,7 +16,7 @@ GameObject:
   m_Layer: 2
   m_Name: JetpackFuelItem
   m_TagString: BOOST_ITEM
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -201,15 +201,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2784075109580583235, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2784075109580583235, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2784075109580583235, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2784075109580583235, guid: 11e41fba02e6d28459e8104ef84bcb1a, type: 3}
       propertyPath: m_LocalPosition.x

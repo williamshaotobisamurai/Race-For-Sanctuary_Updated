@@ -38,7 +38,6 @@ public class Skully : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     public Rigidbody Rigidbody { get { return rb; } }
 
-
     [SerializeField] private AudioSource boostAudioSource;
 
     [SerializeField] private GameObject killByEnergyFieldParticle;
@@ -49,6 +48,8 @@ public class Skully : MonoBehaviour
     [SerializeField] private Text healthText;
 
     [SerializeField] private SkullyWeaponManager skullyWeaponManager;
+
+    private bool isDead = false;
 
     private void Start()
     {
@@ -171,12 +172,13 @@ public class Skully : MonoBehaviour
     {
         killByEnergyFieldParticle.SetActive(true);
 
-        if (!IsInvincible)
+        if (!IsInvincible && !isDead)
         {
             rb.isKinematic = true;
 
             healthAmount = 0;
             UpdateHealthBar();
+            isDead = true;
             OnSkullyDiedEvent?.Invoke();
 
             skullyVisual.transform.DOShakeRotation(0.5f, 50).OnComplete(() =>
@@ -232,21 +234,24 @@ public class Skully : MonoBehaviour
         healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
         UpdateHealthBar();
 
-        if (healthAmount <= 0f)
+        if (!isDead)
         {
-            Vector3 randomAngularVelocity = GetRandomAngularVelocity();
-            rb.freezeRotation = false;
-            skullyMovement.StopRunning();
-            rb.angularVelocity = randomAngularVelocity;
-
-            DOVirtual.DelayedCall(3f, () =>
+            if (healthAmount <= 0f)
             {
-                OnSkullyDiedEvent?.Invoke();
-            });
-        }
-        else
-        {
-            skullyVisual.transform.DOShakeRotation(0.1f, 10);
+                Vector3 randomAngularVelocity = GetRandomAngularVelocity();
+                rb.freezeRotation = false;
+                skullyMovement.StopRunning();
+                rb.angularVelocity = randomAngularVelocity;
+                isDead = true;
+                DOVirtual.DelayedCall(3f, () =>
+                {
+                    OnSkullyDiedEvent?.Invoke();
+                });
+            }
+            else
+            {
+                skullyVisual.transform.DOShakeRotation(0.1f, 10);
+            }
         }
     }
 
@@ -311,11 +316,6 @@ public class Skully : MonoBehaviour
         skullyWeaponManager.SetupWeapon(weaponItem);
     }
 
-    public void DropWeapon()
-    {
-
-    }
-
     private void UpdateHealthBar()
     {
         healthBar.DOFillAmount(healthAmount / (float)maxHealth, 0.5f);
@@ -345,12 +345,13 @@ public class Skully : MonoBehaviour
         {
             OnHitByMeteorEvent?.Invoke();
             rb.isKinematic = false;
-            if (healthAmount <= 0)
+            if (healthAmount <= 0 && !isDead)
             {
                 Vector3 randomAngularVelocity = GetRandomAngularVelocity();
                 rb.freezeRotation = false;
                 skullyMovement.StopRunning();
                 rb.angularVelocity = randomAngularVelocity;
+                isDead = true;
 
                 DOVirtual.DelayedCall(3f, () =>
                 {
@@ -367,10 +368,12 @@ public class Skully : MonoBehaviour
 
     public void Revive()
     {
+        Debug.Log("revive");
         healthAmount = maxHealth;
         healthBar.fillAmount = healthAmount / (float)maxHealth;
         rb.freezeRotation = false;
         skullyMovement.StartRunning();
+        isDead = false;
     }
 
     public void SetKinematic(bool isKinematic)

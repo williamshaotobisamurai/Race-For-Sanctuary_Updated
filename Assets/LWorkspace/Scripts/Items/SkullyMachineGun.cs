@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class SkullyMachineGun : MonoBehaviour
 {
-    private const int rayLength = 1000;
-    [SerializeField] private float firingInterval;
+    protected private const int rayLength = 1000;
+    [SerializeField] protected float firingInterval;
 
-    private float lastFireTimeStamp;
+    protected float lastFireTimeStamp;
 
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform muzzleTrans;
-    [SerializeField] private GameObject muzzleParticle;
-    [SerializeField] private float spread = 3f;
-    [SerializeField] private AudioSource gunAudio;
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected Transform muzzleTrans;
+    [SerializeField] protected GameObject muzzleParticle;
+    [SerializeField] protected float spread = 3f;
+    [SerializeField] protected AudioSource gunAudio;
 
     [SerializeField] private AudioSource reloadAudio;
 
@@ -48,13 +48,13 @@ public class SkullyMachineGun : MonoBehaviour
         transform.LookAt(ray.origin + ray.direction * rayLength);
     }
 
-    private void Shoot(Ray ray)
+    protected virtual void Shoot(Ray ray)
     {
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.localPosition = muzzleTrans.position;
         bulletInstance.transform.LookAt(ray.origin + ray.direction * rayLength + Random.insideUnitSphere * spread);
 
-        GameObject muzzleFireInstance = Instantiate(muzzleParticle,muzzleTrans);
+        GameObject muzzleFireInstance = Instantiate(muzzleParticle, muzzleTrans);
         muzzleFireInstance.transform.position = muzzleTrans.position;
         muzzleFireInstance.transform.rotation = Quaternion.identity;
 

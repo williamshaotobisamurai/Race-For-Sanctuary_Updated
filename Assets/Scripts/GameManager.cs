@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
         get { return instance; }
     }
 
-
     private void Awake()
     {
         if (instance == null)

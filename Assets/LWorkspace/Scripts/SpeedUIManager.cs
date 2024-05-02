@@ -11,11 +11,13 @@ public class SpeedUIManager : MonoBehaviour
 
     [SerializeField] private List<Image> arrows;
 
-    private void Update()
+    private void LateUpdate()
     {
         Vector2 skullyVelocityOnPlane = skully.GetCurrentVelocity();        
         float angle = Vector2.SignedAngle(Vector2.up, skullyVelocityOnPlane);
 
+        Vector2 pos =  Camera.main.WorldToScreenPoint(skully.transform.position );
+        speedIconRotationRoot.position = pos + (Vector2.up * 100f);
         speedIconRotationRoot.localEulerAngles = new Vector3(0, 0, angle);
 
         arrows.ForEach(t => t.gameObject.SetActive(false));

@@ -10,24 +10,6 @@ public class TutorialPhase_Six : TutorialPhaseBase
     public override void Prepare()
     {
         base.Prepare();
-        GameManager.Instance.Skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
-    }
-
-    private void Skully_OnSkullyDiedEvent()
-    {
-        Sequence seq = DOTween.Sequence();
-        seq.AppendInterval(1f);
-        seq.AppendCallback(() =>
-        {
-            OnReachEndTrigger?.Invoke(false);
-        });
-        seq.AppendInterval(1f);
-        seq.AppendCallback(() =>
-        {
-            GameManager.Instance.Skully.Revive();
-
-        });
-        seq.Play();
     }
 
     public override bool IsSuccess()

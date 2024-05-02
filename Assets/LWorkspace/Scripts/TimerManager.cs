@@ -17,9 +17,16 @@ public class TimerManager : MonoBehaviour
     public void Init(float startTime = 90f)
     {
         timerText.color = Color.white;
-
+        UpdateTimerText();
         remainingTime = startTime;
         isRunning = true;
+    }
+
+    public void StopAndHideTimer()
+    {
+        Debug.Log("stop and hide timer");
+        isRunning = false;
+        timerText.text = "";
     }
 
     public void ShowTimer()
@@ -47,9 +54,9 @@ public class TimerManager : MonoBehaviour
                 isRunning = false;
                 OnOutOfTimeEvent?.Invoke();
             }
-        }
 
-        UpdateTimerText();
+            UpdateTimerText();
+        }
     }
 
     private void UpdateTimerText()
