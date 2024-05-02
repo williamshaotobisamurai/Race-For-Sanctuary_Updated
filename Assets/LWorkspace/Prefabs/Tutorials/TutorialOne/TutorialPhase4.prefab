@@ -6363,7 +6363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionText: Collect the fire extinguisher to speed up .
-  successText: 
   failText: 
   tutorialManager: {fileID: 0}
   transitionDistance: 30

@@ -4428,8 +4428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructionText: Pick up the pistol to shoot the enemies .
-  successText: 
-  failText: 
+  failText: Shoot at least 3 enemy turrets
   tutorialManager: {fileID: 0}
   transitionDistance: 200
   timeDuration: 100

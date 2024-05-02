@@ -3602,7 +3602,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instructionText: 'Collect a shield item to make Skully become invincible , Skully
     can hit the meteorite '
-  successText: 
   failText: 
   tutorialManager: {fileID: 0}
   transitionDistance: 200

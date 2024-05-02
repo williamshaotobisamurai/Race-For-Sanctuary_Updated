@@ -30,7 +30,7 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private LookAtConstraint healthUILookAtConstraint;
 
-    private bool isKilled = false;
+    protected bool isKilled = false;
     public bool IsKilled { get => isKilled; }
 
     protected int maxHealth = 0;

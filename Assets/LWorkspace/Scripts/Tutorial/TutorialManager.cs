@@ -68,7 +68,19 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            FadeManager.Instance.Transition(() => StartNewTutorialPhase(currentPhasePrefab), null);
+            Sequence seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                instructionLabel.text = currentPhase.failText;
+            });
+            seq.Append(tutorialCanvasGroup.DOFade(1, 1f));
+            seq.AppendInterval(3f);
+            seq.Append(tutorialCanvasGroup.DOFade(0, 1f));
+            seq.AppendCallback(() =>
+            {
+                FadeManager.Instance.Transition(() => StartNewTutorialPhase(currentPhasePrefab), null);
+            });
+            seq.Play();
         }
     }
 

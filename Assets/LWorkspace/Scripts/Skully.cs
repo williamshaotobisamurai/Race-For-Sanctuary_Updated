@@ -371,6 +371,7 @@ public class Skully : MonoBehaviour
         Debug.Log("revive");
         healthAmount = maxHealth;
         healthBar.fillAmount = healthAmount / (float)maxHealth;
+        UpdateHealthBar();
         rb.freezeRotation = false;
         skullyMovement.StartRunning();
         isDead = false;

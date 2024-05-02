@@ -7,10 +7,8 @@ using UnityEngine;
 public abstract class TutorialPhaseBase : MonoBehaviour
 {
     public string instructionText;
-    public string successText;
     public string failText;    
 
-    [SerializeField] private TutorialManager tutorialManager;
     [SerializeField] private float transitionDistance = 200f;
     [SerializeField] private float timeDuration = 100f;
 
