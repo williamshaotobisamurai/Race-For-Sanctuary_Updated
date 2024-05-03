@@ -1555,6 +1555,7 @@ GameObject:
   - component: {fileID: 4782813590747754396}
   - component: {fileID: 9145706994779970532}
   - component: {fileID: 6617051614490332543}
+  - component: {fileID: 1573595478322508830}
   - component: {fileID: 5191574216452592755}
   - component: {fileID: 6713643661219461324}
   - component: {fileID: 3288004509835553065}
@@ -1670,6 +1671,25 @@ MonoBehaviour:
   skullyPistol: {fileID: 2151140292518914498}
   machineGun: {fileID: 5183242415226529615}
   skullyMissile: {fileID: 475373693280619946}
+--- !u!114 &1573595478322508830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135934854914533842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfff30bd322be6418659c99dcd88aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overheatingMeshRendererList:
+  - {fileID: 5346403765045925115}
+  - {fileID: 7122596028832753860}
+  skullyMeshRenderer: {fileID: 928888980917211020}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  overheatingColor: {r: 1, g: 0, b: 0, a: 1}
+  overheatingProgress: 0
 --- !u!54 &5191574216452592755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -58390,7 +58410,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 38d95e38f52f6a54b888d9fd555fa1e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c922c34f559ead440a273a13a924cfc7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.957
   m_Pitch: 1

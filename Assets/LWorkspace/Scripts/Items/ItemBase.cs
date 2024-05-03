@@ -11,6 +11,7 @@ public class ItemBase : MonoBehaviour
         DEFENSIVE_BOOST,
         JETPACK_FUEL,
         HEAL_ITEM,
+        COOLING_ITEM,
         WEAPON_ITEM,
     }
 

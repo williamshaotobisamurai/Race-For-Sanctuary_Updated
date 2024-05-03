@@ -24,7 +24,7 @@ public class RandomPlace : MonoBehaviour
             Selection.objects[i].GetComponent<Transform>().localPosition +=
                 new Vector3(Random.Range(-105f,105f), Random.Range(-105f, 105f), 0);
         }
-    }
+    }  
 
     [MenuItem("LeoTools/PlaceCoins")] 
     public static void PlaceCoins()

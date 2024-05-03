@@ -49,13 +49,19 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private SkullyWeaponManager skullyWeaponManager;
 
+    [SerializeField] private SkullyOverheating skullyOverheating;
+
+
+
     private bool isDead = false;
 
     private void Start()
     {
         skullyMovement.Init();
         sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;
+        skullyOverheating.OnOverheatEvent += SkullyOverheating_OnOverheatEvent;
     }
+
 
     private void OnDestroy()
     {
@@ -125,10 +131,17 @@ public class Skully : MonoBehaviour
                 case ItemBase.EItemType.HEAL_ITEM:
                     CollectHealItem(itemBase as HealItem);
                     break;
+                
+                case ItemBase.EItemType.COOLING_ITEM:
+                    CollectCoolingItem(itemBase as CoolingItem);
+                    break;
+
 
                 case ItemBase.EItemType.WEAPON_ITEM:
                     CollectWeaponItem(itemBase as WeaponItem);
                     break;
+
+
                 default:
                     break;
             }
@@ -303,6 +316,12 @@ public class Skully : MonoBehaviour
         OnCollectItemEvent?.Invoke(jetpackFuelItem);
     }
 
+    public void CollectCoolingItem(CoolingItem item)
+    {
+        OnCollectItemEvent?.Invoke(item);
+        skullyOverheating.ReduceOverheatingProgress(item.CoolingAmount);
+    }
+
     public void CollectHealItem(HealItem healItem)
     {
         healthAmount += healItem.HealAmount;
@@ -415,5 +434,16 @@ public class Skully : MonoBehaviour
     public void ExitBossMode()
     {
         skullyMovement.SetMaxSpeedFactor(1);
+    }
+
+    public void StartOverheating()
+    {
+        skullyOverheating.StartOverheating();
+    }
+
+    private void SkullyOverheating_OnOverheatEvent()
+    {
+        isDead = true;
+        OnSkullyDiedEvent?.Invoke();
     }
 }
