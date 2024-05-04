@@ -11,7 +11,7 @@ public class SpeedUIManager : MonoBehaviour
 
     [SerializeField] private List<Image> arrows;
 
-    private void LateUpdate()
+    public void UpdateUI()
     {
         Vector2 skullyVelocityOnPlane = skully.GetCurrentVelocity();        
         float angle = Vector2.SignedAngle(Vector2.up, skullyVelocityOnPlane);

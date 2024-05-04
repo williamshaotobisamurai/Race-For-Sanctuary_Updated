@@ -2,7 +2,9 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class Skully : MonoBehaviour
@@ -11,6 +13,8 @@ public class Skully : MonoBehaviour
     [SerializeField] private SIRS sirs;
     [SerializeField] private AudioSource collisionSound;
     [SerializeField] private Image healthBar;
+
+    [SerializeField] private SkullyBounce skullyBounce;
 
     private int maxHealth = 100;
     private int healthAmount = 100;
@@ -51,7 +55,8 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private SkullyOverheating skullyOverheating;
 
-
+    [SerializeField] private CameraFollowPlayer cameraFollowPlayer;
+    [SerializeField] private SpeedUIManager speedUIManager;
 
     private bool isDead = false;
 
@@ -62,15 +67,25 @@ public class Skully : MonoBehaviour
         skullyOverheating.OnOverheatEvent += SkullyOverheating_OnOverheatEvent;
     }
 
-
     private void OnDestroy()
     {
         sirs.OnCollectCoinEvent -= Sirs_OnCollectCoinEvent;
     }
 
+    private void LateUpdate()
+    {
+        cameraFollowPlayer.UpdateCamera();
+        speedUIManager.UpdateUI();
+    }
+
     private void Sirs_OnCollectCoinEvent(Coin coin)
     {
         OnCollectCoinEvent?.Invoke(coin);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("hit " + collision.gameObject.tag);
     }
 
     private void ReflectMeteor(Obstacle obstacle, float strength)
@@ -202,7 +217,6 @@ public class Skully : MonoBehaviour
 
                 skullyVisual.transform.DORotate(new Vector3(x, y, z), 0.5f);
             });
-
         }
     }
 
@@ -445,5 +459,26 @@ public class Skully : MonoBehaviour
     {
         isDead = true;
         OnSkullyDiedEvent?.Invoke();
+    }
+
+    public void SkullyHitSpaceStationWall()
+    {
+        skullyMovement.StopRunning();
+        skullyBounce.Bounce(skullyMovement.GetCurrentVelocity());
+        DOVirtual.DelayedCall(3f, () =>
+        {
+            skullyMovement.StartRunning();
+        });
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        skullyMovement.StopRunning();
+        skullyBounce.Bounce(hit.normal);
+        DOVirtual.DelayedCall(3f, () =>
+        {
+            skullyMovement.StartRunning();
+        });
+        Debug.Log("on controller hit " + hit.collider);
     }
 }

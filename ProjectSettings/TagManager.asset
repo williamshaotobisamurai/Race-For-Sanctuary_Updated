@@ -17,6 +17,7 @@ TagManager:
   - BLOB
   - ENEMY_HITPOINT
   - SKULLY_BULLET
+  - SPACE_STATION
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Enemy
   - SIRS
   - EnemyHitPoint
-  - 
+  - SpaceStation
   - 
   - 
   - 

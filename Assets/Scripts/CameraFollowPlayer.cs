@@ -34,9 +34,9 @@ public class CameraFollowPlayer : MonoBehaviour
         transform.position = player.position + startingCameraOffset;
         //starting coroutine
         StartCoroutine(cameraInterpolate());
-
     }
-    void Update()
+
+    public void UpdateCamera()
     {
         if (ifRoutineEnded)
         {

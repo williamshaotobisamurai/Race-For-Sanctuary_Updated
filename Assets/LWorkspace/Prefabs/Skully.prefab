@@ -1556,6 +1556,7 @@ GameObject:
   - component: {fileID: 9145706994779970532}
   - component: {fileID: 6617051614490332543}
   - component: {fileID: 1573595478322508830}
+  - component: {fileID: 9165436548032763803}
   - component: {fileID: 5191574216452592755}
   - component: {fileID: 6713643661219461324}
   - component: {fileID: 3288004509835553065}
@@ -1620,6 +1621,7 @@ MonoBehaviour:
   sirs: {fileID: 7134365825979491668}
   collisionSound: {fileID: 6713643661219461324}
   healthBar: {fileID: 0}
+  skullyBounce: {fileID: 9165436548032763803}
   skullyVisual: {fileID: 1811118272821962249}
   speedBoostAttachment: {fileID: 1538367640733584712}
   defensiveBoostAttachment: {fileID: 4253539411033553671}
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   splatterManager: {fileID: 0}
   healthText: {fileID: 0}
   skullyWeaponManager: {fileID: 6617051614490332543}
+  skullyOverheating: {fileID: 1573595478322508830}
 --- !u!114 &9145706994779970532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,10 +1689,29 @@ MonoBehaviour:
   overheatingMeshRendererList:
   - {fileID: 5346403765045925115}
   - {fileID: 7122596028832753860}
+  - {fileID: 4078041297953276071}
+  - {fileID: 4920581427719281646}
+  - {fileID: 8044327243425783821}
+  - {fileID: 6206018262764267241}
+  originalColorList: []
   skullyMeshRenderer: {fileID: 928888980917211020}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  overheatingColor: {r: 1, g: 0, b: 0, a: 1}
+  skullyOverheatingColor: {r: 1, g: 0, b: 0, a: 1}
+  skullyOriginalColor: {r: 1, g: 1, b: 1, a: 1}
   overheatingProgress: 0
+  overheatingSpeed: 0.1
+--- !u!114 &9165436548032763803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135934854914533842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640511bb5e7ecc745bedaf1c43328e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 10
 --- !u!54 &5191574216452592755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1713,7 +1735,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
