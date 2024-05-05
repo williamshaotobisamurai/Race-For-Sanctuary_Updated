@@ -22,7 +22,7 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] protected int health = 100;
 
-    [SerializeField] private float advanceDistance = 30f;
+    [SerializeField] protected float advanceDistance = 30f;
 
     [SerializeField] private GameObject killedParticlePrefab;
 
@@ -41,7 +41,7 @@ public class EnemyBase : MonoBehaviour
         maxHealth = health;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         ConstraintSource src = new ConstraintSource();
         src.sourceTransform = Camera.main.transform;

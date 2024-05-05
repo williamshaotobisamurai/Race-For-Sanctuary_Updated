@@ -26,6 +26,6 @@ public class SkullyBounce : MonoBehaviour
 
     public void Bounce(Vector3 currentDirection)
     {
-        transform.DOMove(bounceStrength * currentDirection, 2f);
+        transform.DOMove(transform.position +  bounceStrength * currentDirection, 2f);
     }
 }

@@ -474,6 +474,7 @@ public class Skully : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         skullyMovement.StopRunning();
+        rb.velocity = Vector3.zero;
         skullyBounce.Bounce(hit.normal);
         DOVirtual.DelayedCall(3f, () =>
         {

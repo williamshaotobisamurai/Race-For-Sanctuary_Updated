@@ -35,6 +35,7 @@ public class SkullyMovement : MonoBehaviour
     public void StopRunning()
     {
         isRunning = false;
+        currentXYMovement = Vector2.zero; 
     }
 
     public void SpeedBoost(SpeedBoost speedBoost)
