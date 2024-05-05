@@ -10,7 +10,6 @@ public class MachineGunSoldier : EnemyBase
 
     [SerializeField] private float bulletSpread = 2f;
 
-
     protected override void Start()
     {
         base.Start();
@@ -18,7 +17,6 @@ public class MachineGunSoldier : EnemyBase
         source.sourceTransform = GameManager.Instance.Skully.transform;
         source.weight = 1f;
         lookAtConstraint.AddSource(source);
-
     }
 
     private void LateUpdate()
@@ -32,7 +30,13 @@ public class MachineGunSoldier : EnemyBase
         bulletInstance.transform.position = muzzle.position;
 
         Skully skully = GameManager.Instance.Skully;
-        bulletInstance.transform.LookAt(skully.transform.position + Vector3.forward * advanceDistance + Random.insideUnitSphere * bulletSpread);
+        Vector3 advance = Vector3.forward * advanceDistance * skully.GetCurrentVelocity().normalized.z;
+
+        Debug.Log("advance " + advance);
+        bulletInstance.transform.LookAt(
+            skully.transform.position +
+            advance +
+            Random.insideUnitSphere * bulletSpread);
         return bulletInstance;
     }
 

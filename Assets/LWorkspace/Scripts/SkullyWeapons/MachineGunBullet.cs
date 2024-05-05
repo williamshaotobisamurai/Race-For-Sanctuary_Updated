@@ -33,20 +33,26 @@ public class MachineGunBullet : SkullyBulletBase
     }
 
     private void OnTriggerEnter(Collider other)
-    {        
+    {
         if (other.gameObject.tag.Equals(GameConstants.OBSTACLE))
         {
             gameObject.SetActive(false);
-            GameObject instance = Instantiate(hitParticle);         
+            GameObject instance = Instantiate(hitParticle);
             instance.transform.position = transform.position;
         }
-        else if (other.gameObject.tag.Equals(GameConstants.ENEMY_HITPOINT)) 
+        else if (other.gameObject.tag.Equals(GameConstants.ENEMY_HITPOINT))
         {
             gameObject.SetActive(false);
             GameObject instance = Instantiate(hitParticle);
             instance.transform.position = transform.position;
             Vector3 normal = transform.position - other.transform.position;
             instance.transform.up = normal;
+        }
+        else if (other.gameObject.layer.Equals(GameConstants.SPACE_STATION))
+        {
+            gameObject.SetActive(false);
+            GameObject instance = Instantiate(hitParticle);
+            instance.transform.position = transform.position;
         }
     }
 }

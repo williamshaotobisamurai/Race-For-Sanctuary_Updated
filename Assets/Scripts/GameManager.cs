@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private MissileWarningUI missileWarningUI;
 
+    [SerializeField] private SpaceStationTrigger spaceStationEntry;
+    [SerializeField] private SpaceStationTrigger spaceStationExit;
+
+
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -56,6 +60,19 @@ public class GameManager : MonoBehaviour
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
         PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
         TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
+
+        spaceStationEntry.OnSkullyEnterEvent += SpaceStationEntry_OnSkullyEnterEvent;
+        spaceStationExit.OnSkullyEnterEvent += SpaceStationExit_OnSkullyEnterEvent;
+    }
+
+    private void SpaceStationExit_OnSkullyEnterEvent(SpaceStationTrigger spaceStationTrigger)
+    {
+        policeShip.gameObject.SetActive(true);
+    }
+
+    private void SpaceStationEntry_OnSkullyEnterEvent(SpaceStationTrigger spaceStationTrigger)
+    {
+        policeShip.gameObject.SetActive(false);
     }
 
     private void Soldier_OnShootEvent(EnemyMissile enemyMissile)

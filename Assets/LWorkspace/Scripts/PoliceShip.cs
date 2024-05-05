@@ -107,5 +107,6 @@ public class PoliceShip : MonoBehaviour
         currentOffset = originalOffset;
         isCloseToSkully = false;
     }
+
 }
 

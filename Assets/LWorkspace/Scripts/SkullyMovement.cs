@@ -35,7 +35,7 @@ public class SkullyMovement : MonoBehaviour
     public void StopRunning()
     {
         isRunning = false;
-        currentXYMovement = Vector2.zero; 
+        currentXYMovement = Vector2.zero;
     }
 
     public void SpeedBoost(SpeedBoost speedBoost)
@@ -80,12 +80,15 @@ public class SkullyMovement : MonoBehaviour
 
     public Vector3 GetCurrentVelocity()
     {
-        if (!isActiveAndEnabled)
+        if (!isActiveAndEnabled || !isRunning)
         {
             return Vector3.zero;
         }
+
+
         return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
     }
+
 
     public void EnableXYControl()
     {

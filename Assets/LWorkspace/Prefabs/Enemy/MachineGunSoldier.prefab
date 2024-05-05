@@ -2086,13 +2086,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2113
   health: 100
-  advanceDistance: 50
+  advanceDistance: 30
   killedParticlePrefab: {fileID: 130346, guid: 07bf9ced87963e24299c2c2a22bfeeb6, type: 3}
   healthImg: {fileID: 421070595901703583}
   healthUILookAtConstraint: {fileID: 9186710389117267785}
   animator: {fileID: 1326100982662518662}
   lookAtConstraint: {fileID: 3990019984536713602}
-  bulletSpread: 5
+  bulletSpread: 2
 --- !u!135 &4697630889963180935
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3106,6 +3106,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8636232489333620978, guid: 2658b2f6e5219ab4fb526cca0cf0ef1a, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 3259461002419601420}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

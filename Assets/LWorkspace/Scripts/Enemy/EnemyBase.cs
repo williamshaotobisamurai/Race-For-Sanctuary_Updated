@@ -45,7 +45,14 @@ public class EnemyBase : MonoBehaviour
     {
         ConstraintSource src = new ConstraintSource();
         src.sourceTransform = Camera.main.transform;
-        healthUILookAtConstraint.SetSource(0, src);
+        if (healthUILookAtConstraint.sourceCount == 0)
+        {
+            healthUILookAtConstraint.AddSource(src);
+        }
+        else
+        {
+            healthUILookAtConstraint.SetSource(0, src);
+        }
     }
 
     private void Update()
