@@ -32,7 +32,6 @@ public class MachineGunSoldier : EnemyBase
         Skully skully = GameManager.Instance.Skully;
         Vector3 advance = Vector3.forward * advanceDistance * skully.GetCurrentVelocity().normalized.z;
 
-        Debug.Log("advance " + advance);
         bulletInstance.transform.LookAt(
             skully.transform.position +
             advance +

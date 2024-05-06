@@ -48,7 +48,7 @@ public class MachineGunBullet : SkullyBulletBase
             Vector3 normal = transform.position - other.transform.position;
             instance.transform.up = normal;
         }
-        else if (other.gameObject.layer.Equals(GameConstants.SPACE_STATION))
+        else if (other.gameObject.tag.Equals(GameConstants.SPACE_STATION))
         {
             gameObject.SetActive(false);
             GameObject instance = Instantiate(hitParticle);

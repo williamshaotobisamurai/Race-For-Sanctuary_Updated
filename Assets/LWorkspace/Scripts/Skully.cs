@@ -476,9 +476,13 @@ public class Skully : MonoBehaviour
         skullyMovement.StopRunning();
         rb.velocity = Vector3.zero;
         skullyBounce.Bounce(hit.normal);
+        collisionSound.Play();
         DOVirtual.DelayedCall(3f, () =>
         {
-            skullyMovement.StartRunning();
+            if (!isDead)
+            {
+                skullyMovement.StartRunning();
+            }
         });
         Debug.Log("on controller hit " + hit.collider);
     }

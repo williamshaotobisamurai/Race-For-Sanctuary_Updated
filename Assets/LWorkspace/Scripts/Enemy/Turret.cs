@@ -9,7 +9,7 @@ public class Turret : EnemyBase
     [SerializeField] private bool redFirst = false;
     [SerializeField] private float interval = 0.2f;
 
-    private void Start()
+    protected override void Start()
     {
         meshRendererlist = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>());
         StartCoroutine(StartFlashing());
@@ -53,5 +53,4 @@ public class Turret : EnemyBase
         }
         shakeTween =  transform.DOShakeRotation(0.2f, 10);
     }
-
 }
