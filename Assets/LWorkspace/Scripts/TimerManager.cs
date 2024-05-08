@@ -50,7 +50,6 @@ public class TimerManager : MonoBehaviour
     public void HideTimer()
     {
         fuelIconRoot.DOFade(1, 0.5f);
-
         timerText.DOFade(0f, 0.5f);
     }
 

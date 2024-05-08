@@ -18,18 +18,12 @@ EditorBuildSettings:
     path: Assets/LWorkspace/Scenes/BossTestGround.unity
     guid: a24bf14f03da5f94a9b8dbc72be91b43
   - enabled: 1
-    path: Assets/Scenes/TutorialLevel_1.unity
-    guid: e331f5b12c7ed814da559db08825a89d
-  - enabled: 1
-    path: Assets/Scenes/BossLevel_1.unity
-    guid: b7a67cd68d20c5145a4471406c8aae2c
+    path: Assets/LWorkspace/Scenes/Tutorial_Level1.unity
+    guid: 34933e74a7d0b1f4cb048e6f063f2214
   - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 5dcf8b93771736f458e43dad0f116add
   - enabled: 1
-    path: Assets/LWorkspace/Models/SciFi_level_Pack1/SciFi_level_Pack1_demolevel.unity
-    guid: 651ce8bde1d10354ca96e8a00cf63b51
-  - enabled: 1
-    path: Assets/LWorkspace/Scenes/Tutorial_Level1.unity
-    guid: 34933e74a7d0b1f4cb048e6f063f2214
+    path: Assets/Scenes/BossLevel_1.unity
+    guid: b7a67cd68d20c5145a4471406c8aae2c
   m_configObjects: {}

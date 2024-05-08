@@ -16,7 +16,7 @@ public class CameraFollowPlayer : MonoBehaviour
     Vector3 startingAngle = new Vector3(45.0f, 180.0f, 0.0f);
     Vector3 endingAngle = new Vector3(0.0f, 0.0f, 0.0001f);
 
-    bool ifRoutineEnded = false;
+    [SerializeField] private bool ifRoutineEnded = false;
     // This defines how fast the camera interpolate from the 
     // starting position to the ending position as well as
     // from starting angle to the ending angle
@@ -34,7 +34,7 @@ public class CameraFollowPlayer : MonoBehaviour
         // initialize camera position
         transform.position = player.position + startingCameraOffset;
         //starting coroutine
-    //    StartCoroutine(CameraInterpolate());
+        //    StartCoroutine(CameraInterpolate());
     }
 
     public void UpdateCamera()
@@ -57,7 +57,7 @@ public class CameraFollowPlayer : MonoBehaviour
         float duration = 0f;
         while (duration < transitionTime)
         {
-            duration += Time.deltaTime; 
+            duration += Time.deltaTime;
             //interpolating position
             //Debug.Log($"current angle: {transform.eulerAngles}");
             newOffset += positionInterval * Time.deltaTime;

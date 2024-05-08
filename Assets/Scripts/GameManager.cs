@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
 
-    [SerializeField] private CameraFollowPlayer cameraFollowPlayer;
+    [SerializeField] protected CameraFollowPlayer cameraFollowPlayer;
 
     [SerializeField] protected Skully skully;
     public Skully Skully { get => skully; }

@@ -10,6 +10,8 @@ public class FlashMat : MonoBehaviour
 
     [SerializeField] private bool redFirst = false;
 
+    private Tween flashingTween;
+
     IEnumerator Start()
     {
         float randomDelay = Random.Range(0, 1f);
@@ -34,5 +36,15 @@ public class FlashMat : MonoBehaviour
         seq.AppendInterval(interval);
         seq.Play();
         seq.SetLoops(-1);
+        flashingTween = seq;
+    }
+
+    private void OnDestroy()
+    {
+        if (flashingTween != null)
+        {
+            flashingTween.Kill();
+            flashingTween = null;
+        }
     }
 }

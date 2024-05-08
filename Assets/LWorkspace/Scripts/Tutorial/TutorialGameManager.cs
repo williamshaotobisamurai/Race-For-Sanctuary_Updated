@@ -7,7 +7,6 @@ public class TutorialGameManager : GameManager
 {
     [SerializeField] private TutorialManager tutorialManager;
 
-
     protected override void Start()
     {
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
@@ -19,7 +18,16 @@ public class TutorialGameManager : GameManager
 
         collectedCoinsManager.Init();
         tutorialManager.StartRunningTutorial();
+
+        skully.DisableControl();
+
+        cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
+        {
+            skully.EnableControl();
+            TimerManager.Init();
+        }));
     } 
+
 
     private void TutorialManager_OnAllTutorialPassedEvent()
     {

@@ -20,11 +20,13 @@ public class RandomMovement : MonoBehaviour
     public float Range { get => range; set => range = value; }
     public float MoveDuration { get => moveDuration; set => moveDuration = value; }
 
+    private Tween delayTween;
+
     // Start is called before the first frame update
     void Start()
     {
         originPos = transform.localPosition;
-        DOVirtual.DelayedCall(Random.Range(0, 2f), () =>
+        delayTween= DOVirtual.DelayedCall(Random.Range(0, 2f), () =>
         {
             StartMoving();
         });
@@ -43,6 +45,22 @@ public class RandomMovement : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (movingTween != null)
+        {
+            movingTween.Kill();
+            movingTween = null;
+        }
+
+        if (delayTween != null)
+        {
+            delayTween.Kill();
+            delayTween = null;
+        }
+    
     }
 
 

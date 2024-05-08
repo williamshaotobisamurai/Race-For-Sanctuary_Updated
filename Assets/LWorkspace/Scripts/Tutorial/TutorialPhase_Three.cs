@@ -10,6 +10,7 @@ public class TutorialPhase_Three : TutorialPhaseBase
         TimerManager timerManager = GameManager.Instance.TimerManager;
         timerManager.Init(20);
         timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
+        timerManager.ShowTimer();
     }
 
     public override void EndTrigger_OnSkullyEnterEvent()
