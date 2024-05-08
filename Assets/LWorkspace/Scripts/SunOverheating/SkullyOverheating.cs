@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SkullyOverheating : MonoBehaviour
 {
-   
     [SerializeField] private List<MeshRenderer> overheatingMeshRendererList;
     [SerializeField] private List<Color> originalColorList;
 
@@ -22,11 +21,15 @@ public class SkullyOverheating : MonoBehaviour
     public event OnOverheat OnOverheatEvent;
     public delegate void OnOverheat();
 
+    [SerializeField] private string warningText;
+
+    private bool messageSent = false;
+
     private void Start()
     {
         foreach (MeshRenderer mr in overheatingMeshRendererList)
-        { 
-            originalColorList.Add(mr.material.color);   
+        {
+            originalColorList.Add(mr.material.color);
         }
     }
 
@@ -38,13 +41,20 @@ public class SkullyOverheating : MonoBehaviour
 
             overheatingProgress = Mathf.Clamp01(overheatingProgress);
 
-            if (overheatingProgress >= 1)
+
+            if (overheatingProgress > 0.75f && !messageSent)
+            {
+                InstructionManager.ShowText(warningText);
+                messageSent = true;
+            }
+
+
+            if (overheatingProgress >= 1 && !isOverheated)
             {
                 isOverheated = true;
                 OnOverheatEvent?.Invoke();
             }
         }
-
 
         SetOverheatingProgress(overheatingProgress);
     }
@@ -62,13 +72,22 @@ public class SkullyOverheating : MonoBehaviour
         foreach (Material mat in skullyMeshRenderer.materials)
         {
             Color color = Color.Lerp(skullyOriginalColor, skullyOverheatingColor, progress);
-            mat.color = color;  
+            mat.color = color;
         }
     }
 
     public void StartOverheating()
-    { 
+    {
+        Debug.Log("start overheating");
         isOverheating = true;
+    }
+
+    public void StopOverheating()
+    {
+        Debug.Log("stop overheating");
+        isOverheating = false;
+        overheatingProgress = 0;
+        SetOverheatingProgress(overheatingProgress);
     }
 
     public void ReduceOverheatingProgress(float progress)

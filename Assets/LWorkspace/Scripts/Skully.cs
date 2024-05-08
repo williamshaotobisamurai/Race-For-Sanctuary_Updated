@@ -67,6 +67,20 @@ public class Skully : MonoBehaviour
         skullyOverheating.OnOverheatEvent += SkullyOverheating_OnOverheatEvent;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) 
+        {
+            Time.timeScale = 10f;
+            isInvincible = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space)) 
+        {
+            Time.timeScale = 1f;
+            isInvincible = false;
+        }
+    }
+
     private void OnDestroy()
     {
         sirs.OnCollectCoinEvent -= Sirs_OnCollectCoinEvent;
@@ -146,7 +160,7 @@ public class Skully : MonoBehaviour
                 case ItemBase.EItemType.HEAL_ITEM:
                     CollectHealItem(itemBase as HealItem);
                     break;
-                
+
                 case ItemBase.EItemType.COOLING_ITEM:
                     CollectCoolingItem(itemBase as CoolingItem);
                     break;
@@ -455,10 +469,19 @@ public class Skully : MonoBehaviour
         skullyOverheating.StartOverheating();
     }
 
+    public void StopOverheating()
+    {
+        skullyOverheating.StopOverheating();
+    }
+
     private void SkullyOverheating_OnOverheatEvent()
     {
         isDead = true;
-        OnSkullyDiedEvent?.Invoke();
+        DisableControl();
+        InstructionManager.ShowText("I'm burned out", 2f, () =>
+        {
+            OnSkullyDiedEvent?.Invoke();
+        });
     }
 
     public void SkullyHitSpaceStationWall()
@@ -473,17 +496,20 @@ public class Skully : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        skullyMovement.StopRunning();
-        rb.velocity = Vector3.zero;
-        skullyBounce.Bounce(hit.normal);
-        collisionSound.Play();
-        DOVirtual.DelayedCall(3f, () =>
+        if (hit.gameObject.tag.Equals(GameConstants.SPACE_STATION))
         {
-            if (!isDead)
+            skullyMovement.StopRunning();
+            rb.velocity = Vector3.zero;
+            skullyBounce.Bounce(hit.normal);
+            collisionSound.Play();
+            DOVirtual.DelayedCall(3f, () =>
             {
-                skullyMovement.StartRunning();
-            }
-        });
-        Debug.Log("on controller hit " + hit.collider);
+                if (!isDead)
+                {
+                    skullyMovement.StartRunning();
+                }
+            });
+            Debug.Log("on controller hit " + hit.collider);
+        }
     }
 }

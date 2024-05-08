@@ -32,7 +32,7 @@ public class RandomPlace : MonoBehaviour
         Vector3 pos = Vector3.zero;
         for (int i = 0; i < Selection.objects.Length; i ++)
         {
-            Selection.objects[i].GetComponent<Transform>().localPosition = Vector3.forward * i * 15;
+            Selection.objects[i].GetComponent<Transform>().localPosition = Vector3.forward * i * 55;
         }
     }
 

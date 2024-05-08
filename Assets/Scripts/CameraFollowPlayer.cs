@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class CameraFollowPlayer : MonoBehaviour
         // initialize camera position
         transform.position = player.position + startingCameraOffset;
         //starting coroutine
-        StartCoroutine(cameraInterpolate());
+    //    StartCoroutine(CameraInterpolate());
     }
 
     public void UpdateCamera()
@@ -44,7 +45,7 @@ public class CameraFollowPlayer : MonoBehaviour
         }
     }
 
-    IEnumerator cameraInterpolate()
+    public IEnumerator CameraInterpolate(Action OnComplete)
     {
         Vector3 positionInterval = (offset - startingCameraOffset) / (10.0f / transformRate);
         Vector3 newOffset = startingCameraOffset;
@@ -70,5 +71,6 @@ public class CameraFollowPlayer : MonoBehaviour
         ifRoutineEnded = true;
         transform.position = player.position + offset;
         transform.eulerAngles = endingAngle;
+        OnComplete?.Invoke();
     }
 }

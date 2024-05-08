@@ -78,11 +78,21 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void AimAtSkully(Skully skully)
     {
-        if (Time.time > lastTimeShootTimeStamp + shootInterval)
+        if ((Time.time > lastTimeShootTimeStamp + shootInterval) && !IsBlocked(skully))
         {
             Shoot();
             lastTimeShootTimeStamp = Time.time;
         }
+    }
+
+    private bool IsBlocked(Skully skully)
+    {
+        Vector3 direction = skully.transform.position - muzzle.transform.position;
+        if (Physics.Raycast(muzzle.transform.position,direction,  out RaycastHit hit, direction.magnitude * 1.2f,layerMask))
+        {
+            return true;
+        }
+        return false;
     }
 
     protected virtual GameObject Shoot()

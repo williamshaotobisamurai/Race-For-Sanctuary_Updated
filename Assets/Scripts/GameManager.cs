@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,12 +11,14 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
 
+    [SerializeField] private CameraFollowPlayer cameraFollowPlayer;
+
     [SerializeField] protected Skully skully;
     public Skully Skully { get => skully; }
 
     [SerializeField] protected CollectedCoinsManager collectedCoinsManager;
     [SerializeField] private TimerManager timerManager;
-    public TimerManager TimerManager { get => timerManager;  }
+    public TimerManager TimerManager { get => timerManager; }
 
     [SerializeField] protected EndTrigger endTrigger;
     [SerializeField] protected PoliceShip policeShip;
@@ -28,7 +31,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SpaceStationTrigger spaceStationEntry;
     [SerializeField] private SpaceStationTrigger spaceStationExit;
+    [SerializeField] private OverheatingStartSign overheatingStartSign;
 
+    [SerializeField] private GameObject staticBarrier;
+    [SerializeField] private Light overheatingLight;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -53,26 +59,46 @@ public class GameManager : MonoBehaviour
         missileSoldiers = new List<MissileSoldier>(FindObjectsOfType<MissileSoldier>());
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent += Soldier_OnShootEvent);
 
-        collectedCoinsManager.Init();
-        TimerManager.Init();
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
         PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
         TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
 
-        spaceStationEntry.OnSkullyEnterEvent += SpaceStationEntry_OnSkullyEnterEvent;
-        spaceStationExit.OnSkullyEnterEvent += SpaceStationExit_OnSkullyEnterEvent;
+        if (spaceStationEntry != null)
+        {
+            spaceStationEntry.OnSkullyEnterEvent += SpaceStationEntry_OnSkullyEnterEvent;
+            spaceStationExit.OnSkullyEnterEvent += SpaceStationExit_OnSkullyEnterEvent;
+        }
+
+        if (overheatingStartSign != null)
+        {
+            overheatingStartSign.OnSkullyEnterEvent += OnPlayerEnterOverheatingTrigger;
+        }
+
+        collectedCoinsManager.Init();
+
+        skully.DisableControl();
+
+        cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
+        {
+            skully.EnableControl();
+            TimerManager.Init();
+        }));
     }
 
     private void SpaceStationExit_OnSkullyEnterEvent(SpaceStationTrigger spaceStationTrigger)
     {
         policeShip.gameObject.SetActive(true);
+        staticBarrier.SetActive(true);
     }
 
     private void SpaceStationEntry_OnSkullyEnterEvent(SpaceStationTrigger spaceStationTrigger)
     {
         policeShip.gameObject.SetActive(false);
+        staticBarrier.SetActive(false);
+        skully.StopOverheating();
+        overheatingLight.DOIntensity(0, 0f);
     }
 
     private void Soldier_OnShootEvent(EnemyMissile enemyMissile)
@@ -127,6 +153,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void OnPlayerEnterOverheatingTrigger()
+    {
+        skully.StartOverheating();
+        overheatingLight.DOIntensity(1.2f, 0.5f);
+    }
+
     protected virtual void TimerManager_OnOutOfTimeEvent()
     {
         EndGame();
@@ -147,6 +180,7 @@ public class GameManager : MonoBehaviour
         CompleteLevel();
     }
 
+
     public void CompleteLevel()
     {
         Debug.Log("complete level");
@@ -163,8 +197,10 @@ public class GameManager : MonoBehaviour
             Invoke("Restart", restartDelay);
         }
     }
+
     void Restart()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -55,7 +55,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5.43
+  m_Radius: 8
   m_Center: {x: 0, y: 1.32, z: 0}
 --- !u!95 &7870409287460788238
 Animator:
@@ -201,15 +201,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bb7462f58786dd741ad8c498c0711bfc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 9.061
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb7462f58786dd741ad8c498c0711bfc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.061
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb7462f58786dd741ad8c498c0711bfc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 9.061
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bb7462f58786dd741ad8c498c0711bfc, type: 3}
       propertyPath: m_LocalPosition.x

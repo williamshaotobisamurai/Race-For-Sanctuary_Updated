@@ -1634,6 +1634,8 @@ MonoBehaviour:
   healthText: {fileID: 0}
   skullyWeaponManager: {fileID: 6617051614490332543}
   skullyOverheating: {fileID: 1573595478322508830}
+  cameraFollowPlayer: {fileID: 0}
+  speedUIManager: {fileID: 0}
 --- !u!114 &9145706994779970532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,7 +1700,7 @@ MonoBehaviour:
   skullyOverheatingColor: {r: 1, g: 0, b: 0, a: 1}
   skullyOriginalColor: {r: 1, g: 1, b: 1, a: 1}
   overheatingProgress: 0
-  overheatingSpeed: 0.1
+  overheatingSpeed: 0.05
 --- !u!114 &9165436548032763803
 MonoBehaviour:
   m_ObjectHideFlags: 0
