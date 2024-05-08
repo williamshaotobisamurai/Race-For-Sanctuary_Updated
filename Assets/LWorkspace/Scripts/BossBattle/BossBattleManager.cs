@@ -11,9 +11,11 @@ public class BossBattleManager : MonoBehaviour
     [SerializeField] private Skully skully;
     [SerializeField] private Transform bossStartTrans;
     [SerializeField] private Image bossWarning;
+    [SerializeField] private TimerManager timerManager;
 
     public void StartBossBattle()
     {
+        timerManager.StopAndHideTimer();
         boss.OnExplodeEvent += Boss_OnExplodeEvent;
         boss.gameObject.SetActive(true);
         skully.EnterBossMode();

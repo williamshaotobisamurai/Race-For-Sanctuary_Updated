@@ -9,7 +9,7 @@ public class CollectedCoinsManager : MonoBehaviour
     [SerializeField] private Text collectedCoinsLabel;
     [SerializeField] private Skully skully;
 
-    private int collectedCoinsInLevel = 0;
+    private static int collectedCoinsInLevel = 0;
     private int coinsInAllLevels = 0;
 
     public void Init()

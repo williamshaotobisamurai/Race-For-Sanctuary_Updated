@@ -561,9 +561,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 3781061703971587244}
   m_collider: {fileID: 2164034923026007043}
-  itemType: 4
+  itemType: 5
   itemModel: {fileID: 5001558553522126806}
-  weaponType: 1
+  weaponType: 3
 --- !u!82 &3781061703971587244
 AudioSource:
   m_ObjectHideFlags: 0
