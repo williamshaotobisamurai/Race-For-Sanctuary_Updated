@@ -69,12 +69,12 @@ public class Skully : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Time.timeScale = 10f;
             isInvincible = true;
         }
-        if (Input.GetKeyUp(KeyCode.Space)) 
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Time.timeScale = 1f;
             isInvincible = false;
@@ -249,6 +249,14 @@ public class Skully : MonoBehaviour
         blob.gameObject.SetActive(false);
         hitByBlobParticle.Play();
         splatterManager.Show(blob.CoverScreenDuration);
+    }
+
+    public void HitByLaser(int damage)
+    {
+        if (!IsInvincible)
+        {
+            TakeDamage(damage);
+        }
     }
 
     public void HitByLightningStrike()

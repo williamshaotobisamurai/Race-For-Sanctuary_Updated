@@ -123,7 +123,6 @@ MonoBehaviour:
   hitParticle: {fileID: 104006, guid: a801d5bc64b7dc44e964c45bd6709a7e, type: 3}
   rotateRate: 3
   speed: 150
-  delayDestroy: 5
   coverScreenDuration: 3
 --- !u!1001 &500233241512345915
 PrefabInstance:

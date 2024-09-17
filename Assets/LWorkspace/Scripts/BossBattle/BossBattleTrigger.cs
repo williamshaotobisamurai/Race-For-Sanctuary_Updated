@@ -8,11 +8,10 @@ public class BossBattleTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Skully skully = other.GetComponent<Skully>();
-        if (skully != null)
+        if (GameHelper.IsSkully(other, out Skully skully))
         {
             battleManager.StartBossBattle();
             gameObject.SetActive(false);
         }
-    }    
+    }
 }
