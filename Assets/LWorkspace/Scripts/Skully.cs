@@ -97,11 +97,6 @@ public class Skully : MonoBehaviour
         OnCollectCoinEvent?.Invoke(coin);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("hit " + collision.gameObject.tag);
-    }
-
     private void ReflectMeteor(Obstacle obstacle, float strength)
     {
         Vector3 forceDirection = obstacle.transform.position - transform.position;
@@ -236,7 +231,7 @@ public class Skully : MonoBehaviour
 
     private void HitByBullet(EnemyBulletBase bullet)
     {
-        bullet.OnHitPlayer();
+        bullet.OnHit();
         if (!IsInvincible)
         {
             TakeDamage(bullet.Damage);
@@ -245,7 +240,7 @@ public class Skully : MonoBehaviour
 
     private void HitByBlob(Blob blob)
     {
-        blob.OnHitPlayer();
+        blob.OnHit();
         blob.gameObject.SetActive(false);
         hitByBlobParticle.Play();
         splatterManager.Show(blob.CoverScreenDuration);
@@ -336,7 +331,6 @@ public class Skully : MonoBehaviour
         {
 
             defensiveBoostAttachment.GetComponent<DefensiveAttachment>().StartFlashingForSeconds(defensiveBoost.GetDefensiveDuration());
-            //defensiveBoostAttachment.GetComponent<MeshRenderer>().material.do
         });
 
         DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
@@ -432,11 +426,6 @@ public class Skully : MonoBehaviour
         isDead = false;
     }
 
-    public void SetKinematic(bool isKinematic)
-    {
-        rb.isKinematic = isKinematic;
-    }
-
     public Vector3 GetCurrentVelocity()
     {
         return skullyMovement.GetCurrentVelocity();
@@ -519,5 +508,10 @@ public class Skully : MonoBehaviour
             });
             Debug.Log("on controller hit " + hit.collider);
         }
+    }
+
+    public void AddExternalSpeed(Vector3 externalSpeed,float decay)
+    {
+        skullyMovement.AddExternalSpeed(externalSpeed,decay);
     }
 }

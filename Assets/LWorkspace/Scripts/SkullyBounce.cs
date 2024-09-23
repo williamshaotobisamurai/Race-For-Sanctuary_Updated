@@ -6,8 +6,7 @@ using UnityEngine;
 
 public class SkullyBounce : MonoBehaviour
 {
-    [SerializeField] private float bounceStrength = 2f;
-  
+    [SerializeField] private float bounceStrength = 2f;  
 
     private void OnTriggerEnter(Collider other)
     {

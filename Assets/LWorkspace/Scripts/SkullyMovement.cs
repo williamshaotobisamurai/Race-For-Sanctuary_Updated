@@ -22,6 +22,8 @@ public class SkullyMovement : MonoBehaviour
 
     private bool xyControlEnabled = true;
 
+    private Vector3 externalSpeed = Vector3.zero;
+
     public void Init()
     {
         maxForwardSpeedFactor = 1f;
@@ -72,7 +74,10 @@ public class SkullyMovement : MonoBehaviour
 
         currentXYMovement = Vector2.MoveTowards(currentXYMovement, desiredMovement, Time.deltaTime * xyMovementAcceleration);
 
-        characterController.Move(new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed));
+        Vector3 movement = new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed) ;
+        movement += externalSpeed;
+
+        characterController.Move(movement);
         Vector2 desiredRotation = new Vector2(currentXYMovement.x / xyMovementSpeed * maxXYRotateAngle, currentXYMovement.y / xyMovementSpeed * maxXYRotateAngle);
 
         transform.eulerAngles = new Vector3(-desiredRotation.y, desiredRotation.x, 0);
@@ -84,7 +89,6 @@ public class SkullyMovement : MonoBehaviour
         {
             return Vector3.zero;
         }
-
 
         return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
     }
@@ -98,5 +102,18 @@ public class SkullyMovement : MonoBehaviour
     public void DisableXYControl()
     {
         xyControlEnabled = false;
+    }
+
+    public void AddExternalSpeed(Vector3 speed, float decay)
+    {
+        this.externalSpeed = speed;
+
+        Vector3 originalSpeed = speed;
+
+        DOVirtual.Float(0, 1, decay, (t) =>
+        {
+            Debug.Log("decay " + decay + " external speed " + externalSpeed);
+            externalSpeed = Vector3.Lerp(originalSpeed, Vector3.zero, t);
+        });
     }
 }

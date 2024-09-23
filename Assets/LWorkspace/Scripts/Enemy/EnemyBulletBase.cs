@@ -45,12 +45,20 @@ public abstract class EnemyBulletBase : MonoBehaviour
         transform.Translate(Vector3.forward * Speed * Time.deltaTime, Space.Self);
     }
 
-    public virtual void OnHitPlayer()
+    public virtual void OnHit()
     {
         GameObject explode = Instantiate(hitParticle);
         explode.transform.position = transform.position;
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public abstract void OnFlyOverSkully();
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<BlockBullet>() != null)
+        {
+            OnHit();
+        }
+    }
 }

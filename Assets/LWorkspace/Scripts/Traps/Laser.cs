@@ -27,7 +27,6 @@ public class Laser : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo, maxLength, layerMask))
         {
-            Debug.Log(hitInfo.collider.name + " : " + hitInfo.distance);
             dest = rayOrigin.position + rayOrigin.forward * hitInfo.distance;
 
             if (GameHelper.IsSkully(hitInfo.collider,out Skully skully))

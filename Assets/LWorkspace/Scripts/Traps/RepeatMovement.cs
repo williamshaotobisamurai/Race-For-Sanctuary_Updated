@@ -17,9 +17,9 @@ public class RepeatMovement : MonoBehaviour
     [SerializeField] private float t;
 
     private void Update()
-    {
-        
+    {        
         t = Mathf.PingPong(Time.time * speed, 1) ;
         target.position = Vector3.Lerp(start.position, end.position, t );
     }
 }
+ 

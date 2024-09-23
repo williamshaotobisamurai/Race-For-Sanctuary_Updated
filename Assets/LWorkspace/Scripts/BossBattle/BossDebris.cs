@@ -24,7 +24,7 @@ public class BossDebris : EnemyBulletBase
         }
     }
 
-    public override void OnHitPlayer()
+    public override void OnHit()
     {
         GameObject explode = Instantiate(hitParticle);
         explode.transform.position = transform.position;

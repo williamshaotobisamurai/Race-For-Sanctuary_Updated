@@ -78,7 +78,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void AimAtSkully(Skully skully)
     {
-        if ((Time.time > lastTimeShootTimeStamp + shootInterval) && !IsBlocked(skully))
+       if ((Time.time > lastTimeShootTimeStamp + shootInterval) && !IsBlocked(skully))
         {
             Shoot();
             lastTimeShootTimeStamp = Time.time;

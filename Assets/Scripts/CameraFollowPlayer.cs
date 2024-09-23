@@ -73,4 +73,18 @@ public class CameraFollowPlayer : MonoBehaviour
         transform.eulerAngles = endingAngle;
         OnComplete?.Invoke();
     }
+
+    //public IEnumerator Shake(float duration, float magnitude)
+    //{
+    //    Vector3 originalPos = transform.position;
+
+    //    float elapsed = 0.0f;
+    //    while (elapsed < duration)
+    //    {
+    //        float x = UnityEngine.Random.Range(-2f, 2f) * magnitude;
+    //        float y = UnityEngine.Random.Range(-2f, 2f) * magnitude;
+
+    //        transform.localPosition = 
+    //    }
+    //}
 }
