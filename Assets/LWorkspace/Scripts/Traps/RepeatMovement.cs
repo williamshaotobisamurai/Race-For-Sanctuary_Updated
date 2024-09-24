@@ -7,14 +7,11 @@ public class RepeatMovement : MonoBehaviour
     [SerializeField] private Transform start;
     [SerializeField] private Transform end;
 
-
-    private Transform destination;
-
     [SerializeField] private Transform target;
 
     [SerializeField] private float speed = 10f;
 
-    [SerializeField] private float t;
+    private float t;
 
     private void Update()
     {        

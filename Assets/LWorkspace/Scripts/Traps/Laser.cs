@@ -12,12 +12,9 @@ public class Laser : MonoBehaviour
 
     [SerializeField] private LayerMask layerMask;
 
-    [SerializeField] private GameObject laserHit;
-
     [SerializeField] private int damage = 10;
 
-    [SerializeField] private float hitInterval = 0.5f;
-    private float lastHitTimestamp = 0f;
+   
 
     private void Update()
     {
@@ -29,35 +26,16 @@ public class Laser : MonoBehaviour
         {
             dest = rayOrigin.position + rayOrigin.forward * hitInfo.distance;
 
-            if (GameHelper.IsSkully(hitInfo.collider,out Skully skully))
-            {
-                if (IsReadyToHit())
-                {
-                    HitSkully(skully);
-                }
-            }
-
-            laserHit.SetActive(true);
+          
         }
         else
         {
             dest = rayOrigin.position + rayOrigin.forward * maxLength;
-            laserHit.SetActive(false);
         }
 
         lineRenderer.SetPositions(new Vector3[2] { rayOrigin.position, dest });
-        laserHit.transform.position = dest;
     }
 
 
-    private bool IsReadyToHit()
-    {
-        return Time.time > lastHitTimestamp + hitInterval;
-    }
-
-    private void HitSkully(Skully skully)
-    {
-        skully.HitByLaser(damage);
-        lastHitTimestamp = Time.time;
-    }
 }
+
