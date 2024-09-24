@@ -14,7 +14,8 @@ public class WallTurret : MonoBehaviour
 
     [SerializeField] private Skully skully;
 
-    [SerializeField] private Transform muzzleTrans;
+    [SerializeField] private Transform wallTurretMuzzleRoot;
+    [SerializeField] private Transform turretMuzzle;
     [SerializeField] private float rotateSpeed = 10f;
 
     [SerializeField] private GameObject crosshairObj;
@@ -26,6 +27,8 @@ public class WallTurret : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
 
     [SerializeField] PlayerDetector playerDetector;
+
+    [SerializeField] private ParticleSystem muzzleParticle;
 
     private void Start()
     {
@@ -65,9 +68,9 @@ public class WallTurret : MonoBehaviour
             Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, crosshairObj.transform.position);
             crosshairUIInstance.GetComponent<RectTransform>().position = screenPoint;
 
-            muzzleTrans.LookAt(crosshairObj.transform.position);
+            wallTurretMuzzleRoot.LookAt(crosshairObj.transform.position);
 
-            Ray ray = new Ray(muzzleTrans.position, muzzleTrans.forward);
+            Ray ray = new Ray(wallTurretMuzzleRoot.position, wallTurretMuzzleRoot.forward);
 
             Debug.DrawRay(ray.origin, ray.direction * 100f, Color.green);
         }
@@ -106,12 +109,15 @@ public class WallTurret : MonoBehaviour
                 {
                     Debug.Log("shooting " + Time.time);
                     GameObject bulletInstance = Instantiate(bulletPrefab);
-                    bulletInstance.transform.position = muzzleTrans.position;
+                    bulletInstance.transform.position = turretMuzzle.position;
                     bulletInstance.transform.LookAt(crosshairObj.transform.position);
                     shootingTime += 0.05f;
                     crosshairUIInstance.SetFiringColor();
+                    muzzleParticle.Play();
                     yield return new WaitForSeconds(0.05f);
                     crosshairUIInstance.SetAimmingColor();
+                    muzzleParticle.Stop();
+
                 }
             }
             crosshairUIInstance.SetAimmingColor();

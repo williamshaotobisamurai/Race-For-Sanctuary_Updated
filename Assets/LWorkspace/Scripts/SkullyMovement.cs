@@ -94,6 +94,7 @@ public class SkullyMovement : MonoBehaviour
     }
 
 
+
     public void EnableXYControl()
     {
         xyControlEnabled = true;

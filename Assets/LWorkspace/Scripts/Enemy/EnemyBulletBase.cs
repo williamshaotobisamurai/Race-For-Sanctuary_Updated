@@ -9,7 +9,7 @@ public abstract class EnemyBulletBase : MonoBehaviour
     public int Damage { get => damamge; }
 
     [SerializeField] protected GameObject hitParticle;
-    
+
     [SerializeField] private float rotateRate = 20f;
     public float RotateRate { get => rotateRate; set => rotateRate = value; }
     [SerializeField] private float speed = 10f;
@@ -49,7 +49,7 @@ public abstract class EnemyBulletBase : MonoBehaviour
     {
         GameObject explode = Instantiate(hitParticle);
         explode.transform.position = transform.position;
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public abstract void OnFlyOverSkully();
