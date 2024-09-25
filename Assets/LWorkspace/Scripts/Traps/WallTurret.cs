@@ -137,7 +137,7 @@ public class WallTurret : MonoBehaviour
     private void StopShooting()
     {
         isShooting = false;
-
+        muzzleParticle.Stop();
         StopShootingCoroutine();
     } 
 }

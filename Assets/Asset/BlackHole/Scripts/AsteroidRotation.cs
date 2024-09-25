@@ -7,7 +7,10 @@ public class AsteroidRotation : MonoBehaviour
 
     private void Start()
     {
-        Rot = Random.onUnitSphere * Random.Range(50f,300f);
+        if (Rot == Vector3.zero)
+        {
+            Rot = Random.onUnitSphere * Random.Range(50f, 300f);
+        }
     }
 
     void Update()
