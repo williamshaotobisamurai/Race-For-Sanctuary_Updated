@@ -105,11 +105,15 @@ public class SkullyMovement : MonoBehaviour
         xyControlEnabled = false;
     }
 
-    public void AddExternalSpeed(Vector3 speed, float decay)
+    public void AddExternalSpeed(Vector3 speed)
     {
-        this.externalSpeed = speed;
+        this.externalSpeed = speed;    
+    }
 
-        Vector3 originalSpeed = speed;
+
+    public void StopExternalSpeed(float decay)
+    {
+        Vector3 originalSpeed = externalSpeed;
 
         DOVirtual.Float(0, 1, decay, (t) =>
         {

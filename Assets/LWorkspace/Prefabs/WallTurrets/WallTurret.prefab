@@ -258,8 +258,8 @@ Transform:
   m_GameObject: {fileID: 8846474089228973180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.25}
-  m_LocalScale: {x: 11.465, y: 11.465, z: 11.465}
+  m_LocalPosition: {x: -0.76, y: 0, z: 22.83}
+  m_LocalScale: {x: 13.289083, y: 13.289083, z: 13.289083}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1907499940032430852}
@@ -430,13 +430,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19834940, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 19880796, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
       propertyPath: looping
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19880796, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19880796, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
       propertyPath: lengthInSec
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 19880796, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19880796, guid: 71955cfea9eee334faa58d035153d7ec, type: 3}
       propertyPath: LightsModule.color

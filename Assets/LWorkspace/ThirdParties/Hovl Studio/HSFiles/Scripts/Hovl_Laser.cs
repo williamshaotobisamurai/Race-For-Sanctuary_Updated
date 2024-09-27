@@ -70,6 +70,8 @@ public class Hovl_Laser : MonoBehaviour
                         HitSkully(skully);
                     }
                 }
+
+                Debug.Log(gameObject.name + " : " + hit.collider.gameObject);
             }
             else
             {

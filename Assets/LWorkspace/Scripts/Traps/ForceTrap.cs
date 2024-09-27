@@ -9,11 +9,19 @@ public class ForceTrap : MonoBehaviour
     [SerializeField] private float force;
     [SerializeField] private float decay;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (GameHelper.IsSkully(other, out Skully skully))
         {
-            skully.AddExternalSpeed(pullDirection.forward * force,decay);
+            skully.AddExternalSpeed(pullDirection.forward * force);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (GameHelper.IsSkully(other, out Skully skully))
+        {
+            skully.StopExternalSpeed(decay);
         }
     }
 }

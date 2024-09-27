@@ -73,6 +73,7 @@ public class Skully : MonoBehaviour
         {
             Time.timeScale = 10f;
             isInvincible = true;
+            healthAmount = 100;
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -510,8 +511,13 @@ public class Skully : MonoBehaviour
         }
     }
 
-    public void AddExternalSpeed(Vector3 externalSpeed, float decay)
+    public void AddExternalSpeed(Vector3 externalSpeed)
     {
-        skullyMovement.AddExternalSpeed(externalSpeed, decay);
+        skullyMovement.AddExternalSpeed(externalSpeed);
+    }
+
+    public void StopExternalSpeed(float decay)
+    {
+        skullyMovement.StopExternalSpeed(decay);
     }
 }
