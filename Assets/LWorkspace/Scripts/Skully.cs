@@ -78,7 +78,7 @@ public class Skully : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Time.timeScale = 1f;
-            isInvincible = false;
+            //isInvincible = false;
         }
     }
 

@@ -18,8 +18,9 @@ public class PlasmaJets : MonoBehaviour
 
     private bool isDamaging = false;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitForSeconds(Random.Range(0, 5f));
         StartCoroutine(StartCasting());
     }
 

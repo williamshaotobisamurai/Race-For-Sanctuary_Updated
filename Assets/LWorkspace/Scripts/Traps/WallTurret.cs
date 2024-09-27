@@ -107,7 +107,6 @@ public class WallTurret : MonoBehaviour
                 float shootingTime = 0f;
                 while (isShooting && shootingTime < shootDuration)
                 {
-                    Debug.Log("shooting " + Time.time);
                     GameObject bulletInstance = Instantiate(bulletPrefab);
                     bulletInstance.transform.position = turretMuzzle.position;
                     bulletInstance.transform.LookAt(crosshairObj.transform.position);
