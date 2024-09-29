@@ -17,6 +17,8 @@ public class MissileSoldier : EnemyBase
         source.sourceTransform = GameManager.Instance.Skully.transform;
         source.weight = 1f;
         lookAtConstraint.AddSource(source);
+        lookAtConstraint.roll = 90f;
+        lookAtConstraint.rotationOffset = new Vector3(90, 0, 0f);
     }
 
     protected override void LookAtSkully()

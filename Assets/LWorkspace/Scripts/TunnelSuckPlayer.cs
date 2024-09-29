@@ -31,6 +31,7 @@ public class TunnelSuckPlayer : MonoBehaviour
         if (skully != null)
         {
             skully.SetMaxSpeedFactor(1);
+            skully.Rigidbody.velocity = Vector3.zero;
         }
     }
 
