@@ -9,7 +9,7 @@ public class AlienCreature : EnemyBase
     [SerializeField] private string initAnimation;
     [SerializeField] private string attackAnimation;
 
-    [SerializeField] private Obstacle standingObstacle;
+    [SerializeField] private LargeStaticMeteor standingObstacle;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class AlienCreature : EnemyBase
         }
     }
 
-    private void StandingObstacle_OnMissileHitEvent(Obstacle obstacle)
+    private void StandingObstacle_OnMissileHitEvent(LargeStaticMeteor obstacle)
     {
         Kill();
     }

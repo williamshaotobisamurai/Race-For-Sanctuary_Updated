@@ -18,6 +18,7 @@ TagManager:
   - ENEMY_HITPOINT
   - SKULLY_BULLET
   - SPACE_STATION
+  - METEOR
   layers:
   - Default
   - TransparentFX

@@ -98,7 +98,7 @@ public class Skully : MonoBehaviour
         OnCollectCoinEvent?.Invoke(coin);
     }
 
-    private void ReflectMeteor(Obstacle obstacle, float strength)
+    private void ReflectMeteor(LargeStaticMeteor obstacle, float strength)
     {
         Vector3 forceDirection = obstacle.transform.position - transform.position;
         forceDirection.z = 0;
@@ -119,7 +119,7 @@ public class Skully : MonoBehaviour
         obstacle.transform.DOMove(target, 2);
     }
 
-    private void HitByMeteroCollider(Obstacle obstacle)
+    private void HitByMeteroCollider(LargeStaticMeteor obstacle)
     {
         Debug.Log("hit by obstacle " + obstacle.name + " " + obstacle.DoDamage);
         if (obstacle.DoDamage)
@@ -195,12 +195,12 @@ public class Skully : MonoBehaviour
             collisionSound.Play();
             if (!IsInvincible)
             {
-                ReflectMeteor(other.GetComponent<Obstacle>(), 1f);
-                HitByMeteroCollider(other.GetComponent<Obstacle>());
+                ReflectMeteor(other.GetComponent<LargeStaticMeteor>(), 1f);
+                HitByMeteroCollider(other.GetComponent<LargeStaticMeteor>());
             }
             else
             {
-                ReflectMeteor(other.GetComponent<Obstacle>(), 10f);
+                ReflectMeteor(other.GetComponent<LargeStaticMeteor>(), 10f);
 
             }
         }

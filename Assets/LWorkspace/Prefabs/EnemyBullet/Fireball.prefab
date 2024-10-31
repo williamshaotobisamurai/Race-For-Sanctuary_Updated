@@ -156,6 +156,11 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 1
+  fireBallPrefab: {fileID: 0}
+  spawnCount: 3
+  spawnCountVariation: 1
+  obstaclesList: []
+  radius: 100
 --- !u!114 &4485284934923455156
 MonoBehaviour:
   m_ObjectHideFlags: 0
