@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
+    private static DontDestroy instance;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Debug.LogError("duplicated persistent obejcts ");
+            Destroy(gameObject);
+        }
     }
 }

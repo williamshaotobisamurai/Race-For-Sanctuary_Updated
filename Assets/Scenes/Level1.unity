@@ -376,7 +376,6 @@ Transform:
   m_Children:
   - {fileID: 834982022}
   - {fileID: 1870368344}
-  - {fileID: 1734378849}
   - {fileID: 454498750}
   - {fileID: 1548561832}
   - {fileID: 1457873152}
@@ -411,9 +410,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartDelay: 1
   completeLevelUI: {fileID: 8089472725777188296}
+  startTrans: {fileID: 848531287}
   cameraFollowPlayer: {fileID: 963194231}
   skully: {fileID: 3898938949727241813}
-  collectedCoinsManager: {fileID: 1734378850}
   timerManager: {fileID: 454498751}
   endTrigger: {fileID: 817012697}
   policeShip: {fileID: 1048199925}
@@ -1475,6 +1474,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 81035267}
+  - {fileID: 144818633735496907}
   - {fileID: 848531287}
   - {fileID: 1048199924}
   - {fileID: 980184688}
@@ -5318,8 +5318,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.05, z: -15.60791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 144818633735496907}
+  m_Children: []
   m_Father: {fileID: 236918186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &872838244
@@ -8690,7 +8689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1548561832
 Transform:
   m_ObjectHideFlags: 0
@@ -8718,7 +8717,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90b5d47a0d6a18649bc546bdc1c405db, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.805
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9990,52 +9989,6 @@ Transform:
   - {fileID: 810858960}
   m_Father: {fileID: 976521972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1734378848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1734378849}
-  - component: {fileID: 1734378850}
-  m_Layer: 0
-  m_Name: CollectedCoinsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1734378849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734378848}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 81035267}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1734378850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1734378848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96cd7f245f3f5144ac7a10fa8b826b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectedCoinsLabel: {fileID: 1430662963}
-  skully: {fileID: 3898938949727241813}
 --- !u!1001 &1734915865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11880,7 +11833,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 848531287}
+    m_TransformParent: {fileID: 236918186}
     m_Modifications:
     - target: {fileID: 41438341125637853, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_audioClip
@@ -11915,16 +11868,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2084291495}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.05
       objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -15.60791
       objectReference: {fileID: 0}
     - target: {fileID: 8522596137313111298, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_LocalRotation.w

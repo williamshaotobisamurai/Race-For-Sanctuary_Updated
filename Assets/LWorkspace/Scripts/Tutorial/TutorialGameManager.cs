@@ -7,7 +7,7 @@ public class TutorialGameManager : GameManager
 {
     [SerializeField] private TutorialManager tutorialManager;
 
-    protected override void Start()
+    public override void InitScene()
     {
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
@@ -16,7 +16,6 @@ public class TutorialGameManager : GameManager
         TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
         tutorialManager.OnAllTutorialPassedEvent += TutorialManager_OnAllTutorialPassedEvent;
 
-        collectedCoinsManager.Init();
         tutorialManager.StartRunningTutorial();
 
         skully.DisableControl();
@@ -50,5 +49,15 @@ public class TutorialGameManager : GameManager
     protected override void Skully_OnSkullyDiedEvent()
     {
 
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            CompleteLevel();
+        }
     }
 }

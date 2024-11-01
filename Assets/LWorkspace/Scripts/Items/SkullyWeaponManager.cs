@@ -18,6 +18,7 @@ public class SkullyWeaponManager : MonoBehaviour
     public static SkullyWeaponManager Instance { get => instance; }
 
     private WeaponItem.EWeaponType currentWeaponType = WeaponItem.EWeaponType.NONE;
+    public WeaponItem.EWeaponType CurrentWeapon { get => currentWeaponType; }
 
     private void Awake()
     {
@@ -41,11 +42,11 @@ public class SkullyWeaponManager : MonoBehaviour
         crosshair.Hide();
     }
 
-    public void SetupWeapon(WeaponItem newWeaponItem)
+    public void SetupWeapon(WeaponItem.EWeaponType weaponType)
     {
         ShowCrosshair();
 
-        if (currentWeaponType != newWeaponItem.WeaponType)
+        if (currentWeaponType != weaponType)
         {
             switch (currentWeaponType)
             {
@@ -68,7 +69,7 @@ public class SkullyWeaponManager : MonoBehaviour
                     break;
             }
 
-            switch (newWeaponItem.WeaponType)
+            switch (weaponType)
             {
                 case WeaponItem.EWeaponType.PISTOL:
                     PistolPopup();

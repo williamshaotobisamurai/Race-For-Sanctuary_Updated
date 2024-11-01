@@ -18,6 +18,7 @@ public class Skully : MonoBehaviour
 
     private int maxHealth = 100;
     private int healthAmount = 100;
+    public int HealthAmount { get => healthAmount; set => healthAmount = value; }
 
     [SerializeField] private Transform skullyVisual;
 
@@ -52,6 +53,7 @@ public class Skully : MonoBehaviour
     [SerializeField] private Text healthText;
 
     [SerializeField] private SkullyWeaponManager skullyWeaponManager;
+    public SkullyWeaponManager WeaponManager { get => skullyWeaponManager; }
 
     [SerializeField] private SkullyOverheating skullyOverheating;
 
@@ -65,21 +67,6 @@ public class Skully : MonoBehaviour
         skullyMovement.Init();
         sirs.OnCollectCoinEvent += Sirs_OnCollectCoinEvent;
         skullyOverheating.OnOverheatEvent += SkullyOverheating_OnOverheatEvent;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Time.timeScale = 10f;
-            isInvincible = true;
-            healthAmount = 100;
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Time.timeScale = 1f;
-            //isInvincible = false;
-        }
     }
 
     private void OnDestroy()
@@ -363,7 +350,7 @@ public class Skully : MonoBehaviour
 
     private void CollectWeaponItem(WeaponItem weaponItem)
     {
-        skullyWeaponManager.SetupWeapon(weaponItem);
+        skullyWeaponManager.SetupWeapon(weaponItem.WeaponType);
     }
 
     private void UpdateHealthBar()
@@ -520,4 +507,6 @@ public class Skully : MonoBehaviour
     {
         skullyMovement.StopExternalSpeed(decay);
     }
+
+
 }

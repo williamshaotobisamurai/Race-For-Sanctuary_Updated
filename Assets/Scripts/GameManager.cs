@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
 
+    [SerializeField] protected Transform startTrans;
+
     [SerializeField] protected CameraFollowPlayer cameraFollowPlayer;
 
     [SerializeField] protected Skully skully;
     public Skully Skully { get => skully; }
 
-    [SerializeField] protected CollectedCoinsManager collectedCoinsManager;
     [SerializeField] private TimerManager timerManager;
     public TimerManager TimerManager { get => timerManager; }
 
@@ -50,11 +51,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.LogError("duplicated level manager");
             Destroy(gameObject);
         }
     }
 
-    protected virtual void Start()
+    public virtual void InitScene()
     {
         missileSoldiers = new List<MissileSoldier>(FindObjectsOfType<MissileSoldier>());
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent += Soldier_OnShootEvent);
@@ -76,8 +78,6 @@ public class GameManager : MonoBehaviour
             overheatingStartSign.OnSkullyEnterEvent += OnPlayerEnterOverheatingTrigger;
         }
 
-        collectedCoinsManager.Init();
-
         skully.DisableControl();
 
         cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
@@ -86,6 +86,25 @@ public class GameManager : MonoBehaviour
             TimerManager.Init();
         }));
     }
+
+    public void InitSkullyWithData(SkullySnapshot snapshot, Checkpoint cp)
+    {
+        CollectedCoinsManager.CoinsInAllLevels = snapshot.totalCoinsCollected;
+        CollectedCoinsManager.CollectedCoinsInCurrentLevel = snapshot.collectedCoinsInCurrentLevel;
+
+        skully.HealthAmount = snapshot.health;
+        skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)snapshot.weaponType);
+
+        if (cp == null)
+        {
+            skully.transform.position = startTrans.position;
+        }
+        else
+        {
+            skully.transform.position = cp.RespawnTrans.position;
+        }
+    }
+
 
     private void SpaceStationExit_OnSkullyEnterEvent(SpaceStationTrigger spaceStationTrigger)
     {
@@ -185,7 +204,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("complete level");
         completeLevelUI.SetActive(true);
-        collectedCoinsManager.AddLevelCoinsToTotal();
     }
 
     public void EndGame()
@@ -194,7 +212,8 @@ public class GameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("Game Over");
-            Invoke("Restart", restartDelay);
+            //    Invoke("Restart", restartDelay);
+            DOVirtual.DelayedCall(restartDelay, Restart);
         }
     }
 
@@ -202,5 +221,17 @@ public class GameManager : MonoBehaviour
     {
         DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    public SkullySnapshot GetCurrentData()
+    {
+        return new SkullySnapshot()
+        {
+            levelIndex = SceneManager.GetActiveScene().buildIndex,
+            health = skully.HealthAmount,
+            weaponType = ((int)skully.WeaponManager.CurrentWeapon),
+            collectedCoinsInCurrentLevel = CollectedCoinsManager.CollectedCoinsInCurrentLevel
+        };
     }
 }

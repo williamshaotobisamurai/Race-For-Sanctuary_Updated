@@ -69,8 +69,6 @@ public class LargeStaticMeteor : MonoBehaviour
             ran.z = transform.position.z;
             go.transform.position = ran;
             go.GetComponent<MeteorMovement>().Init(transform.position +  Random.onUnitSphere * 150f);
-
-            Debug.Log("ins " + i);
         }
     }
 }

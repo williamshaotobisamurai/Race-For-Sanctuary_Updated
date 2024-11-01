@@ -4,17 +4,19 @@ using UnityEngine;
 
 public static class GameConstants 
 {
-    public static string COIN = "COIN";
-    public static string OBSTACLE = "Obstacle";
-    public static string METEOR = "METEOR";
+    public const string COIN = "COIN";
+    public const string OBSTACLE = "Obstacle";
+    public const string METEOR = "METEOR";
 
-    public static string BULLLET = "BULLET";
-    public static string BLOB = "BLOB";
-    public static string SKILL_SPHERE = "SKILL_SPHERE";
-    public static string BOOST_ITEM = "BOOST_ITEM";
-    public static string TRAP = "TRAP";
-    public static string ENEMY = "Enemy";
-    public static string ENEMY_HITPOINT = "ENEMY_HITPOINT";
-    public static string SKULLY_BULLET = "SKULLY_BULLET";
-    public static string SPACE_STATION = "SPACE_STATION";
+    public const string BULLLET = "BULLET";
+    public const string BLOB = "BLOB";
+    public const string SKILL_SPHERE = "SKILL_SPHERE";
+    public const string BOOST_ITEM = "BOOST_ITEM";
+    public const string TRAP = "TRAP";
+    public const string ENEMY = "Enemy";
+    public const string ENEMY_HITPOINT = "ENEMY_HITPOINT";
+    public const string SKULLY_BULLET = "SKULLY_BULLET";
+    public const string SPACE_STATION = "SPACE_STATION";
+
+    public const string SAVE_FILE_DATA = "save.data";
 }
