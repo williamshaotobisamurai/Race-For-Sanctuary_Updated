@@ -20,11 +20,11 @@ public class TutorialLevelManager : LevelManager
 
         skully.DisableControl();
 
-        cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
-        {
+     //   cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
+     //   {
             skully.EnableControl();
             TimerManager.Init();
-        }));
+       // }));
     } 
 
 

@@ -17,8 +17,11 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private Transform skullyVisual;
 
-    public event OnHitByMeteor OnHitByMeteorEvent;
-    public delegate void OnHitByMeteor();
+    public event OnRequestCopMoveForwardEvent OnRequestCopMoveForward;
+    public delegate void OnRequestCopMoveForwardEvent();
+
+    public event OnRequestCameraShakeEvent OnRequestCameraShake;
+    public delegate void OnRequestCameraShakeEvent();
 
     public event OnSkullyDied OnSkullyDiedEvent;
     public delegate void OnSkullyDied();
@@ -52,9 +55,7 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private SkullyOverheating skullyOverheating;
 
-    [SerializeField] private CameraFollowPlayer cameraFollowPlayer;
     [SerializeField] private SpeedUIManager speedUIManager;
-
 
     private bool isDead = false;
 
@@ -72,7 +73,6 @@ public class Skully : MonoBehaviour
 
     private void LateUpdate()
     {
-        cameraFollowPlayer.UpdateCamera();
         speedUIManager.UpdateUI();
     }
 
@@ -112,7 +112,7 @@ public class Skully : MonoBehaviour
         else
         {
             skullyVisual.transform.DOShakeRotation(0.1f, 10);
-            OnHitByMeteorEvent?.Invoke();
+            OnRequestCopMoveForward?.Invoke();
         }
     }
 
@@ -201,6 +201,7 @@ public class Skully : MonoBehaviour
             UpdateHealthBar();
             isDead = true;
             OnSkullyDiedEvent?.Invoke();
+            OnRequestCameraShake?.Invoke();
 
             skullyVisual.transform.DOShakeRotation(0.5f, 50).OnComplete(() =>
             {
@@ -228,6 +229,7 @@ public class Skully : MonoBehaviour
         blob.gameObject.SetActive(false);
         hitByBlobParticle.Play();
         splatterManager.Show(blob.CoverScreenDuration);
+        OnRequestCameraShake?.Invoke();
     }
 
     public void HitByLaser(int damage)
@@ -251,7 +253,7 @@ public class Skully : MonoBehaviour
             TakeDamage(50);
             if (healthAmount >= 50)
             {
-                OnHitByMeteorEvent?.Invoke();
+                OnRequestCopMoveForward?.Invoke();
             }
         }
     }
@@ -278,6 +280,7 @@ public class Skully : MonoBehaviour
             }
             else
             {
+                OnRequestCameraShake?.Invoke();
                 skullyVisual.transform.DOShakeRotation(0.1f, 10);
             }
         }
@@ -376,7 +379,7 @@ public class Skully : MonoBehaviour
             healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
         }).OnComplete(() =>
         {
-            OnHitByMeteorEvent?.Invoke();
+            OnRequestCopMoveForward?.Invoke();
             rb.isKinematic = false;
             if (healthAmount <= 0 && !isDead)
             {
@@ -503,6 +506,4 @@ public class Skully : MonoBehaviour
     {
         skullyMovement.StopExternalSpeed(decay);
     }
-
-
 }

@@ -83,11 +83,11 @@ public class LevelManager : MonoBehaviour
 
         skully.DisableControl();
 
-        cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
-        {
+     //   cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
+      //  {
             skully.EnableControl();
             TimerManager.Init();
-        }));
+     //   }));
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)

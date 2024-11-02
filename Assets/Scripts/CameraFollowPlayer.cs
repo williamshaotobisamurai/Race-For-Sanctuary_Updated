@@ -25,14 +25,14 @@ public class CameraFollowPlayer : MonoBehaviour
     void Awake()
     {
         // Initialize camera angle in Awake
-        transform.eulerAngles = startingAngle;
+     //   transform.eulerAngles = startingAngle;
     }
 
     // Update is called once per frame
     void Start()
     {
         // initialize camera position
-        transform.position = player.position + startingCameraOffset;
+      //  transform.position = player.position + startingCameraOffset;
         //starting coroutine
         //    StartCoroutine(CameraInterpolate());
     }

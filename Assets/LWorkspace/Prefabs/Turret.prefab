@@ -643,7 +643,7 @@ MonoBehaviour:
   lastTimeShootTimeStamp: 0
   bullet: {fileID: 4458367371770595307, guid: c8499e0bcfb2a8e40943c6b7dafe5a6f, type: 3}
   muzzle: {fileID: 6868747007075594100}
-  shootInterval: 0.5
+  shootInterval: 0.1
   lookAtTrans: {fileID: 7555802682071480887}
   detectTrigger: {fileID: 6365550144450530320}
   layerMask:

@@ -25,12 +25,12 @@ public class PoliceShip : MonoBehaviour
     private void Start()
     {
         currentOffset = originalOffset;
-        skully.OnHitByMeteorEvent += Skully_OnHitByMeteorEvent;
+        skully.OnRequestCopMoveForward += Skully_OnHitByMeteorEvent;
     }
 
     private void OnDestroy()
     {
-        skully.OnHitByMeteorEvent -= Skully_OnHitByMeteorEvent;
+        skully.OnRequestCopMoveForward -= Skully_OnHitByMeteorEvent;
     }
 
     private void Skully_OnHitByMeteorEvent()

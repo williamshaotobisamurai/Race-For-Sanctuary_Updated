@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b519a8e990f1a438e51b8b36c395c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damamge: 200
+  damamge: 20
   hitParticle: {fileID: 195742, guid: c83fb3ef04bb383408bb2064b89690b2, type: 3}
   rotateRate: 0
   speed: 160
