@@ -18,6 +18,9 @@ public class SkullyMachineGun : MonoBehaviour
 
     [SerializeField] private AudioSource reloadAudio;
 
+    public event OnShootBullet OnShootBulletEvent;
+    public delegate void OnShootBullet(SkullyBulletBase bulletBase);
+
     private void OnEnable()
     {
         reloadAudio.Play();
@@ -48,7 +51,7 @@ public class SkullyMachineGun : MonoBehaviour
         transform.LookAt(ray.origin + ray.direction * rayLength);
     }
 
-    protected virtual void Shoot(Ray ray)
+    protected virtual SkullyBulletBase Shoot(Ray ray)
     {
         GameObject bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.transform.localPosition = muzzleTrans.position;
@@ -58,5 +61,8 @@ public class SkullyMachineGun : MonoBehaviour
         muzzleFireInstance.transform.position = muzzleTrans.position;
         muzzleFireInstance.transform.rotation = Quaternion.identity;
 
+        SkullyBulletBase bullet =  bulletInstance.GetComponent<SkullyBulletBase>();
+        OnShootBulletEvent?.Invoke(bullet);
+        return bullet;
     }
 }

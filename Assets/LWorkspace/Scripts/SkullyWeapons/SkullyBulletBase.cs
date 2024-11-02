@@ -9,4 +9,12 @@ public class SkullyBulletBase : MonoBehaviour
 
     [SerializeField] protected GameObject hitParticle;
     [SerializeField] protected float speed = 10f;
+
+    public event OnHitEnemy OnHitEnemyEvent;
+    public delegate void OnHitEnemy();
+
+    public void HitEnemy()
+    {
+        OnHitEnemyEvent?.Invoke();
+    }
 }

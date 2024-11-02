@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +18,10 @@ public class SkullyMissile : MonoBehaviour
     private Missile missileInstance;
 
     [SerializeField] private AudioSource reloadAudio;
+
+    public event OnLaunchMissile OnLaunchMissileEvent;
+    public delegate void OnLaunchMissile(Missile missile);
+
 
     private void OnEnable()
     {
@@ -61,9 +66,11 @@ public class SkullyMissile : MonoBehaviour
 
     private void Shoot(Ray ray)
     {
+        OnLaunchMissileEvent?.Invoke(missileInstance);
         missileInstance.transform.LookAt(ray.origin + ray.direction * rayLength);
         missileInstance.Launch();
         missileInstance = null;
+
     }
 
     public void TurnOff()

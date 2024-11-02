@@ -26,6 +26,11 @@ public class Missile : MonoBehaviour
     [SerializeField] private int damage = 200;
     public int Damage { get => damage; }
 
+    public event OnHitEnemy OnHitEnemyEvent;
+    public delegate void OnHitEnemy();
+
+ 
+
     public void AttachTo(Transform muzzle)
     {
         this.muzzle = muzzle;
@@ -72,5 +77,11 @@ public class Missile : MonoBehaviour
         particle.transform.position = transform.position;
         DOVirtual.DelayedCall(3f, () => Destroy(particle));
         Destroy(gameObject);
+    }
+
+    public void HitEnemy()
+    {
+        Explode();
+        OnHitEnemyEvent?.Invoke();
     }
 }

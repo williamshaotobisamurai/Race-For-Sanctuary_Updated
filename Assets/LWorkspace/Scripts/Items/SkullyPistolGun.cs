@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SkullyPistolGun : SkullyMachineGun
 {
+    public event OnShootBullet OnShootBulletEvent;
+    public delegate void OnShootBullet(SkullyBulletBase bulletBase);
+
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -21,10 +24,12 @@ public class SkullyPistolGun : SkullyMachineGun
         transform.LookAt(ray.origin + ray.direction * rayLength);
     }
 
-    protected override void Shoot(Ray ray)
+    protected override SkullyBulletBase Shoot(Ray ray)
     {
-        base.Shoot(ray);
+        SkullyBulletBase bullet = base.Shoot(ray);
         gunAudio.Play();
+        OnShootBulletEvent?.Invoke(bullet);
+        return bullet;
         //gunAudio.PlayOneShot();
     }
 }

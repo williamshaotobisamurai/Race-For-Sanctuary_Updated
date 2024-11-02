@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class Crosshair : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private Image insideImg;
     [SerializeField] private Canvas parentCanvas;
+    [SerializeField] private Image hitIndicator;
 
-    private Sequence insideSeq;
+    private void Start()
+    {
+        indicatorOriginalScale = hitIndicator.transform.localScale.x;
+    }
 
     public void Show()
     {
@@ -25,11 +28,32 @@ public class Crosshair : MonoBehaviour
                 parentCanvas.transform as RectTransform,
                 Input.mousePosition, parentCanvas.worldCamera,
                 out movePos);
-        transform.position = parentCanvas.transform.TransformPoint(movePos);
+        transform.position = parentCanvas.transform.TransformPoint(movePos);  
     }
 
     public void Hide()
     {
         canvasGroup.DOFade(0, 0.1f);
+    }
+
+    private float indicatorOriginalScale;
+    private Tween zoomIndicatorTween;
+
+    public void OnHitEnemy()
+    {
+        Debug.Log("hit enemy ");
+        if (zoomIndicatorTween != null)
+        {
+            zoomIndicatorTween.Kill();
+            zoomIndicatorTween = null;
+        }
+
+        hitIndicator.color = Color.red;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(hitIndicator.transform.DOScale(indicatorOriginalScale * 1.5f, 0f));
+        seq.Append(hitIndicator.transform.DOScale(indicatorOriginalScale, 0.1f));
+        seq.Join(hitIndicator.DOColor(Color.white, 0.1f));
+        seq.Play();
+        zoomIndicatorTween = seq;        
     }
 }

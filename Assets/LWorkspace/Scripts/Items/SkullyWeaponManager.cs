@@ -32,6 +32,28 @@ public class SkullyWeaponManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        skullyPistol.OnShootBulletEvent += SkullyPistol_OnShootBulletEvent;
+        machineGun.OnShootBulletEvent += MachineGun_OnShootBulletEvent;
+        skullyMissile.OnLaunchMissileEvent += SkullyMissile_OnLaunchMissileEvent;
+    }
+
+    private void SkullyMissile_OnLaunchMissileEvent(Missile missile)
+    {
+        missile.OnHitEnemyEvent += crosshair.OnHitEnemy;
+    }
+
+    private void MachineGun_OnShootBulletEvent(SkullyBulletBase bulletBase)
+    {
+        bulletBase.OnHitEnemyEvent += crosshair.OnHitEnemy;
+    }
+
+    private void SkullyPistol_OnShootBulletEvent(SkullyBulletBase bulletBase)
+    {
+        bulletBase.OnHitEnemyEvent += crosshair.OnHitEnemy;
+    }
+
     public void ShowCrosshair()
     {
         crosshair.Show();
@@ -44,7 +66,6 @@ public class SkullyWeaponManager : MonoBehaviour
 
     public void SetupWeapon(WeaponItem.EWeaponType weaponType)
     {
-
         if (currentWeaponType != weaponType)
         {
             switch (currentWeaponType)

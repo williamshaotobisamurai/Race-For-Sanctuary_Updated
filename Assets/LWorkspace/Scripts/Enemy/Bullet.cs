@@ -7,7 +7,6 @@ public class Bullet : EnemyBulletBase
 {
     public override void OnFlyOverSkully()
     {
-        Debug.Log("fly over skully " + gameObject.name);
         Destroy(gameObject);
     }
 }
