@@ -14,7 +14,7 @@ public class MachineGunSoldier : EnemyBase
     {
         base.Start();
         ConstraintSource source = new ConstraintSource();
-        source.sourceTransform = GameManager.Instance.Skully.transform;
+        source.sourceTransform = LevelManager.Instance.Skully.transform;
         source.weight = 1f;
         lookAtConstraint.AddSource(source);
         lookAtConstraint.roll = 90f;
@@ -31,7 +31,7 @@ public class MachineGunSoldier : EnemyBase
         GameObject bulletInstance = GameObject.Instantiate(bullet);
         bulletInstance.transform.position = muzzle.position;
 
-        Skully skully = GameManager.Instance.Skully;
+        Skully skully = LevelManager.Instance.Skully;
         Vector3 advance = Vector3.forward * advanceDistance * skully.GetCurrentVelocity().normalized.z;
 
         bulletInstance.transform.LookAt(

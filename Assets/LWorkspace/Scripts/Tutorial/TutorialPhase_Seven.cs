@@ -8,7 +8,7 @@ public class TutorialPhase_Seven : TutorialPhaseBase
     public override void StartPhase()
     {
         base.StartPhase();
-        GameManager.Instance.TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
+        LevelManager.Instance.TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 
     private void TimerManager_OnOutOfTimeEvent()

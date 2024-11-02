@@ -20,7 +20,7 @@ public class PlayerCollision : MonoBehaviour
             movement.enabled = false;
             collisionSound.Play();
            //AudioSource.PlayClipAtPoint(collisionClip, transform.position, volume);
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<LevelManager>().EndGame();
         }
     }
 }

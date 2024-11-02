@@ -25,7 +25,7 @@ public abstract class EnemyBulletBase : MonoBehaviour
 
     protected virtual void Fly()
     {
-        if (transform.position.z < GameManager.Instance.Skully.transform.position.z)
+        if (transform.position.z < LevelManager.Instance.Skully.transform.position.z)
         {
             if (!isOverSkully)
             {
@@ -37,7 +37,7 @@ public abstract class EnemyBulletBase : MonoBehaviour
         else
         {
             Quaternion prevRotation = transform.rotation;
-            transform.LookAt(GameManager.Instance.Skully.transform);
+            transform.LookAt(LevelManager.Instance.Skully.transform);
             Quaternion desiredRotation = transform.rotation;
 
             transform.rotation = Quaternion.Lerp(prevRotation, desiredRotation, Time.deltaTime * RotateRate);

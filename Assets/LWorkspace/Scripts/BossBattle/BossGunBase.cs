@@ -17,7 +17,7 @@ public class BossGunBase : MonoBehaviour
 
     private void Start()
     {
-        skully = GameManager.Instance.Skully;
+        skully = LevelManager.Instance.Skully;
     }
 
     public virtual void StartFiring()

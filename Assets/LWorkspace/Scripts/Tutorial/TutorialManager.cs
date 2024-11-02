@@ -33,7 +33,7 @@ public class TutorialManager : MonoBehaviour
             currentPhase.CleanPhase();
         }
         TutorialPhaseBase tutorialInstance = Instantiate(tutorialPhasePrefab, transform);
-        tutorialInstance.gameObject.transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z + tutorialInstance.TransitionDistance);
+        tutorialInstance.gameObject.transform.position = new Vector3(0, 0, LevelManager.Instance.Skully.transform.position.z + tutorialInstance.TransitionDistance);
         tutorialInstance.gameObject.SetActive(true);
         tutorialInstance.Prepare();
 

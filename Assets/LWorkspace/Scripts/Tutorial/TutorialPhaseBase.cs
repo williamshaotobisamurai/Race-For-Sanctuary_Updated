@@ -18,10 +18,10 @@ public abstract class TutorialPhaseBase : MonoBehaviour
     public virtual void Prepare()
     {
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
-        GameManager.Instance.Skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
-        GameManager.Instance.PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
-        GameManager.Instance.PoliceShip.MoveToOriginalPosition();
-        GameManager.Instance.TimerManager.Init(TimeDuration);
+        LevelManager.Instance.Skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
+        LevelManager.Instance.PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
+        LevelManager.Instance.PoliceShip.MoveToOriginalPosition();
+        LevelManager.Instance.TimerManager.Init(TimeDuration);
     }
     public virtual void StartPhase()
     {
@@ -77,7 +77,7 @@ public abstract class TutorialPhaseBase : MonoBehaviour
         seq.AppendInterval(1f);
         seq.AppendCallback(() =>
         {
-            GameManager.Instance.Skully.Revive();
+            LevelManager.Instance.Skully.Revive();
 
         });
         seq.Play();

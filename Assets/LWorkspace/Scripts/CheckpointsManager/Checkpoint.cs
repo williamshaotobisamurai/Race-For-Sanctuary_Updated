@@ -12,8 +12,7 @@ public class Checkpoint : MonoBehaviour
     public delegate void OnSkullyEntered(Checkpoint checkpoint, Skully skully);
 
     [SerializeField] private int id;
-    public int ID { get => id; }
-    
+    public int ID { get => id; }    
 
     private void OnTriggerEnter(Collider other)
     {

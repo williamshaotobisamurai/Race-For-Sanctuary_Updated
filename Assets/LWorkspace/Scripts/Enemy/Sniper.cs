@@ -33,7 +33,7 @@ public class Sniper : EnemyBase
     private void Start()
     {
         ConstraintSource source = new ConstraintSource();
-        source.sourceTransform = GameManager.Instance.Skully.transform;
+        source.sourceTransform = LevelManager.Instance.Skully.transform;
         source.weight = 1f;
         lookAtConstraint.AddSource(source);
         laser.enabled = false;
@@ -97,14 +97,14 @@ public class Sniper : EnemyBase
 
     private void LateUpdate()
     {
-        if (transform.position.z < GameManager.Instance.Skully.transform.position.z)
+        if (transform.position.z < LevelManager.Instance.Skully.transform.position.z)
         {
             laser.enabled = false;
             lastTimeShootTimeStamp = float.MaxValue;
             shootInterval = float.MaxValue;
         }
 
-        if (transform.position.z < GameManager.Instance.Skully.transform.position.z - 10f)
+        if (transform.position.z < LevelManager.Instance.Skully.transform.position.z - 10f)
         {
             gameObject.SetActive(false);
         }
@@ -112,7 +112,7 @@ public class Sniper : EnemyBase
 
     protected override GameObject Shoot()
     {
-        GameManager.Instance.Skully.HitBySniper();
+        LevelManager.Instance.Skully.HitBySniper();
         GameObject hitP = Instantiate(hitParticle);
         hitP.transform.position = aimedObj.transform.position;
         return null;

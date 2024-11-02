@@ -44,7 +44,6 @@ public class SkullyWeaponManager : MonoBehaviour
 
     public void SetupWeapon(WeaponItem.EWeaponType weaponType)
     {
-        ShowCrosshair();
 
         if (currentWeaponType != weaponType)
         {
@@ -69,18 +68,22 @@ public class SkullyWeaponManager : MonoBehaviour
                     break;
             }
 
+            currentWeaponType = weaponType;
             switch (weaponType)
             {
                 case WeaponItem.EWeaponType.PISTOL:
                     PistolPopup();
+                    ShowCrosshair();
                     break;
 
                 case WeaponItem.EWeaponType.MACHINE_GUN:
                     MachineGunPopup();
+                    ShowCrosshair();
                     break;
 
                 case WeaponItem.EWeaponType.MISSILE:
                     MissilePopup();
+                    ShowCrosshair();
                     break;
 
                 default:

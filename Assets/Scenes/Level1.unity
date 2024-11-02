@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 81035269}
   - component: {fileID: 81035268}
   m_Layer: 0
-  m_Name: TutorialGameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

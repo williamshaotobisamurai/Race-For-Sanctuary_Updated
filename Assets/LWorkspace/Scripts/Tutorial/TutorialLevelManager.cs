@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialGameManager : GameManager
+public class TutorialLevelManager : LevelManager
 {
     [SerializeField] private TutorialManager tutorialManager;
 
-    public override void InitScene()
+    public override void InitLevel()
     {
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;

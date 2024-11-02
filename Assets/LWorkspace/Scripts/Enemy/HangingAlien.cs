@@ -53,7 +53,7 @@ public class HangingAlien : EnemyBase
 
             Quaternion prevRotation = transform.rotation;
 
-            transform.LookAt(GameManager.Instance.Skully.transform);
+            transform.LookAt(LevelManager.Instance.Skully.transform);
 
             Quaternion desiredRotation = transform.rotation;
 

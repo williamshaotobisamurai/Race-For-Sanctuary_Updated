@@ -62,7 +62,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAtSkully()
     {
-        Skully skully = GameManager.Instance.Skully;
+        Skully skully = LevelManager.Instance.Skully;
         lookAtTrans.LookAt(skully.transform.position + skully.transform.forward * advanceDistance);
     }
 

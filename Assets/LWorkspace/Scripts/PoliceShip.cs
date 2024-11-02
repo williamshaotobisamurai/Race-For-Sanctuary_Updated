@@ -46,7 +46,7 @@ public class PoliceShip : MonoBehaviour
             MoveCloser();
         }
 
-        targetPos = GameManager.Instance.Skully.transform.position + currentOffset;
+        targetPos = LevelManager.Instance.Skully.transform.position + currentOffset;
         transform.position = targetPos;
     }
 

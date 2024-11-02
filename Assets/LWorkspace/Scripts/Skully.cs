@@ -1,10 +1,5 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class Skully : MonoBehaviour
@@ -59,6 +54,7 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private CameraFollowPlayer cameraFollowPlayer;
     [SerializeField] private SpeedUIManager speedUIManager;
+
 
     private bool isDead = false;
 

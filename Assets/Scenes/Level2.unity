@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0013617582, g: 0.15283138, b: 0.36231214, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5438,7 +5438,7 @@ GameObject:
   - component: {fileID: 81035268}
   - component: {fileID: 81035269}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: LevelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5488,11 +5488,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 81035265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b16b5f18ff9bc145a2a167ae1851f09, type: 3}
+  m_Script: {fileID: 11500000, guid: 7847712d55016c94881efd0049b88338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   restartDelay: 1
   completeLevelUI: {fileID: 8089472725777188296}
+  collectedCoinsLabel: {fileID: 1430662963}
   startTrans: {fileID: 848531287}
   cameraFollowPlayer: {fileID: 963194231}
   skully: {fileID: 7629639374835875052}
@@ -5505,7 +5506,7 @@ MonoBehaviour:
   spaceStationEntry: {fileID: 2529894600714927635}
   spaceStationExit: {fileID: 2529894600714927634}
   overheatingStartSign: {fileID: 947047870}
-  staticBarrier: {fileID: 2073332374}
+  staticBarrier: {fileID: 1940281848}
   overheatingLight: {fileID: 911292923}
 --- !u!1 &81090332 stripped
 GameObject:
@@ -82197,7 +82198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96cd7f245f3f5144ac7a10fa8b826b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectedCoinsLabel: {fileID: 1430662963}
 --- !u!1 &1743352434
 GameObject:
   m_ObjectHideFlags: 0

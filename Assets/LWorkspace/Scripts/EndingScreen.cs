@@ -21,8 +21,8 @@ public class EndingScreen : MonoBehaviour
 
     public void ShowEndingScreen()
     {
-        Debug.Log("ending screen " + CollectedCoinsManager.CoinsInAllLevels);
-        Ending ending = GetEnding(CollectedCoinsManager.CoinsInAllLevels);
+        Debug.Log("ending screen " + CollectedCoinsManager.CoinsCollected);
+        Ending ending = GetEnding(CollectedCoinsManager.CoinsCollected);
         endingText.text = ending.endingText;        
     }
 

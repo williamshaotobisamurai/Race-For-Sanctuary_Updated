@@ -11,8 +11,8 @@ public class TutorialPhase_One : TutorialPhaseBase
     public override void Prepare()
     {
         base.Prepare();
-        GameManager.Instance.Skully.OnCollectCoinEvent += Skully_OnCollectCoinEvent;
-        GameManager.Instance.TimerManager.StopAndHideTimer();
+        LevelManager.Instance.Skully.OnCollectCoinEvent += Skully_OnCollectCoinEvent;
+        LevelManager.Instance.TimerManager.StopAndHideTimer();
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)

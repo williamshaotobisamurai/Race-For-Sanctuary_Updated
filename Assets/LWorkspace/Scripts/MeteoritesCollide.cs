@@ -63,9 +63,9 @@ public class MeteoritesCollide : MonoBehaviour
         fireBallList.ForEach(t =>
         {
             t.SetActive(true);
-            t.transform.LookAt(GameManager.Instance.Skully.transform);
+            t.transform.LookAt(LevelManager.Instance.Skully.transform);
             Vector2 targetPosition = Random.insideUnitCircle * endRadius;
-            t.transform.DOMove(GameManager.Instance.Skully.transform.position + Vector3.back * 2 + new Vector3(targetPosition.x, targetPosition.y, 0f), hitPlayerTime * t.transform.localScale.x * 0.2f).SetEase(Ease.Linear);
+            t.transform.DOMove(LevelManager.Instance.Skully.transform.position + Vector3.back * 2 + new Vector3(targetPosition.x, targetPosition.y, 0f), hitPlayerTime * t.transform.localScale.x * 0.2f).SetEase(Ease.Linear);
         });
 
         DOVirtual.DelayedCall(lifeTime, () =>

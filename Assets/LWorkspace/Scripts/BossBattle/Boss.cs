@@ -45,7 +45,7 @@ public class Boss : EnemyBase
 
     private void Start()
     {
-        skully = GameManager.Instance.Skully;
+        skully = LevelManager.Instance.Skully;
         flashRenderers.ForEach(r => { r.material = flashMat; });
     }
 

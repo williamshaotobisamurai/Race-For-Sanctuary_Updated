@@ -1,15 +1,17 @@
 using DG.Tweening;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     protected bool gameHasEnded = false;
 
     public float restartDelay = 1f;
     public GameObject completeLevelUI;
+
+    [SerializeField] private Text collectedCoinsLabel;
 
     [SerializeField] protected Transform startTrans;
 
@@ -37,8 +39,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject staticBarrier;
     [SerializeField] private Light overheatingLight;
 
-    private static GameManager instance;
-    public static GameManager Instance
+    private static LevelManager instance;
+    public static LevelManager Instance
     {
         get { return instance; }
     }
@@ -56,13 +58,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public virtual void InitScene()
+    public virtual void InitLevel()
     {
         missileSoldiers = new List<MissileSoldier>(FindObjectsOfType<MissileSoldier>());
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent += Soldier_OnShootEvent);
 
         skully.OnSkullyDiedEvent += Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent += Skully_OnCollectItemEvent;
+        skully.OnCollectCoinEvent += Skully_OnCollectCoinEvent;
         endTrigger.OnSkullyEnterEvent += EndTrigger_OnSkullyEnterEvent;
         PoliceShip.OnCaughtSkullyEvent += PoliceShip_OnCaughtSkullyEvent;
         TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
@@ -87,10 +90,14 @@ public class GameManager : MonoBehaviour
         }));
     }
 
-    public void InitSkullyWithData(SkullySnapshot snapshot, Checkpoint cp)
+    private void Skully_OnCollectCoinEvent(Coin coin)
     {
-        CollectedCoinsManager.CoinsInAllLevels = snapshot.totalCoinsCollected;
-        CollectedCoinsManager.CollectedCoinsInCurrentLevel = snapshot.collectedCoinsInCurrentLevel;
+        collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
+    }
+
+    public void InitSkullyWithData(GameSaveData snapshot, Checkpoint cp)
+    {
+        CollectedCoinsManager.CoinsCollected = snapshot.coinsCollected;
 
         skully.HealthAmount = snapshot.health;
         skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)snapshot.weaponType);
@@ -103,6 +110,8 @@ public class GameManager : MonoBehaviour
         {
             skully.transform.position = cp.RespawnTrans.position;
         }
+
+        collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
     }
 
 
@@ -224,14 +233,15 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public SkullySnapshot GetCurrentData()
+    public GameSaveData GetCurrentData()
     {
-        return new SkullySnapshot()
+        GameSaveData data = new GameSaveData()
         {
             levelIndex = SceneManager.GetActiveScene().buildIndex,
             health = skully.HealthAmount,
             weaponType = ((int)skully.WeaponManager.CurrentWeapon),
-            collectedCoinsInCurrentLevel = CollectedCoinsManager.CollectedCoinsInCurrentLevel
         };
+
+        return data;
     }
 }

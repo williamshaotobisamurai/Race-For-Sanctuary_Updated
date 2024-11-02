@@ -22,8 +22,8 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawLine(transform.position, GameManager.Instance.Skully.transform.position);
-        transform.position = new Vector3(0, 0, GameManager.Instance.Skully.transform.position.z + inAdvanceOfSkully);
+        Debug.DrawLine(transform.position, LevelManager.Instance.Skully.transform.position);
+        transform.position = new Vector3(0, 0, LevelManager.Instance.Skully.transform.position.z + inAdvanceOfSkully);
         if (Time.time > nextSpawnTime)
         {
             nextSpawnTime = Time.time + spawnInterval + Random.Range(0, spawnVariation);
@@ -37,7 +37,7 @@ public class ObstacleSpawner : MonoBehaviour
                 Vector3 ran = Random.insideUnitSphere * radius + transform.position;
                 ran.z = transform.position.z;
                 go.transform.position = ran;
-                go.GetComponent<MeteorMovement>().Init(GameManager.Instance.Skully.transform.position + Random.insideUnitSphere * 1.5f);
+                go.GetComponent<MeteorMovement>().Init(LevelManager.Instance.Skully.transform.position + Random.insideUnitSphere * 1.5f);
             }
         }
     }

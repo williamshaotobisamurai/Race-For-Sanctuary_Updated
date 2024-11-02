@@ -7,7 +7,7 @@ public class TutorialPhase_Four : TutorialPhaseBase
     public override void Prepare()
     {
         base.Prepare();
-        TimerManager timerManager = GameManager.Instance.TimerManager;
+        TimerManager timerManager = LevelManager.Instance.TimerManager;
         timerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
     }
 

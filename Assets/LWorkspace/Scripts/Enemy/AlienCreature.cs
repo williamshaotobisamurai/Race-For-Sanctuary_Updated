@@ -33,7 +33,7 @@ public class AlienCreature : EnemyBase
             GameObject blobInstance = GameObject.Instantiate(bullet);
             blobInstance.transform.position = muzzle.position;
             blobInstance.transform.rotation = muzzle.rotation;
-            blobInstance.transform.LookAt(GameManager.Instance.Skully.transform);
+            blobInstance.transform.LookAt(LevelManager.Instance.Skully.transform);
         });
         return null;
     }

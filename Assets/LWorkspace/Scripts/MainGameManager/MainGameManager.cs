@@ -24,6 +24,7 @@ public class MainGameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            checkpointsManager.InitSaveData();
         }
         else
         {
@@ -35,7 +36,8 @@ public class MainGameManager : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
-        startSceneManager.InitUI();
+        GameSaveData data = checkpointsManager.LoadSavedData();
+        startSceneManager.InitUI(data);
     }
 
     private void OnDestroy()
@@ -47,20 +49,15 @@ public class MainGameManager : MonoBehaviour
     {
         checkpointsManager.RefreshCheckpoints();
 
-        GameManager.Instance.InitScene();
-        collectedCoinsManager.Init(GameManager.Instance.Skully);
+        LevelManager.Instance.InitLevel();
+        collectedCoinsManager.Init(LevelManager.Instance.Skully);
 
-        if (checkpointsManager.HasSavedCheckPoint(out SkullySnapshot snapshot))
+        GameSaveData saveData = checkpointsManager.LoadSavedData();
+
+        if (saveData.levelIndex > 0 && saveData.levelIndex == SceneManager.GetActiveScene().buildIndex)
         {
-            if (snapshot.levelIndex == SceneManager.GetActiveScene().buildIndex)
-            {
-                Checkpoint cp = checkpointsManager.FindCheckpoint(snapshot);
-                GameManager.Instance.InitSkullyWithData(snapshot, cp);
-            }
-            else
-            {
-                Debug.LogError("level index doesn't match");
-            }
+            Checkpoint cp = checkpointsManager.FindCheckpoint(saveData);
+            LevelManager.Instance.InitSkullyWithData(saveData, cp);
         }
     }
 }

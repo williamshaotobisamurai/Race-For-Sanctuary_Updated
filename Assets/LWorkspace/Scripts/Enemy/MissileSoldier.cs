@@ -14,7 +14,7 @@ public class MissileSoldier : EnemyBase
     private void Start()
     {
         ConstraintSource source = new ConstraintSource();
-        source.sourceTransform = GameManager.Instance.Skully.transform;
+        source.sourceTransform = LevelManager.Instance.Skully.transform;
         source.weight = 1f;
         lookAtConstraint.AddSource(source);
         lookAtConstraint.roll = 90f;

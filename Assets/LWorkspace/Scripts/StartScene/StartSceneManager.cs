@@ -7,15 +7,15 @@ public class StartSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject continueButton;
 
-    public void InitUI()
+    public void InitUI(GameSaveData data)
     {
-        if (MainGameManager.CheckpointsManager.HasSavedCheckPoint(out SkullySnapshot snapshot))
+        if (data.levelIndex == 0)
         {
-            continueButton.SetActive(true);
+            continueButton.SetActive(false);
         }
         else
         {
-            continueButton.SetActive(false);
+            continueButton.SetActive(true);
         }
     }
 
@@ -26,10 +26,8 @@ public class StartSceneManager : MonoBehaviour
 
     public void OnContinueButtonClicked()
     {
-        if (MainGameManager.CheckpointsManager.HasSavedCheckPoint(out SkullySnapshot snapshot))
-        {
-            SceneManager.LoadScene(snapshot.levelIndex);
-        }
+        GameSaveData saveData = MainGameManager.CheckpointsManager.LoadSavedData();
+        SceneManager.LoadScene(saveData.levelIndex);
     }
 
     public void OnSettingsButtonClicked()

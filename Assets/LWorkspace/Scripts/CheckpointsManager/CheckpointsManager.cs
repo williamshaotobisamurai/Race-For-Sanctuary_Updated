@@ -8,7 +8,16 @@ public class CheckpointsManager : MonoBehaviour
 {
     [SerializeField] private List<Checkpoint> checkPointsList;
 
-    public Checkpoint FindCheckpoint(SkullySnapshot data)
+    public void InitSaveData()
+    {
+        if (!FileManager.FileExistsInPersistentPath(GameConstants.SAVE_FILE_DATA))
+        {
+            GameSaveData snapshot = new GameSaveData();
+            FileManager.SaveTextToPersistentPath(GameConstants.SAVE_FILE_DATA, JsonUtility.ToJson(snapshot));
+        }
+    }
+
+    public Checkpoint FindCheckpoint(GameSaveData data)
     {
         return checkPointsList.Find(t => t.ID == data.checkPointID);
     }
@@ -22,31 +31,27 @@ public class CheckpointsManager : MonoBehaviour
         checkPointsList.ForEach(c => c.OnSkullyEnteredEvent += CheckPoint_OnSkullyEnteredEvent);
     }
 
-    public bool HasSavedCheckPoint(out SkullySnapshot snapshot)
+    public GameSaveData LoadSavedData()
     {
-        if (FileManager.FileExistsInPersistentPath(GameConstants.SAVE_FILE_DATA))
-        {
-            string text = FileManager.LoadTextFromPersistentPath(GameConstants.SAVE_FILE_DATA);
-            snapshot = JsonUtility.FromJson<SkullySnapshot>(text);
-
-            return true;
-        }
-        else
-        {
-            snapshot = null;
-            return false;
-        }
+        string text = FileManager.LoadTextFromPersistentPath(GameConstants.SAVE_FILE_DATA);
+        return JsonUtility.FromJson<GameSaveData>(text);
     }
 
     private void CheckPoint_OnSkullyEnteredEvent(Checkpoint checkpoint, Skully skully)
     {
         Debug.Log("reach checkpoint " + checkpoint.name);
 
-        SkullySnapshot snapshot = GameManager.Instance.GetCurrentData();
-        snapshot.checkPointID = checkpoint.ID;
+        GameSaveData data = LevelManager.Instance.GetCurrentData();
+        data.checkPointID = checkpoint.ID;
 
-        Debug.Log(JsonUtility.ToJson(snapshot));
+        Debug.Log(JsonUtility.ToJson(data));
 
-        FileManager.SaveTextToPersistentPath(GameConstants.SAVE_FILE_DATA, JsonUtility.ToJson(snapshot));
+        SaveCurrentGameData(data);
+    }
+
+    private void SaveCurrentGameData(GameSaveData data)
+    {
+
+        FileManager.SaveTextToPersistentPath(GameConstants.SAVE_FILE_DATA, JsonUtility.ToJson(data));
     }
 }

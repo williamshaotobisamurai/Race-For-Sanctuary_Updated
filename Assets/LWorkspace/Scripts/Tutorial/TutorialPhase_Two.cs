@@ -10,12 +10,12 @@ public class TutorialPhase_Two : TutorialPhaseBase
     public override void Prepare()
     {
         base.Prepare();
-        GameManager.Instance.Skully.DisableXYControl();
+        LevelManager.Instance.Skully.DisableXYControl();
     }
 
     public override void StartPhase()
     {
-        Skully skully = GameManager.Instance.Skully;
+        Skully skully = LevelManager.Instance.Skully;
 
         meteorite.transform.DOMove(skully.GetPosition() + Vector3.forward * 50f, 2f).OnComplete(() =>
         {
