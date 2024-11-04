@@ -398,7 +398,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -666,7 +666,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -837,7 +837,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -2175,6 +2175,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8089472727315679861}
+  - {fileID: 710281161}
   - {fileID: 740187408}
   - {fileID: 1553963594}
   - {fileID: 2084291492}
@@ -2439,7 +2440,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -2624,7 +2625,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -2795,7 +2796,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -2981,7 +2982,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -3166,7 +3167,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -3337,7 +3338,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -3606,7 +3607,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -5727,7 +5728,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -5913,7 +5914,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -6232,7 +6233,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -6418,7 +6419,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -6604,7 +6605,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -6959,7 +6960,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -7223,7 +7224,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -7573,7 +7574,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -7764,7 +7765,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -9558,7 +9559,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -9744,7 +9745,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -9930,7 +9931,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -10116,7 +10117,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -10302,7 +10303,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -10488,7 +10489,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -10809,7 +10810,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -11071,7 +11072,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -11390,7 +11391,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -12058,7 +12059,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -12286,7 +12287,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -12628,7 +12629,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -12814,7 +12815,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -13033,7 +13034,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -13325,6 +13326,10 @@ PrefabInstance:
     - target: {fileID: 1427184276188508776, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.8551918
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779723251855983708, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: explodeParticleScale
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2026427159768574028, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13989,7 +13994,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -14253,7 +14258,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -14439,7 +14444,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -14630,7 +14635,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -15360,7 +15365,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -15617,7 +15622,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -15803,7 +15808,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -16222,7 +16227,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -16361,7 +16366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &328326595
 Transform:
   m_ObjectHideFlags: 0
@@ -16450,7 +16455,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -16636,7 +16641,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -16832,7 +16837,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -17172,7 +17177,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -17358,7 +17363,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -17549,7 +17554,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -17740,7 +17745,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -18205,7 +18210,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -18396,7 +18401,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -18582,7 +18587,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -18856,7 +18861,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -19042,7 +19047,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -19228,7 +19233,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -19615,7 +19620,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -19806,7 +19811,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -20070,7 +20075,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -20256,7 +20261,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -20543,7 +20548,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -20719,7 +20724,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -20910,7 +20915,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -21096,7 +21101,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -21385,7 +21390,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -21944,7 +21949,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -25581,7 +25586,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -25905,7 +25910,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -26090,7 +26095,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -26646,7 +26651,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -27202,7 +27207,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -27388,7 +27393,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -27702,7 +27707,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -27888,7 +27893,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -28079,7 +28084,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -28487,7 +28492,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -28884,7 +28889,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -29153,7 +29158,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -30196,7 +30201,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -30407,7 +30412,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -30676,7 +30681,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -31013,7 +31018,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -32221,6 +32226,81 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6111388060378593697, guid: a3bbe1d1298e78f48a0566c2028b1648, type: 3}
   m_PrefabInstance: {fileID: 780499871}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &710281160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710281161}
+  - component: {fileID: 710281163}
+  - component: {fileID: 710281162}
+  m_Layer: 5
+  m_Name: OverheatingFilter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &710281161
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710281160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 49002128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &710281162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710281160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 7c30fdc0eb86504459bfc751f2103300, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 253ade5030af1b643bf9a54cceb26f01, type: 3}
+  m_Type: 2
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &710281163
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710281160}
+  m_CullTransparentMesh: 1
 --- !u!1 &716872410 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 154734947072274705, guid: 913b62435ef579c44bd320ad4af743e8, type: 3}
@@ -32451,6 +32531,10 @@ PrefabInstance:
     - target: {fileID: 1427184276188508776, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.8551918
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779723251855983708, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
+      propertyPath: explodeParticleScale
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2026427159768574028, guid: b4cd3742bb1bf664ab88208de0896011, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33115,7 +33199,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -33449,7 +33533,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -33706,7 +33790,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -33892,7 +33976,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -34156,7 +34240,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -34409,7 +34493,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -34806,7 +34890,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -41936,7 +42020,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -42250,7 +42334,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -42436,7 +42520,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -42802,7 +42886,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -43185,7 +43269,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -44157,7 +44241,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -44343,7 +44427,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -44750,7 +44834,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -44941,7 +45025,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -45131,7 +45215,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -45302,7 +45386,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -45904,7 +45988,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -47970,7 +48054,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -48156,7 +48240,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -48342,7 +48426,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -48869,7 +48953,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -49088,7 +49172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &976521972
 Transform:
   m_ObjectHideFlags: 0
@@ -49201,7 +49285,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -49495,7 +49579,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -49681,7 +49765,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -49877,7 +49961,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -50145,7 +50229,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -50336,7 +50420,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -50882,7 +50966,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -51343,7 +51427,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -52398,7 +52482,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -52801,7 +52885,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -52992,7 +53076,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -53178,7 +53262,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -53368,7 +53452,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -53615,7 +53699,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -53801,7 +53885,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -54075,7 +54159,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -54261,7 +54345,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -55311,7 +55395,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -55497,7 +55581,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -59557,7 +59641,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -59820,7 +59904,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -59996,7 +60080,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -60420,7 +60504,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -60806,7 +60890,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -61143,7 +61227,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -61409,7 +61493,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -61595,7 +61679,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -61781,7 +61865,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -61967,7 +62051,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -62173,7 +62257,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -62359,7 +62443,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -62678,7 +62762,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -64519,7 +64603,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -64705,7 +64789,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -64983,7 +65067,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -65552,7 +65636,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -67268,7 +67352,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -69073,7 +69157,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -69321,7 +69405,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -69680,7 +69764,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -69932,7 +70016,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -70268,7 +70352,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -70862,7 +70946,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -71103,7 +71187,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -71289,7 +71373,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -71475,7 +71559,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -71661,7 +71745,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -71931,7 +72015,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -72192,7 +72276,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -73413,7 +73497,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90b5d47a0d6a18649bc546bdc1c405db, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.805
+  m_Volume: 0.508
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -73861,7 +73945,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -74122,7 +74206,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -74399,7 +74483,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -74585,7 +74669,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -74771,7 +74855,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -75887,7 +75971,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -76139,7 +76223,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -76325,7 +76409,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -76660,7 +76744,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -77134,7 +77218,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -78938,7 +79022,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -81001,7 +81085,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -81324,7 +81408,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -82389,7 +82473,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -82613,7 +82697,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -82905,7 +82989,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -83224,7 +83308,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -83410,7 +83494,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -83646,7 +83730,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -84069,7 +84153,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -84259,7 +84343,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -84429,7 +84513,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -84712,7 +84796,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -84898,7 +84982,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -85162,7 +85246,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -85347,7 +85431,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -85518,7 +85602,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -85841,7 +85925,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -86027,7 +86111,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -88461,7 +88545,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -88647,7 +88731,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -89676,7 +89760,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -89929,7 +90013,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -90100,7 +90184,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -90596,7 +90680,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -90864,7 +90948,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -91300,7 +91384,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -91669,7 +91753,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -91945,7 +92029,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -92141,7 +92225,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -92385,7 +92469,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -92571,7 +92655,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -92757,7 +92841,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -93005,7 +93089,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -93417,7 +93501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2076839989
 Transform:
   m_ObjectHideFlags: 0
@@ -93492,7 +93576,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -93783,7 +93867,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -93974,7 +94058,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -94241,7 +94325,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -96106,7 +96190,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -96366,7 +96450,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -96677,7 +96761,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -96863,7 +96947,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97120,7 +97204,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97463,7 +97547,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97716,7 +97800,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97914,7 +97998,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97935,7 +98019,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -97956,7 +98040,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98034,7 +98118,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98083,7 +98167,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98104,7 +98188,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98284,7 +98368,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98465,7 +98549,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -98743,7 +98827,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -99030,7 +99114,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -99436,7 +99520,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -99851,7 +99935,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -100221,7 +100305,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -100242,7 +100326,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -100322,6 +100406,14 @@ PrefabInstance:
     - target: {fileID: 1135934854914533842, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: m_Name
       value: Skully
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573595478322508830, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: overheatingFilter
+      value: 
+      objectReference: {fileID: 710281162}
+    - target: {fileID: 1573595478322508830, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
+      propertyPath: overheatingFilterSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4782813590747754396, guid: 9af42e2ac1f51c946969cc1b741f5ed5, type: 3}
       propertyPath: healthBar
@@ -100898,7 +100990,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -100984,7 +101076,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101005,7 +101097,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101155,7 +101247,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101176,7 +101268,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101197,7 +101289,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101748,7 +101840,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101833,7 +101925,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -101986,7 +102078,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -102325,7 +102417,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -102411,7 +102503,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -102537,7 +102629,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -103651,7 +103743,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -103680,7 +103772,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -103774,7 +103866,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -103795,7 +103887,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -103816,7 +103908,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -104086,7 +104178,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -104526,7 +104618,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -104990,7 +105082,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -105270,7 +105362,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -106044,7 +106136,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -106095,7 +106187,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -106153,7 +106245,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -106333,7 +106425,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:
@@ -106701,7 +106793,7 @@ MonoBehaviour:
   explodeParticle: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
   damage: 999
   doDamage: 0
-  explodeParticleScale: 12
+  explodeParticleScale: 8
   spawnCount: 10
   spawnCountVariation: 1
   obstaclesList:

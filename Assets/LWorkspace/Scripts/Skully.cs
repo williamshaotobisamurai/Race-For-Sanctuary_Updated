@@ -363,6 +363,11 @@ public class Skully : MonoBehaviour
         skullyMovement.SetMaxSpeedFactor(speedFactor);
     }
 
+    public float GetMaxSpeedFactor()
+    { 
+        return skullyMovement.GetMaxSpeedFactor();
+    }
+
     public void AttackByAlienJumpAttack(HangingAlien hangingAlien)
     {
         rb.isKinematic = true;

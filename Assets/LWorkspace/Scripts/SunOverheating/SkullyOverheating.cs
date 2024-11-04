@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkullyOverheating : MonoBehaviour
 {
@@ -22,8 +24,12 @@ public class SkullyOverheating : MonoBehaviour
     public delegate void OnOverheat();
 
     [SerializeField] private string warningText;
+    [SerializeField] private Image overheatingFilter;
 
     private bool messageSent = false;
+    private Color overheatingFilterColor = Color.white;
+
+    [SerializeField] private float overheatingFilterSpeed = 10f;
 
     private void Start()
     {
@@ -41,13 +47,17 @@ public class SkullyOverheating : MonoBehaviour
 
             overheatingProgress = Mathf.Clamp01(overheatingProgress);
 
+            float currentAlpha = overheatingFilter.color.a;            
+
+            overheatingFilterColor.a = Mathf.MoveTowards(currentAlpha, overheatingProgress ,Time.deltaTime * overheatingFilterSpeed);
+
+            overheatingFilter.color = overheatingFilterColor;
 
             if (overheatingProgress > 0.75f && !messageSent)
             {
                 InstructionManager.ShowText(warningText);
                 messageSent = true;
             }
-
 
             if (overheatingProgress >= 1 && !isOverheated)
             {

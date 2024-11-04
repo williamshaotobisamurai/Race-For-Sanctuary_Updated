@@ -43,6 +43,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
+        healthUILookAtConstraint.gameObject.SetActive(false);
         ConstraintSource src = new ConstraintSource();
         src.sourceTransform = Camera.main.transform;
         if (healthUILookAtConstraint.sourceCount == 0)

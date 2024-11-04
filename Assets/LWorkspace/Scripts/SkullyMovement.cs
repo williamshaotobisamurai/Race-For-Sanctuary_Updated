@@ -54,6 +54,11 @@ public class SkullyMovement : MonoBehaviour
         maxForwardSpeedFactor = speedFactor;
     }
 
+    public float GetMaxSpeedFactor()
+    {
+        return maxForwardSpeedFactor;
+    }
+
     void FixedUpdate()
     {
         if (!isRunning) return;
