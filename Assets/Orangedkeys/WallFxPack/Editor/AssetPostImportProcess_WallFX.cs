@@ -31,9 +31,5 @@ public class AssetPostImportProcess_WallFX : AssetPostprocessor
             Debug.Log("WALL FX PACK IMPORTED !!");
             WallFX_Welcome.ShowWindow();
         }
-
-       
-
     }
-
 }

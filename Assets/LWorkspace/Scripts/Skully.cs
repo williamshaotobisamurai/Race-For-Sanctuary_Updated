@@ -11,6 +11,9 @@ public class Skully : MonoBehaviour
 
     [SerializeField] private SkullyBounce skullyBounce;
 
+    [SerializeField] private SIRSMount sirsMount;
+    public SIRSMount SIRSMount { get => sirsMount; }
+
     private int maxHealth = 100;
     private int healthAmount = 100;
     public int HealthAmount { get => healthAmount; set => healthAmount = value; }
@@ -363,7 +366,7 @@ public class Skully : MonoBehaviour
     }
 
     public float GetMaxSpeedFactor()
-    { 
+    {
         return skullyMovement.GetMaxSpeedFactor();
     }
 

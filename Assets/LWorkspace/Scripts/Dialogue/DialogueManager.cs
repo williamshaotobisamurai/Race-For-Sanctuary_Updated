@@ -3,12 +3,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public class Dialogue
 {
+    public float intervalBeforeSpeaking;
     public string text;
     public float duration;
+
+    public UnityEvent beforeSpeaking;
+    public UnityEvent afterSpeaking;
+
+    public float intervalAfterSpeaking;
     public NPCDialogue npcDialogue;
 }
 
@@ -20,23 +27,36 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float interval = 0.5f;
     [SerializeField] private bool isPlayed = false;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            StartDialogue(LevelManager.Instance.Skully);
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (GameHelper.IsSkully(other, out Skully skully))
         {
-            if (!isPlayed)
-            {
-                isPlayed = true;
-                Debug.Log("start dialogue ");
+            StartDialogue(skully);
+        }
+    }
 
-                float playerOrigionalSpeedFactor = skully.GetMaxSpeedFactor();
-                skully.SetMaxSpeedFactor(playerSpeedFactor);
-                PlayDialogue(() =>
-                {
-                    Debug.Log("dialogue finish ");
-                    skully.SetMaxSpeedFactor(playerOrigionalSpeedFactor);
-                });
-            }
+    private void StartDialogue(Skully skully)
+    {
+        if (!isPlayed)
+        {
+            isPlayed = true;
+            Debug.Log("start dialogue ");
+
+            float playerOrigionalSpeedFactor = skully.GetMaxSpeedFactor();
+            skully.SetMaxSpeedFactor(playerSpeedFactor);
+            PlayDialogue(() =>
+            {
+                Debug.Log("dialogue finish ");
+                skully.SetMaxSpeedFactor(playerOrigionalSpeedFactor);
+            });
         }
     }
 
@@ -50,13 +70,22 @@ public class DialogueManager : MonoBehaviour
             NPCDialogue npcDialogue = dialogue.npcDialogue;
             seq.AppendCallback(() =>
             {
+                dialogue.beforeSpeaking?.Invoke();
+            });
+            seq.AppendInterval(dialogue.intervalBeforeSpeaking);
+            seq.AppendCallback(() =>
+            {
                 npcDialogue.Show(dialogue.text);
             });
+
             seq.AppendInterval(interval + dialogue.duration);
             seq.AppendCallback(() =>
             {
                 npcDialogue.Hide();
+                dialogue.afterSpeaking?.Invoke();
             });
+
+            seq.AppendInterval(dialogue.intervalAfterSpeaking);
         }
         seq.OnComplete(() =>
         {
