@@ -34,7 +34,6 @@ namespace NodeCanvas.Tasks.Actions
         //Called once per frame while the action is active.
         protected override void OnUpdate()
         {
-
             if (!isInit)
             {
                 GetRandomPositionAroundSkully(distanceToSkully.value);
@@ -99,7 +98,6 @@ namespace NodeCanvas.Tasks.Actions
             }
 
             return pendingPos;
-
         }
     }
 }

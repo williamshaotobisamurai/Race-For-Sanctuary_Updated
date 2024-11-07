@@ -51,7 +51,6 @@ public class CheckpointsManager : MonoBehaviour
 
     private void SaveCurrentGameData(GameSaveData data)
     {
-
         FileManager.SaveTextToPersistentPath(GameConstants.SAVE_FILE_DATA, JsonUtility.ToJson(data));
     }
 }

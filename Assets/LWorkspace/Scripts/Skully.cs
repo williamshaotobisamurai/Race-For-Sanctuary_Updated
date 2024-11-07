@@ -118,7 +118,6 @@ public class Skully : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("on trigger enter " + other.gameObject.name);
         if (other.tag.Equals(GameConstants.BOOST_ITEM))
         {
             ItemBase itemBase = other.GetComponent<ItemBase>();

@@ -16,7 +16,7 @@ public class TutorialLevelManager : LevelManager
         TimerManager.OnOutOfTimeEvent += TimerManager_OnOutOfTimeEvent;
         tutorialManager.OnAllTutorialPassedEvent += TutorialManager_OnAllTutorialPassedEvent;
 
-        tutorialManager.StartRunningTutorial();
+    //    tutorialManager.StartRunningTutorial();
 
         skully.DisableControl();
 
@@ -24,7 +24,10 @@ public class TutorialLevelManager : LevelManager
      //   {
             skully.EnableControl();
             TimerManager.Init();
-       // }));
+        // }));
+
+        skully.WeaponManager.SetupWeapon(WeaponItem.EWeaponType.MACHINE_GUN);
+        Debug.LogError("temp enable machine gun");
     } 
 
 
@@ -48,16 +51,6 @@ public class TutorialLevelManager : LevelManager
 
     protected override void Skully_OnSkullyDiedEvent()
     {
-
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            CompleteLevel();
-        }
+        EndGame();
     }
 }

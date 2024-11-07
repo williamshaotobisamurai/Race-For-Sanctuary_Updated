@@ -30,6 +30,10 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private LookAtConstraint healthUILookAtConstraint;
 
+    [SerializeField] private ParticleSystem muzzleParticle;
+
+    [SerializeField] protected float bulletSpread = 0f;
+
     protected bool isKilled = false;
     public bool IsKilled { get => isKilled; }
 
@@ -43,16 +47,19 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Start()
     {
-        healthUILookAtConstraint.gameObject.SetActive(false);
-        ConstraintSource src = new ConstraintSource();
-        src.sourceTransform = Camera.main.transform;
-        if (healthUILookAtConstraint.sourceCount == 0)
+        if (healthUILookAtConstraint != null)
         {
-            healthUILookAtConstraint.AddSource(src);
-        }
-        else
-        {
-            healthUILookAtConstraint.SetSource(0, src);
+            healthUILookAtConstraint.gameObject.SetActive(false);
+            ConstraintSource src = new ConstraintSource();
+            src.sourceTransform = Camera.main.transform;
+            if (healthUILookAtConstraint.sourceCount == 0)
+            {
+                healthUILookAtConstraint.AddSource(src);
+            }
+            else
+            {
+                healthUILookAtConstraint.SetSource(0, src);
+            }
         }
     }
 
@@ -79,7 +86,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void AimAtSkully(Skully skully)
     {
-       if ((Time.time > lastTimeShootTimeStamp + shootInterval) && !IsBlocked(skully))
+        if ((Time.time > lastTimeShootTimeStamp + shootInterval) && !IsBlocked(skully))
         {
             Shoot();
             lastTimeShootTimeStamp = Time.time;
@@ -89,7 +96,7 @@ public class EnemyBase : MonoBehaviour
     private bool IsBlocked(Skully skully)
     {
         Vector3 direction = skully.transform.position - muzzle.transform.position;
-        if (Physics.Raycast(muzzle.transform.position,direction,  out RaycastHit hit, direction.magnitude * 1.2f,layerMask))
+        if (Physics.Raycast(muzzle.transform.position, direction, out RaycastHit hit, direction.magnitude * 1.2f, layerMask))
         {
             return true;
         }
@@ -98,9 +105,10 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual GameObject Shoot()
     {
+        muzzleParticle?.Play();
         GameObject bulletInstance = GameObject.Instantiate(bullet);
         bulletInstance.transform.position = muzzle.position;
-        bulletInstance.transform.rotation = muzzle.rotation;
+        bulletInstance.transform.eulerAngles = muzzle.eulerAngles + Random.insideUnitSphere * 90f * bulletSpread;
         return bulletInstance;
     }
 
@@ -119,7 +127,10 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void UpdateHealthBar()
     {
-        healthImg.fillAmount = (float)health / maxHealth;
+        if (healthImg != null)
+        {
+            healthImg.fillAmount = (float)health / maxHealth;
+        }
     }
 
     public virtual void Kill()

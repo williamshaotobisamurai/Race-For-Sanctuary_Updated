@@ -54,7 +54,7 @@ public class MainGameManager : MonoBehaviour
 
         GameSaveData saveData = checkpointsManager.LoadSavedData();
 
-        if (saveData.levelIndex > 0 && saveData.levelIndex == SceneManager.GetActiveScene().buildIndex)
+        if (saveData.levelIndex == SceneManager.GetActiveScene().buildIndex)
         {
             Checkpoint cp = checkpointsManager.FindCheckpoint(saveData);
             LevelManager.Instance.InitSkullyWithData(saveData, cp);

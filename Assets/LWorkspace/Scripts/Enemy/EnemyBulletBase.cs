@@ -25,7 +25,13 @@ public abstract class EnemyBulletBase : MonoBehaviour
 
     protected virtual void Fly()
     {
-        if (transform.position.z < LevelManager.Instance.Skully.transform.position.z)
+        Skully skully = LevelManager.Instance.Skully;
+
+        bool flyOverSkully =
+            (skully.transform.forward.z > 0 && transform.position.z < skully.transform.position.z - 5f)
+            || (skully.transform.forward.z < 0 && transform.position.z > skully.transform.position.z + 5f); 
+
+        if (flyOverSkully)
         {
             if (!isOverSkully)
             {

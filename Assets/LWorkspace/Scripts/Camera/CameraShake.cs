@@ -25,7 +25,12 @@ public class CameraShake : MonoBehaviour
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOShakePosition(1f, 1f, 50));
         seq.Join(transform.DOShakeRotation(1f, 1f, 50));
-        seq.OnComplete(() => isShaking = false);
+        seq.OnComplete(() => 
+        {
+            isShaking = false;
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+        });
         seq.Play();
     }
 }

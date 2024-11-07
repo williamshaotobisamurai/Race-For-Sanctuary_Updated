@@ -8,7 +8,6 @@ public class MachineGunSoldier : EnemyBase
     [SerializeField] private Animator animator;
     [SerializeField] private LookAtConstraint lookAtConstraint;
 
-    [SerializeField] private float bulletSpread = 2f;
 
     protected override void Start()
     {
