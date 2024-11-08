@@ -25,7 +25,7 @@ public class BossFightManager : MonoBehaviour
     }
 
     public void LevelComplete()
-    {
+    { 
         levelManager.CompleteLevel();
     }    
 }

@@ -83,11 +83,11 @@ public class LevelManager : MonoBehaviour
 
         skully.DisableControl();
 
-     //   cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
-      //  {
-            skully.EnableControl();
-            TimerManager.Init();
-     //   }));
+        //   cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
+        //  {
+        skully.EnableControl();
+        TimerManager.Init();
+        //   }));
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
@@ -138,8 +138,15 @@ public class LevelManager : MonoBehaviour
     {
         skully.OnSkullyDiedEvent -= Skully_OnSkullyDiedEvent;
         skully.OnCollectItemEvent -= Skully_OnCollectItemEvent;
-        endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
-        PoliceShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
+        if (endTrigger != null)
+        {
+            endTrigger.OnSkullyEnterEvent -= EndTrigger_OnSkullyEnterEvent;
+        }
+
+        if (PoliceShip != null)
+        {
+            PoliceShip.OnCaughtSkullyEvent -= EndTrigger_OnSkullyEnterEvent;
+        }
         TimerManager.OnOutOfTimeEvent -= TimerManager_OnOutOfTimeEvent;
         missileSoldiers.ForEach(soldier => soldier.OnShootEvent -= Soldier_OnShootEvent);
     }
