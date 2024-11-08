@@ -8,6 +8,7 @@ public class TurnSkullyToLookSpaceStation : MonoBehaviour
     [SerializeField] private float duration;
     [SerializeField] private Transform targetPos;
     [SerializeField] private FollowPlayer cameraFollowPlayer;
+    [SerializeField] private Skully skully;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,5 +25,18 @@ public class TurnSkullyToLookSpaceStation : MonoBehaviour
                 skully.IsLookingBack = true;
             });
         }
+    }
+
+    public void TurnLookForward()
+    {
+        skully.DisableControl();
+        skully.transform.DORotate(Vector3.zero, duration);
+        cameraFollowPlayer.transform.DORotate(Vector3.zero, duration).OnComplete(() =>
+        {
+            skully.EnableControl();
+            skully.EnableXYControl();
+            skully.SetMaxForwardSpeedFactor(1);
+            skully.IsLookingBack = false;
+        });
     }
 }

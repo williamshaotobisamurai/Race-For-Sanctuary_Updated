@@ -15,6 +15,9 @@ public class SpaceStationBoss : MonoBehaviour
 
     [SerializeField] private List<SpaceStationTurret> spaceStationTurretList;
 
+    public event OnDestroyed OnDestroyedEvent;
+    public delegate void OnDestroyed();
+
     private bool isKilled = false;
 
     private SpaceStationTurret T0 { get => spaceStationTurretList[0]; }
@@ -60,10 +63,19 @@ public class SpaceStationBoss : MonoBehaviour
         }
         else if (list.Count == 0)
         {
-            StopFiring(new List<SpaceStationTurret>() { T0, T1, T2, T3, T4, T5, T6, T7 });
-            isKilled = true;
-            DestroyAllDrones();
+            BossDefeated();
         }
+    }
+
+    private void BossDefeated()
+    {
+        StopFiring(new List<SpaceStationTurret>() { T0, T1, T2, T3, T4, T5, T6, T7 });
+        isKilled = true;
+        DestroyAllDrones();
+        PlayDestroyedParticles(() =>
+        {
+            OnDestroyedEvent?.Invoke();
+        });
     }
 
     private bool enableBattleMode;
@@ -118,12 +130,12 @@ public class SpaceStationBoss : MonoBehaviour
                         break;
                 }
             }
-        } 
-    }
+        }
 
-    private void RandomTurretAutoAim()
-    {
-
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            BossDefeated();
+        }
     }
 
     public void EnterFirstPhase()
@@ -370,12 +382,41 @@ public class SpaceStationBoss : MonoBehaviour
     }
 
 
-
     [SerializeField] private SpaceStationDroneSpawner droneSpawner;
 
     private void ReleaseDrones()
     {
         droneSpawner.StartSpawningDrone();
+    }
+
+    [SerializeField] private List<GameObject> destroyedParticleList;
+    [SerializeField] private List<Transform> explosionTransList;
+
+    private void PlayDestroyedParticles(Action OnComplete)
+    {
+        StartCoroutine(PlayDestroyedParticlesCoroutine(OnComplete));
+    }
+
+    private IEnumerator PlayDestroyedParticlesCoroutine(Action OnComplete)
+    {
+        int count = 0;
+        while (count < 20)
+        {
+
+            RandomHelper.GetRandomItem(destroyedParticleList, out GameObject particlePrefab);
+
+            RandomHelper.GetRandomItem(explosionTransList, out Transform explosionTrans);
+
+            GameObject particleInstance = Instantiate(particlePrefab);
+
+            particleInstance.transform.position = explosionTrans.position + UnityEngine.Random.onUnitSphere * 3f;
+            particleInstance.transform.localScale = Vector3.one * UnityEngine.Random.Range(5, 10f);
+
+            count++;
+            yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 0.3f));
+        }
+
+        OnComplete?.Invoke();
     }
 
     private void DestroyAllDrones()

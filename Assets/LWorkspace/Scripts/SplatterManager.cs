@@ -10,15 +10,7 @@ public class SplatterManager : MonoBehaviour
 
     private Tween hideTween;
 
-    [SerializeField] private List<Image> splatterList;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            Show(3f);
-        }
-    }
+    [SerializeField] private List<Image> splatterList;  
 
     public void Show(float duration)
     {
