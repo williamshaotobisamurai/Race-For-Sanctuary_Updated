@@ -34,7 +34,7 @@ public class TutorialLevelManager : LevelManager
     private void TutorialManager_OnAllTutorialPassedEvent()
     {
         Debug.Log("all tutorial passed");
-        skully.SetMaxSpeedFactor(5f);
+        skully.SetMaxForwardSpeedFactor(5f);
         endTrigger.gameObject.SetActive(true);
         endTrigger.transform.position = new Vector3(0, 0, skully.transform.position.z + 800f);
     }

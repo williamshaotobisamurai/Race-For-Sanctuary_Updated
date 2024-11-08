@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SkullyMovement : MonoBehaviour
 {
+    private Vector2 currentXYMovement = Vector2.zero;
     [SerializeField] private float maxForwardSpeedFactor = 1f;
     [SerializeField] private bool isRunning = false;
     [SerializeField] private float currentZSpeed = 0f;
@@ -13,10 +14,8 @@ public class SkullyMovement : MonoBehaviour
     [SerializeField] private float zAcceleration = 1f;
     [SerializeField] private float xyMovementSpeed = 100f;
     [SerializeField] private float xyMovementAcceleration = 3f;
-
     [SerializeField] private float maxXYRotateAngle = 45f;
-
-    private Vector2 currentXYMovement = Vector2.zero;
+    [SerializeField] private Skully skully;
 
     [SerializeField] private CharacterController characterController;
 
@@ -49,7 +48,7 @@ public class SkullyMovement : MonoBehaviour
         });
     }
 
-    public void SetMaxSpeedFactor(float speedFactor)
+    public void SetMaxForwardSpeedFactor(float speedFactor)
     {
         maxForwardSpeedFactor = speedFactor;
     }
@@ -73,17 +72,26 @@ public class SkullyMovement : MonoBehaviour
             xInput = yInput = 0;
         }
 
+        if (skully.IsLookingBack)
+        {
+            xInput *= -1;
+        }
+
         Vector2 desiredMovement = new Vector2(xInput, yInput);
         desiredMovement.Normalize();
         desiredMovement *= xyMovementSpeed;
 
         currentXYMovement = Vector2.MoveTowards(currentXYMovement, desiredMovement, Time.deltaTime * xyMovementAcceleration);
 
-        Vector3 movement = new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed) ;
-        movement += externalSpeed;
+        Vector3 actualMovement = new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
+        actualMovement += externalSpeed;
+        characterController.Move(actualMovement);
 
-        characterController.Move(movement);
         Vector2 desiredRotation = new Vector2(currentXYMovement.x / xyMovementSpeed * maxXYRotateAngle, currentXYMovement.y / xyMovementSpeed * maxXYRotateAngle);
+        if (skully.IsLookingBack)
+        {
+            desiredRotation.x = -desiredRotation.x + 180;
+        }
 
         transform.eulerAngles = new Vector3(-desiredRotation.y, desiredRotation.x, 0);
     }
@@ -95,10 +103,15 @@ public class SkullyMovement : MonoBehaviour
             return Vector3.zero;
         }
 
-        return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
+        if(skully.IsLookingBack)
+        {
+            return new Vector3(-currentXYMovement.x, currentXYMovement.y, currentZSpeed);
+        }
+        else
+        {
+            return new Vector3(currentXYMovement.x, currentXYMovement.y, currentZSpeed);
+        }
     }
-
-
 
     public void EnableXYControl()
     {
@@ -112,9 +125,8 @@ public class SkullyMovement : MonoBehaviour
 
     public void AddExternalSpeed(Vector3 speed)
     {
-        this.externalSpeed = speed;    
+        this.externalSpeed = speed;
     }
-
 
     public void StopExternalSpeed(float decay)
     {

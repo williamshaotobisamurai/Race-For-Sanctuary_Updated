@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: aa53879ab0cabc849b9109eb452a81a1
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Athelas
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 825e1b33a63cb994ea05a1da6d0a2a64, type: 3}
+  - {fileID: 12800000, guid: e3ad8341284ef944d9429efb4d069f89, type: 3}
+  - {fileID: 12800000, guid: 99c6a3e4d92bd1443bab0b1460090d22, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

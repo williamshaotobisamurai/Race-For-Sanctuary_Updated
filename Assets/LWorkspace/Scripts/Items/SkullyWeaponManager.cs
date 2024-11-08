@@ -17,7 +17,7 @@ public class SkullyWeaponManager : MonoBehaviour
     private static SkullyWeaponManager instance;
     public static SkullyWeaponManager Instance { get => instance; }
 
-    private WeaponItem.EWeaponType currentWeaponType = WeaponItem.EWeaponType.NONE;
+    [SerializeField] private WeaponItem.EWeaponType currentWeaponType = WeaponItem.EWeaponType.NONE;
     public WeaponItem.EWeaponType CurrentWeapon { get => currentWeaponType; }
 
     private void Awake()
@@ -37,6 +37,8 @@ public class SkullyWeaponManager : MonoBehaviour
         skullyPistol.OnShootBulletEvent += SkullyPistol_OnShootBulletEvent;
         machineGun.OnShootBulletEvent += MachineGun_OnShootBulletEvent;
         skullyMissile.OnLaunchMissileEvent += SkullyMissile_OnLaunchMissileEvent;
+
+        SetupWeapon(currentWeaponType);
     }
 
     private void SkullyMissile_OnLaunchMissileEvent(Missile missile)

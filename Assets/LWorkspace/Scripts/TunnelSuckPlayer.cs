@@ -20,7 +20,7 @@ public class TunnelSuckPlayer : MonoBehaviour
 
         if (skully != null)
         {
-            skully.SetMaxSpeedFactor(speedFactor);
+            skully.SetMaxForwardSpeedFactor(speedFactor);
         }
     }
 
@@ -30,7 +30,7 @@ public class TunnelSuckPlayer : MonoBehaviour
 
         if (skully != null)
         {
-            skully.SetMaxSpeedFactor(1);
+            skully.SetMaxForwardSpeedFactor(1);
             skully.Rigidbody.velocity = Vector3.zero;
         }
     }

@@ -26,14 +26,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private float playerSpeedFactor = 0f;
     [SerializeField] private float interval = 0.5f;
     [SerializeField] private bool isPlayed = false;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            StartDialogue(LevelManager.Instance.Skully);
-        }
-    }
+    [SerializeField] private bool recoverSpeedFactor = true;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -51,11 +44,14 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("start dialogue ");
 
             float playerOrigionalSpeedFactor = skully.GetMaxSpeedFactor();
-            skully.SetMaxSpeedFactor(playerSpeedFactor);
+            skully.SetMaxForwardSpeedFactor(playerSpeedFactor);
             PlayDialogue(() =>
             {
                 Debug.Log("dialogue finish ");
-                skully.SetMaxSpeedFactor(playerOrigionalSpeedFactor);
+                if (recoverSpeedFactor)
+                {
+                    skully.SetMaxForwardSpeedFactor(playerOrigionalSpeedFactor);
+                }
             });
         }
     }

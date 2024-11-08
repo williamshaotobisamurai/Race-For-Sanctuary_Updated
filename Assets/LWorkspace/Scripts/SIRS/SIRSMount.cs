@@ -4,29 +4,13 @@ using UnityEngine;
 
 public class SIRSMount : MonoBehaviour
 {
-    public Transform parent; // Assign the parent object in the Inspector
-    private Vector3 offset;
-    public float rotationSpeed = 80.0f; // Adjust rotation speed as needed
-    public float circleRadius = 2.0f; // Adjust the radius of the circle
+    [SerializeField] private Transform attachPoint;
+    public Transform AttachPoint { get => attachPoint; }
 
-    void Start()
-    {
-        if (parent != null)
-        {
-            // Calculate the initial position of the child object relative to the parent
-            offset = transform.position - parent.position;
-        }
-    }
-
-
+    [SerializeField] private float rotateSpeed = 10f;
     void Update()
     {
-        if (parent != null)
-        {
-            // Update the position of the child object in a tighter circle around the parent
-            Vector3 desiredPosition = parent.position + Quaternion.AngleAxis(rotationSpeed * Time.time, Vector3.up) * offset.normalized * circleRadius;
-            transform.position = desiredPosition;
-        }
+        transform.Rotate(Vector3.up, Time.deltaTime * rotateSpeed);
+        attachPoint.LookAt(Camera.main.transform);
     }
-
 }

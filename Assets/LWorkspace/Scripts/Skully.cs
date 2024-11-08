@@ -56,6 +56,9 @@ public class Skully : MonoBehaviour
     [SerializeField] private SkullyWeaponManager skullyWeaponManager;
     public SkullyWeaponManager WeaponManager { get => skullyWeaponManager; }
 
+    [SerializeField] private bool isLookingBack = false;
+    public bool IsLookingBack { get => isLookingBack; set => isLookingBack = value; }
+
     [SerializeField] private SkullyOverheating skullyOverheating;
 
     [SerializeField] private SpeedUIManager speedUIManager;
@@ -360,9 +363,10 @@ public class Skully : MonoBehaviour
         healthText.text = healthAmount.ToString() + " / " + maxHealth.ToString();
     }
 
-    public void SetMaxSpeedFactor(float speedFactor)
+    public void SetMaxForwardSpeedFactor(float speedFactor)
     {
-        skullyMovement.SetMaxSpeedFactor(speedFactor);
+        Debug.Log("set max forward speed factor ");
+        skullyMovement.SetMaxForwardSpeedFactor(speedFactor);
     }
 
     public float GetMaxSpeedFactor()
@@ -447,12 +451,12 @@ public class Skully : MonoBehaviour
 
     public void EnterBossMode()
     {
-        skullyMovement.SetMaxSpeedFactor(0);
+        skullyMovement.SetMaxForwardSpeedFactor(0);
     }
 
     public void ExitBossMode()
     {
-        skullyMovement.SetMaxSpeedFactor(1);
+        skullyMovement.SetMaxForwardSpeedFactor(1);
     }
 
     public void StartOverheating()
@@ -513,4 +517,7 @@ public class Skully : MonoBehaviour
     {
         skullyMovement.StopExternalSpeed(decay);
     }
+
+
+
 }

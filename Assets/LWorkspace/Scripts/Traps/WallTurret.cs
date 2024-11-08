@@ -48,7 +48,7 @@ public class WallTurret : MonoBehaviour
         Debug.Log("create a new crosshair");
         crosshairUIInstance = Instantiate(crosshairPrefab, crosshairRoot).GetComponent<WallTurretCrosshair>();
         this.skully = skully;
-        skully.SetMaxSpeedFactor(0.5f);
+        skully.SetMaxForwardSpeedFactor(0.5f);
 
         StartShooting();        
     }
