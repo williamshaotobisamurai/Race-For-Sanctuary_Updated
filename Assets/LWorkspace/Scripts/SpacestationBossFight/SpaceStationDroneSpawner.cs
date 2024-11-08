@@ -7,7 +7,7 @@ public class SpaceStationDroneSpawner : MonoBehaviour
     [SerializeField] private GameObject dronePrefab;
     [SerializeField] private List<Transform> spawnPointList;
 
-    private int maxCount = 15;
+    [SerializeField] private int maxCount = 7;
     private int spawnInEachWave = 5;
 
     private bool isSpawning = false;

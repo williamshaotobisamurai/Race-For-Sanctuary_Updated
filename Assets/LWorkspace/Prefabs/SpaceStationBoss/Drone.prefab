@@ -183,7 +183,7 @@ MonoBehaviour:
   healthUILookAtConstraint: {fileID: 0}
   muzzleParticle: {fileID: 5788229676680591299}
   bulletSpread: 0.1
-  targetDistance: 25
+  targetDistance: -25
   speed: 10
   m_animator: {fileID: 8500485814283275124}
   droneVisual: {fileID: 3057652288719776477}

@@ -49,6 +49,11 @@ public class MainGameManager : MonoBehaviour
     {
         checkpointsManager.RefreshCheckpoints();
 
+        if (arg0.name.Contains("Excerpt"))
+        {
+            return;
+        }
+
         LevelManager.Instance.InitLevel();
         collectedCoinsManager.Init(LevelManager.Instance.Skully);
 

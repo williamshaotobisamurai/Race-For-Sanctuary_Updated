@@ -28,6 +28,7 @@ public class SIRSAttachToSkully : MonoBehaviour
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
         this.enabled = false;
-        Destroy(this);
+        skully.ActiveSIRS();
+        Destroy(gameObject);
     }
 }

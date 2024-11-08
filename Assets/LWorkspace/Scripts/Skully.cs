@@ -16,7 +16,15 @@ public class Skully : MonoBehaviour
 
     private int maxHealth = 100;
     private int healthAmount = 100;
-    public int HealthAmount { get => healthAmount; set => healthAmount = value; }
+    public int HealthAmount
+    {
+        get => healthAmount; 
+        set
+        {
+            healthAmount = value;
+            UpdateHealthBar();
+        }
+    }
 
     [SerializeField] private Transform skullyVisual;
 
@@ -518,6 +526,18 @@ public class Skully : MonoBehaviour
         skullyMovement.StopExternalSpeed(decay);
     }
 
+    public void ActiveSIRS()
+    {
+        sirs.gameObject.SetActive(true);
+    }
 
+    public void DisableSIRS()
+    { 
+        sirs.gameObject.SetActive(false);
+    }
 
+    public int SIRSActivated()
+    {
+        return sirs.isActiveAndEnabled ? 1 : 0;
+    }
 }

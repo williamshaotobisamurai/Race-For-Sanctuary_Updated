@@ -95,12 +95,13 @@ public class LevelManager : MonoBehaviour
         collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
     }
 
-    public void InitSkullyWithData(GameSaveData snapshot, Checkpoint cp)
+    public virtual void InitSkullyWithData(GameSaveData data, Checkpoint cp)
     {
-        CollectedCoinsManager.CoinsCollected = snapshot.coinsCollected;
+        CollectedCoinsManager.CoinsCollected = data.coinsCollected;
+        collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
 
-        skully.HealthAmount = snapshot.health;
-        skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)snapshot.weaponType);
+        skully.HealthAmount = data.health;
+        skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)data.weaponType);
 
         if (cp == null)
         {
@@ -111,7 +112,14 @@ public class LevelManager : MonoBehaviour
             skully.transform.position = cp.RespawnTrans.position;
         }
 
-        collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
+        if (data.sirsActivated == 0)
+        {
+            skully.ActiveSIRS();
+        }
+        else
+        {
+            skully.DisableSIRS();
+        }
     }
 
 
@@ -239,7 +247,6 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-
     public GameSaveData GetCurrentData()
     {
         GameSaveData data = new GameSaveData()
@@ -247,6 +254,7 @@ public class LevelManager : MonoBehaviour
             levelIndex = SceneManager.GetActiveScene().buildIndex,
             health = skully.HealthAmount,
             weaponType = ((int)skully.WeaponManager.CurrentWeapon),
+            sirsActivated = skully.SIRSActivated()
         };
 
         return data;
