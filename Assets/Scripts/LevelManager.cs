@@ -36,6 +36,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject staticBarrier;
     [SerializeField] private Light overheatingLight;
 
+    [SerializeField] private FollowPlayer cameraFollowPlayer;
+
     private static LevelManager instance;
     public static LevelManager Instance
     {
@@ -89,6 +91,7 @@ public class LevelManager : MonoBehaviour
 
         skully.HealthAmount = data.health;
         skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)data.weaponType);
+        skully.DisableControl();
 
         if (cp == null)
         {
@@ -96,6 +99,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            cameraFollowPlayer.transform.eulerAngles = Vector3.zero;
             skully.transform.position = cp.RespawnTrans.position;
         }
 
@@ -107,6 +111,11 @@ public class LevelManager : MonoBehaviour
         {
             skully.DisableSIRS();
         }
+
+        DOVirtual.DelayedCall(0.2f, () =>
+        {
+            skully.EnableControl();
+        });
     }
 
 

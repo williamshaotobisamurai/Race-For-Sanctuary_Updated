@@ -28,16 +28,7 @@ public class LevelOneManager : LevelManager
 
     public override void InitSkullyWithData(GameSaveData data, Checkpoint cp)
     {
-        skully.HealthAmount = data.health;
-        if (data.sirsActivated == 0)
-        {
-            skully.DisableSIRS();
-        }
-        else
-        {
-            skully.ActiveSIRS();
-        }
-
+        skully.HealthAmount = data.health;     
         skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)data.weaponType);
         skully.DisableControl();
         if (cp == null)
@@ -47,10 +38,17 @@ public class LevelOneManager : LevelManager
         else
         {
             skully.transform.position = cp.RespawnTrans.position;
-            Debug.Log("respawn skully from checkpoint " + cp.ID + " : " + skully.transform.position);
         }
 
-  
+        if (data.sirsActivated == 0)
+        {
+            skully.DisableSIRS();
+        }
+        else
+        {
+            skully.ActiveSIRS();
+        }
+
 
         DOVirtual.DelayedCall(0.2f, () =>
         {

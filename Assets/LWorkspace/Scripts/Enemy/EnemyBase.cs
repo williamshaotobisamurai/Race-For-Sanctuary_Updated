@@ -93,19 +93,26 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
-    private bool IsBlocked(Skully skully)
+    protected bool IsBlocked(Skully skully)
     {
         Vector3 direction = skully.transform.position - muzzle.transform.position;
         if (Physics.Raycast(muzzle.transform.position, direction, out RaycastHit hit, direction.magnitude * 1.2f, layerMask))
         {
-            return true;
+            if (GameHelper.IsSkully(hit.collider, out Skully s))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         return false;
     }
 
     protected virtual GameObject Shoot()
     {
-        muzzleParticle?.Play();
+        muzzleParticle.Play();
         GameObject bulletInstance = GameObject.Instantiate(bullet);
         bulletInstance.transform.position = muzzle.position;
         bulletInstance.transform.eulerAngles = muzzle.eulerAngles + Random.insideUnitSphere * 90f * bulletSpread;

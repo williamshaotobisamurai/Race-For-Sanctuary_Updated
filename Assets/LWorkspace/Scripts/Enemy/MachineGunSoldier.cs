@@ -8,7 +8,6 @@ public class MachineGunSoldier : EnemyBase
     [SerializeField] private Animator animator;
     [SerializeField] private LookAtConstraint lookAtConstraint;
 
-
     protected override void Start()
     {
         base.Start();
@@ -22,7 +21,14 @@ public class MachineGunSoldier : EnemyBase
 
     private void LateUpdate()
     {
-        Debug.DrawRay(lookAtConstraint.transform.position, lookAtConstraint.transform.up * 300f, Color.green);
+        if (IsBlocked(LevelManager.Instance.Skully))
+        {
+            Debug.DrawRay(lookAtConstraint.transform.position, lookAtConstraint.transform.up * 300f, Color.red);
+        }
+        else
+        {
+            Debug.DrawRay(lookAtConstraint.transform.position, lookAtConstraint.transform.up * 300f, Color.green);
+        }
     }
 
     protected override GameObject Shoot()
