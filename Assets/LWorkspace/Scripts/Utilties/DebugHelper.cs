@@ -17,5 +17,10 @@ public class DebugHelper : MonoBehaviour
             Time.timeScale = 1f;
             //isInvincible = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("time " + Time.time);
+        }
     }
 }

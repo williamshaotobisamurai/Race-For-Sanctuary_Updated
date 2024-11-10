@@ -58,8 +58,12 @@ public class SkullyMovement : MonoBehaviour
         return maxForwardSpeedFactor;
     }
 
+    private Vector3 lastFramePos;
+
     void FixedUpdate()
     {
+        lastFramePos = transform.position; 
+        
         if (!isRunning) return;
 
         currentZSpeed = Time.deltaTime * maxForwardSpeed * maxForwardSpeedFactor;
@@ -137,5 +141,10 @@ public class SkullyMovement : MonoBehaviour
             Debug.Log("decay " + decay + " external speed " + externalSpeed);
             externalSpeed = Vector3.Lerp(originalSpeed, Vector3.zero, t);
         });
+    }
+
+    public float GetActualZSpeed()
+    {
+        return transform.position.z - lastFramePos.z;
     }
 }

@@ -29,6 +29,7 @@ public class ObstacleSpawner : MonoBehaviour
             nextSpawnTime = Time.time + spawnInterval + Random.Range(0, spawnVariation);
 
             int count = Random.Range(spawnCount, spawnCount + spawnCountVariation);
+            Skully skully = LevelManager.Instance.Skully;
 
             for (int i = 0; i < count; i++)
             {
@@ -37,7 +38,7 @@ public class ObstacleSpawner : MonoBehaviour
                 Vector3 ran = Random.insideUnitSphere * radius + transform.position;
                 ran.z = transform.position.z;
                 go.transform.position = ran;
-                go.GetComponent<MeteorMovement>().Init(LevelManager.Instance.Skully.transform.position + Random.insideUnitSphere * 1.5f);
+                go.GetComponent<MeteorMovement>().Init(skully.transform.position + Random.insideUnitSphere * 1.5f);
             }
         }
     }

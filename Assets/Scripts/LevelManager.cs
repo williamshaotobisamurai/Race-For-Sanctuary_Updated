@@ -15,8 +15,6 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] protected Transform startTrans;
 
-    [SerializeField] protected CameraFollowPlayer cameraFollowPlayer;
-
     [SerializeField] protected Skully skully;
     public Skully Skully { get => skully; }
 
@@ -34,7 +32,6 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] private SpaceStationTrigger spaceStationEntry;
     [SerializeField] private SpaceStationTrigger spaceStationExit;
-    [SerializeField] private OverheatingStartSign overheatingStartSign;
 
     [SerializeField] private GameObject staticBarrier;
     [SerializeField] private Light overheatingLight;
@@ -75,19 +72,9 @@ public class LevelManager : MonoBehaviour
             spaceStationEntry.OnSkullyEnterEvent += SpaceStationEntry_OnSkullyEnterEvent;
             spaceStationExit.OnSkullyEnterEvent += SpaceStationExit_OnSkullyEnterEvent;
         }
-
-        if (overheatingStartSign != null)
-        {
-            overheatingStartSign.OnSkullyEnterEvent += OnPlayerEnterOverheatingTrigger;
-        }
-
-        skully.DisableControl();
-
-        //   cameraFollowPlayer.StartCoroutine(cameraFollowPlayer.CameraInterpolate(() =>
-        //  {
+ 
         skully.EnableControl();
-        TimerManager.Init();
-        //   }));
+        TimerManager.Init();   
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
@@ -112,7 +99,7 @@ public class LevelManager : MonoBehaviour
             skully.transform.position = cp.RespawnTrans.position;
         }
 
-        if (data.sirsActivated == 0)
+        if (data.sirsActivated == 1)
         {
             skully.ActiveSIRS();
         }

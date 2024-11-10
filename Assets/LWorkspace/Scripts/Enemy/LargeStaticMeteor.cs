@@ -33,7 +33,10 @@ public class LargeStaticMeteor : MonoBehaviour
         {
             Debug.Log("on hit by meteor");
             other.gameObject.SetActive(false);
-            Explode();
+            if (transform.position.z > LevelManager.Instance.Skully.transform.position.z && other.GetComponent<MeteorMovement>().CanCauseExplode)
+            {
+                Explode();
+            }
         }
     }
 
@@ -42,14 +45,6 @@ public class LargeStaticMeteor : MonoBehaviour
 
     [SerializeField] private List<GameObject> obstaclesList;
     [SerializeField] private float radius = 10;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Explode();
-        }
-    }
 
     private void Explode()
     {
@@ -68,8 +63,7 @@ public class LargeStaticMeteor : MonoBehaviour
             Vector3 ran = Random.insideUnitSphere * radius + transform.position;
             ran.z = transform.position.z;
             go.transform.position = ran;
-            go.GetComponent<MeteorMovement>().Init(transform.position +  Random.onUnitSphere * 150f);
+            go.GetComponent<MeteorMovement>().Init(transform.position + Random.onUnitSphere * 150f);
         }
     }
 }
- 

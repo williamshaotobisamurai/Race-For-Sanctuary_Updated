@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +21,7 @@ public class NPCDialogue : MonoBehaviour
         dialogueCanvas.gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Vector2 screenPoint = Camera.main.WorldToScreenPoint(uiAnchor.transform.position);
         dialogueBG.GetComponent<RectTransform>().anchoredPosition = screenPoint / dialogueCanvas.scaleFactor;

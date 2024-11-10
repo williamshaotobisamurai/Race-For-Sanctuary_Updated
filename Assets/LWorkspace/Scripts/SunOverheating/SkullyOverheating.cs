@@ -11,7 +11,6 @@ public class SkullyOverheating : MonoBehaviour
 
     [SerializeField] private SkinnedMeshRenderer skullyMeshRenderer;
     [SerializeField] private Color skullyOverheatingColor;
-    [SerializeField] private Color skullyOriginalColor;
 
     [SerializeField] private float overheatingProgress;
 
@@ -79,11 +78,11 @@ public class SkullyOverheating : MonoBehaviour
             overheatingMeshRendererList[i].material.SetColor("_EmissionColor", color);
         }
 
-        foreach (Material mat in skullyMeshRenderer.materials)
-        {
-            Color color = Color.Lerp(skullyOriginalColor, skullyOverheatingColor, progress);
-            mat.color = color;
-        }
+        //foreach (Material mat in skullyMeshRenderer.materials)
+        //{
+        //    Color color = Color.Lerp(skullyOriginalColor, skullyOverheatingColor, progress);
+        //    mat.color = color;
+        //}
     }
 
     public void StartOverheating()

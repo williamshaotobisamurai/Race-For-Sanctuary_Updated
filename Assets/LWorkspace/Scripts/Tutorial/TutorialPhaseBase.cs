@@ -77,8 +77,6 @@ public abstract class TutorialPhaseBase : MonoBehaviour
         seq.AppendInterval(1f);
         seq.AppendCallback(() =>
         {
-            LevelManager.Instance.Skully.Revive();
-
         });
         seq.Play();
     }

@@ -1,6 +1,9 @@
 using DG.Tweening;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Skully : MonoBehaviour
 {
@@ -18,7 +21,7 @@ public class Skully : MonoBehaviour
     private int healthAmount = 100;
     public int HealthAmount
     {
-        get => healthAmount; 
+        get => healthAmount;
         set
         {
             healthAmount = value;
@@ -92,6 +95,11 @@ public class Skully : MonoBehaviour
 
     private void Sirs_OnCollectCoinEvent(Coin coin)
     {
+        if (!collectCoinTextPlayed)
+        {
+            collectCoinTextPlayed = true;
+            Say(collectCoinDialogue,0.5f, null);
+        }
         OnCollectCoinEvent?.Invoke(coin);
     }
 
@@ -197,8 +205,11 @@ public class Skully : MonoBehaviour
             else
             {
                 ReflectMeteor(other.GetComponent<LargeStaticMeteor>(), 10f);
-
             }
+        }
+        else if (other.tag.Equals(GameConstants.METEOR))
+        {
+            HitByMeteor(other.GetComponent<MeteorMovement>());
         }
     }
 
@@ -271,6 +282,14 @@ public class Skully : MonoBehaviour
         }
     }
 
+    public void HitByMeteor(MeteorMovement meteor)
+    {
+        if (!IsInvincible)
+        {
+            TakeDamage(meteor.Damage);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         healthAmount -= damage;
@@ -322,6 +341,12 @@ public class Skully : MonoBehaviour
 
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
     {
+        if (!defensiveDialoguePlayed || Random.Range(0f, 1f) > 0.7f)
+        {
+            defensiveDialoguePlayed = true;
+            Say(defensiveDialogue, null);
+        }
+
         defensiveBoostAttachment.SetActive(true);
         IsInvincible = true;
 
@@ -329,7 +354,6 @@ public class Skully : MonoBehaviour
         flashTimeStamp = Mathf.Clamp(flashTimeStamp, 0, flashTimeStamp);
         DOVirtual.DelayedCall(flashTimeStamp, () =>
         {
-
             defensiveBoostAttachment.GetComponent<DefensiveAttachment>().StartFlashingForSeconds(defensiveBoost.GetDefensiveDuration());
         });
 
@@ -348,6 +372,12 @@ public class Skully : MonoBehaviour
 
     public void CollectCoolingItem(CoolingItem item)
     {
+        if (!coolingItemTextPlayed || Random.Range(0, 1f) > 0.7f)
+        {
+            coolingItemTextPlayed = true;
+            Say(coolingItemDialogue, null);
+        }
+
         OnCollectItemEvent?.Invoke(item);
         skullyOverheating.ReduceOverheatingProgress(item.CoolingAmount);
     }
@@ -421,17 +451,6 @@ public class Skully : MonoBehaviour
         });
     }
 
-    public void Revive()
-    {
-        Debug.Log("revive");
-        healthAmount = maxHealth;
-        healthBar.fillAmount = healthAmount / (float)maxHealth;
-        UpdateHealthBar();
-        rb.freezeRotation = false;
-        skullyMovement.StartRunning();
-        isDead = false;
-    }
-
     public Vector3 GetCurrentVelocity()
     {
         return skullyMovement.GetCurrentVelocity();
@@ -477,14 +496,14 @@ public class Skully : MonoBehaviour
         skullyOverheating.StopOverheating();
     }
 
+
     private void SkullyOverheating_OnOverheatEvent()
     {
         isDead = true;
         DisableControl();
-        InstructionManager.ShowText("I'm burned out", 2f, () =>
-        {
-            OnSkullyDiedEvent?.Invoke();
-        });
+        SetMaxForwardSpeedFactor(0f);
+
+        Say(burnedOutDialogue, () => OnSkullyDiedEvent?.Invoke());
     }
 
     public void SkullyHitSpaceStationWall()
@@ -532,12 +551,74 @@ public class Skully : MonoBehaviour
     }
 
     public void DisableSIRS()
-    { 
+    {
         sirs.gameObject.SetActive(false);
     }
 
     public int SIRSActivated()
     {
         return sirs.isActiveAndEnabled ? 1 : 0;
+    }
+
+    public float GetActualZSpeed()
+    {
+        return skullyMovement.GetActualZSpeed();
+    }
+
+
+
+    private Tween sayTween = null;
+
+    [SerializeField] private Dialogue coolingItemDialogue;
+    private bool coolingItemTextPlayed = false;
+
+    [SerializeField] private Dialogue defensiveDialogue;
+    private bool defensiveDialoguePlayed = false;
+
+    [SerializeField] private Dialogue burnedOutDialogue;
+
+    [SerializeField] private List<Dialogue> collectCoinDialogue;
+    private bool collectCoinTextPlayed = false;
+
+
+    [SerializeField] private NPCDialogue skullyDialogue;
+    private void Say(Dialogue dialogue, Action OnComplete)
+    {
+        if (sayTween != null)
+        {
+            sayTween.Kill();
+            sayTween = null;
+        }
+
+        Sequence seq = DOTween.Sequence();
+        seq.AppendCallback(() => skullyDialogue.Show(dialogue.text));
+        seq.AppendInterval(dialogue.duration);
+        seq.AppendCallback(() => skullyDialogue.Hide());
+        seq.OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
+        seq.Play();
+    }
+
+    private void Say(List<Dialogue> dialogueList, float interval, Action OnComplete)
+    {
+        Sequence seq = DOTween.Sequence();
+
+        for (int i = 0; i < dialogueList.Count; i++)
+        {
+            Dialogue dialogue = dialogueList[i];
+            NPCDialogue npcDialogue = dialogue.npcDialogue;
+            seq.AppendCallback(() =>
+            {
+                npcDialogue.Show(dialogue.text);
+            });
+            seq.AppendInterval(interval + dialogue.duration);
+        }
+        seq.OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
+        seq.Play();
     }
 }

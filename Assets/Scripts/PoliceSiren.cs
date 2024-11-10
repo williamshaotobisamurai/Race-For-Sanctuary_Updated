@@ -24,7 +24,5 @@ public class PoliceSiren : MonoBehaviour
         redLight.SetActive(true);
         blueLight.SetActive(false);
         StartCoroutine(Siren());
-
     }
-
 }

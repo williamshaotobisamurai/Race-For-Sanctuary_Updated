@@ -16,6 +16,8 @@ class GameEditor : EditorWindow
     int startNumber;
     string path = "/Data/Projects/Screenshot/";
 
+    string rename = "";
+
     GUIStyle _guiStyle;
 
     [MenuItem("Tools/Scene Manager")]
@@ -175,23 +177,33 @@ class GameEditor : EditorWindow
         // Tools
         GUILayout.Space(10);
         GUILayout.Label("------ TOOLS ------", style);
-        //EditorGUILayout.BeginHorizontal();
-        //gold = GUILayout.TextField(gold, GUILayout.Width(70));
-        //if (GUILayout.Button("add gold"))
-        //{
-        //    GDSManager.Instance.AddGold(Convert.ToInt32(gold));
-        //}
-        //EditorGUILayout.EndHorizontal();
 
-        //
-        // Screenshot
         path = GUILayout.TextField(path);
         if (GUILayout.Button("Capture Screenshot"))
         {
             CaptureScreenshot(path);
         }
 
+        GUILayout.Space(10);
+        GUILayout.Label("------ Leo TOOLS ------", style);
+
+        rename = GUILayout.TextField(rename);
+        if (GUILayout.Button("Rename"))
+        {
+            Rename(rename);
+        }
+
         EditorGUILayout.EndScrollView();
+    }
+
+
+    [MenuItem("LeoTools/ReName")]
+    public static void Rename(string name)
+    {
+        for (int i = 0; i < Selection.objects.Length; i++)
+        {
+            Selection.objects[i].name = name + "_" + i;
+        }
     }
 }
 #endif

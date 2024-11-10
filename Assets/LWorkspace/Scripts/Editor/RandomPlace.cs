@@ -21,8 +21,11 @@ public class RandomPlace : MonoBehaviour
     {
         for (int i = 0; i < Selection.objects.Length; i++)
         {
-            Selection.objects[i].GetComponent<Transform>().localPosition +=
-                new Vector3(Random.Range(-105f,105f), Random.Range(-105f, 105f), 0);
+            Selection.objects[i].GetComponent<Transform>().localPosition =
+                new Vector3(Random.Range(-250f,250f), Random.Range(-250f, 250f), i * 40);
+
+            GameObject go = Instantiate(Selection.objects[i]) as GameObject;
+            go.transform.localPosition = new Vector3(Random.Range(-150f, 150f), Random.Range(-150f, 150f), i * 40);
         }
     }  
 
@@ -43,6 +46,18 @@ public class RandomPlace : MonoBehaviour
         for (int i = 0; i < Selection.objects.Length; i++)
         {
             Selection.objects[i].GetComponent<Transform>().localScale = Vector3.one * Random.Range(1,3f) * 10f;
+        }
+    }
+
+    [MenuItem("LeoTools/RandomDelete")]
+    public static void RandomDelete()
+    {
+        for (int i = 0; i < Selection.objects.Length; i++)
+        {
+            if (Random.Range(0f, 1f) > 0.5f)
+            {
+                DestroyImmediate(Selection.objects[i]);
+            }
         }
     }
 }
