@@ -159,12 +159,4 @@ public class Boss : EnemyBase
         healthBar.DOFillAmount(health / (float)maxHealth, 0.5f);
         healthText.text = health.ToString() + " / " + maxHealth.ToString();
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            Kill();
-        }
-    }
 }

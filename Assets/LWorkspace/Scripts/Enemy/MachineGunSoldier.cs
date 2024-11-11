@@ -8,9 +8,8 @@ public class MachineGunSoldier : EnemyBase
     [SerializeField] private Animator animator;
     [SerializeField] private LookAtConstraint lookAtConstraint;
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         ConstraintSource source = new ConstraintSource();
         source.sourceTransform = LevelManager.Instance.Skully.transform;
         source.weight = 1f;

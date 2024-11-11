@@ -147,4 +147,9 @@ public class SkullyMovement : MonoBehaviour
     {
         return transform.position.z - lastFramePos.z;
     }
+
+    public void SetMaxFowardSpeed(float speed)
+    {
+        maxForwardSpeed = speed;
+    }
 }

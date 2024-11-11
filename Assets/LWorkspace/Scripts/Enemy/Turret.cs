@@ -8,11 +8,11 @@ public class Turret : EnemyBase
     [SerializeField] private List<MeshRenderer> meshRendererlist;
     [SerializeField] private bool redFirst = false;
     [SerializeField] private float interval = 0.2f;
-    
+
     private Tween shakeTween = null;
     private Tween flashingTween;
 
-    protected override void Start()
+    protected void Start()
     {
         meshRendererlist = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>());
         StartCoroutine(StartFlashing());
@@ -50,12 +50,12 @@ public class Turret : EnemyBase
     {
         base.TakeDamage(damage);
 
-        if (shakeTween != null) 
+        if (shakeTween != null)
         {
             shakeTween.Kill();
             shakeTween = null;
         }
-        shakeTween =  transform.DOShakeRotation(0.2f, 10);
+        shakeTween = transform.DOShakeRotation(0.2f, 10);
     }
 
     private void OnDestroy()

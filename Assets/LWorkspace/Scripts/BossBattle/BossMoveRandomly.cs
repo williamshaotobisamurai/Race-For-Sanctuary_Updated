@@ -1,5 +1,6 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -14,6 +15,11 @@ namespace NodeCanvas.Tasks.Actions
 
         public BBParameter<float> stopDistance = 0.1f;
         public bool waitActionFinish;
+
+        public BBParameter<float> height;
+        public BBParameter<float> width;
+        public BBParameter<Vector3> center;
+
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -80,13 +86,10 @@ namespace NodeCanvas.Tasks.Actions
             while (tries < 10)
             {
                 tries++;
-                float randomX = Random.Range(0.25f, 0.75f);
-                float randomY = Random.Range(0.15f, 0.85f);
+                float randomX = center.value.x + Random.Range(-width.value, width.value);
+                float randomY = center.value.y + Random.Range(-height.value, height.value);
 
-                Vector3 bossTargetViewportPoint = new Vector3(randomX, randomY, targetDistance);
-                Debug.Log("boss target viewport point " + bossTargetViewportPoint);
-                Vector3 targetPos = Camera.main.ViewportToWorldPoint(bossTargetViewportPoint);
-                Debug.Log("target pos " + targetPos);
+                Vector3 targetPos = new Vector3(randomX, randomY, center.value.z);
                 target.value.transform.position = targetPos;
 
                 float distance = Vector3.Distance(targetPos, agent.transform.position);

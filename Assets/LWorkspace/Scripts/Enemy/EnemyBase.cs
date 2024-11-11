@@ -28,8 +28,6 @@ public class EnemyBase : MonoBehaviour
 
     [SerializeField] private Image healthImg;
 
-    [SerializeField] private LookAtConstraint healthUILookAtConstraint;
-
     [SerializeField] private ParticleSystem muzzleParticle;
 
     [SerializeField] protected float bulletSpread = 0f;
@@ -45,24 +43,6 @@ public class EnemyBase : MonoBehaviour
         maxHealth = health;
     }
 
-    protected virtual void Start()
-    {
-        if (healthUILookAtConstraint != null)
-        {
-            healthUILookAtConstraint.gameObject.SetActive(false);
-            ConstraintSource src = new ConstraintSource();
-            src.sourceTransform = Camera.main.transform;
-            if (healthUILookAtConstraint.sourceCount == 0)
-            {
-                healthUILookAtConstraint.AddSource(src);
-            }
-            else
-            {
-                healthUILookAtConstraint.SetSource(0, src);
-            }
-        }
-    }
-
     private void Update()
     {
         LookAtSkully();
@@ -70,8 +50,11 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void LookAtSkully()
     {
-        Skully skully = LevelManager.Instance.Skully;
-        lookAtTrans.LookAt(skully.transform.position + skully.transform.forward * advanceDistance);
+        if (lookAtTrans != null)
+        {
+            Skully skully = LevelManager.Instance.Skully;
+            lookAtTrans.LookAt(skully.transform.position + skully.transform.forward * advanceDistance);
+        }
     }
 
     void OnTriggerStay(Collider other)

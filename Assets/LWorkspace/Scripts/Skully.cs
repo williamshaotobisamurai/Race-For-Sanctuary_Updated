@@ -621,4 +621,9 @@ public class Skully : MonoBehaviour
         });
         seq.Play();
     }
+
+    public void SetMaxForwardSpeed(float speed)
+    {
+        skullyMovement.SetMaxFowardSpeed(speed);
+    }
 }

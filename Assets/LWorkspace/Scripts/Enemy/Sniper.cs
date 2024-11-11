@@ -45,12 +45,19 @@ public class Sniper : EnemyBase
 
         if (skully != null)
         {
-            crosshairObj.transform.position = skully.transform.position;
+            crosshairObj.transform.position = skully.transform.position + skully.transform.forward;
         }
     }
 
     protected override void AimAtSkully(Skully skully)
     {
+        if (IsBlocked(skully))
+        {
+            laser.enabled = false;
+            aimmingDuration = 0f;
+            return;
+        }
+
         laser.enabled = true;
         crosshairObj.transform.position = Vector3.MoveTowards(crosshairObj.transform.position, skully.transform.position, Time.deltaTime * crosshairFollowSpeed);
 
