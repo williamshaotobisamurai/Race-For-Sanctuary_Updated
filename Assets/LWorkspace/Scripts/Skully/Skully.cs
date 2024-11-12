@@ -93,6 +93,8 @@ public class Skully : MonoBehaviour
         speedUIManager.UpdateUI();
     }
 
+    [SerializeField] private AudioSource coinAudio;
+
     private void Sirs_OnCollectCoinEvent(Coin coin)
     {
         if (!collectCoinTextPlayed)
@@ -100,6 +102,7 @@ public class Skully : MonoBehaviour
             collectCoinTextPlayed = true;
             Say(collectCoinDialogue,0.5f, null);
         }
+        coinAudio.Play();
         OnCollectCoinEvent?.Invoke(coin);
     }
 

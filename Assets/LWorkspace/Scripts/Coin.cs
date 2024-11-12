@@ -41,9 +41,7 @@ public class Coin : MonoBehaviour
             if (Vector3.Distance(transform.position, skully.GetPosition()) <= 0.5f && isCollected)
             {
                 meshRenderer.enabled = false;
-
                 coinAudio.Play();
-
                 OnCompleteAct?.Invoke(this);
                 DOVirtual.DelayedCall(1f, () =>
                 {

@@ -105,7 +105,6 @@ public class Boss : EnemyBase
         }
 
         OnExplodeEvent?.Invoke();
-
     } 
 
     public override void Kill()

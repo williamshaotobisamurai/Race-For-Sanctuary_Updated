@@ -125,12 +125,15 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void Kill()
     {
-        gameObject.SetActive(false);
-        isKilled = true;
-        if (killedParticlePrefab != null)
+        if (!isKilled)
         {
-            GameObject instance = Instantiate(killedParticlePrefab);
-            instance.transform.position = transform.position;
+            gameObject.SetActive(false);
+            isKilled = true;
+            if (killedParticlePrefab != null)
+            {
+                GameObject instance = Instantiate(killedParticlePrefab);
+                instance.transform.position = transform.position;
+            }
         }
     }
 }

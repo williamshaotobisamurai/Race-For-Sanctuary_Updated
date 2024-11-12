@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +14,14 @@ public class NPCDialogue : MonoBehaviour
 
     public void Show(string text)
     {
-        dialogueCanvas.gameObject.SetActive(true);
+        if (string.IsNullOrEmpty(text))
+        {
+            dialogueCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            dialogueCanvas.gameObject.SetActive(true);
+        }
         dialogueText.text = text;
     }
 
@@ -25,5 +34,5 @@ public class NPCDialogue : MonoBehaviour
     {
         Vector2 screenPoint = Camera.main.WorldToScreenPoint(uiAnchor.transform.position);
         dialogueBG.GetComponent<RectTransform>().anchoredPosition = screenPoint / dialogueCanvas.scaleFactor;
-    }
+    }  
 }

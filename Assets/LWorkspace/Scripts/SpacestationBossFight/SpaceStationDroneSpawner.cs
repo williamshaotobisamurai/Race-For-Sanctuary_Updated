@@ -18,7 +18,11 @@ public class SpaceStationDroneSpawner : MonoBehaviour
     private float lastSpawnTimeStamp;
     private float spawnInterval = 0.5f;
 
+    [SerializeField] private float targetDistance = 75f;
+
     [SerializeField] private List<Drone> spawnedDrones;
+
+    public bool IsSpawning { get => isSpawning;  }
 
     private void Update()
     {
@@ -33,6 +37,7 @@ public class SpaceStationDroneSpawner : MonoBehaviour
 
     public void StartSpawningDrone()
     {
+        Debug.Log("start spawning drones");
         isSpawning = true;
     }
 
@@ -59,7 +64,7 @@ public class SpaceStationDroneSpawner : MonoBehaviour
         instance.transform.position = spawnPoint.position;
         Drone drone = instance.GetComponent<Drone>();
 
-        drone.Init(spawnPoint);
+        drone.Init(spawnPoint,targetDistance);
         spawnedDrones.Add(drone);
     }
 

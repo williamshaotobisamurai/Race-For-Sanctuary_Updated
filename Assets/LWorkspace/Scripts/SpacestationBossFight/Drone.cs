@@ -22,8 +22,9 @@ public class Drone : EnemyBase
     [SerializeField] private Transform droneVisual;
 
 
-    public void Init(Transform initTrans)
+    public void Init(Transform initTrans ,float targetDistance)
     {
+        this.targetDistance = targetDistance;
         transform.DOMove(initTrans.position + initTrans.forward * Random.Range(10f, 20f), Random.Range(1f, 2f)).SetEase(Ease.OutQuart).OnComplete(() =>
         {
             enableAutoMovement = true;

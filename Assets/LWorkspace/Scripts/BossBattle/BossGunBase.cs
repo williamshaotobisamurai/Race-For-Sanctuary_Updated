@@ -10,10 +10,12 @@ public class BossGunBase : MonoBehaviour
 
     [SerializeField] private protected Skully skully;
     protected float lastBulletTimeStamp = 0f;
-    protected bool isFiring = false;
+    private bool isFiring = false;
     // Start is called before the first frame update
     [SerializeField] protected float spread = 3f;
-    [SerializeField] private GameObject muzzleParticlePrefab;
+    [SerializeField] private ParticleSystem muzzleParticle;
+
+    public bool IsFiring { get => isFiring;}
 
     private void Start()
     {
@@ -50,13 +52,7 @@ public class BossGunBase : MonoBehaviour
             bulletInstance.transform.LookAt(skully.transform.position + Random.insideUnitSphere * spread);
             lastBulletTimeStamp = Time.time;
 
-            if (muzzleParticlePrefab != null)
-            {
-                GameObject muzzleInstance = Instantiate(muzzleParticlePrefab, muzzleTrans);
-                muzzleInstance.SetActive(true);
-                muzzleInstance.transform.localPosition = Vector3.zero;
-                muzzleInstance.transform.localRotation = Quaternion.identity;
-            }
+            muzzleParticle.Play();
         }
     }
 }
