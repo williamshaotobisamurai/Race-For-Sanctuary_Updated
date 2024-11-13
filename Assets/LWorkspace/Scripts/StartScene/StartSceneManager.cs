@@ -24,6 +24,7 @@ public class StartSceneManager : MonoBehaviour
 
     public void OnStartButtonClicked()
     {
+        CheckpointsManager.ClearPreviousData();
         SceneManager.LoadScene(1);
     }
 

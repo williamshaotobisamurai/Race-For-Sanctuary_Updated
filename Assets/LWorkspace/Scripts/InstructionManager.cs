@@ -27,6 +27,7 @@ public class InstructionManager : MonoBehaviour
 
     public static void ShowText(string text, float seconds = 3f,Action OnComplete = null)
     {
+        return;
         if(instance.showTextTween != null) 
         {
             instance.showTextTween.Kill();

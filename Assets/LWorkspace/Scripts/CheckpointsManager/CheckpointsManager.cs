@@ -17,6 +17,12 @@ public class CheckpointsManager : MonoBehaviour
         }
     }
 
+    public static void ClearPreviousData()
+    {
+        GameSaveData snapshot = new GameSaveData();
+        FileManager.SaveTextToPersistentPath(GameConstants.SAVE_FILE_DATA, JsonUtility.ToJson(snapshot));
+    }
+
     public Checkpoint FindCheckpoint(GameSaveData data)
     {
         return checkPointsList.Find(t => t.ID == data.checkPointID);
