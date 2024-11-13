@@ -75,8 +75,12 @@ public class LevelManager : MonoBehaviour
             spaceStationExit.OnSkullyEnterEvent += SpaceStationExit_OnSkullyEnterEvent;
         }
  
-        skully.EnableControl();
-        TimerManager.Init();   
+        TimerManager.Init();
+        skully.transform.position = startTrans.position;
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            skully.EnableControl();
+        });
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
@@ -110,10 +114,16 @@ public class LevelManager : MonoBehaviour
         {
             skully.DisableSIRS();
         }
-
+        
+        skully.IsInvincible = true;
         DOVirtual.DelayedCall(1f, () =>
         {
             skully.EnableControl();
+        });
+
+        DOVirtual.DelayedCall(2f, () =>
+        {
+            skully.IsInvincible = false;
         });
     }
 

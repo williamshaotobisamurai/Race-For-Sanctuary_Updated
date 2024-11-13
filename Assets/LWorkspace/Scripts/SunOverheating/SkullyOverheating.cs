@@ -96,6 +96,7 @@ public class SkullyOverheating : MonoBehaviour
         Debug.Log("stop overheating");
         isOverheating = false;
         overheatingProgress = 0;
+        overheatingFilter.color = new Color(1,1,1,0f);
         SetOverheatingProgress(overheatingProgress);
     }
 

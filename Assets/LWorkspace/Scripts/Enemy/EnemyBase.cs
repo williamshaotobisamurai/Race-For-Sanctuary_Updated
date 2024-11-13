@@ -63,12 +63,6 @@ public class EnemyBase : MonoBehaviour
         {
             AimAtSkully(skully);
         }
-    //    //Skully skully = other.GetComponent<Skully>();
-
-    //    //if (skully != null && skully.transform.position.z < transform.position.z)
-    //    //{
-    //    //    AimAtSkully(skully);
-    //    //}
     }
 
     protected virtual void AimAtSkully(Skully skully)
