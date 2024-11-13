@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.psd filter=lfs diff=lfs merge=lfs -text
+H:/SourceTreeRoot/William/Race-For-Sanctuary_Updated/Assets/Exo-planets[[:space:]]-[[:space:]]NovaShade/Sources[[:space:]]Files/Textures/Clouds_Average.tga filter=lfs diff=lfs merge=lfs -text

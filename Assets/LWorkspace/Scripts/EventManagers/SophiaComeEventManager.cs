@@ -1,6 +1,9 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SophiaComeEventManager : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class SophiaComeEventManager : MonoBehaviour
     [SerializeField] private Skully skully;
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private Transform eventStartPos;
+
+    [SerializeField] private EndingManager endingManager;
 
     private void Start()
     {
@@ -25,7 +30,7 @@ public class SophiaComeEventManager : MonoBehaviour
     public void MoveSkullyToEventStartPos()
     {
         skully.DisableControl();
-        StartCoroutine(MoveSkullyCotoutine(skully, eventStartPos,20));
+        StartCoroutine(MoveSkullyCotoutine(skully, eventStartPos.position, 20));
     }
 
     public void EnableSkullyXYControl()
@@ -40,18 +45,72 @@ public class SophiaComeEventManager : MonoBehaviour
         skully.DisableControl();
         sophia.gameObject.SetActive(true);
         sophia.gameObject.transform.position = policeshipBoss.transform.position;
-        StartCoroutine(MoveSkullyCotoutine(skully, sophia.transform,20));
+        sophia.transform.LookAt(skully.transform);
+        StartCoroutine(MoveSkullyCotoutine(skully, sophia.transform.position + Vector3.right + Vector3.back , 20, PlayDefeatBossDialogue));
     }
 
-    IEnumerator MoveSkullyCotoutine(Skully skully, Transform target,float speed)
+    IEnumerator MoveSkullyCotoutine(Skully skully, Vector3 target, float speed, Action OnComplete = null)
     {
-        float distance = Vector3.Distance(skully.transform.position, target.position);
+        float distance = Vector3.Distance(skully.transform.position, target);
         while (distance >= 3f)
         {
-            skully.transform.position = Vector3.MoveTowards(skully.transform.position, target.position, Time.deltaTime * speed);
-            skully.transform.LookAt(target.position);
-            distance = Vector3.Distance(skully.transform.position, target.position);
+            skully.transform.position = Vector3.MoveTowards(skully.transform.position, target, Time.deltaTime * speed);
+            skully.transform.LookAt(target);
+            distance = Vector3.Distance(skully.transform.position, target);
             yield return new WaitForEndOfFrame();
         }
+
+        OnComplete?.Invoke();
+    }
+
+    [SerializeField] private DialogueManager endingDialogueManager;
+
+    [SerializeField] private List<Dialogue> defeateBossDialogue;
+
+    private void PlayDefeatBossDialogue()
+    {
+        endingDialogueManager.PlayDialogue(defeateBossDialogue, () =>
+        {
+            Sequence seq = DOTween.Sequence();
+            seq.Append(sophia.transform.DOLookAt(sophia.transform.position + Vector3.forward,0.8f));
+            seq.Join(skully.transform.DOLookAt(skully.transform.position + Vector3.forward, 0.8f));
+            
+            seq.AppendCallback(()=>
+            {
+                MoveSkullyAndSophiaForward();
+                skully.DisableControl();
+            });
+
+            seq.AppendInterval(2.5f);
+            seq.AppendCallback(() =>
+            {
+                PlayEndingText();
+            });            
+        });
+    }
+
+    private bool moveSSFoward = false;
+
+    private void MoveSkullyAndSophiaForward()
+    {
+        moveSSFoward = true;
+    }
+
+    private void Update()
+    {
+        if (moveSSFoward)
+        {
+            skully.transform.Translate(Vector3.forward * Time.deltaTime * 300f,Space.World);
+            sophia.transform.Translate(Vector3.forward * Time.deltaTime * 300f,Space.World);
+        }
+    }
+
+    private void PlayEndingText()
+    {
+        Ending ending = endingManager.GetEnding(CollectedCoinsManager.CoinsCollected);
+        endingDialogueManager.PlayDialogue(ending.dialogueList,()=>
+        { 
+            
+        });
     }
 }

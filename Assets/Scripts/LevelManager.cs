@@ -112,7 +112,7 @@ public class LevelManager : MonoBehaviour
             skully.DisableSIRS();
         }
 
-        DOVirtual.DelayedCall(0.2f, () =>
+        DOVirtual.DelayedCall(1f, () =>
         {
             skully.EnableControl();
         });
@@ -250,7 +250,9 @@ public class LevelManager : MonoBehaviour
             levelIndex = SceneManager.GetActiveScene().buildIndex,
             health = skully.HealthAmount,
             weaponType = ((int)skully.WeaponManager.CurrentWeapon),
-            sirsActivated = skully.SIRSActivated()
+            sirsActivated = skully.SIRSActivated(),
+            coinsCollected = CollectedCoinsManager.CoinsCollected
+            
         };
 
         return data;

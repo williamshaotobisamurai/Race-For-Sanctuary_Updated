@@ -50,7 +50,6 @@ public class PoliceshipBoss : EnemyBase
 
     #endregion
 
-
     public event OnKilled OnKilledEvent;
     public delegate void OnKilled();
 
@@ -64,7 +63,7 @@ public class PoliceshipBoss : EnemyBase
 
     private void Update()
     {
-        if (isBattleMode)
+        if (isBattleMode && !isKilled)
         {
             transform.LookAt(LevelManager.Instance.Skully.transform);
             ProcessMachineGun();
@@ -124,12 +123,12 @@ public class PoliceshipBoss : EnemyBase
 
     public void MoveAndStartBattle(Transform startPos)
     {
-        Sequence seq = DOTween.Sequence();
+        Sequence seq = DOTween.Sequence();   
         seq.Append(missileLauncher_1.DOLocalRotate(new Vector3(-30, 0, 0), 0.8f));
         seq.Join(missileLauncher_2.DOLocalRotate(new Vector3(-30, 0, 0), 0.8f));
         seq.Append(machineGunBarrel.DOLocalMove(new Vector3(0, 0, 0.8f), 0.8f));
         seq.Append(transform.DOMove(startPos.position, 1f));
-        seq.Play();
+        seq.Play();        
         seq.OnComplete(() =>
         {
             isBattleMode = true;
@@ -144,8 +143,12 @@ public class PoliceshipBoss : EnemyBase
 
     public override void TakeDamage(int damage)
     {
+        if (!isBattleMode)
+        {
+            return;
+        }
+
         base.TakeDamage(damage);
-        //  UpdateHealthBar();
 
         if (flashTween != null)
         {
@@ -167,17 +170,18 @@ public class PoliceshipBoss : EnemyBase
         if (!isKilled)
         {
             isKilled = true;
+            bossHealthBar.SetActive(false);
             droneSpawner.StopSpawningDrone();
             bossMachineGun.StopFiring();
             bossMissileGun_1.StopFiring();
             bossMissileGun_2.StopFiring();
+            DestroyAllDrones();
 
             StartCoroutine(PlayDestroyedParticlesCoroutine(() =>
             {
-                DestroyAllDrones();
+                gameObject.SetActive(false);
                 OnKilledEvent?.Invoke();
             }));
-
         }
     }
 
@@ -189,9 +193,7 @@ public class PoliceshipBoss : EnemyBase
         int count = 0;
         while (count < 20)
         {
-
             RandomHelper.GetRandomItem(destroyedParticleList, out GameObject particlePrefab);
-
             RandomHelper.GetRandomItem(explosionTransList, out Transform explosionTrans);
 
             GameObject particleInstance = Instantiate(particlePrefab);
@@ -212,15 +214,9 @@ public class PoliceshipBoss : EnemyBase
         healthText.text = health.ToString() + " / " + maxHealth.ToString();
     }
 
-
     private void DestroyAllDrones()
     {
         droneSpawner.DestroyAllDrones();
         droneSpawner.StopSpawningDrone();
-    }
-
-    public void CaughtSophia(GameObject sophia)
-    {
-
     }
 }

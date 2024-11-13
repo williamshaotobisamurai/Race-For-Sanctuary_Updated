@@ -568,8 +568,6 @@ public class Skully : MonoBehaviour
         return skullyMovement.GetActualZSpeed();
     }
 
-
-
     private Tween sayTween = null;
 
     [SerializeField] private Dialogue coolingItemDialogue;

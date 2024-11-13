@@ -45,7 +45,7 @@ public class DialogueManager : MonoBehaviour
 
             float playerOrigionalSpeedFactor = skully.GetMaxSpeedFactor();
             skully.SetMaxForwardSpeedFactor(playerSpeedFactor);
-            PlayDialogue(() =>
+            PlayDialogue(dialogueList, () =>
             {
                 Debug.Log("dialogue finish ");
                 if (recoverSpeedFactor)
@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void PlayDialogue(Action OnComplete)
+    public void PlayDialogue(List<Dialogue> dialogueList, Action OnComplete)
     {
         Sequence seq = DOTween.Sequence();
 

@@ -12,18 +12,12 @@ public class EndingScreen : MonoBehaviour
     private void Start()
     {
         ShowEndingScreen();
-
-        //for (int i = 0; i < 100; i++)
-        //{
-        //    Debug.Log(i + " : " + GetEnding(i).endingText );
-        //}
     }
 
     public void ShowEndingScreen()
     {
         Debug.Log("ending screen " + CollectedCoinsManager.CoinsCollected);
         Ending ending = GetEnding(CollectedCoinsManager.CoinsCollected);
-        endingText.text = ending.endingText;        
     }
 
     private Ending GetEnding(int coins)
@@ -38,11 +32,4 @@ public class EndingScreen : MonoBehaviour
         }
         return null;
     }
-}
-
-[Serializable]
-public class Ending
-{
-    public int minCoins;
-    public string endingText;
 }
