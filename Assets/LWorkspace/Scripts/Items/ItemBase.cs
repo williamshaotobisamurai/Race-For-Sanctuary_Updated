@@ -15,7 +15,6 @@ public class ItemBase : MonoBehaviour
         WEAPON_ITEM,
     }
 
-    [SerializeField] private AudioSource audioSource;
     [SerializeField] private Collider m_collider;
     [SerializeField] private EItemType itemType;
     [SerializeField] private GameObject itemModel;
@@ -27,15 +26,8 @@ public class ItemBase : MonoBehaviour
 
     public void Collect()
     {
-        if (audioSource.clip != null && !audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
-
         isCollected = true;
         m_collider.enabled = false;
         itemModel.SetActive(false);
     }
-
-
 }

@@ -100,7 +100,7 @@ public class Skully : MonoBehaviour
         if (!collectCoinTextPlayed)
         {
             collectCoinTextPlayed = true;
-            Say(collectCoinDialogue,0.5f, null);
+            Say(collectCoinDialogue, 0.5f, null);
         }
         coinAudio.Play();
         OnCollectCoinEvent?.Invoke(coin);
@@ -335,12 +335,22 @@ public class Skully : MonoBehaviour
         return transform.position;
     }
 
+    [SerializeField] private ParticleSystem speedBoostParticle;
+    [SerializeField] private AudioSource speedBoostAudio;
+
     public void CollectSpeedBoost(SpeedBoost speedBoost)
     {
+        speedBoostParticle.Play();
         speedBoostAttachment.SetActive(true);
-        DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () => speedBoostAttachment.SetActive(false));
+        DOVirtual.DelayedCall(speedBoost.GetSpeedUpDuration(), () =>
+        {
+            speedBoostAttachment.SetActive(false);
+            speedBoostParticle.Stop();
+        });
         skullyMovement.SpeedBoost(speedBoost);
     }
+
+    [SerializeField] private ParticleSystem defensiveParticle;
 
     public void CollectDefensiveBoost(DefensiveBoost defensiveBoost)
     {
@@ -349,6 +359,8 @@ public class Skully : MonoBehaviour
             defensiveDialoguePlayed = true;
             Say(defensiveDialogue, null);
         }
+
+        defensiveParticle.gameObject.SetActive(true);
 
         defensiveBoostAttachment.SetActive(true);
         IsInvincible = true;
@@ -363,7 +375,7 @@ public class Skully : MonoBehaviour
         DOVirtual.DelayedCall(defensiveBoost.GetDefensiveDuration(), () =>
         {
             defensiveBoostAttachment.SetActive(false);
-
+            defensiveParticle.gameObject.SetActive(false);
             IsInvincible = false;
         });
     }
@@ -373,6 +385,8 @@ public class Skully : MonoBehaviour
         OnCollectItemEvent?.Invoke(jetpackFuelItem);
     }
 
+    [SerializeField] private ParticleSystem coolingParticle;
+    [SerializeField] private AudioSource coolingAudio;
     public void CollectCoolingItem(CoolingItem item)
     {
         if (!coolingItemTextPlayed || Random.Range(0, 1f) > 0.7f)
@@ -381,15 +395,21 @@ public class Skully : MonoBehaviour
             Say(coolingItemDialogue, null);
         }
 
+        coolingParticle.Play();
+        coolingAudio.Play();
+
         OnCollectItemEvent?.Invoke(item);
         skullyOverheating.ReduceOverheatingProgress(item.CoolingAmount);
     }
 
+    [SerializeField] private ParticleSystem healParticle;
+    [SerializeField] private AudioSource healAudio;
     public void CollectHealItem(HealItem healItem)
     {
         healthAmount += healItem.HealAmount;
         healthAmount = Mathf.Clamp(healthAmount, 0, maxHealth);
-
+        healParticle.Play();
+        healAudio.Play();
         UpdateHealthBar();
     }
 
