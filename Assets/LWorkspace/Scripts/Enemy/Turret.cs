@@ -15,7 +15,7 @@ public class Turret : EnemyBase
     protected void Start()
     {
         meshRendererlist = new List<MeshRenderer>(GetComponentsInChildren<MeshRenderer>());
-        StartCoroutine(StartFlashing());
+    //    StartCoroutine(StartFlashing());
     }
 
     private IEnumerator StartFlashing()

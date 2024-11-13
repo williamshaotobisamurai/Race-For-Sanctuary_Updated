@@ -19,4 +19,7 @@ public static class GameConstants
     public const string SPACE_STATION = "SPACE_STATION";
 
     public const string SAVE_FILE_DATA = "save.data";
+
+    public const string BGM_SAVE_KEY = "BGMVolume";
+    public const string SFX_SAVE_KEY = "SFXVolume";
 }

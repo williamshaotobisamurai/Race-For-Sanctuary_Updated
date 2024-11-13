@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 { 
     public GameObject pauseMenu;
-    public static bool isPaused;
+    public static bool isPaused = false;
+
+    [SerializeField] private SettingsPanel settingsPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,18 +44,23 @@ public class PauseMenu : MonoBehaviour
     }
     public void RestartGame() 
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
         isPaused = false;
     }
     public void GoToMainMenu() 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("StartScene");
     }
     public void QuitGame()   
     {
         Application.Quit();
+    }
+
+    public void ShowSettingsPanel()
+    {
+        settingsPanel.gameObject.SetActive(true);
     }
 }
 

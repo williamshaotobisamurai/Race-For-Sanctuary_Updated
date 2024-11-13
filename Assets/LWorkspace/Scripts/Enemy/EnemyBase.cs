@@ -59,12 +59,16 @@ public class EnemyBase : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        Skully skully = other.GetComponent<Skully>();
-
-        if (skully != null && skully.transform.position.z < transform.position.z)
+        if (GameHelper.IsSkully(other, out Skully skully))
         {
             AimAtSkully(skully);
         }
+    //    //Skully skully = other.GetComponent<Skully>();
+
+    //    //if (skully != null && skully.transform.position.z < transform.position.z)
+    //    //{
+    //    //    AimAtSkully(skully);
+    //    //}
     }
 
     protected virtual void AimAtSkully(Skully skully)
@@ -95,7 +99,10 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual GameObject Shoot()
     {
-        muzzleParticle.Play();
+        if (muzzleParticle != null)
+        {
+            muzzleParticle.Play();
+        }
         GameObject bulletInstance = GameObject.Instantiate(bullet);
         bulletInstance.transform.position = muzzle.position;
         bulletInstance.transform.eulerAngles = muzzle.eulerAngles + Random.insideUnitSphere * 90f * bulletSpread;

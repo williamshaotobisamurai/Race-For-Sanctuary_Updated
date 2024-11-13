@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private SettingsPanel settingsPanel;
+     
 
     public void InitUI(GameSaveData data)
     {
@@ -31,8 +34,8 @@ public class StartSceneManager : MonoBehaviour
     }
 
     public void OnSettingsButtonClicked()
-    { 
-        
+    {
+        settingsPanel.gameObject.SetActive(true);
     }
 
     public void OnQuitButtonClicked()
