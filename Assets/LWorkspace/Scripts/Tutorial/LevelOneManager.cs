@@ -27,8 +27,7 @@ public class LevelOneManager : LevelManager
 
 
     public override void InitSkullyWithData(GameSaveData data, Checkpoint cp)
-    {
-        skully.HealthAmount = data.health;     
+    {   
         skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)data.weaponType);
         skully.DisableControl();
         if (cp == null)

@@ -10,7 +10,7 @@ public class EndingManager : MonoBehaviour
 
     public Ending GetEnding(int coins)
     {
-        for (int i = endingList.Count - 1; i >= 0; i--)
+        for (int i = 0; i < endingList.Count; i++)
         {
             Ending ending = endingList[i];
             if (coins >= ending.minCoins)

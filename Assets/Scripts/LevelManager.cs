@@ -89,7 +89,6 @@ public class LevelManager : MonoBehaviour
         CollectedCoinsManager.CoinsCollected = data.coinsCollected;
         collectedCoinsLabel.text = CollectedCoinsManager.CoinsCollected.ToString();
 
-        skully.HealthAmount = data.health;
         skully.WeaponManager.SetupWeapon((WeaponItem.EWeaponType)data.weaponType);
         skully.DisableControl();
 
@@ -248,11 +247,9 @@ public class LevelManager : MonoBehaviour
         GameSaveData data = new GameSaveData()
         {
             levelIndex = SceneManager.GetActiveScene().buildIndex,
-            health = skully.HealthAmount,
             weaponType = ((int)skully.WeaponManager.CurrentWeapon),
             sirsActivated = skully.SIRSActivated(),
-            coinsCollected = CollectedCoinsManager.CoinsCollected
-            
+            coinsCollected = CollectedCoinsManager.CoinsCollected            
         };
 
         return data;

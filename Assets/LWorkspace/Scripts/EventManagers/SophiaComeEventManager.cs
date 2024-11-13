@@ -18,8 +18,6 @@ public class SophiaComeEventManager : MonoBehaviour
     private void Start()
     {
         policeshipBoss.OnKilledEvent += PoliceshipBoss_OnKilledEvent;
-        Debug.LogError("stop timer");
-        timerManager.StopAndHideTimer();
     }
 
     private void OnDestroy()

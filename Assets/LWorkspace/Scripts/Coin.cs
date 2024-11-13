@@ -17,8 +17,6 @@ public class Coin : MonoBehaviour
 
     private float movingDuration = 0f;
 
-    [SerializeField] private AudioSource coinAudio;
-
     public void MoveToSkully(Skully skully, Action<Coin> OnComplete)
     {
         this.skully = skully;
@@ -40,8 +38,7 @@ public class Coin : MonoBehaviour
             bool isCollected = meshRenderer.enabled;
             if (Vector3.Distance(transform.position, skully.GetPosition()) <= 0.5f && isCollected)
             {
-                meshRenderer.enabled = false;
-                coinAudio.Play();
+                meshRenderer.enabled = false;    
                 OnCompleteAct?.Invoke(this);
                 DOVirtual.DelayedCall(1f, () =>
                 {
