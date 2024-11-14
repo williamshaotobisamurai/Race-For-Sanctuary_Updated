@@ -15,6 +15,8 @@ public class SophiaComeEventManager : MonoBehaviour
 
     [SerializeField] private EndingManager endingManager;
 
+    [SerializeField] private SkullyBoss skullyBoss;
+
     private void Start()
     {
         policeshipBoss.OnKilledEvent += PoliceshipBoss_OnKilledEvent;
@@ -38,13 +40,46 @@ public class SophiaComeEventManager : MonoBehaviour
         skully.EnableXYControl();
     }
 
+
     private void PoliceshipBoss_OnKilledEvent()
     {
         skully.DisableControl();
         sophia.gameObject.SetActive(true);
-        sophia.gameObject.transform.position = policeshipBoss.transform.position;
+        sophia.gameObject.transform.position = policeshipBoss.transform.position + Vector3.forward + Vector3.right;
         sophia.transform.LookAt(skully.transform);
-        StartCoroutine(MoveSkullyCotoutine(skully, sophia.transform.position + Vector3.right + Vector3.back , 20, PlayDefeatBossDialogue));
+
+        skullyBoss.gameObject.SetActive(true);
+
+        skullyBoss.transform.position = policeshipBoss.transform.position;
+        skully.transform.LookAt(skully.transform.position);
+
+
+        StartCoroutine(PlayEnding());
+
+        Debug.LogWarning("resume from here");
+    }
+
+    private IEnumerator PlayEnding()
+    {
+        yield return MoveSkullyCotoutine(skully, skullyBoss.transform.position + Vector3.back * 3f, 20f);
+
+        yield return new WaitForSeconds(1f);
+
+        bool dialogueFinished = false;
+        skullyBoss.SayDialogue(() => dialogueFinished = true);
+        
+        while (!dialogueFinished)
+        {
+            yield return new WaitForEndOfFrame();              
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        skullyBoss.StartFloating();
+
+        yield return MoveSkullyCotoutine(skully, sophia.transform.position + Vector3.right + Vector3.back, 20f);
+
+        PlayDefeatBossDialogue();
     }
 
     IEnumerator MoveSkullyCotoutine(Skully skully, Vector3 target, float speed, Action OnComplete = null)
@@ -70,10 +105,10 @@ public class SophiaComeEventManager : MonoBehaviour
         endingDialogueManager.PlayDialogue(defeateBossDialogue, () =>
         {
             Sequence seq = DOTween.Sequence();
-            seq.Append(sophia.transform.DOLookAt(sophia.transform.position + Vector3.forward,0.8f));
+            seq.Append(sophia.transform.DOLookAt(sophia.transform.position + Vector3.forward, 0.8f));
             seq.Join(skully.transform.DOLookAt(skully.transform.position + Vector3.forward, 0.8f));
-            
-            seq.AppendCallback(()=>
+
+            seq.AppendCallback(() =>
             {
                 MoveSkullyAndSophiaForward();
                 skully.DisableControl();
@@ -83,7 +118,7 @@ public class SophiaComeEventManager : MonoBehaviour
             seq.AppendCallback(() =>
             {
                 PlayEndingText();
-            });            
+            });
         });
     }
 
@@ -98,17 +133,17 @@ public class SophiaComeEventManager : MonoBehaviour
     {
         if (moveSSFoward)
         {
-            skully.transform.Translate(Vector3.forward * Time.deltaTime * 300f,Space.World);
-            sophia.transform.Translate(Vector3.forward * Time.deltaTime * 300f,Space.World);
+            skully.transform.Translate(Vector3.forward * Time.deltaTime * 300f, Space.World);
+            sophia.transform.Translate(Vector3.forward * Time.deltaTime * 300f, Space.World);
         }
     }
 
     private void PlayEndingText()
     {
         Ending ending = endingManager.GetEnding(CollectedCoinsManager.CoinsCollected);
-        endingDialogueManager.PlayDialogue(ending.dialogueList,()=>
-        { 
-            
+        endingDialogueManager.PlayDialogue(ending.dialogueList, () =>
+        {
+
         });
     }
 }

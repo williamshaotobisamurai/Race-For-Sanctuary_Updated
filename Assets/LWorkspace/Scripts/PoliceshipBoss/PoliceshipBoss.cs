@@ -188,10 +188,12 @@ public class PoliceshipBoss : EnemyBase
     [SerializeField] private List<GameObject> destroyedParticleList;
     [SerializeField] private List<Transform> explosionTransList;
     [SerializeField] private GameObject bossHealthBar;
+
+
     private IEnumerator PlayDestroyedParticlesCoroutine(Action OnComplete)
     {
         int count = 0;
-        while (count < 20)
+        while (count < 3)
         {
             RandomHelper.GetRandomItem(destroyedParticleList, out GameObject particlePrefab);
             RandomHelper.GetRandomItem(explosionTransList, out Transform explosionTrans);

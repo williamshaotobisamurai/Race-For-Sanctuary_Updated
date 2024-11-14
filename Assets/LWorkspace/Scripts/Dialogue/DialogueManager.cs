@@ -22,6 +22,7 @@ public class Dialogue
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private List<Dialogue> dialogueList;
+    
 
     [SerializeField] private float playerSpeedFactor = 0f;
     [SerializeField] private float interval = 0.5f;
@@ -87,5 +88,10 @@ public class DialogueManager : MonoBehaviour
         {
             OnComplete?.Invoke();
         });
+    }
+
+    public void Play(Action OnComplete)
+    {
+        PlayDialogue(this.dialogueList, OnComplete);
     }
 }
