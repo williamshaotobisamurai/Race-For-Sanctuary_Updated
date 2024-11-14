@@ -599,7 +599,7 @@ public class Skully : MonoBehaviour
     [SerializeField] private Dialogue burnedOutDialogue;
 
     [SerializeField] private List<Dialogue> collectCoinDialogue;
-    private bool collectCoinTextPlayed = false;
+    private static bool collectCoinTextPlayed = false;
 
 
     [SerializeField] private NPCDialogue skullyDialogue;
