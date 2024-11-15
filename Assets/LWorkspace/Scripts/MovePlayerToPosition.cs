@@ -7,15 +7,14 @@ public class MovePlayerToPosition : MonoBehaviour
 {
     [SerializeField] private Transform targetTrans;
     [SerializeField] private Collider myTrigger;
+    [SerializeField] private bool autoMove = true;
 
     private void OnTriggerEnter(Collider other)
     {
         Skully skully = other.GetComponent<Skully>();
-        if (skully != null)
+        if (skully != null && autoMove)
         {
-            myTrigger.enabled = false;
-            skully.DisableControl();
-            StartCoroutine(MoveSkullyCotoutine(skully, targetTrans));
+            StartSkullyMovement(skully);
         }
     }
 
@@ -31,5 +30,12 @@ public class MovePlayerToPosition : MonoBehaviour
         }
 
         skully.EnableControl();
+    }
+
+    public void StartSkullyMovement(Skully skully)
+    {
+        myTrigger.enabled = false;
+        skully.DisableControl();
+        StartCoroutine(MoveSkullyCotoutine(skully, targetTrans));
     }
 }

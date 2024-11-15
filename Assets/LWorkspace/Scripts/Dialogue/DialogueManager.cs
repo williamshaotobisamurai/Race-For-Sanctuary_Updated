@@ -72,13 +72,13 @@ public class DialogueManager : MonoBehaviour
             seq.AppendInterval(dialogue.intervalBeforeSpeaking);
             seq.AppendCallback(() =>
             {
-                npcDialogue.Show(dialogue.text);
+                npcDialogue?.Show(dialogue.text);
             });
 
             seq.AppendInterval(interval + dialogue.duration);
             seq.AppendCallback(() =>
             {
-                npcDialogue.Hide();
+                npcDialogue?.Hide();
                 dialogue.afterSpeaking?.Invoke();
             });
 
@@ -90,8 +90,13 @@ public class DialogueManager : MonoBehaviour
         });
     }
 
-    public void Play(Action OnComplete)
+    public void Play(Action OnComplete )
     {
         PlayDialogue(this.dialogueList, OnComplete);
+    }
+
+    public void Play( )
+    {
+        PlayDialogue(this.dialogueList, null);
     }
 }

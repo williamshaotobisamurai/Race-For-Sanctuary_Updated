@@ -13,9 +13,7 @@ public class SophiaComeEventManager : MonoBehaviour
     [SerializeField] private TimerManager timerManager;
     [SerializeField] private Transform eventStartPos;
 
-    [SerializeField] private EndingManager endingManager;
-
-    [SerializeField] private SkullyBoss skullyBoss;
+    [SerializeField] private EndingManager endingManager; 
 
     private void Start()
     {
@@ -39,7 +37,7 @@ public class SophiaComeEventManager : MonoBehaviour
         skully.EnableControl();
         skully.EnableXYControl();
     }
-
+    [SerializeField] private SkullyBoss skullyBoss;
 
     private void PoliceshipBoss_OnKilledEvent()
     {
@@ -51,12 +49,9 @@ public class SophiaComeEventManager : MonoBehaviour
         skullyBoss.gameObject.SetActive(true);
 
         skullyBoss.transform.position = policeshipBoss.transform.position;
-        skully.transform.LookAt(skully.transform.position);
-
+        skullyBoss.transform.LookAt(skully.transform.position);
 
         StartCoroutine(PlayEnding());
-
-        Debug.LogWarning("resume from here");
     }
 
     private IEnumerator PlayEnding()

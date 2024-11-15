@@ -1,7 +1,9 @@
 using DG.Tweening;
+using NodeCanvas.BehaviourTrees;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,8 +55,7 @@ public class PoliceshipBoss : EnemyBase
     public event OnKilled OnKilledEvent;
     public delegate void OnKilled();
 
-    private GameObject sophia = null;
-    [SerializeField] private Transform sophiaAttachTrans;
+    [SerializeField] private GameObject sophia = null;
 
     private void Start()
     {
@@ -69,11 +70,6 @@ public class PoliceshipBoss : EnemyBase
             ProcessMachineGun();
             ProcessMissileLauncher();
             ProcessDrones();
-        }
-
-        if (sophia != null)
-        {
-            sophia.transform.position = sophiaAttachTrans.transform.position;
         }
     }
 
@@ -123,12 +119,12 @@ public class PoliceshipBoss : EnemyBase
 
     public void MoveAndStartBattle(Transform startPos)
     {
-        Sequence seq = DOTween.Sequence();   
+        Sequence seq = DOTween.Sequence();
         seq.Append(missileLauncher_1.DOLocalRotate(new Vector3(-30, 0, 0), 0.8f));
         seq.Join(missileLauncher_2.DOLocalRotate(new Vector3(-30, 0, 0), 0.8f));
         seq.Append(machineGunBarrel.DOLocalMove(new Vector3(0, 0, 0.8f), 0.8f));
         seq.Append(transform.DOMove(startPos.position, 1f));
-        seq.Play();        
+        seq.Play();
         seq.OnComplete(() =>
         {
             isBattleMode = true;
@@ -164,11 +160,13 @@ public class PoliceshipBoss : EnemyBase
         flashTween = seq;
     }
 
+    [SerializeField] private BehaviourTreeOwner ai;
 
     public override void Kill()
     {
         if (!isKilled)
         {
+            ai.behaviour.Stop();
             isKilled = true;
             bossHealthBar.SetActive(false);
             droneSpawner.StopSpawningDrone();
@@ -179,8 +177,10 @@ public class PoliceshipBoss : EnemyBase
 
             StartCoroutine(PlayDestroyedParticlesCoroutine(() =>
             {
-                gameObject.SetActive(false);
-                OnKilledEvent?.Invoke();
+                DOVirtual.DelayedCall(1f, () =>
+                {
+                    dialogueManaer.Play();
+                });
             }));
         }
     }
@@ -189,11 +189,37 @@ public class PoliceshipBoss : EnemyBase
     [SerializeField] private List<Transform> explosionTransList;
     [SerializeField] private GameObject bossHealthBar;
 
+    [SerializeField] private DialogueManager dialogueManaer;
+    [SerializeField] private SkullyBoss skullyBoss;
+
+    public void PlayDeathParticle()
+    {
+        StartCoroutine(PlayDestroyedParticlesCoroutine(() =>
+        {
+            gameObject.SetActive(false);
+            skullyBoss.gameObject.SetActive(true);
+            skullyBoss.transform.position = transform.position;
+
+            sophia.gameObject.SetActive(true);
+            sophia.gameObject.transform.position = transform.position + Vector3.forward * 2 + Vector3.right * 2;
+            sophia.transform.LookAt(LevelManager.Instance.Skully.transform);
+
+            skullyBoss.gameObject.SetActive(true);
+
+            skullyBoss.transform.position = transform.position;
+            skullyBoss.transform.LookAt(LevelManager.Instance.Skully.transform);
+        }));
+    }
+
+    public void TriggerOnKilledEvent()
+    {
+        OnKilledEvent?.Invoke();
+    }
 
     private IEnumerator PlayDestroyedParticlesCoroutine(Action OnComplete)
     {
         int count = 0;
-        while (count < 3)
+        while (count < 5)
         {
             RandomHelper.GetRandomItem(destroyedParticleList, out GameObject particlePrefab);
             RandomHelper.GetRandomItem(explosionTransList, out Transform explosionTrans);

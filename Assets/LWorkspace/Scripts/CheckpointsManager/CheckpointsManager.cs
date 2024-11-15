@@ -50,7 +50,7 @@ public class CheckpointsManager : MonoBehaviour
         GameSaveData data = LevelManager.Instance.GetCurrentData();
         data.checkPointID = checkpoint.ID;
 
-        Debug.Log(JsonUtility.ToJson(data));
+        Debug.Log("saving " + JsonUtility.ToJson(data));
 
         SaveCurrentGameData(data);
     }
