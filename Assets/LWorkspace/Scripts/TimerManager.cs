@@ -38,6 +38,7 @@ public class TimerManager : MonoBehaviour
         Debug.Log("stop and hide timer");
         isRunning = false;
         timerText.text = "";
+        remainingTime = maxTime;
         fuelIconRoot.DOFade(0, 0.5f);
     }
 
