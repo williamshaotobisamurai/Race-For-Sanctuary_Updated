@@ -46,7 +46,7 @@ public class SpaceStationBoss : MonoBehaviour
         {
             if (!h.IsDestroyed)
             {
-                h.IncreaseMaxHealth(500);
+                h.IncreaseMaxHealth(200);
             }
         });
 
