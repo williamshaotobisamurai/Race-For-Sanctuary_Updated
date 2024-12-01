@@ -60,4 +60,17 @@ public class RandomPlace : MonoBehaviour
             }
         }
     }
+
+    [MenuItem("LeoTools/RandomAddEyes")]
+    public static void RandomAddEyes()
+    {
+        for (int i = 0; i < Selection.objects.Length; i++)
+        {
+            if (Selection.objects[i].GetComponent<LargeStaticMeteor>() != null)
+            {
+                Selection.objects[i].GetComponent<Collider>().isTrigger = true;
+            }
+
+        }
+    }
 }

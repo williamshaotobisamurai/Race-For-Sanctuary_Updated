@@ -18,6 +18,29 @@ public class LargeStaticMeteor : MonoBehaviour
 
     [SerializeField] private float explodeParticleScale;
 
+    [SerializeField] private List<GameObject> eyes;
+
+    public void AddEyes()
+    {
+        float addRan = Random.Range(0, 1f);
+        if (addRan > 0.5f)
+        {
+            int idx = Random.Range(0, eyes.Count);
+
+            GameObject eyePrefab = eyes[idx];    
+
+            GameObject instance = Instantiate(eyePrefab, transform);
+
+            instance.transform.localPosition = Vector3.zero;
+            instance.transform.localScale = Vector3.one;
+            instance.transform.localRotation = Quaternion.identity;
+
+            instance.transform.parent = transform.parent;
+
+            DestroyImmediate(gameObject);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals(GameConstants.SKILL_SPHERE))

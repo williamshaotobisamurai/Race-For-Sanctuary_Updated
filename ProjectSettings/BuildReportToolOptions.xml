@@ -94,7 +94,7 @@
   <TooltipThumbnailHeight>256</TooltipThumbnailHeight>
   <TooltipThumbnailZoomedInWidth>512</TooltipThumbnailZoomedInWidth>
   <TooltipThumbnailZoomedInHeight>512</TooltipThumbnailZoomedInHeight>
-  <NumberOfTopLargestUsedAssetsToShow>100</NumberOfTopLargestUsedAssetsToShow>
+  <NumberOfTopLargestUsedAssetsToShow>200</NumberOfTopLargestUsedAssetsToShow>
   <NumberOfTopLargestUnusedAssetsToShow>100</NumberOfTopLargestUnusedAssetsToShow>
   <AllowDeletingOfUsedAssets>false</AllowDeletingOfUsedAssets>
   <ShowImportedSizeForUsedAssets>false</ShowImportedSizeForUsedAssets>
