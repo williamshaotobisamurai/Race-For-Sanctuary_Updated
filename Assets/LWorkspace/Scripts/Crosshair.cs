@@ -41,7 +41,6 @@ public class Crosshair : MonoBehaviour
 
     public void OnHitEnemy()
     {
-        Debug.Log("hit enemy ");
         if (zoomIndicatorTween != null)
         {
             zoomIndicatorTween.Kill();

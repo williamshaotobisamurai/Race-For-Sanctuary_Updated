@@ -29,7 +29,7 @@ public class MainGameManager : MonoBehaviour
         else
         {
             Debug.LogError("duplicated objects");
-            Destroy(instance.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

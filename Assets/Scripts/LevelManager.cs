@@ -76,11 +76,14 @@ public class LevelManager : MonoBehaviour
         }
  
         TimerManager.Init();
-        skully.transform.position = startTrans.position;
-        DOVirtual.DelayedCall(1f, () =>
+        if (skully != null)
         {
-            skully.EnableControl();
-        });
+            skully.transform.position = startTrans.position;
+            DOVirtual.DelayedCall(1f, () =>
+            {
+                skully.EnableControl();
+            });
+        }
     }
 
     private void Skully_OnCollectCoinEvent(Coin coin)
