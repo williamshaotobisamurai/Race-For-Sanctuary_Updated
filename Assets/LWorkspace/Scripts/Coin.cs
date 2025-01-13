@@ -11,6 +11,8 @@ public class Coin : MonoBehaviour
     private Action<Coin> OnCompleteAct;
 
     [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer meshRenderer1;
+
     [SerializeField] private Collider m_collider;
 
     private float duration = 1f;
@@ -38,7 +40,8 @@ public class Coin : MonoBehaviour
             bool isCollected = meshRenderer.enabled;
             if (Vector3.Distance(transform.position, skully.GetPosition()) <= 0.5f && isCollected)
             {
-                meshRenderer.enabled = false;    
+                meshRenderer.enabled = false;
+                meshRenderer1.enabled = false;
                 OnCompleteAct?.Invoke(this);
                 DOVirtual.DelayedCall(1f, () =>
                 {
